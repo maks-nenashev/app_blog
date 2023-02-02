@@ -1,0 +1,31 @@
+<h1>List of articles!</h1>  <!# Wywod wsech zapisej!>
+
+<% @articles.each do |article| %>
+  
+  <h3>
+  <%= article.title %>
+  </h3>
+              
+  <p>
+  <%= article.text %>
+  </p>
+        
+      <! Podkluchenie time pod soobzheniem!>
+  <time datetime="<%= article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
+  <%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+  </time>  
+                       
+                       <!Ssыlka na Contakt>
+         <p><a href="/contacts/"class="btn btn-primary">Contact</a></p> 
+   
+                     <!Ssylka na statью>
+  <p><%= link_to "New article", new_article_path(article),class: "btn btn-primary" %> |
+     <%= link_to  "Show article", article_path(article) %> | 
+     <%= link_to  "Edit article", edit_article_path(article) %> |
+     <%= link_to 'Delete', article_path(article), data: {'turbo-method': :delete,'turbo-confirm': 'Are you sure?'} %>
+  </p>                   <! rails routes>                         <!Eto JS window "Udalit post">
+  <hr>            
+
+<% end %>
+
+ 

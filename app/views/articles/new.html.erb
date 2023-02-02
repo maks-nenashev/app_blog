@@ -1,0 +1,19 @@
+<h1>Hello!</h1>
+
+<%= form_for :article, url: articles_path, data: {turbo:false}  do |f| %>
+  
+  <p>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  </p>
+
+  <p>
+  <%= f.label :text %>
+  <%= f.text_area :text %>
+  </p><h1>New Contact</h1>
+
+  <p>
+  <%= f.submit %>
+  </p>
+
+<% end %>
