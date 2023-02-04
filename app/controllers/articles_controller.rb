@@ -41,8 +41,8 @@ end
 def destroy # Delite publikacij
   @article = Article.find(params[:id]) # To чto hotim udalitь
   @article.destroy
-
-  redirect_to article_path #"perenaprowlenie"
+  
+  redirect_to article_path  #"perenaprowlenie"
 end
 
 #////////////////////////////////////////////////////////////////////////////////////
