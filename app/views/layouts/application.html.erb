@@ -7,12 +7,35 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+                                  <!rails assets:precompile   --Pered zapuskom servera!>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
+<body>
 
-  <body>
+<nav>
+  <ul>
+    
+     <%= link_to "Home", root_path %> | <%= link_to "All Article", articles_path %> 
+  
+  </ul>
+</nav>
+    
+    <main>
     <%= yield %>
+    </main>
+
   </body>
 </html>
+
+
+<!  rails new app_blog --css=bootstrap 
+
+    rails assets:precompile   --Pered zapuskom servera!
+    
+    gem install foreman      --- Zapusk servera -- bin/dev
+       
+       DLA KOREKTNOJ RABOTY FRONTA!!!!
+    web: unset PORT && bin/rails server
+    js:  yarn build --watch
+    css: yarn build:css --watch   >

@@ -1,2 +1,14 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+
+
+//Walidacija CSS
+.field_with_errors {
+  .form-control {
+    border-color: $red;
+  }
+  label {
+    color: $red;
+  }
+} 
