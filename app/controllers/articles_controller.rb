@@ -2,13 +2,14 @@ class ArticlesController < ApplicationController
   
   before_action :set_question!, only: %i[show destroy edit update]  # @article = Article.find params[:id]   "Refactoring"
                                                              
-def index   # 4: Wywod wsech zapisej!
-    @articles = Article.all
+ def index   # 4: Wywod wsech zapisej!
+     @articles = Article.all
  end
   
  def show  # 3: Wywodim bazu po :ID
    # @article = Article.find params[:id]    :before_action :set_question! "Refactoring"
- end
+     @comment = @article.comments.build
+  end
 
  def new  # 1: создать - new (отобразить форму. GET)
  end
@@ -55,8 +56,8 @@ end
     params.require(:article).permit(:title, :text)
  end
 
-  def set_question!        # :before_action :set_question! "Refactoring"
-    @article = Article.find params[:id]
+  def set_question!  # :before_action :set_question! only[show destroy edit update] "Refactoring"
+    @article = Article.find(params[:id])
  end
 
 
