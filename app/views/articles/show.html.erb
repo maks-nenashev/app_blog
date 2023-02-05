@@ -1,10 +1,10 @@
 <!3 Wywodim bazu po ID>
-<h1>Thanks You!</h1>
-<h2>Article has been created!!!</h2>
+<h3>Thanks You!</h3>
+<h4>Article has been created!!!</h4>
 
- <h3><%= @article.title %></h3>
+ <p class="mb-2"><%= @article.title %></p>
 
- <h3><%= @article.text %></h3>
+ <p class="lead my-3"><%= @article.text %></p>
 
              <! Podkluchenie time pod soobzheniem!>
   <time datetime="<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
@@ -12,36 +12,17 @@
   </time>  
 
 <!/////////////////////////////////////////////////////////////////////////////////////////>
-<h2>Add comments</h2>
+  <! Dobawil "comment">
+<%= form_with model: [@article, @comment] do |f| %>
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :body %>
+    </div>
 
-<%= 'No comments!' if @article.comments.empty? %>
+    <div class="col-sm-10">
+      <%= f.text_area :body, class: 'form-control' %>
+    </div>
+  </div>
 
-<% @article.comments.each do |comment| %>
-<p>
-  <i><strong>Author: </strong><%= comment.author %></i></br>
-  <%= comment.body %>
- </p>
-<!hr>
-
+  <%= f.submit "Submit comment!", class: 'btn btn-primary' %>
 <% end %>
-
-<!/////////////////////////////////////////////////////////////////////////////////////////>
-<h2>Comments</h2>
-<p>                  <!Podkluchenie  "comments">
-    <%= form_for ([@article, @article.comments.build]) do |f| %> 
-  <p>
-    <%= f.label :author %>  <!%= current_user.username = f.text_field :author %>
-    <%= f.text_field :author %>
-    
-  </p>
-  <p>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </p>
-
-  <p><%= f.submit %></p>
-
- <% end %>
-</p>
-
-<%= link_to "Show all articles!", articles_path %> <!Prawelnaja ssylka>

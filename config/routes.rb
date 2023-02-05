@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end #4 
     
     #get 'contacts' => 'contacts#new' only:[:create]
-    resource :contacts#, only: [:new,:create], path_names: { :new => '' }
+    resource :contacts, only: [:new,:create,:show], path_names: { :new => '' }
                                               #Etot code dla 'contacts' => 'contacts#new'
                                             # Chtoby "contacts#new" otkrywalsa w "contacts"
 
