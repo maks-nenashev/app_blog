@@ -4,9 +4,9 @@
 <%= form_for :contact, url: contacts_path, data: {turbo:false}  do |f| %>
 
 <!///////////////////////////////////////////////////////////////////////////////////////>
-<%= render 'shared/errors', object: @contact %> <!Walidacija - papka shared/_errors>
-<% if @contact && @contact.errors.full_messages.any?%> <!Prowerka! Esli estj ochybka to nepropustit>
-<% end%>
+<!%= render 'shared/errors', object: @contact %> <!Walidacija - papka shared/_errors>
+<!% if @contact && @contact.errors.full_messages.any?%> <!Prowerka! Esli estj ochybka to nepropustit>
+<!% end%>
 <!///////////////////////////////////////////////////////////////////////////////////////>
 
 <div class="mb-3 row">
