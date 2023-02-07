@@ -1,21 +1,39 @@
-<h1>Edit article</h1>  
-                  <!#5 Wozwrat i Redactirowanie>         <! Or :put >
+<% provide :page_title, 'Edit article' %> <!Podpis w ikonre "Kakaja stranica">
+<br>
+<h2>Edit article</h2>  
+                  <!#5 Wozwrat i Redactirowanie>       
 <%= form_for :article, url: article_path(@article), method: :patch do |f| %>
-<p>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-</p>
-<p>
-  <%= f.label :text %>
-  <%= f.text_area :text %>
-</p>
 
-<p>
-  <%= f.submit %>
-</p>
+<%= render 'shared/errors', object: @article %> <!Walidacija - papka shared/_errors>
+<% if @article && @article.errors.full_messages.any?%> <!Prowerka! Esli estj ochybka to nepropustit>
+<% end%>
+
+<div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">   
+    <%= f.label :title %>
+</div>
+
+<div class="col-sm-10">          <!Walidacija CSS --required: true, minlength:2,>
+    <%= f.text_field :title, placeholder: "Title", class: "form-control"%>
+</div>
+</div>
+
+<div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :text %>
+    </div>
+
+ <div class="col-sm-10">    <!Walidacija CSS  --required: true, minlength:2,>
+    <%= f.text_area :text, placeholder: "Text", class: "form-control"%>
+ </div>
+</div>
+
+
+  <%= f.submit "Submit Article", class: "btn btn-primary"%>
+
 
 <% end %>
 
 <! Все находитсья  в  " edit.html.erb">
-
-<%= link_to "Show all articles!", articles_path %> <!Prawelnaja ssylka>
+<br>
+<%= link_to "Show all articles!",articles_path, class:"btn btn-light" %> <!Prawelnaja ssylka>
