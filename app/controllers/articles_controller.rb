@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   
-  before_action :set_question!, only: %i[show destroy edit update]  # @article = Article.find params[:id]   "Refactoring"
+  before_action :set_article!, only: %i[show destroy edit update]  # @article = Article.find params[:id]   "Refactoring"
                                                              
  def index   # 4: Wywod wsech zapisej!
      @articles = Article.all
@@ -59,7 +59,7 @@ end
     params.require(:article).permit(:title, :text)
  end
 
-  def set_question!  # :before_action :set_question! only[show destroy edit update] "Refactoring"
+  def set_article!  # :before_action :set_question! only[show destroy edit update] "Refactoring"
     @article = Article.find(params[:id])
  end
 
