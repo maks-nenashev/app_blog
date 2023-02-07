@@ -8,11 +8,14 @@ class ArticlesController < ApplicationController
   
  def show  # 3: Wywodim bazu po :ID
    # @article = Article.find params[:id]    :before_action :set_question! "Refactoring"
-     @comment = @article.comments.build
+     @comment = @article.comments.build       # Podkluchenie  "Commint"
+     @comments = @article.comments.order created_at: :desc  # Podkluchenie  "Commint"
   end
+    
 
  def new  # 1: создать - new (отобразить форму. GET)
- end
+     @article = Article.new  # Пустым оставлять тельзя!
+  end
   
  def create # 2: create (отправить форму. POST)   
      @article = Article.new(article_params)

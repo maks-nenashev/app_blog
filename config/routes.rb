@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :articles do  #вложенный маршрут:
-       resources :comments
+       resources :comments, except: %i[new show] # Wse marшруты нужны кроме [ new show]
   end #4 
     
     #get 'contacts' => 'contacts#new' only:[:create]
