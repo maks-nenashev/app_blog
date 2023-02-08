@@ -1,4 +1,4 @@
-<% provide :page_title, 'Article has been created!!!' %> <!Podpis w ikonne "Kakaja stranica">
+<% provide :page_title, 'Article has been created!!!' %> <!Podpis w ikonke "Kakaja stranica">
 
 <!3 Wywodim bazu po ID>
 <h3>Thanks You!</h3>
@@ -36,17 +36,19 @@
 <h4 class="mt-5">Comment!</h4>
 
 <% @comments.each do |comment| %>
-  <article class="mb-3 card">
+  <article class="mb-3 card" id="comment-<%= comment.id %>">
       <div class="card-body">
+           <! Podkluchenie time pod soobzheniem!>
+  <time datetime="<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
+  <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+  </time>  
+         
          <section class="card-text">
                   <p>
                     <%= comment.body %>
                   </p>
          </section>
-              <! Podkluchenie time pod soobzheniem!>
-  <time datetime="<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
-  <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-  </time>  
+              
  
  <%= link_to  "Edit article", edit_article_comment_path(@article,comment),class: "btn btn-secondary btn-sm"%> 
  <%= link_to 'Delete', article_comment_path(@article, comment), class: 'btn btn-danger btn-sm',
