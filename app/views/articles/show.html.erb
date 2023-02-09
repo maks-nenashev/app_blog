@@ -34,9 +34,10 @@
 <% end %>
 <!/////////////////////////////////////////////////////////////////////////////////////>
 <h4 class="mt-5">Comment!</h4>
-
+<%= paginate @comments %> <!Page "gem kamenary" razbiw na stranicy # Podkluchenie  "Commint">
+<br>
 <% @comments.each do |comment| %>
-  <article class="mb-3 card" id="comment-<%= comment.id %>">
+  <article class="mb-3 card" id="comment-<!%= comment.id %>">
       <div class="card-body">
            <! Podkluchenie time pod soobzheniem!>
   <time datetime="<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
