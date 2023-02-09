@@ -1,19 +1,37 @@
-<h1>New Contact</h1>
+<% provide :page_title, 'New Articles' %> <!Podpis w ikonke "Kakaja stranica">
+
+<br>
+<h2>New Article</h2>
 
 <%= form_for :article, url: articles_path, data: {turbo:false}  do |f| %>
-  
-  <p>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  </p>
 
-  <p>
-  <%= f.label :text %>
-  <%= f.text_area :text %>
-  
 
-  <p>
-  <%= f.submit %>
-  </p>
+<%= render 'shared/errors', object: @article %> <!Walidacija - papka shared/_errors>
+<% if @article && @article.errors.full_messages.any?%> <!Prowerka! Esli estj ochybka to nepropustit>
+<% end%>
 
-<% end %>
+
+<div class="mb-3 row">
+<div class="col-sm-2 col-form-label">   
+    <%= f.label :title %>
+</div>
+
+<div class="col-sm-10">          <! Walidacija CSS ---required: true, minlength:2,>
+    <%= f.text_field :title, placeholder: "Title", class: "form-control"%>
+</div>
+</div>
+
+<div class="mb-3 row">
+<div class="col-sm-2 col-form-label">
+    <%= f.label :text %>
+</div>
+
+<div class="col-sm-10">     <! Walidacija CSS ---required: true, minlength:2,>
+    <%= f.text_area :text, placeholder: "Text", class: "form-control"%>
+</div>
+</div>
+
+
+  <%= f.submit "Submit Article", class: "btn btn-primary"%>
+
+<%end%>

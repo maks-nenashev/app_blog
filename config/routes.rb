@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :articles do  #вложенный маршрут:
-       resources :comments
+       resources :comments #, except: %i[new show] # Wse marшруты нужны кроме [ new show]
   end #4 
     
     #get 'contacts' => 'contacts#new' only:[:create]
-    resource :contacts#, only: [:new,:create], path_names: { :new => '' }
+    resource :contacts, only: [:new,:create,:show], path_names: { :new => '' }
                                               #Etot code dla 'contacts' => 'contacts#new'
                                             # Chtoby "contacts#new" otkrywalsa w "contacts"
 
