@@ -3,14 +3,14 @@ class ArticlesController < ApplicationController
   before_action :set_article!, only: %i[show destroy edit update]  # @article = Article.find params[:id]   "Refactoring"
                                                              
  def index   # 4: Wywod wsech zapisej!
-     @articles = Article.all
- end
+     @articles = Article.order(created_at: :desc).page params[:page] #Page "gem kamenary" razbiw na stranicy
+ end                    # chtoby "articles" wywodilo poslednie wwerchu
   
  def show  # 3: Wywodim bazu po :ID
    # @article = Article.find params[:id]    :before_action :set_question! "Refactoring"
      @comment = @article.comments.build       # Podkluchenie  "Commint"
-     @comments = @article.comments.order created_at: :desc  # Podkluchenie  "Commint"
-  end
+     @comments = @article.comments.order(created_at: :desc).page(params[:page]).per 2#Page "gem kamenary" razbiw na stranicy # Podkluchenie  "Commint"
+  end                             # chtoby "comments" wywodilo poslednie wwerchu
     
 
  def new  # 1: создать - new (отобразить форму. GET)
