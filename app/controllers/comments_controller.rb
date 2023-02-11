@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
-  before_action :set_article!  # 1:set_article! "Refactoring"
+  before_action :authenticate_user!, :only => [:create]
+  
+   before_action :set_article!  # 1:set_article! "Refactoring"
    before_action :set_comment!, except: :create  # 2:set_commint! "Refactoring"
                                 #Krome "create"
    def update  # 5 Wnosim izmenrnie w redaktirowanie

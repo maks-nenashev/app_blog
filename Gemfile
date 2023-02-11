@@ -75,4 +75,6 @@ group :test do
 end
 
 gem 'kaminari'
-gem 'kaminari-mongoid'
+#gem 'kaminari-mongoid'
+
+gem 'devise'

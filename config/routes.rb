@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  devise_for :users
   
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  
-  get '/' =>'home#index'   # Eto nuzno wsegda! 
+  devise_scope :user do  
+    get '/users/sign_out' => 'devise/sessions#destroy'     
+ end
   root to: "home#index"
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  #root :to => 'somecontroller#index'
+  get '/' =>'home#index'   # Eto nuzno wsegda! 
+  
 
   resources :articles do  #вложенный маршрут:
        resources :comments #, except: %i[new show] # Wse marшруты нужны кроме [ new show]
