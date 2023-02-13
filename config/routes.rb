@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   #root :to => 'somecontroller#index'
   get '/' =>'home#index'   # Eto nuzno wsegda! 
   
-
+  namespace :admin do #Импорт/экспорт Excel, архивы ZIP
+      resources :users#, only: %i[:index]
+  end
+  
   resources :articles do  #вложенный маршрут:
        resources :comments #, except: %i[new show] # Wse marшруты нужны кроме [ new show]
   end #4 
