@@ -3,28 +3,53 @@
   <head>
     <meta charset="utf-8">
     
-    <title>AppBlog</title>
+    <title><%= full_title(yield(:page_title)) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-                                  <!rails assets:precompile   --Pered zapuskom servera!>
+                     <!rails assets:precompile   --Pered zapuskom servera!>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 <body>
+ <div class="container mt-3">
+       
+ <header class="p-3 bg-dark text-white">
+      <div class="container">
+        <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><%= link_to 'Home', root_path, class: 'nav-link px-2 text-white'%></li>
+            <li><%= link_to 'All Articles', articles_path, class: 'nav-link px-2 text-white'%></li>
+            <li><%= link_to 'Contact', new_contacts_path, class: 'nav-link px-2 text-white'%></li>
+            </ul>
+				    <ul class="nav navbar-nav navbar-right"> <!Right>
+				    <li>
+            <% if user_signed_in? %>
+            Hello! <%= current_user.username %> <br>
+           <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+          <% else %>
+         <%= link_to "Sign In", new_user_session_path %>
+        <% end %>
+      </ul>      <!Ssylki Podkluchenie>
+    </nav>
+   </div>
+ </header>            
+              
+                  <!%= yield :main_menu%> <! Navi "Menu is _manu.html.erb">
 
-<nav>
-  <ul>
-    
-     <%= link_to "Home", root_path %> | <%= link_to "All Article", articles_path %> 
-  
-  </ul>
-</nav>
-    
-    <main>
-    <%= yield %>
+<main class="container mt-3"> <! Window Podtwerzdenija>
+      <% flash.each do |k, v| %>
+        <%= tag.div v, class: "alert alert-#{k}", role: 'alert' %>
+      <% end %>     
+      
+      <%= yield %>
     </main>
-
+             
+            <!Эта строка находится в config/initializers/devise.rb
+      config.navigational_formats = ['*/*', :html, :turbo_stream]  i potom wyrubaet server>
+                     <p class="notice"><%= notice %></p>
+                     <p class="alert"><%= alert %></p>
+         
   </body>
 </html>
 
