@@ -73,7 +73,13 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
+#//////////////////////////////////////////////////
+gem 'caxlsx','~> 3.1'
+gem 'caxlsx_rails','~> 0.6'
+gem "rubyzip","~> 2"
+gem 'rubyXL', '~> 3.4'
+gem 'activerecord-import', '~> 1.2'
+#//////////////////////////////////////////////////
 gem 'kaminari'
 #gem 'kaminari-mongoid'
 
