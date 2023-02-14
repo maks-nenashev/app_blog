@@ -12,15 +12,15 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 <body>
- <div class="container mt-3">
+ <div class="container mt-3">     <!t('menu.contact')>
        
  <header class="p-3 bg-dark text-white">
       <div class="container">
         <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><%= link_to 'Home', root_path, class: 'nav-link px-2 text-white'%></li>
-            <li><%= link_to 'All Articles', articles_path, class: 'nav-link px-2 text-white'%></li>
-            <li><%= link_to 'Contact', new_contacts_path, class: 'nav-link px-2 text-white'%></li>
+            <li><%= link_to t('menu.home'), root_path, class: 'nav-link px-2 text-white'%></li>
+            <li><%= link_to t('menu.articles'), articles_path, class: 'nav-link px-2 text-white'%></li>
+            <li><%= link_to t('menu.contact'), new_contacts_path, class: 'nav-link px-2 text-white'%></li>
             </ul>
 				    <ul class="nav navbar-nav navbar-right"> <!Right>
 				    <li>
