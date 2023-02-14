@@ -1,15 +1,16 @@
 ru:
   
-  home:
-    index:
-       title: 'Добро пожаловать!'
-  
-  articles:
-     new: 
-      title: 'Новый Пост!'
-  
   menu:
      home:   'Главная'
- #articles: Все Cтатьи
-  #contact: Контакт
+     articles: Все Cтатьи
+     contacts: Контакт
+  
+  home:
+    index:
+      title: 'Добро пожаловать!'
+  
+  articles:
+      new: 
+       title: 'Новый Пост!'
+  
   

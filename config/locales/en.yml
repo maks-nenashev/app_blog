@@ -1,5 +1,9 @@
 
 en:
+  menu:
+     home: Home
+     articles: Articles
+     contacts: Contact
   
   home:
     index:
@@ -7,10 +11,7 @@ en:
   
   articles:
        new:
-        title: New Article
+        title: New Article!
   
-  menu:
-     home: Home
-     #articles: Articles
-     #contact: Contact
+  
           
