@@ -1,5 +1,11 @@
 ru:
-  
+  activerecord:
+    attributes:
+      article:
+        title: Статья
+        text: Текст
+      comment:
+        body: Текст
   menu:
      home:   'Главная'
      articles: Все Cтатьи
