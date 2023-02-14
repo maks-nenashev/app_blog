@@ -1,0 +1,32 @@
+ru:
+  en: Англиский
+  ru: Русский
+
+  activerecord:
+    attributes:
+      article:
+        title: Статья
+        text: Текст
+      comment:
+        body: Текст
+  menu:
+     home:   'Главная'
+     articles: Все Cтатьи
+     contacts: Контакт
+  
+  home:
+    index:
+      title: 'Добро пожаловать!'
+  
+  articles:
+      index:
+       title: 'Список статьей!'
+      new: 
+       title: 'Новый Пост!'
+      form: 
+       title: 'Редактировать!'
+      show:
+       thanks: 'Спасибо!'
+       create: 'Статья создана'
+       write: 'Напишите комментарий!'
+       comment: 'Коментарий'
