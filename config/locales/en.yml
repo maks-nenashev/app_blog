@@ -1,5 +1,12 @@
 en:
- 
+  activerecord:
+    attributes:
+      article:
+        title: Article
+        text: Text
+      comment:
+        body: Text
+
   menu:
      home: Home
      articles: Articles
