@@ -1,4 +1,7 @@
 ru:
+  en: Англиский
+  ru: Русский
+
   activerecord:
     attributes:
       article:
