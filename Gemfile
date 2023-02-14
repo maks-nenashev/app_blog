@@ -74,6 +74,7 @@ group :test do
   gem "webdrivers"
 end
 #//////////////////////////////////////////////////
+gem 'rails-i18n'
 gem 'caxlsx','~> 3.1'
 gem 'caxlsx_rails','~> 0.6'
 gem "rubyzip","~> 2"
