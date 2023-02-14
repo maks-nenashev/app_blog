@@ -10,7 +10,14 @@ ru:
       title: 'Добро пожаловать!'
   
   articles:
+      index:
+       title: 'Список статьей!'
       new: 
        title: 'Новый Пост!'
-  
-  
+      form: 
+       title: 'Редактировать!'
+      show:
+       thanks: 'Спасибо!'
+       create: 'Статья создана'
+       write: 'Напишите комментарий!'
+       comment: 'Коментарий'

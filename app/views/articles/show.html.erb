@@ -1,8 +1,8 @@
 <% provide :page_title, 'Article has been created!!!' %> <!Podpis w ikonke "Kakaja stranica">
 
 <!3 Wywodim bazu po ID>
-<h3>Thanks You!</h3>
-<h4>Article has been created!!!</h4>
+<h3><%= t'.thanks'%></h3>
+<h4><%= t'.create'%></h4>
 
  <p class="mb-2"><%= @article.title %></p>
 
@@ -15,7 +15,7 @@
 
 <!/////////////////////////////////////////////////////////////////////////////////////////>
   <hr class="my-3">
-<h4> Write youre Comment </h4>
+<h4><%= t'.write'%></h4>
   
                       <!Dobawil Comment>
  <%= form_with model: [@article, @comment] do |f| %>
@@ -33,7 +33,7 @@
   <%= f.submit "Submit comment!", class: 'btn btn-primary' %>
 <% end %>
 <!/////////////////////////////////////////////////////////////////////////////////////>
-<h4 class="mt-5">Comment!</h4>
+<h4 class="mt-5"><%= t'.comment'%></h4>
 <%= paginate @comments %> <!Page "gem kamenary" razbiw na stranicy # Podkluchenie  "Commint">
 <br>
 <% @comments.each do |comment| %>

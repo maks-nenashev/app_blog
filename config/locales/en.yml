@@ -1,5 +1,6 @@
-
 en:
+ 
+  
   menu:
      home: Home
      articles: Articles
@@ -10,8 +11,15 @@ en:
        title: Welcome!
   
   articles:
-       new:
-        title: New Article!
-  
-  
+      index:
+       title: 'List Articles!'
+      new: 
+       title: 'New Article!'
+      form: 
+       title: 'Edit!'
+      show:
+       thanks: 'Thanks!'
+       create: 'Article has been created!!!'
+       write: 'Write youre Comment '
+       comment: 'Comment'
           
