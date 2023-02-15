@@ -49,7 +49,7 @@ en:
       create:
        success: Article created!
       update:
-       success: Edit article!
+       success: Article has been edited!
 
   comments:
       form: 
