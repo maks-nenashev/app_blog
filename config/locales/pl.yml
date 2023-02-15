@@ -42,3 +42,8 @@ pl:
        submit_comment: 'Napisz' 
        edit_comment: Edytuj komentarz
        delete_comment: Usunąć
+
+  comments:
+      form: 
+       title: Edytować Komentarz!
+       submit_button: Edytować  # Button

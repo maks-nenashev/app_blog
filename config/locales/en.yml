@@ -44,3 +44,9 @@ en:
        submit_comment: 'Comment' 
        edit_comment: Edit comment
        delete_comment: Delete   
+
+  comments:
+      form: 
+       title: Update comment!
+       submit_button: Submit Comment # Button
+       

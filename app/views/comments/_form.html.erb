@@ -1,3 +1,5 @@
+<h1><%= t'.title'%></h1>
+
 <%= form_with model: [@article, @comment] do |f| %>
   <div class="mb-3 row">
     <div class="col-sm-2 col-form-label">
@@ -9,5 +11,5 @@
     </div>
   </div>
 
-  <%= f.submit "Submit comment!", class: 'btn btn-primary' %>
+  <%= f.submit t('.submit_button'), class: 'btn btn-primary' %>
 <% end %>

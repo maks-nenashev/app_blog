@@ -43,4 +43,7 @@ ru:
        edit_comment: Редактировать
        delete_comment: Удалить
  
-       
+  comments:
+      form: 
+       title: Редактировать коментарий! 
+       submit_button: Редактировать # Button   
