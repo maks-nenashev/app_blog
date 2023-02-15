@@ -8,7 +8,12 @@
 </p>
 <% @articles.each do |article| %>
      <article class="card mt-3">
-     <div class="card-body">
+     
+     <section class="card-header">
+       <!%= article.username %>
+      </section>
+  
+  <div class="card-body">
   <h4>
   <%= article.title %>
   </h4>
