@@ -30,7 +30,7 @@
     </div>
   </div>
 
-  <%= f.submit "Submit comment!", class: 'btn btn-primary' %>
+  <%= f.submit t('.submit_comment'), class: 'btn btn-primary' %>
 <% end %>
 <!/////////////////////////////////////////////////////////////////////////////////////>
 <h4 class="mt-5"><%= t'.comment'%></h4>
@@ -51,8 +51,8 @@
          </section>
               
  
- <%= link_to  "Edit article", edit_article_comment_path(@article,comment),class: "btn btn-secondary btn-sm"%> 
- <%= link_to 'Delete', article_comment_path(@article, comment), class: 'btn btn-danger btn-sm',
+ <%= link_to t('.edit_comment'), edit_article_comment_path(@article,comment),class: "btn btn-secondary btn-sm"%> 
+ <%= link_to t('.delete_comment'), article_comment_path(@article, comment), class: 'btn btn-danger btn-sm',
       data: {method: :delete, confirm: "Are you sure?"} %>
    </div>
  </article>

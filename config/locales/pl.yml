@@ -22,12 +22,23 @@ pl:
   articles:
       index:
        title: 'Lista artykułów!'
+            #Knopka 
+       new: Nowy artykuł  
+       show_article: Pokaż artykuł
+       edit_article: Edytuj artykuł
+       delete_article: Usunąć
+      
       new: 
-       title: 'Nowy Post!'
-      form: 
+       title: 'Nowy artykuł!'
+       submit_article: Nowy artykuł  #botton
+      form: # _form.html.erb   -- "edit"
        title: 'Edytować!'
       show:
        thanks: 'Dziękuję!'
        create: 'Artykuł został utworzony'
        write: 'Napisz komentarz!'
        comment: 'Komentarz!'
+                # button
+       submit_comment: 'Napisz' 
+       edit_comment: Edytuj komentarz
+       delete_comment: Usunąć

@@ -18,16 +18,29 @@ ru:
   home:
     index:
       title: 'Добро пожаловать!'
-  
+      new: Новая статья
+
   articles:
       index:
        title: 'Список статьей!'
+            # Button
+       new: Новая статья 
+       show_article: Показать статью
+       edit_article: Редактировать
+       delete_article: Удалить
       new: 
-       title: 'Новый Пост!'
-      form: 
+       title: 'Новая Статья!'
+       submit_article: Новая статья #botton
+      form:    # _form.html.erb   -- "edit"
        title: 'Редактировать!'
       show:
        thanks: 'Спасибо!'
        create: 'Статья создана'
        write: 'Напишите комментарий!'
        comment: 'Коментарий'
+             #Button
+       submit_comment: 'Написать' 
+       edit_comment: Редактировать
+       delete_comment: Удалить
+ 
+       

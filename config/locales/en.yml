@@ -2,7 +2,7 @@ en:
   en: English
   ru: Russian
   pl: Polish
-  
+
   activerecord:
     attributes:
       article:
@@ -19,17 +19,28 @@ en:
   home:
     index:
        title: Welcome!
-  
+       
+
   articles:
       index:
        title: 'List Articles!'
+              #button
+       new: 'New article'
+       show_article: Show article
+       edit_article: Edit article
+       delete_article: Delete
+      
       new: 
        title: 'New Article!'
-      form: 
+       submit_article: Submit Article #botton
+      form:  # _form.html.erb   -- "edit"
        title: 'Edit!'
       show:
        thanks: 'Thanks!'
        create: 'Article has been created!!!'
        write: 'Write youre Comment '
        comment: 'Comment'
-          
+             # button
+       submit_comment: 'Comment' 
+       edit_comment: Edit comment
+       delete_comment: Delete   
