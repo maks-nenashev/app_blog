@@ -33,6 +33,7 @@ ru:
        submit_article: Новая статья #botton
       form:    # _form.html.erb   -- "edit"
        title: 'Редактировать!'
+       submit_article: Редактировать
       show:
        thanks: 'Спасибо!'
        create: 'Статья создана'
@@ -43,6 +44,11 @@ ru:
        edit_comment: Редактировать
        delete_comment: Удалить
  
+      create:
+       success: Статья созданна! #Article created!
+      update:
+       success: Статья изменина!
+
   comments:
       form: 
        title: Редактировать коментарий! 

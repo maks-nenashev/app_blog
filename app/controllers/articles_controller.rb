@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
      #@article = current_user.Article.new(article_params)
   if @article.valid?
      @article.save 
-     flash[:success] = "Article created!"   #Window Podtwerzdenija
+     flash[:success] = t".success"   #Window Podtwerzdenija
      redirect_to @article #У нас происходит редирект на "show" поэтому представление --
                           #--"create" нам теперь не нужно, его можно удалить.
   else
@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
 
   if @article.update(article_params) # Obnowlaem s nowymi parametromi
      redirect_to @article
-     flash[:success] = "Article updated!" #Window Podtwerzdenija
+     flash[:success] = t".success" #"Article updated!" #Window Podtwerzdenija
     else
      render action: 'edit'    #"perenaprowlenie"
   end

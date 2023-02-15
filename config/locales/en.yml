@@ -34,7 +34,8 @@ en:
        title: 'New Article!'
        submit_article: Submit Article #botton
       form:  # _form.html.erb   -- "edit"
-       title: 'Edit!'
+       title: 'Edit Article!'
+       submit_article: Submit  # Button
       show:
        thanks: 'Thanks!'
        create: 'Article has been created!!!'
@@ -44,6 +45,11 @@ en:
        submit_comment: 'Comment' 
        edit_comment: Edit comment
        delete_comment: Delete   
+
+      create:
+       success: Article created!
+      update:
+       success: Edit article!
 
   comments:
       form: 

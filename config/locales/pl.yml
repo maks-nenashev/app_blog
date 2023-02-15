@@ -30,9 +30,10 @@ pl:
       
       new: 
        title: 'Nowy artykuł!'
-       submit_article: Nowy artykuł  #botton
+       submit_article: Nowy artykuł # Button
       form: # _form.html.erb   -- "edit"
        title: 'Edytować!'
+       submit_article: Edytować  # Button
       show:
        thanks: 'Dziękuję!'
        create: 'Artykuł został utworzony'
@@ -42,6 +43,12 @@ pl:
        submit_comment: 'Napisz' 
        edit_comment: Edytuj komentarz
        delete_comment: Usunąć
+
+      create:
+       success: Artykuł został utworzony!
+      update:
+       success: Artykuł został zredagowany!
+
 
   comments:
       form: 
