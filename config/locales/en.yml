@@ -1,6 +1,7 @@
 en:
   en: English
   ru: Russian
+  pl: Polish
   
   activerecord:
     attributes:

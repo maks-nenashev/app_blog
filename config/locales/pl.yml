@@ -1,0 +1,33 @@
+pl:
+  en: Angelski
+  ru: Ruski
+  pl: Polski
+
+  activerecord:
+    attributes:
+      article:
+        title: Artykuł
+        text: Теkst 
+      comment:
+        body: Теkst
+  menu:
+     home:   'Dom'
+     articles: Wszystkie Artykuły
+     contacts: Kontakt
+  
+  home:
+    index:
+      title: 'Witamy!'
+  
+  articles:
+      index:
+       title: 'Lista artykułów!'
+      new: 
+       title: 'Nowy Post!'
+      form: 
+       title: 'Edytować!'
+      show:
+       thanks: 'Dziękuję!'
+       create: 'Artykuł został utworzony'
+       write: 'Napisz komentarz!'
+       comment: 'Komentarz!'
