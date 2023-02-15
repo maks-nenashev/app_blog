@@ -7,6 +7,6 @@ class Article < ApplicationRecord
                                                  # has_many :comments, dependent: :nullify
     has_many :comments, dependent: :destroy #:delete_all :destroy ---=Dla udalenija Comentarija wmeste s Article
 
-
+    has_many :users, through: :comments
 
 end
