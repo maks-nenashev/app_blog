@@ -84,4 +84,5 @@ gem 'activerecord-import', '~> 1.2'
 gem 'kaminari'
 #gem 'kaminari-mongoid'
 
+gem 'draper' # Dekorator
 gem 'devise'
