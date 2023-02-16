@@ -2,7 +2,7 @@
 
 
 <br>
-<h2>Edit article</h2>  
+<h2><%= t'.title'%></h2>  
                   <!#5 Wozwrat i Redactirowanie>       
 <%= form_for :article, url: article_path(@article), method: :patch do |f| %>
 
@@ -31,7 +31,7 @@
 </div>
 
 
-  <%= f.submit "Submit Article", class: "btn btn-primary"%>
+  <%= f.submit t('.submit_article'), class: "btn btn-primary"%>
 
 
 <% end %>

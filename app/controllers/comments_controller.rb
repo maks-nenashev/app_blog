@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
-  before_action :set_article!  # 1:set_article! "Refactoring"
+  before_action :authenticate_user!, :only => [:create]
+  
+   before_action :set_article!  # 1:set_article! "Refactoring"
    before_action :set_comment!, except: :create  # 2:set_commint! "Refactoring"
                                 #Krome "create"
    def update  # 5 Wnosim izmenrnie w redaktirowanie
@@ -51,8 +53,8 @@ class CommentsController < ApplicationController
      private
   
     def comment_params
-      params.require(:comment).permit(:body)
-    end
+      params.require(:comment).permit(:body).merge(user: current_user)
+    end                                      #Podkluchenie comment k "user"
   
     def set_article!  #1:set_article!  "Refactoring"
       @article = Article.find params[:article_id]

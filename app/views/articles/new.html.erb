@@ -1,7 +1,7 @@
 <% provide :page_title, 'New Articles' %> <!Podpis w ikonke "Kakaja stranica">
 
 <br>
-<h2>New Article</h2>
+<h2><%= t'.title'%></h2><!%= t'articles.new.title'% Leniwyj perewod>
 
 <%= form_for :article, url: articles_path, data: {turbo:false}  do |f| %>
 
@@ -12,7 +12,7 @@
 
 
 <div class="mb-3 row">
-<div class="col-sm-2 col-form-label">   
+<div class="col-sm-2 col-form-label">  
     <%= f.label :title %>
 </div>
 
@@ -32,6 +32,6 @@
 </div>
 
 
-  <%= f.submit "Submit Article", class: "btn btn-primary"%>
+  <%= f.submit t('.submit_article'), class: "btn btn-primary"%>
 
 <%end%>
