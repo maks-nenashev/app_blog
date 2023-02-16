@@ -19,8 +19,8 @@ class ArticlesController < ApplicationController
   end
   
  def create # 2: create (отправить форму. POST)   
-     @article = Article.new(article_params)
-     #@article = current_user.Article.new(article_params)
+     #@article = Article.new(article_params)
+     @article = current_user.articles.build(article_params)# Podkluczenie "urer"
   if @article.valid?
      @article.save 
      flash[:success] = t".success"   #Window Podtwerzdenija
