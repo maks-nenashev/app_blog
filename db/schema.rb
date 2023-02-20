@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_16_161056) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_19_162411) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "text"
@@ -28,6 +28,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_161056) do
     t.integer "user_id", null: false
     t.index ["article_id"], name: "index_comments_on_article_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "commits", force: :cascade do |t|
+    t.string "body"
+    t.string "commentable_type", null: false
+    t.integer "commentable_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_commits_on_commentable"
+    t.index ["user_id"], name: "index_commits_on_user_id"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -54,4 +65,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_161056) do
   add_foreign_key "articles", "users"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
+  add_foreign_key "commits", "users"
 end

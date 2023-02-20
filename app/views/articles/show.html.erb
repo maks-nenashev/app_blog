@@ -11,10 +11,14 @@
 
  <p class="lead my-3"><%= @article.text %></p>
 
-             <! Podkluchenie time pod soobzheniem!>
+                <!Podkluchenie time pod soobzheniem!>
   <time datetime="<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
   <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
   </time>  
+   
+   <br> <br>               <!Dobawlenie okna>
+   <%= render 'commit/commentable', commentable: @article, commits: @commits,  
+     html_id: 'articleCommit' %>
 <!/////////////////////////////////////////////////////////////////////////////////////////>
   <hr class="my-3">
 <h4><%= t'.write'%></h4>
@@ -32,6 +36,8 @@
     </div>
   </div>
 
+    
+  
   <%= f.submit t('.submit_comment'), class: 'btn btn-primary' %>
 <% end %>
 <!/////////////////////////////////////////////////////////////////////////////////////>
@@ -42,7 +48,7 @@
 
 <br>
 <% @comments.each do |comment| %>
-  <article class="mb-3 card" id="comment-<!%= comment.id %>">
+  <article class="mb-3 card" >
       <div class="card-body">
      
   <section class="card-header">
@@ -54,7 +60,9 @@
                     <%= comment.body %>
                   </p>
       </section>
-               
+    
+     
+
                <! Podkluchenie time pod soobzheniem!>
   <time datetime="<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
   <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
@@ -64,6 +72,11 @@
  <%= link_to t('.edit_comment'), edit_article_comment_path(@article,comment),class: "btn btn-secondary btn-sm"%> 
  <%= link_to t('.delete_comment'), article_comment_path(@article, comment), class: 'btn btn-danger btn-sm',
       data: {method: :delete, confirm: "Are you sure?"} %>
-   </div>
- </article>
+    
+    <br><br>      <!Dobawlenie okna>
+ <%= render 'commit/commentable', commentable: comment, commit: @commit,
+  html_id: dom_id(comment, 'commit_form') %>
+    
+    </div>
+   </article>
 <%end%>
