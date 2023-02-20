@@ -1,0 +1,55 @@
+ru:
+  en: Англиский
+  ru: Русский
+  pl: Польскй
+
+  activerecord:
+    attributes:
+      article:
+        title: Статья
+        text: Текст
+      comment:
+        body: Текст
+  menu:
+     home:   'Главная'
+     articles: Все Cтатьи
+     contacts: Контакт
+  
+  home:
+    index:
+      title: 'Добро пожаловать!'
+      new: Новая статья
+
+  articles:
+      index:
+       title: 'Список статьей!'
+            # Button
+       new: Новая статья 
+       show_article: Показать статью
+       edit_article: Редактировать
+       delete_article: Удалить
+      new: 
+       title: 'Новая Статья!'
+       submit_article: Новая статья #botton
+      form:    # _form.html.erb   -- "edit"
+       title: 'Редактировать!'
+       submit_article: Редактировать
+      show:
+       thanks: 'Спасибо!'
+       create: 'Статья создана'
+       write: 'Напишите комментарий!'
+       comment: 'Коментарий'
+             #Button
+       submit_comment: 'Написать' 
+       edit_comment: Редактировать
+       delete_comment: Удалить
+ 
+      create:
+       success: Статья созданна! #Article created!
+      update:
+       success: Статья изменина!
+
+  comments:
+      form: 
+       title: Редактировать коментарий! 
+       submit_button: Редактировать # Button   

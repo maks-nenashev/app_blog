@@ -1,0 +1,56 @@
+pl:
+  en: Angelski
+  ru: Ruski
+  pl: Polski
+
+  activerecord:
+    attributes:
+      article:
+        title: Artykuł
+        text: Теkst 
+      comment:
+        body: Теkst
+  menu:
+     home:   'Dom'
+     articles: Wszystkie Artykuły
+     contacts: Kontakt
+  
+  home:
+    index:
+      title: 'Witamy!'
+  
+  articles:
+      index:
+       title: 'Lista artykułów!'
+            #Knopka 
+       new: Nowy artykuł  
+       show_article: Pokaż artykuł
+       edit_article: Edytuj artykuł
+       delete_article: Usunąć
+      
+      new: 
+       title: 'Nowy artykuł!'
+       submit_article: Nowy artykuł # Button
+      form: # _form.html.erb   -- "edit"
+       title: 'Edytować!'
+       submit_article: Edytować  # Button
+      show:
+       thanks: 'Dziękuję!'
+       create: 'Artykuł został utworzony'
+       write: 'Napisz komentarz!'
+       comment: 'Komentarz!'
+                # button
+       submit_comment: 'Napisz' 
+       edit_comment: Edytuj komentarz
+       delete_comment: Usunąć
+
+      create:
+       success: Artykuł został utworzony!
+      update:
+       success: Artykuł został zredagowany!
+
+
+  comments:
+      form: 
+       title: Edytować Komentarz!
+       submit_button: Edytować  # Button
