@@ -1,18 +1,24 @@
 <% provide :page_title, 'Article has been created!!!' %> <!Podpis w ikonke "Kakaja stranica">
 
-<!3 Wywodim bazu po ID>
-<h3><%= t'.thanks'%></h3>
-<h4><%= t'.create'%></h4>
-
+     <!3 Wywodim bazy po ID>
+<section class="card-header">
+      <h3><%= t'.thanks'%></h3>
+      <h4><%= @article.user.username%></h4>  <!Connect "usera!!">
+      <h4><%= t'.create'%></h4>
+</section>
+ 
  <p class="mb-2"><%= @article.title %></p>
 
  <p class="lead my-3"><%= @article.text %></p>
 
-             <! Podkluchenie time pod soobzheniem!>
+                <!Podkluchenie time pod soobzheniem!>
   <time datetime="<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
   <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
   </time>  
-
+   
+   <br> <br>               <!Dobawlenie okna>
+   <%= render 'commit/commentable', commentable: @article, commits: @commits,  
+     html_id: 'articleCommit' %>
 <!/////////////////////////////////////////////////////////////////////////////////////////>
   <hr class="my-3">
 <h4><%= t'.write'%></h4>
@@ -30,30 +36,47 @@
     </div>
   </div>
 
+    
+  
   <%= f.submit t('.submit_comment'), class: 'btn btn-primary' %>
 <% end %>
 <!/////////////////////////////////////////////////////////////////////////////////////>
+
 <h4 class="mt-5"><%= t'.comment'%></h4>
+
 <%= paginate @comments %> <!Page "gem kamenary" razbiw na stranicy # Podkluchenie  "Commint">
+
 <br>
 <% @comments.each do |comment| %>
-  <article class="mb-3 card" id="comment-<!%= comment.id %>">
+  <article class="mb-3 card" >
       <div class="card-body">
-           <! Podkluchenie time pod soobzheniem!>
-  <time datetime="<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
-  <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-  </time>  
-         
-         <section class="card-text">
+     
+  <section class="card-header">
+      <h4><%= comment.user.username%></h4>  <!Connect "usera!!">
+  </section>
+  
+      <section class="card-text">
                   <p>
                     <%= comment.body %>
                   </p>
-         </section>
-              
+      </section>
+    
+     
+
+               <! Podkluchenie time pod soobzheniem!>
+  <time datetime="<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
+  <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+  </time>  
+  <br>       
  
  <%= link_to t('.edit_comment'), edit_article_comment_path(@article,comment),class: "btn btn-secondary btn-sm"%> 
  <%= link_to t('.delete_comment'), article_comment_path(@article, comment), class: 'btn btn-danger btn-sm',
       data: {method: :delete, confirm: "Are you sure?"} %>
-   </div>
- </article>
+    
+    <br><br>      <!Dobawlenie okna>
+ <%= render 'commit/commentable', commentable: comment, commit: @commit,
+  html_id: dom_id(comment, 'commit_form') %>
+    
+    </div>
+   </article>
 <%end%>
