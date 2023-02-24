@@ -1,10 +1,12 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, :only => [:create]
+   include ArticlesComments # Rafactoring "articles_comments.rb"
+   before_action :authenticate_user!, :only => [:create]
   
    before_action :set_article!  # 1:set_article! "Refactoring"
    before_action :set_comment!, except: :create  # 2:set_commint! "Refactoring"
                                 #Krome "create"
-   def update  # 5 Wnosim izmenrnie w redaktirowanie
+   
+    def update  # 5 Wnosim izmenrnie w redaktirowanie
         #@comment = @article.comments.find params[:id]--:set_comment!  # 2:set_commint! "Refactoring"
         if@comment.update(comment_update_params) # Obnowlaem s nowymi parametromi
           redirect_to article_path(@article)#, anchor: "comment-#{comment.id}")   #"perenaprowlenie" 
@@ -30,8 +32,9 @@ class CommentsController < ApplicationController
         flash[:success] = "Comment created!"  #Window Podtwerzdenija
         redirect_to article_path(@article)   #"perenaprowlenie" 
       else
-        @comments = @article.comments.order created_at: :desc
-        render 'articles/show'            #"perenaprowlenie"      
+        load_articles_comments(do_render: true) # Rafactoring "articles_comments.rb"
+        #@comments = @article.comments.order created_at: :desc
+        #render 'articles/show'            #"perenaprowlenie"      
       end
    end
     
@@ -48,7 +51,7 @@ class CommentsController < ApplicationController
         @comment.destroy
         flash[:success] = "Comment deleted!"     #Window Podtwerzdenija
         redirect_to article_path(@article)
-     end
+      end
     
      private
   
