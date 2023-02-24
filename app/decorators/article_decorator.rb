@@ -1,6 +1,7 @@
 class ArticleDecorator < ApplicationDecorator
   delegate_all
-
+  decorates_association :user
+  
   # Define presentation-specific methods here. Helpers are accessed through
   # `helpers` (aka `h`). You can override attributes, for example:
   #
