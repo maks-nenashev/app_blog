@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
                                 #Krome "create"
    def update  # 5 Wnosim izmenrnie w redaktirowanie
         #@comment = @article.comments.find params[:id]--:set_comment!  # 2:set_commint! "Refactoring"
-        if@comment.update(comment_params) # Obnowlaem s nowymi parametromi
+        if@comment.update(comment_update_params) # Obnowlaem s nowymi parametromi
           redirect_to article_path(@article)#, anchor: "comment-#{comment.id}")   #"perenaprowlenie" 
           flash[:success] = "Comment updated!" #Window Podtwerzdenija
          else
@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
    end
    
   def create# 1: create (отправить форму. POST)  
-        @comment = @article.comments.build(comment_params)  #Comment привязывам к Article
+        @comment = @article.comments.build(comment_create_params)  #Comment привязывам к Article
   
       if@comment.save
         flash[:success] = "Comment created!"  #Window Podtwerzdenija
@@ -52,10 +52,15 @@ class CommentsController < ApplicationController
     
      private
   
-    def comment_params
+    def comment_create_params
       params.require(:comment).permit(:body).merge(user: current_user)
     end                                      #Podkluchenie comment k "user"
-  
+    
+    def comment_update_params
+      params.require(:comment).permit(:body)
+    end                                     
+  #/////////////////////////////////////////////////////////////////////////////////
+
     def set_article!  #1:set_article!  "Refactoring"
       @article = Article.find params[:article_id]
     end
