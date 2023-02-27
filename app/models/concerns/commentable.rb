@@ -2,6 +2,6 @@ module Commentable
     extend ActiveSupport::Concern
   
     included do
-      has_many :commits, as: :commentable, dependent: :destroy
+      has_many :tweets, as: :commentable, dependent: :destroy
     end
   end

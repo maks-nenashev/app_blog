@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
-  include Commentable # Podkluczenie "commits"
+  include Commentable # Podkluczenie "Tweets"
 
   
   validates :body, presence: true, length: {minimum: 3} #walidacija

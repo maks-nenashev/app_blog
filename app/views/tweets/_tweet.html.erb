@@ -1,0 +1,20 @@
+
+<%= tag.article class: 'mb-3 card borber-0', id: dom_id(tweet) do %>
+  <div class="row g-0">
+    <div class="col-sm-auto text-sm-center align-self-center">
+      <!%= commit.user.gravatar size: 30, css_class: 'd-block' %>
+      <%= tweet.user.username %>
+    </div>
+    <div class="col-sm">
+      <div class="card-body">
+        <section class="card-text mb-3">
+          <div class="col-sm-9">
+            <p>
+              <%= sanitize tweet.body %>
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+<% end %>

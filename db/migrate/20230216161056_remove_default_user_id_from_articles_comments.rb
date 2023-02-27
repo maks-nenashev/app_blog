@@ -14,3 +14,6 @@ class RemoveDefaultUserIdFromArticlesComments < ActiveRecord::Migration[7.0]
 end
 
   #rails g migration remove_default_user_id_from_articles_comments
+
+
+  # rails g model Commit body:string commentable:references{polymorphic} user:belongs_to

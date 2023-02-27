@@ -17,8 +17,8 @@
   </time>  
    
    <br> <br>               <!Dobawlenie okna>
-   <%= render 'commit/commentable', commentable: @article, commits: @commits,  
-     html_id: 'articleCommit' %>
+   <%= render 'tweets/commentable', commentable: @article, tweet: @tweet,  
+     html_id: 'articleTweets' %>
 <!/////////////////////////////////////////////////////////////////////////////////////////>
   <hr class="my-3">
 <h4><%= t'.write'%></h4>
@@ -74,8 +74,8 @@
       data: {method: :delete, confirm: "Are you sure?"} %>
     
     <br><br>      <!Dobawlenie okna>
- <%= render 'commit/commentable', commentable: comment, commit: @commit,
-  html_id: dom_id(comment, 'commit_form') %>
+ <%= render 'tweets/commentable', commentable: comment, tweet: @tweet,
+  html_id: dom_id(comment, 'tweet_form') %>
     
     </div>
    </article>

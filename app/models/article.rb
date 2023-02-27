@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
-    include Commentable # Podkluczenie "commits"
+    include Commentable # Podkluczenie "Tweet"
 
 
     validates :title, presence: true, length: {minimum: 3} #walidacija
