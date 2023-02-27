@@ -55,4 +55,8 @@ en:
       form: 
        title: Update comment!
        submit_button: Submit Comment # Button
+
+      tweets:
+       create: 
+       success: Comment created!
        

@@ -53,3 +53,8 @@ ru:
       form: 
        title: Редактировать коментарий! 
        submit_button: Редактировать # Button   
+
+      tweets:
+       create: 
+       success: Коментарий создан!
+       

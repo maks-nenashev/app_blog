@@ -54,3 +54,8 @@ pl:
       form: 
        title: Edytować Komentarz!
        submit_button: Edytować  # Button
+
+      tweets:
+       create: 
+       success: Komentarz został utworzony!
+       

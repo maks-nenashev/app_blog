@@ -1,16 +1,16 @@
-class CommitsController < ApplicationController
+class TweetsController < ApplicationController
     include ArticlesComments
     before_action :set_commentable!
     before_action :set_question
   
     def create
-      @commit = @commentable.commits.build commit_params
+      @tweet = @commentable.tweets.build tweet_params
   
-      if @commit.save
-        #flash[:success] = 'success'
+      if @tweet.save
+        flash[:success] = t".success" # Window Podtwerzdenija
         redirect_to article_path(@article)
       else
-        @commit = @commit.decorate
+        @tweet = @tweet.decorate
         load_articles_comments do_render: true
       end
     end
@@ -18,8 +18,8 @@ class CommitsController < ApplicationController
     
     private
   
-    def commit_params
-      params.require(:commit).permit(:body).merge(user: current_user)
+    def tweet_params
+      params.require(:tweet).permit(:body).merge(user: current_user)
     end
   
     def set_commentable!
