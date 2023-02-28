@@ -5,8 +5,7 @@ module ArticlesComments
       def load_articles_comments(do_render: false)
         @article = @article.decorate
         @comment ||= @article.comments.build
-        #@comments = @article.comments.order(created_at: :desc).page(params[:page]).per 2
-        @comments = @article.comments.includes(:user).order(created_at: :desc).page(params[:page]).per 2
+        @pagy,@comments = pagy @article.comments.order(created_at: :desc),items:3
         @comments = @comments.decorate
         render('articles/show') if do_render
       end

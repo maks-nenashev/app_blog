@@ -43,8 +43,8 @@
 <!/////////////////////////////////////////////////////////////////////////////////////>
 
 <h4 class="mt-5"><%= t'.comment'%></h4>
-
-<%= paginate @comments %> <!Page "gem kamenary" razbiw na stranicy # Podkluchenie  "Commint">
+<%= pagination @pagy %>
+<!%== pagy_bootstrap_nav @pagy %> <!Pagy "gem pagy" razbiw na stranicy Podkluchenie>
 
 <br>
 <% @comments.each do |comment| %>
