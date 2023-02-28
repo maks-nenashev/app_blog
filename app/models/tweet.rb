@@ -3,6 +3,6 @@ class Tweet < ApplicationRecord
   belongs_to :commentable, polymorphic: true
   belongs_to :user
 
-  validates :body, presence: true, length: { minimum: 2 } # Walidacija
+  validates :body, presence: true, length: {minimum: 2} # Walidacija
 
 end
