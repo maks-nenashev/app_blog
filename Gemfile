@@ -81,8 +81,9 @@ gem "rubyzip","~> 2"
 gem 'rubyXL', '~> 3.4'
 gem 'activerecord-import', '~> 1.2'
 #//////////////////////////////////////////////////
-gem 'kaminari'
+#gem 'kaminari'
 #gem 'kaminari-mongoid'
+gem 'pagy','~> 6.0.2'
 
 gem 'draper' # Dekorator
 gem 'devise'

@@ -4,7 +4,7 @@ module Admin #Импорт/экспорт Excel, архивы ZIP
       def index
         respond_to do |format|
           format.html do
-            @users = User.order(created_at: :desc).page params[:page] 
+            @users = User.order(created_at: :desc)
       end
   
           format.zip { respond_with_zipped_users }

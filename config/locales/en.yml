@@ -10,6 +10,8 @@ en:
         text: Text
       comment:
         body: Text
+      tweet:
+        body: Text
 
   menu:
      home: Home
@@ -50,13 +52,14 @@ en:
        success: Article created!
       update:
        success: Article has been edited!
-
+      
+      tweets:
+      create: 
+       success: Comment created!
+       
   comments:
       form: 
        title: Update comment!
        submit_button: Submit Comment # Button
 
-      tweets:
-       create: 
-       success: Comment created!
-       
+      

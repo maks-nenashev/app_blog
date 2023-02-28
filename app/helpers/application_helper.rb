@@ -1,5 +1,12 @@
 module ApplicationHelper
-             # Chtoby ssylki byli cwetnymi : dosen`t work
+  include Pagy::Frontend #Podkluczenie "Pagy"    
+  
+  def pagination(obj)# Pagy "gem pagy" razbiw na stranicy Podkluchenie
+    raw(pagy_bootstrap_nav(obj)) if obj.pages > 1
+  end
+  #//////////////////////////////////////////////////////////////////////////////////////
+  
+  # Chtoby ssylki byli cwetnymi : dosen`t work
   def nav_tab(title, url, options = {})
         current_page = options.delete :current_page
     
