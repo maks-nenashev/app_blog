@@ -16,12 +16,14 @@
   <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
   </time>  
    
-   <br> <br>               <!Dobawlenie okna>
-   <%= render 'tweets/commentable', commentable: @article, tweet: @tweet,  
-     html_id: 'articleTweets' %>
    <%= link_to ('Edit'), edit_article_path(@article),class: "btn btn-secondary btn-sm"%> 
    <%= link_to ('Delete'), article_path(@article), data: {'turbo-method': :delete,'turbo-confirm': 
      'Are you sure?'}, class:"btn btn-danger btn-sm"%>
+   
+   <br> <br>               <!Dobawlenie okna>
+   <%= render 'tweets/commentable', commentable: @article, tweet: @tweet,  
+     html_id: 'articleTweets' %>
+   
 <!/////////////////////////////////////////////////////////////////////////////////////////>
   <hr class="my-3">
 <h4><%= t'.write'%></h4>
