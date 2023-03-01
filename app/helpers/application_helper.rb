@@ -5,7 +5,7 @@ module ApplicationHelper
     raw(pagy_bootstrap_nav(obj)) if obj.pages > 1
   end
   #//////////////////////////////////////////////////////////////////////////////////////
-  
+
   # Chtoby ssylki byli cwetnymi : dosen`t work
   def nav_tab(title, url, options = {})
         current_page = options.delete :current_page
