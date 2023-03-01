@@ -12,6 +12,10 @@
             <p>
               <%= sanitize tweet.body %>
             </p>
+          <!Knopka Delete Commenta>
+          <%= link_to 'Delete',polymorphic_path([tweet.commentable, tweet]),
+              class: 'btn btn-danger btn-sm',
+              data: {turbo_method: :delete, confirm: 'global.dialog.you_sure'} %>
           </div>
         </section>
       </div>
