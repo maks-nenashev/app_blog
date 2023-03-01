@@ -3,9 +3,10 @@ class ArticlesController < ApplicationController
    before_action :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
    before_action :set_article!, only: %i[show destroy edit update]  # @article = Article.find params[:id]   "Refactoring"
                                                              
- def index   # 4: Wywod wsech zapisej!
-    @pagy, @articles = pagy Article.order(created_at: :desc),items:3
- end                    # chtoby "articles" wywodilo poslednie wwerchu
+ def index # 4: Wywod wsech zapisej!
+    @pagy, @articles = pagy Article.includes(:user).order(created_at: :desc),items:3
+    @articles = @articles.decorate
+   end                                               # chtoby "articles" wywodilo poslednie wwerchu
   
  def show  # 3: Wywodim bazu po :ID
      load_articles_comments #Rafactoring "articles_comments.rb"

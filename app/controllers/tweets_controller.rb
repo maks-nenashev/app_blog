@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
     include ArticlesComments
-    #include ActionDispatch::Routing::PolymorphicRoutes
+    
     before_action :set_commentable!
     before_action :set_question
     
