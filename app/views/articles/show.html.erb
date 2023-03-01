@@ -19,6 +19,9 @@
    <br> <br>               <!Dobawlenie okna>
    <%= render 'tweets/commentable', commentable: @article, tweet: @tweet,  
      html_id: 'articleTweets' %>
+   <%= link_to ('Edit'), edit_article_path(@article),class: "btn btn-secondary btn-sm"%> 
+   <%= link_to ('Delete'), article_path(@article), data: {'turbo-method': :delete,'turbo-confirm': 
+     'Are you sure?'}, class:"btn btn-danger btn-sm"%>
 <!/////////////////////////////////////////////////////////////////////////////////////////>
   <hr class="my-3">
 <h4><%= t'.write'%></h4>
@@ -38,8 +41,8 @@
 
     
   
-  <%= f.submit t('.submit_comment'), class: 'btn btn-primary' %>
-<% end %>
+ <%= f.submit t('.submit_comment'), class: 'btn btn-primary' %>
+ <% end %>
 <!/////////////////////////////////////////////////////////////////////////////////////>
 
 <h4 class="mt-5"><%= t'.comment'%></h4>
