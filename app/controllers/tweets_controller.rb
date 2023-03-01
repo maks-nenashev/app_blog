@@ -1,8 +1,9 @@
 class TweetsController < ApplicationController
     include ArticlesComments
+    #include ActionDispatch::Routing::PolymorphicRoutes
     before_action :set_commentable!
     before_action :set_question
-  
+    
     def create
       @tweet = @commentable.tweets.build tweet_params
   
@@ -14,7 +15,13 @@ class TweetsController < ApplicationController
         load_articles_comments do_render: true
       end
     end
-  
+   
+    def destroy
+      tweet = @commentable.tweets.find params[:id]
+      tweet.destroy
+      flash[:success] = 'success'
+      redirect_to article_path(@article)
+    end
     
     private
   
