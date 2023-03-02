@@ -65,6 +65,6 @@ end
   def set_article!  # :before_action :set_question! only[show destroy edit update] "Refactoring"
     @article = Article.find(params[:id])
  end
-
+ 
 
 end
