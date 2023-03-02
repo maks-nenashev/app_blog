@@ -52,6 +52,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
+  gem 'faker'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
@@ -59,7 +60,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-
+  gem 'bullet'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
@@ -73,3 +74,17 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+#//////////////////////////////////////////////////
+gem 'rails-i18n'
+gem 'caxlsx','~> 3.1'
+gem 'caxlsx_rails','~> 0.6'
+gem "rubyzip","~> 2"
+gem 'rubyXL', '~> 3.4'
+gem 'activerecord-import', '~> 1.2'
+#//////////////////////////////////////////////////
+#gem 'kaminari'
+#gem 'kaminari-mongoid'
+gem 'pagy','~> 6.0.2'
+
+gem 'draper' # Dekorator
+gem 'devise'

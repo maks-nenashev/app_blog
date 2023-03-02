@@ -1,29 +1,48 @@
-<h1>List of articles!</h1>  <!# Wywod wsech zapisej!>
-
-<% @articles.each do |article| %>
-  
-  <h3>
-  <%= article.title %>
-  </h3>
+<% provide :page_title, 'Articles' %> <!Podpis w ikonre "Kakaja stranica">
+<!% currently_art "Articles" %>
               
-  <p>
+<h2 class="mb-4"><%= t'.title'%></h2>  <!# Wywod wsech zapisej!>
+<p>         <!Button>
+<%= link_to t('.new'), new_article_path,class: "btn btn-outline-primary" %>
+<!%== pagy_bootstrap_nav @pagy %> <!Pagy "gem pagy" razbiw na stranicy Podkluchenie>
+<%= pagination @pagy %>   <!Pagy "gem pagy" razbiw na stranicy Podkluchenie>
+</p>
+<% @articles.each do |article| %>
+     <article class="card mt-3">
+     
+     <section class="card-header">
+      <h4><%= article.user.username%></h4>  <!Connect "usera!!">
+      </section>
+  
+  <div class="card-body">
+  <h4>
+  <%= article.title %>
+  </h4>
+              
+  <h4 class="my-2">
   <%= article.text %>
-  </p>
-        
+  </h4>
+        <section class="card-text">
            <! Podkluchenie time pod soobzheniem!>
   <time datetime="<%= article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
   <%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
   </time>  
-                       
-   
+           </section>            
+   <hr>
                      <!Ssylka na statью>
-  <p><%= link_to "New article", new_article_path(article),class: "btn btn-primary" %> |
-     <%= link_to  "Show article", article_path(article) %> | 
-     <%= link_to  "Edit article", edit_article_path(article) %> |
-     <%= link_to 'Delete', article_path(article), data: {'turbo-method': :delete,'turbo-confirm': 'Are you sure?'} %>
+  <p><!%= link_to "New article", new_article_path(article),class: "btn btn-primary" %> 
+     <%= link_to t('.show_article'), article_path(article),class: "btn btn-outline-primary btn-sm"%>  
+     <%= link_to t('.edit_article'), edit_article_path(article),class: "btn btn-outline-secondary btn-sm"%> 
+     <%= link_to t('.delete_article'), article_path(article), data: {'turbo-method': :delete,'turbo-confirm': 
+     'Are you sure?'}, class:"btn btn-outline-danger btn-sm"%>
+                    
                        <! rails routes>                         <!Eto JS window "Udalit post">
-  <hr>            
-
+  
+            
+     </div>
+   </article>
 <% end %>
-
- 
+<br>
+<!%== pagy_bootstrap_nav @pagy %> <!Pagy "gem pagy" razbiw na stranicy Podkluchenie>
+ <%= pagination @pagy %>  <!Pagy "gem pagy" razbiw na stranicy Podkluchenie>
+ <br>
