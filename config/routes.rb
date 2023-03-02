@@ -14,7 +14,7 @@ devise_for :users
   get '/' =>'home#index'   # Eto nuzno wsegda! 
   
   namespace :admin do #Импорт/экспорт Excel, архивы ZIP
-      resources :users#, only: %i[:index]
+      resources :users, only: %i[index edit create update destroy]
   end
   
   resources :articles do  #вложенный маршрут:

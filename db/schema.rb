@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_27_170759) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_01_223131) do
+  create_table "article_tags", force: :cascade do |t|
+    t.integer "article_id", null: false
+    t.integer "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id", "tag_id"], name: "index_article_tags_on_article_id_and_tag_id", unique: true
+    t.index ["article_id"], name: "index_article_tags_on_article_id"
+    t.index ["tag_id"], name: "index_article_tags_on_tag_id"
+  end
+
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "text"
@@ -37,6 +47,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_27_170759) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tweets", force: :cascade do |t|
     t.string "body"
     t.string "commentable_type", null: false
@@ -57,11 +73,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_27_170759) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
+    t.integer "role", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["role"], name: "index_users_on_role"
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "article_tags", "articles"
+  add_foreign_key "article_tags", "tags"
   add_foreign_key "articles", "users"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
