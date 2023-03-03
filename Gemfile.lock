@@ -264,7 +264,7 @@ DEPENDENCIES
   debug
   devise
   draper
-  faker
+  faker (~> 3.1.1)
   jbuilder
   jsbundling-rails
   pagy (~> 6.0.2)
