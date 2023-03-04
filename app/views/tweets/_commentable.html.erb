@@ -1,0 +1,28 @@
+<% is_current_tweet = tweet&.for?(commentable) %>
+
+<%= link_to 'Commits', "##{html_id}",
+  class: 'btn btn-primary', data: {'bs-toggle': 'collapse'} %>
+
+<%= tag.div class: "collapse #{'show' if is_current_tweet}" , id: html_id do %> 
+  <%= form_with model: [commentable,(is_current_tweet ? tweet : commentable.tweets.build)],
+  
+  class: 'pt-3 border-top my-2' do |f| %>
+      <% if is_current_tweet %>
+      <%= render 'shared/errors', object: tweet %>
+    
+    <% end %>
+
+    <div class="mb-3 row">
+      <div class="col-sm-2 col-form-label">
+        <%= f.label :body %>
+      </div>
+
+      <div class="col-sm-10">
+        <%= f.text_area :body, class: 'form-control form-control-sm' %>
+      </div>
+    </div>
+
+    <%= f.submit "Commit", class: 'btn btn-sm btn-primary' %>
+  <% end %>
+  <%= render commentable.tweets.decorate %>
+<% end %>
