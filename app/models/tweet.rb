@@ -1,5 +1,6 @@
 class Tweet < ApplicationRecord
-
+  include Authorship  # Podkluczenie "Autor" Awtorizacija
+  
   belongs_to :commentable, polymorphic: true
   belongs_to :user
 

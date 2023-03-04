@@ -1,6 +1,6 @@
 class Article < ApplicationRecord
     include Commentable # Podkluczenie "Tweet"
-
+    include Authorship  # Podkluczenie "Autor" Awtorizacija
 
     validates :title, presence: true, length: {minimum: 3} #walidacija
     validates :text, presence: true, length: {minimum: 3}

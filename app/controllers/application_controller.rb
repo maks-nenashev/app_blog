@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include Pagy::Backend   #Podkluczenie "Pagy"
   include ErrorHandling # Podkluczenie ERORR 404
-       
+  include Pundit::Authorization    
                      # gem "devase"
     before_action :configure_permitted_parameters, if: :devise_controller?
 
