@@ -32,10 +32,13 @@
                      <!Ssylka na statью>
   <p><!%= link_to "New article", new_article_path(article),class: "btn btn-primary" %> 
      <%= link_to t('.show_article'), article_path(article),class: "btn btn-outline-primary btn-sm"%>  
+         <% if policy(article).edit?%> <! Podkluchenie Авторизация (Pundit)>
      <%= link_to t('.edit_article'), edit_article_path(article),class: "btn btn-outline-secondary btn-sm"%> 
+        <%end%>
+         <% if policy(article).destroy?%> <! Podkluchenie Авторизация (Pundit)>
      <%= link_to t('.delete_article'), article_path(article), data: {'turbo-method': :delete,'turbo-confirm': 
      'Are you sure?'}, class:"btn btn-outline-danger btn-sm"%>
-                    
+         <%end%>          
                        <! rails routes>                         <!Eto JS window "Udalit post">
   
             
