@@ -21,7 +21,9 @@
             <li><%= link_to t('menu.home'), root_path, class: 'nav-link px-2 text-white'%></li>
             <li><%= link_to t('menu.articles'), articles_path, class: 'nav-link px-2 text-white'%></li>
             <li><%= link_to t('menu.contacts'), new_contacts_path, class: 'nav-link px-2 text-white'%></li>
+               <% if policy([:user]).index? %> <! Podkluchenie Авторизация (Pundit)>
             <li><%= link_to "Admin Panel", admin_users_path, class: 'nav-link px-2 text-white'%></li>
+               <%end%>
             </ul>          <!Perewod Podkluchenie>
 		<!//////////////////////////////////////////////////////////////////////////////////////>		    
            <!Podkluchenie Jazykow >

@@ -1,21 +1,21 @@
 class UserPolicy < ApplicationPolicy
     def create?
-      user.guest?
+      user.admin_role?
     end
   
     def update?
-      record == user
+      user.admin_role?
     end
   
     def index?
-      false
+      user.admin_role?
     end
   
     def show?
-      true
+      user.admin_role?
     end
   
     def destroy?
-      false
+      user.admin_role?
     end
   end

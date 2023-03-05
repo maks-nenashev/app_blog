@@ -1,12 +1,14 @@
 module Admin #Импорт/экспорт Excel, архивы ZIP
     class UsersController < ApplicationController
       before_action :set_user!, only: %i[edit update destroy] # Podkluczenie Rolej
-      
+      before_action :authorize_user! # Eto Podkluczenie "Awtorizacii"
+      after_action :verify_authorized                                                         
+ 
       #before_action :require_authentication
       def index
         respond_to do |format|
           format.html do
-           @pagy, @users = pagy User.order(created_at: :desc)
+           @pagy, @user = pagy User.order(created_at: :desc)
       end
   
           format.zip { respond_with_zipped_users }
@@ -63,5 +65,9 @@ module Admin #Импорт/экспорт Excel, архивы ZIP
         params.require(:user).permit(:email, :username, :password, :password_confirmation, :role
         ).merge(admin_edit: true)
       end
+    
+      def authorize_user!   # Eto Podkluczenie "Awtorizacii"
+        authorize(@user || User)
+    end
   end
 end
