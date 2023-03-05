@@ -3,7 +3,9 @@
               
 <h2 class="mb-4"><%= t'.title'%></h2>  <!# Wywod wsech zapisej!>
 <p>         <!Button>
+    <% if policy(:article).new?%> <! Podkluchenie Авторизация (Pundit)>
 <%= link_to t('.new'), new_article_path,class: "btn btn-outline-primary" %>
+    <%end%>
 <!%== pagy_bootstrap_nav @pagy %> <!Pagy "gem pagy" razbiw na stranicy Podkluchenie>
 <%= pagination @pagy %>   <!Pagy "gem pagy" razbiw na stranicy Podkluchenie>
 </p>
@@ -11,7 +13,8 @@
      <article class="card mt-3">
      
      <section class="card-header">
-      <h4><%= article.user.username%></h4>  <!Connect "usera!!">
+      <h4><%= article.user.gravatar%>
+      <%= article.user.username%></h4>  <!Connect "usera!!">
       </section>
   
   <div class="card-body">

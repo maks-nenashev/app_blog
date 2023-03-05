@@ -3,7 +3,8 @@
      <!3 Wywodim bazy po ID>
 <section class="card-header">
       <h3><%= t'.thanks'%></h3>
-      <h4><%= @article.user.username%></h4>  <!Connect "usera!!">
+      <!h4><%= @article.user.gravatar%>
+      <%= @article.user.username%><!/h4>  <!Connect "usera!!">
       <h4><%= t'.create'%></h4>
 </section>
  
@@ -61,7 +62,8 @@
       <div class="card-body">
      
   <section class="card-header">
-      <h4><%= comment.user.username%></h4>  <!Connect "usera!!">
+  <h4><%= comment.user.gravatar%>
+      <%= comment.user.username%></h4>  <!Connect "usera!!">
   </section>
   
       <section class="card-text">
@@ -78,10 +80,14 @@
   </time>  
   <br>       
  
+    <% if policy(comment).edit?%> <! Podkluchenie Авторизация (Pundit)>
  <%= link_to t('.edit_comment'), edit_article_comment_path(@article,comment),class: "btn btn-secondary btn-sm"%> 
- <%= link_to t('.delete_comment'), article_comment_path(@article, comment), class: 'btn btn-danger btn-sm',
+    <%end%>
+    <% if policy(comment).destroy?%> <! Podkluchenie Авторизация (Pundit)>
+ <%= link_to t('.delete_comment'), article_comment_path(@article,comment), class: 'btn btn-danger btn-sm',
       data: {method: :delete, confirm: "Are you sure?"} %>
-    
+    <%end%>
+
     <br><br>      <!Dobawlenie okna>
  <%= render 'tweets/commentable', commentable: comment, tweet: @tweet,
   html_id: dom_id(comment, 'tweet_form') %>
