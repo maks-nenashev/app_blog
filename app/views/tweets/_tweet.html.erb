@@ -2,7 +2,7 @@
 <%= tag.article class: 'mb-3 card borber-0', id: dom_id(tweet) do %>
   <div class="row g-0">
     <div class="col-sm-auto text-sm-center align-self-center">
-      <!%= commit.user.gravatar size: 30, css_class: 'd-block' %>
+      <%= tweet.user.gravatar size: 30, css_class: 'd-block' %>
       <%= tweet.user.username %>
     </div>
     <div class="col-sm">
@@ -13,9 +13,11 @@
               <%= sanitize tweet.body %>
             </p>
           <!Knopka Delete Commenta>
+             <% if policy(tweet).destroy?%> <! Podkluchenie Авторизация (Pundit)>
           <%= link_to 'Delete',polymorphic_path([tweet.commentable, tweet]),
               class: 'btn btn-danger btn-sm',
               data: {turbo_method: :delete, confirm: 'global.dialog.you_sure'} %>
+            <%end%>
           </div>
         </section>
       </div>

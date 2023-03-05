@@ -3,10 +3,12 @@ class TweetsController < ApplicationController
     
     before_action :set_commentable!
     before_action :set_question
-    
+    after_action :verify_authorized  # Eto Podkluczenie "Awtorizacii"
+
     def create
       @tweet = @commentable.tweets.build tweet_params
-  
+      authorize @tweet  # Eto Podkluczenie "Awtorizacii"
+
       if @tweet.save
         flash[:success] = t".success" # Window Podtwerzdenija
         redirect_to article_path(@article)
@@ -18,6 +20,8 @@ class TweetsController < ApplicationController
    
     def destroy
       tweet = @commentable.tweets.find params[:id]
+      authorize tweet   # Eto Podkluczenie "Awtorizacii"
+
       tweet.destroy
       flash[:success] = 'success'
       redirect_to article_path(@article)
@@ -39,6 +43,7 @@ class TweetsController < ApplicationController
     def set_question
       @article = @commentable.is_a?(Article) ? @commentable : @commentable.article
     end
+    
   end
   
   

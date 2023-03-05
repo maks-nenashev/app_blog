@@ -1,10 +1,13 @@
 <% is_current_tweet = tweet&.for?(commentable) %>
+<% tweet_builder = is_current_tweet ? tweet : commentable.tweets.build %> <! Podkluchenie Авторизация (Pundit)>
 
-<%= link_to 'Commits', "##{html_id}",
+<%= link_to 'Tweet', "##{html_id}",
   class: 'btn btn-primary', data: {'bs-toggle': 'collapse'} %>
 
 <%= tag.div class: "collapse #{'show' if is_current_tweet}" , id: html_id do %> 
-  <%= form_with model: [commentable,(is_current_tweet ? tweet : commentable.tweets.build)],
+  
+  <% if policy(tweet_builder).create?%> <! Podkluchenie Авторизация (Pundit)>
+  <%= form_with model: [commentable, tweet_builder],
   
   class: 'pt-3 border-top my-2' do |f| %>
       <% if is_current_tweet %>
@@ -24,5 +27,7 @@
 
     <%= f.submit "Commit", class: 'btn btn-sm btn-primary' %>
   <% end %>
+  <!%end%>
   <%= render commentable.tweets.decorate %>
 <% end %>
+<%end%>

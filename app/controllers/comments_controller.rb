@@ -5,7 +5,9 @@ class CommentsController < ApplicationController
    before_action :set_article!  # 1:set_article! "Refactoring"
    before_action :set_comment!, except: :create  # 2:set_commint! "Refactoring"
                                 #Krome "create"
-   
+   before_action :authorize_comment! # Eto Podkluczenie "Awtorizacii"
+   after_action :verify_authorized 
+
     def update  # 5 Wnosim izmenrnie w redaktirowanie
         #@comment = @article.comments.find params[:id]--:set_comment!  # 2:set_commint! "Refactoring"
         if@comment.update(comment_update_params) # Obnowlaem s nowymi parametromi
@@ -72,6 +74,9 @@ class CommentsController < ApplicationController
       @comment = @article.comments.find params[:id]
     end
 
+    def authorize_comment!   # Eto Podkluczenie "Awtorizacii" :Role
+      authorize(@comment || Comment)
+     end
 end
 
 

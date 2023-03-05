@@ -6,9 +6,12 @@ class UserDecorator < ApplicationDecorator
 
     email.split('@')[0]
   end
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
+  
+  def gravatar(size: 30, css_class: '')
+    #email_hash = Digest::MDS.hexdigest email.strip.downcase
+    h.image_tag "https://www.gravatar.com/avatar/#{hash}.jpg?s=#{size}",
+                class: "rounded #{css_class}", alt: username#_or_email
+  end
   #   def created_at
   #     helpers.content_tag :span, class: 'time' do
   #       object.created_at.strftime("%a %m/%d/%y")
