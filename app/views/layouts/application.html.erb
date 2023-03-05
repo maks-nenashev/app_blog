@@ -3,28 +3,134 @@
   <head>
     <meta charset="utf-8">
     
-    <title>AppBlog</title>
+    <title><%= full_title(yield(:page_title)) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-                                  <!rails assets:precompile   --Pered zapuskom servera!>
+                     <!rails assets:precompile   --Pered zapuskom servera!>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 <body>
+ <div class="container mt-3">     <!t('menu.contact')>
+       
+ <header class="p-3 bg-dark text-white">
+   <div class="container-fluid">
+     <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start navbar navbar-dark">
+       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+         <button class="navbar-toggler"  text-align="left" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+           <span class="navbar-toggler-icon"></span>
+             </button>
+            </p>
+            <li><%= link_to t('menu.home'), root_path, class: 'nav-link px-2 text-white'%></li>
+            <li><%= link_to t('menu.articles'), articles_path, class: 'nav-link px-2 text-white'%></li>
+            <li><%= link_to t('menu.contacts'), new_contacts_path, class: 'nav-link px-2 text-white'%></li>
+               <% if policy([:user]).index? %> <! Podkluchenie Авторизация (Pundit)>
+            <li><%= link_to "Admin Panel", admin_users_path, class: 'nav-link px-2 text-white'%></li>
+               <%end%>
+            </ul>          <!Perewod Podkluchenie>
+		<!//////////////////////////////////////////////////////////////////////////////////////>		    
+           <!Podkluchenie Jazykow >
+            <ul class="nav col-12 col-lg-auto mb-2 mb-md-0">
+          <li class="dropdown">
+            <%= link_to '#', class: 'nav-link px-2 dropdown-toggle text-white',
+              data: {"bs-toggle": 'dropdown'} do %>
+              <%= tag.div '', class: "flag #{I18n.locale}-flag mt-1" %>
+              <%= t I18n.locale %>
+            <% end %>
+            
+            <ul class="dropdown-menu">
+              <% I18n.available_locales.each do |locale| %>
+                <li>
+                  <% if I18n.locale == locale %>
+                    <%= tag.span t(locale), class: 'dropdown-item' %>
+                  <% else %>
+                    <%= link_to t(locale), url_for(locale: locale),
+                      class: 'dropdown-item' %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </li>
+        </ul> 
+  <!/////////////////////////////////////////////////////////////////////////////////////>          
+            <!ul class="nav navbar-nav navbar-right"> <!Right>
+				   <ul class="nav col-12 col-lg-auto mb-2 mb-md-0">
+           <li class="dropdown">
+            <br>
+            <li>
+            <% if user_signed_in? %>
+            Hello! <%= current_user.username %>
+           <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+          <% else %>
+         <%= link_to "Sign In", new_user_session_path %>
+        <% end %>
+      </li>
+      </ul>                   <!Menu right>
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          
+          <li class="nav-item">               <!Home>
+            <a class="nav-link active" aria-current="page" href="#">
+            <%= link_to t('menu.home'), root_path, class: 'nav-link px-2 text-white'%></a>
+          </li>
+          <li class="nav-item">                <!Menu>                   
+            <a class="nav-link" href="#">
+            <%= link_to t('menu.articles'), articles_path, class: 'nav-link px-2 text-white'%></a>
+          </li>                                <!Contact>
+           <a class="nav-link active" aria-current="page" href="#"> 
+           <%= link_to t('menu.contacts'), new_contacts_path, class: 'nav-link px-2 text-white'%></a>
+          </li>
+          <a class="nav-link active" aria-current="page" href="#"> 
+          <% if policy([:user]).index? %> <! Podkluchenie Авторизация (Pundit)>
+            <%= link_to "Admin Panel", admin_users_path, class: 'nav-link px-2 text-white'%>
+          <%end%></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="#"></a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex mt-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-success" type="submit">Search</button>
+        </form>
+      </div>
+     </div>
+      </ul>      <!Ssylki Podkluchenie>
+    </nav>
+   </div>
+ </header>            
+              
+                  <!%= yield :main_menu%> <! Navi "Menu is _manu.html.erb">
 
-<nav>
-  <ul>
-    
-     <%= link_to "Home", root_path %> | <%= link_to "All Article", articles_path %> 
-  
-  </ul>
-</nav>
-    
-    <main>
-    <%= yield %>
+<main class="container mt-3"> <! Window Podtwerzdenija>
+      <% flash.each do |k, v| %>
+        <%= tag.div v, class: "alert alert-#{k}", role: 'alert' %>
+      <% end %>     
+      
+      <%= yield %>
     </main>
-
+             
+            <!Эта строка находится в config/initializers/devise.rb
+      config.navigational_formats = ['*/*', :html, :turbo_stream]  i potom wyrubaet server>
+                     <p class="notice"><%= notice %></p>
+                     <p class="alert"><%= alert %></p>
+         
   </body>
 </html>
 
