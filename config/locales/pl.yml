@@ -14,6 +14,7 @@ pl:
      home:   'Dom'
      articles: Wszystkie Artykuły
      contacts: Kontakt
+     admin: Panel Adminnistratora
   
   home:
     index:

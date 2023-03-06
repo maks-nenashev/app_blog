@@ -17,6 +17,7 @@ en:
      home: Home
      articles: Articles
      contacts: Contact
+     admin: Admin Panel
   
   home:
     index:
