@@ -4,6 +4,6 @@ set -o errexit
 
 bundle install
 yarn install
-bundle exec rails assets:precompile RAILS_ENV=production
-bundle exec rake rails assets:clean
-bundle exec rake rails db:migrate
+rails assets:precompile 
+rake rails assets:clean
+rake rails db:migrate
