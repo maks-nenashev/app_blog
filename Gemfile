@@ -81,3 +81,4 @@ gem 'draper' # Dekorator
 gem 'devise'
 gem 'pundit'
 gem 'sidekiq', '~> 6'
+gem 'uglifier'
