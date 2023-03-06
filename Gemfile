@@ -81,4 +81,4 @@ gem 'draper' # Dekorator
 gem 'devise'
 gem 'pundit'
 gem 'sidekiq', '~> 6'
-gem 'uglifier'
+gem 'uglifier' #Dla normalnoj raboty :rails assets:precompile
