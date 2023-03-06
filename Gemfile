@@ -90,3 +90,4 @@ gem 'pagy','~> 6.0.2'
 gem 'draper' # Dekorator
 gem 'devise'
 gem 'pundit'
+gem 'uglifier' #Dla normalnoj raboty :rails assets:precompile
