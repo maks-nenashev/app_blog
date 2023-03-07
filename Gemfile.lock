@@ -285,7 +285,7 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.2)
   rails-i18n
   rubyXL (~> 3.4)
-  rubyzip (~> 2.3.2)
+  rubyzip
   selenium-webdriver
   sidekiq (~> 6)
   sprockets-rails
