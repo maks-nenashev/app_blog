@@ -5,9 +5,9 @@ set -o errexit
 bundle install
 yarn install
 rails assets:precompile 
-rake rails assets:precompile
-rake rails assets:clean
-rake rails db:migrate
+#rake rails assets:precompile
+rails assets:clean
+rake db:migrate
 #!/usr/bin/env bash
 # exit on error
 #set -o errexit
