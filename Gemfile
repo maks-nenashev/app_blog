@@ -36,17 +36,33 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+gem 'rails-i18n'
+gem 'caxlsx','~> 3.1'
+gem 'caxlsx_rails','~> 0.6'
+gem "rubyzip","~> 2.3.2"
+gem 'rubyXL', '~> 3.4'
+gem 'activerecord-import', '~> 1.2'
+#//////////////////////////////////////////////////
+
+gem 'pagy','~> 6.0.2'
+
+gem 'draper' # Dekorator
+gem 'devise'
+gem 'pundit'
+gem 'sidekiq', '~> 6'
+gem 'uglifier' #Dla normalnoj raboty :rails assets:precompile
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
-  gem 'faker','~> 3.1.1'
+  
 group :development, :test do
   #gem 'faker','~> 3.1.1'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  
+  gem 'faker','~> 3.1.1'
 end
 
 group :development do
@@ -67,18 +83,3 @@ group :test do
   gem "webdrivers"
 end
 #//////////////////////////////////////////////////
-gem 'rails-i18n'
-gem 'caxlsx','~> 3.1'
-gem 'caxlsx_rails','~> 0.6'
-gem "rubyzip","~> 2.3.2"
-gem 'rubyXL', '~> 3.4'
-gem 'activerecord-import', '~> 1.2'
-#//////////////////////////////////////////////////
-
-gem 'pagy','~> 6.0.2'
-
-gem 'draper' # Dekorator
-gem 'devise'
-gem 'pundit'
-gem 'sidekiq', '~> 6'
-gem 'uglifier' #Dla normalnoj raboty :rails assets:precompile
