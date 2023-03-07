@@ -61,7 +61,7 @@ production:
   <<: *default
   
   database: mysite_production
-  #host:  - POSTGRES_HOST_AUTH_METHOD=trust
+  host:  - POSTGRES_HOST_AUTH_METHOD=trust
   username: mysite
   password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL']%>
