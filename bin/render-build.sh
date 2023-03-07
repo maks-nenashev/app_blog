@@ -15,4 +15,4 @@ rake db:create #RAILS_ENV=production
 #bundle install
 #bundle exec rake rails assets:precompile
 #bundle exec rake assets:clean
-#bundle exec rake db:migrate
+bundle exec rake db:migrate
