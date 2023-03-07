@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: app_blog_development
+  database: mysite_development
 
 #development:
  # <<: *default
@@ -61,7 +61,7 @@ production:
   <<: *default
   
   database: mysite_production
-  #username: mysite
-  #password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
+  username: mysite
+  password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL']%>
   #database: db/production.sqlite3
