@@ -14,7 +14,7 @@ default: &default
   encoding: unicode
   pool: 5
   timeout: 5000
-  username: postgres
+  username: mysite
   port: 5432
   host: Postgresql
   # For details on connection pooling, see Rails configuration guide
