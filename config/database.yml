@@ -18,13 +18,13 @@ default: &default
 
 development:
   <<: *default
-  #database: mysite_development
+  database: mysite_development
 
 #development:
  # <<: *default
-  database: db/development.postgresql
-  adapter: postgresql
-  encoding: unicode
+  #database: db/development.postgresql
+  #adapter: postgresql
+  #encoding: unicode
   ##database: database_name_development
   #database: mysite_development
   #pool: 5
@@ -54,7 +54,7 @@ test:
 
 production:
   <<: *default
-  database: mysite_production
+  #database: mysite_production
   #username: mysite
   #password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL']%>
