@@ -12,6 +12,7 @@ rake db:create #RAILS_ENV=production
 # exit on error
 #set -o errexit
 
+
 #bundle install
 #bundle exec rake rails assets:precompile
 #bundle exec rake assets:clean
