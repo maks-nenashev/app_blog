@@ -16,7 +16,7 @@ default: &default
   timeout: 5000
   username: mysite
   port: 5432
-  host:  - POSTGRES_HOST_AUTH_METHOD=trust
+  
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
