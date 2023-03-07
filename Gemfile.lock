@@ -279,13 +279,13 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   pagy (~> 6.0.2)
-  pg (~> 1.4.3)
+  pg (~> 1.4, >= 1.4.6)
   puma (~> 5.0)
   pundit
   rails (~> 7.0.4, >= 7.0.4.2)
   rails-i18n
   rubyXL (~> 3.4)
-  rubyzip
+  rubyzip (~> 2.3, >= 2.3.2)
   selenium-webdriver
   sidekiq (~> 6)
   sprockets-rails

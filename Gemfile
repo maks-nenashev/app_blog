@@ -11,7 +11,8 @@ gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
 #gem "sqlite3", "~> 1.4"
-gem 'pg','~> 1.4.3'
+gem 'pg', '~> 1.4', '>= 1.4.6'
+#gem 'pg'#,'~> 1.4.3'
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
@@ -39,7 +40,7 @@ gem "bootsnap", require: false
 gem 'rails-i18n'
 gem 'caxlsx','~> 3.1'
 gem 'caxlsx_rails','~> 0.6'
-gem "rubyzip"
+gem 'rubyzip', '~> 2.3', '>= 2.3.2'
 gem 'rubyXL', '~> 3.4'
 gem 'activerecord-import', '~> 1.2'
 #//////////////////////////////////////////////////
