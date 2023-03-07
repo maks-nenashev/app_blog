@@ -28,7 +28,7 @@ development:
   ##database: database_name_development
   #database: mysite_development
   #pool: 5
-  host: localhost
+  #host: localhost
   #username: postgres_user_name
   #password: postgres_password
 # Warning: The database defined as "test" will be erased and
