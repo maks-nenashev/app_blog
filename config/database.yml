@@ -18,7 +18,7 @@ default: &default
 
 development:
   <<: *default
-  database: mysite_development
+  database: app_blog_development
 
 #development:
  # <<: *default
@@ -36,7 +36,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: mysite_test
+  database: app_blog_test
  #<<: *default
   #database: my_app_test
   #host: <%= ENV["POSTGRES_HOST"] %>
