@@ -40,8 +40,8 @@ test:
  <<: *default
   database: my_app_test
   host: <%= ENV["POSTGRES_HOST"] %>
-  username: <%= ENV["POSTGRES_USER"] %>
-  password: <%= ENV["POSTGRES_PASSWORD"] %>
+  #username: <%= ENV["POSTGRES_USER"] %>
+ # password: <%= ENV["POSTGRES_PASSWORD"] %>
 #test:
 #  <<: *default
   #database: db/test.sqlite3
@@ -55,7 +55,7 @@ test:
 production:
   <<: *default
   database: mysite_production
-  username: mysite
-  password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
+  #username: mysite
+  #password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL']%>
   #database: db/production.sqlite3
