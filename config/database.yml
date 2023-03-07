@@ -24,7 +24,7 @@ default: &default
 development:
   <<: *default
   database: mysite_development
-
+host:  - POSTGRES_HOST_AUTH_METHOD=trust
 #development:
  # <<: *default
   #database: db/development.postgresql
@@ -33,7 +33,7 @@ development:
   ##database: database_name_development
   #database: mysite_development
   #pool: 5
-  #host: localhost
+ # host: localhost
   #username: postgres_user_name
   #password: postgres_password
 # Warning: The database defined as "test" will be erased and
@@ -61,7 +61,7 @@ production:
   <<: *default
   
   database: mysite_production
-  host:  - POSTGRES_HOST_AUTH_METHOD=trust
+  #host:  - POSTGRES_HOST_AUTH_METHOD=trust
   username: mysite
   password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL']%>
