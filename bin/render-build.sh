@@ -6,7 +6,8 @@ bundle install
 yarn install
 rails assets:precompile 
 rails assets:clean
-rake db:migrate
+#rake db:migrate
+bundle exec rake db:migrate RAILS_ENV=production
 #!/usr/bin/env bash
 # exit on error
 #set -o errexit
