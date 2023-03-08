@@ -4,6 +4,7 @@ set -o errexit
 
 
 bundle install
-bundle exec rails rake assets:precompile
-bundle exec rails rake assets:clean
-bundle exec rails rake db:migrate
+bundle exec rails assets:precompile
+bundle exec rails assets:clean
+bundle exec rails db:migrate
+bin/dev
