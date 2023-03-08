@@ -123,6 +123,7 @@ GEM
     execjs (2.8.1)
     faker (3.1.1)
       i18n (>= 1.8.11, < 2)
+    foreman (0.87.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     htmlentities (4.3.4)
@@ -276,6 +277,7 @@ DEPENDENCIES
   devise
   draper
   faker (~> 3.1.1)
+  foreman
   jbuilder
   jsbundling-rails
   pagy (~> 6.0.2)
