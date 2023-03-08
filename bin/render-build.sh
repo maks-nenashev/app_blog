@@ -16,4 +16,4 @@ rails assets:clean
 #bundle install
 #bundle exec rake rails assets:precompile
 #bundle exec rake assets:clean
-bundle exec rake db:migrate
+rake db:migrate
