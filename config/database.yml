@@ -2,7 +2,7 @@
 default: &default
   adapter: db/postgresql
   encoding: unicode
-  host: postgres
+  host: db_host = Flase
   #host: <%= ENV["POSTGRES_HOST"] %>
   #user: <%= ENV["POSTGRES_USER"] %>
   #password: <%= ENV["POSTGRES_PASSWORD"] %>
