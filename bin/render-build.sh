@@ -7,4 +7,3 @@ bundle install
 rails assets:precompile
 rails assets:clean
 rails db:migrate
-bin/dev
