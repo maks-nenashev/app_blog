@@ -18,40 +18,19 @@
    <div class="container-fluid">
      <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start navbar navbar-dark">
        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <a class="navbar-brand" href="#">My first Blog</a> 
-            <li><!%= link_to t('menu.home'), root_path, class: 'nav-link px-2 text-white'%></li>
-            <li><!%= link_to t('menu.articles'), articles_path, class: 'nav-link px-2 text-white'%></li>
+         <button class="navbar-toggler"  text-align="left" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+           <span class="navbar-toggler-icon"></span>
+             </button>
+            </p>
+            <li><%= link_to t('menu.home'), root_path, class: 'nav-link px-2 text-white'%></li>
+            <li><%= link_to t('menu.articles'), articles_path, class: 'nav-link px-2 text-white'%></li>
             <li><!%= link_to t('menu.contacts'), new_contacts_path, class: 'nav-link px-2 text-white'%></li>
-               <!% if policy([:user]).index? %> <! Podkluchenie Авторизация (Pundit)>
-            <li><!%= link_to "Admin Panel", admin_users_path, class: 'nav-link px-2 text-white'%></li>
-               <!%end%>
-            </ul>          
-	
-                               <!Menu right>
-    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"></h5>
-            <!button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>   
-             <!/div>
-  <!/////////////////////////////////////////////////////////////////////////////////////>          
-                       <!Perewod Podkluchenie> 
-            <!ul class="nav navbar-nav navbar-right"> <!Right>
-				  <ul class="nav col-12 col-lg-auto mb-2 mb-md-0">
-           <li class="dropdown">
-            <br>
-            <li>
-            <% if user_signed_in? %>
-            Hello! <%= current_user.username %>
-           <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-          <% else %>
-         <%= link_to "Sign In", new_user_session_path %>
-        <% end %>
-      </li>
-      </ul>            
-    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>  
-   <!////////////////////////////////////////////////////////////////////////////////////>		    
-                       <!Podkluchenie Jazykow >
+               <% if policy([:user]).index? %> <! Podkluchenie Авторизация (Pundit)>
+            <li><%= link_to "Admin Panel", admin_users_path, class: 'nav-link px-2 text-white'%></li>
+               <%end%>
+            </ul>          <!Perewod Podkluchenie>
+		<!//////////////////////////////////////////////////////////////////////////////////////>		    
+           <!Podkluchenie Jazykow >
             <ul class="nav col-12 col-lg-auto mb-2 mb-md-0">
           <li class="dropdown">
             <%= link_to '#', class: 'nav-link px-2 dropdown-toggle text-white',
@@ -74,9 +53,27 @@
             </ul>
           </li>
         </ul> 
-           
-           <div class="offcanvas-body">
-             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+  <!/////////////////////////////////////////////////////////////////////////////////////>          
+            <!ul class="nav navbar-nav navbar-right"> <!Right>
+				   <ul class="nav col-12 col-lg-auto mb-2 mb-md-0">
+           <li class="dropdown">
+            <br>
+            <li>
+            <% if user_signed_in? %>
+            Hello! <%= current_user.username %>
+           <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+          <% else %>
+         <%= link_to "Sign In", new_user_session_path %>
+        <% end %>
+      </li>
+      </ul>                   <!Menu right>
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           
           <li class="nav-item">               <!Home>
             <a class="nav-link active" aria-current="page" href="#">
@@ -91,7 +88,7 @@
           </li>
           <a class="nav-link active" aria-current="page" href="#"> 
           <% if policy([:user]).index? %> <! Podkluchenie Авторизация (Pundit)>
-            <%= link_to t("menu.admin"), admin_users_path, class: 'nav-link px-2 text-white'%>
+            <%= link_to "Admin Panel", admin_users_path, class: 'nav-link px-2 text-white'%>
           <%end%></a>
           </li>
           <li class="nav-item dropdown">
@@ -112,12 +109,9 @@
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-success" type="submit">Search</button>
         </form>
-        </div>
-       </div>
+      </div>
+     </div>
       </ul>      <!Ssylki Podkluchenie>
-     <button class="navbar-toggler"  text-align="left" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-           <span class="navbar-toggler-icon"></span>
-             </button>
     </nav>
    </div>
  </header>            
