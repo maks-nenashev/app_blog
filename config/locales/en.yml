@@ -25,7 +25,7 @@ en:
              In this tutorial project, thanks to my efforts, 
              polymorphic relationships between entities were implemented! 
              The project is implemented on Ruby 3.2 and Rails 7.0.4 
-             I used gems like "devase" "i18n" "rubyzip" "enum" "pagy" The project is not fully implemented! 
+             I used gems like "devise" "i18n" "rubyzip" "enum" "pagy" The project is not fully implemented! 
              This is my first step! Thank you!!!!!
   
   articles:
