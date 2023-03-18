@@ -19,11 +19,11 @@ pl:
   home:
     index:
       title: 'Witamy!'
-      text: Cześć wszystkim! Mam na imię Maxsym! 
+      text: Cześć wszystkim! Mam na imię Maksym! 
             Jestem początkującym programistą Ruby on Rails! W tym projekcie tutorialowym, 
             dzięki moim staraniom, zostały zaimplementowane relacje polimorficzne pomiędzy bytami!
             Projekt jest realizowany na Ruby ​​3.2 i Rails 7.0.4 
-            Użyłem perełek gemy "devase" "i18n" "rubyzip" "pagy" Projekt nie jest w pełni zrealizowany! 
+            Użyłem perełek gemy "devase" "i18n" "rubyzip" "enum" "pagy" Projekt nie jest w pełni zrealizowany! 
             To mój pierwszy krok! Dziękuję!!!!!
   
   articles:
