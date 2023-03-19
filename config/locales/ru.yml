@@ -10,6 +10,15 @@ ru:
         text: Текст
       comment:
         body: Текст
+ 
+  devise:
+     sessions:
+      new:
+         Log in: Авторизоваться
+     shared:
+      links:
+         reg: Регистрация
+         
   menu:
      home:   'Главная'
      articles: Все Cтатьи

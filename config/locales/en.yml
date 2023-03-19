@@ -12,7 +12,18 @@ en:
         body: Text
       tweet:
         body: Text
-
+      devise:
+        body: Text
+  
+  devise:
+     sessions:
+      new:
+         Log in: Log in
+     shared:
+      links:
+         reg: Sing in
+  
+  
   menu:
      home: Home
      articles: Articles
