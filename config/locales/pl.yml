@@ -10,6 +10,16 @@ pl:
         text: Теkst 
       comment:
         body: Теkst
+  
+  devise:
+     sessions:
+      new:
+         Log in: Zaloguj sie
+     shared:
+      links:
+         reg: Rejestracja
+  
+  
   menu:
      home:   'Dom'
      articles: Wszystkie Artykuły

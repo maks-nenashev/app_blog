@@ -13,7 +13,17 @@ en:
       tweet:
         body: Text
       devise:
-        reg: Registration
+        body: Text
+  
+  devise:
+     sessions:
+      new:
+         Log in: Log in
+     shared:
+      links:
+         reg: Sing in
+  
+  
   menu:
      home: Home
      articles: Articles
