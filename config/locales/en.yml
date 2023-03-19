@@ -12,7 +12,8 @@ en:
         body: Text
       tweet:
         body: Text
-
+      devise:
+        reg: Registration
   menu:
      home: Home
      articles: Articles
