@@ -33,7 +33,7 @@ pl:
             Jestem początkującym programistą Ruby on Rails! W tym projekcie tutorialowym, 
             dzięki moim staraniom, zostały zaimplementowane relacje polimorficzne pomiędzy bytami!
             Projekt jest realizowany na Ruby ​​3.2 i Rails 7.0.4 
-            Użyłem perełek gemy "devise" "i18n" "rubyzip" "enum" "pagy" Projekt nie jest w pełni zrealizowany! 
+            Użyłem perełek gemy "devise" "i18n" "rubyzip" "enum" "pundit" "pagy" Projekt nie jest w pełni zrealizowany! 
             To mój pierwszy krok! Dziękuję!!!!!
   
   articles:
