@@ -83,6 +83,9 @@ gem "rubyzip","~> 2"
 gem 'rubyXL', '~> 3.4'
 gem 'activerecord-import', '~> 1.2'
 #//////////////////////////////////////////////////
+#gem 'sidekiq', '~> 6'
+#gem "redis" , "~> 5.0"  # Клиент Redis для Ruby
+#gem "redis-actionpack" , "~> 5.3"  # Хранилище сеансов Redis для ActionPack
 #gem 'kaminari'
 #gem 'kaminari-mongoid'
 gem 'pagy','~> 6.0.2'

@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do #Podkluchenie Perewoda
 #///////////////////////////////////////////////////////////////////////////
@@ -30,7 +31,7 @@ devise_for :users
     resource :contacts, only: [:new,:create,:show], path_names: { :new => '' }
                                               #Etot code dla 'contacts' => 'contacts#new'
                                             # Chtoby "contacts#new" otkrywalsa w "contacts"
-
+                                            
  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
    end
  # Defines the root path route ("/")
