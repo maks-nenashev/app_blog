@@ -1,7 +1,7 @@
 class Article < ApplicationRecord
 
-    validates :title, presence: true #walidacija
-    validates :text, presence: true
+    validates :title, presence: true, length: {minimum: 2} #walidacija
+    validates :text, presence: true#, length: {minimum: 2}
 
     has_many :comments  # Podkluchenie "Comments" Rukami delaem
                                                  # has_many :comments, dependent: :nullify
