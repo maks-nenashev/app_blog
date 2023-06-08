@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
  def show  # 3: Wywodim bazu po :ID
    # @article = Article.find params[:id]    :before_action :set_question! "Refactoring"
      @comment = @article.comments.build       # Podkluchenie  "Commint"
-     #@comments = @article.comments.order created_at: :desc  # Podkluchenie  "Commint"
+     @comments = @article.comments.order created_at: :desc  # Podkluchenie  "Commint"
   end
     
 
