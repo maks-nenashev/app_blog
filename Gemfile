@@ -45,7 +45,7 @@ gem 'rubyzip', '~> 2.3', '>= 2.3.2'
 gem 'rubyXL', '~> 3.4'
 gem 'activerecord-import', '~> 1.2'
 #//////////////////////////////////////////////////
-
+gem 'carrierwave', '>= 3.0.0.beta', '< 4.0'
 gem 'pagy','~> 6.0.2'
 
 gem 'draper' # Dekorator
