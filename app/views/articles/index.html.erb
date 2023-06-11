@@ -10,30 +10,20 @@
 <%= pagination @pagy %>   <!Pagy "gem pagy" razbiw na stranicy Podkluchenie>
 </p>
 <% @articles.each do |article| %>
-     <article class="card mt-3">
+     <!article class="card mt-3">
      
-     <section class="card-header">
+     <!section class="card-header">
       <h4><%= article.user.gravatar%>
       <%= article.user.username%></h4>  <!Connect "usera!!">
-      </section>
+      <!/section>
   
   <div class="card-body">
-  <h4>
-  <%= article.title %>
-  </h4>
-              
-  <h4 class="my-2">
-  <%= article.text %>
-  </h4>
-        <section class="card-text">
-           <! Podkluchenie time pod soobzheniem!>
+
+                   <! Podkluchenie time pod soobzheniem!>
   <time datetime="<%= article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
   <%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
   </time>  
-           </section>            
-   <hr>
-                     <!Ssylka na statью>
-  <p><!%= link_to "New article", new_article_path(article),class: "btn btn-primary" %> 
+           <!/section> 
      <%= link_to t('.show_article'), article_path(article),class: "btn btn-outline-primary btn-sm"%>  
          <% if policy(article).edit?%> <! Podkluchenie Авторизация (Pundit)>
      <%= link_to t('.edit_article'), edit_article_path(article),class: "btn btn-outline-secondary btn-sm"%> 
@@ -41,12 +31,25 @@
          <% if policy(article).destroy?%> <! Podkluchenie Авторизация (Pundit)>
      <%= link_to t('.delete_article'), article_path(article), data: {'turbo-method': :delete,'turbo-confirm': 
      'Are you sure?'}, class:"btn btn-outline-danger btn-sm"%>
-         <%end%>          
+         <%end%>    
+  <h5>
+  <%= article.title %>
+  </h5>
+  <p class="my-2">
+  <%= image_tag article.avatar.url(:thumb), class: 'img-thumbnail thumb' if article.avatar? %>            
+  <!h4>
+  <%= article.text %>
+  <!/h4>
+  </p>             
+   <hr>
+                     <!Ssylka na statью>
+  <p><!%= link_to "New article", new_article_path(article),class: "btn btn-primary" %> 
+          
                        <! rails routes>                         <!Eto JS window "Udalit post">
   
             
      </div>
-   </article>
+   <!/article>
 <% end %>
 <br>
 <!%== pagy_bootstrap_nav @pagy %> <!Pagy "gem pagy" razbiw na stranicy Podkluchenie>

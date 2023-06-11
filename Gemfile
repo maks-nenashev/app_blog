@@ -86,7 +86,7 @@ gem 'activerecord-import', '~> 1.2'
 #gem 'kaminari'
 #gem 'kaminari-mongoid'
 gem 'pagy','~> 6.0.2'
-
+gem 'carrierwave', '>= 3.0.0.beta', '< 4.0'
 gem 'draper' # Dekorator
 gem 'devise'
 gem 'pundit'
