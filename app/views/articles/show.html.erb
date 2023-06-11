@@ -6,7 +6,7 @@
 
  <p class="mb-2"><%= @article.title %></p>
  
- <%= image_tag(@article.avatar_url) if @article.avatar? %>
+  <%= image_tag @article.avatar_url(:large), class: 'img-show' if @article.avatar? %>
  
  <p class="lead my-3"><%= @article.text %></p>
   
