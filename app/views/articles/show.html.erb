@@ -1,47 +1,61 @@
+<% provide :page_title, 'Article has been created!!!' %> <!Podpis w ikonke "Kakaja stranica">
+
 <!3 Wywodim bazu po ID>
-<h1>Thanks You!</h1>
-<h2>Article has been created!!!</h2>
+<h3>Thanks You!</h3>
+<h4>Article has been created!!!</h4>
 
- <h3><%= @article.title %></h3>
-
- <h3><%= @article.text %></h3>
-
+ <p class="mb-2"><%= @article.title %></p>
+ 
+ <%= image_tag(@article.avatar_url) if @article.avatar? %>
+ 
+ <p class="lead my-3"><%= @article.text %></p>
+  
+             
              <! Podkluchenie time pod soobzheniem!>
   <time datetime="<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
   <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
   </time>  
 
 <!/////////////////////////////////////////////////////////////////////////////////////////>
-<h2>Add comments</h2>
+  <hr class="my-3">
+<h4> Write youre Comment </h4>
+  
+                      <!Dobawil Comment>
+ <%= form_with model: [@article, @comment] do |f| %>
 
-<%= 'No comments!' if @article.comments.empty? %>
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :body %>
+    </div>
 
-<% @article.comments.each do |comment| %>
-<p>
-  <i><strong>Author: </strong><%= comment.author %></i></br>
-  <%= comment.body %>
- </p>
-<!hr>
+    <div class="col-sm-10">                     <! Walidacija CSS ---required: true, minlength:2,>
+      <%= f.text_area :body, class: 'form-control', required: true, minlength:2%>
+    </div>
+  </div>
 
+  <%= f.submit "Submit comment!", class: 'btn btn-primary' %>
 <% end %>
+<!/////////////////////////////////////////////////////////////////////////////////////>
+<h4 class="mt-5">Comment!</h4>
 
-<!/////////////////////////////////////////////////////////////////////////////////////////>
-<h2>Comments</h2>
-<p>                  <!Podkluchenie  "comments">
-    <%= form_for ([@article, @article.comments.build]) do |f| %> 
-  <p>
-    <%= f.label :author %>  <!%= current_user.username = f.text_field :author %>
-    <%= f.text_field :author %>
-    
-  </p>
-  <p>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </p>
-
-  <p><%= f.submit %></p>
-
- <% end %>
-</p>
-
-<%= link_to "Show all articles!", articles_path %> <!Prawelnaja ssylka>
+<% @comments.each do |comment| %>
+  <article class="mb-3 card" id="comment-<%= comment.id %>">
+      <div class="card-body">
+           <! Podkluchenie time pod soobzheniem!>
+  <time datetime="<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
+  <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+  </time>  
+         
+         <section class="card-text">
+                  <p>
+                    <%= comment.body %>
+                  </p>
+         </section>
+              
+ 
+ <%= link_to  "Edit article", edit_article_comment_path(@article,comment),class: "btn btn-secondary btn-sm"%> 
+ <%= link_to 'Delete', article_comment_path(@article, comment), class: 'btn btn-danger btn-sm',
+      data: {method: :delete, confirm: "Are you sure?"} %>
+   </div>
+ </article>
+<%end%>

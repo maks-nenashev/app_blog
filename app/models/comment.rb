@@ -1,3 +1,3 @@
 class Comment < ApplicationRecord
-   belongs_to :article  #: Podkluchenie "Article"
+  belongs_to :article
 end
