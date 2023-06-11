@@ -24,6 +24,8 @@ ru:
      articles: Все Cтатьи
      contacts: Контакт
      admin: Панель Админестратора
+     sing_in:  Регистрация
+     sign_out:  Выйти
   
   home:
     index:
