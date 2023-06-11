@@ -1,0 +1,75 @@
+ru:
+  en: Англиский
+  ru: Русский
+  pl: Польскй
+
+  activerecord:
+    attributes:
+      article:
+        title: Статья
+        text: Текст
+      comment:
+        body: Текст
+ 
+  devise:
+     sessions:
+      new:
+         Log in: Авторизоваться
+     shared:
+      links:
+         reg: Регистрация
+         
+  menu:
+     home:   'Главная'
+     articles: Все Cтатьи
+     contacts: Контакт
+     admin: Панель Админестратора
+  
+  home:
+    index:
+      title: 'Добро пожаловать!'
+      new: Новая статья
+      text: Привет всем! Меня зовут Максим! Я Начинающий Ruby on Rails разроботчик! 
+            В данном обучающем проэкте благодоря моим стараниям были реализованы полиморфные отношения между сущностями! 
+            Проект реализован на Ruby 3.2 и Rails 7.0.4 
+            Я использовал такие гемы как "devise" "i18n" "enum" "pundit" "rubyzip" "pagy" 
+            Проект не реализовнан до конца! Это мой первый шаг! Спасибо!!!!!
+  
+  articles:
+      index:
+       title: 'Список статьей!'
+            # Button
+       new: Новая статья 
+       show_article: Показать статью
+       edit_article: Редактировать
+       delete_article: Удалить
+      new: 
+       title: 'Новая Статья!'
+       submit_article: Новая статья #botton
+      form:    # _form.html.erb   -- "edit"
+       title: 'Редактировать!'
+       submit_article: Редактировать
+      show:
+       thanks: 'Спасибо!'
+       create: 'Статья создана'
+       write: 'Напишите комментарий!'
+       comment: 'Коментарий'
+             #Button
+       submit_comment: 'Написать' 
+       edit_comment: Редактировать
+       delete_comment: Удалить
+ 
+      create:
+       success: Статья созданна! #Article created!
+      update:
+       success: Статья изменина!
+
+  comments:
+      form: 
+       title: Редактировать коментарий! 
+       submit_button: Редактировать # Button   
+
+      tweets:
+       create: 
+       success: Коментарий создан!
+       

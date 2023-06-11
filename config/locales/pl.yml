@@ -1,0 +1,78 @@
+pl:
+  en: Angelski
+  ru: Ruski
+  pl: Polski
+
+  activerecord:
+    attributes:
+      article:
+        title: Artykuł
+        text: Теkst 
+      comment:
+        body: Теkst
+  
+  devise:
+     sessions:
+      new:
+         Log in: Zaloguj sie
+     shared:
+      links:
+         reg: Rejestracja
+  
+  
+  menu:
+     home:   'Dom'
+     articles: Wszystkie Artykuły
+     contacts: Kontakt
+     admin: Panel Adminnistratora
+  
+  home:
+    index:
+      title: 'Witamy!'
+      text: Cześć wszystkim! Mam na imię Maksym! 
+            Jestem początkującym programistą Ruby on Rails! W tym projekcie tutorialowym, 
+            dzięki moim staraniom, zostały zaimplementowane relacje polimorficzne pomiędzy bytami!
+            Projekt jest realizowany na Ruby ​​3.2 i Rails 7.0.4 
+            Użyłem perełek gemy "devise" "i18n" "rubyzip" "enum" "pundit" "pagy" Projekt nie jest w pełni zrealizowany! 
+            To mój pierwszy krok! Dziękuję!!!!!
+  
+  articles:
+      index:
+       title: 'Lista artykułów!'
+            #Knopka 
+       new: Nowy artykuł  
+       show_article: Pokaż artykuł
+       edit_article: Edytuj artykuł
+       delete_article: Usunąć
+      
+      new: 
+       title: 'Nowy artykuł!'
+       submit_article: Nowy artykuł # Button
+      form: # _form.html.erb   -- "edit"
+       title: 'Edytować!'
+       submit_article: Edytować  # Button
+      show:
+       thanks: 'Dziękuję!'
+       create: 'Artykuł został utworzony'
+       write: 'Napisz komentarz!'
+       comment: 'Komentarz!'
+                # button
+       submit_comment: 'Napisz' 
+       edit_comment: Edytuj komentarz
+       delete_comment: Usunąć
+
+      create:
+       success: Artykuł został utworzony!
+      update:
+       success: Artykuł został zredagowany!
+
+
+  comments:
+      form: 
+       title: Edytować Komentarz!
+       submit_button: Edytować  # Button
+
+      tweets:
+       create: 
+       success: Komentarz został utworzony!
+       
