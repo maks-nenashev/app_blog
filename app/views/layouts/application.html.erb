@@ -61,9 +61,9 @@
             <li>
             <% if user_signed_in? %>
             Hello! <%= current_user.username %>
-           <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+           <%= link_to t('menu.sign_out'), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary btn-sm"%>
           <% else %>
-         <%= link_to "Sign In", new_user_session_path %>
+         <%= link_to t('menu.sign_in'), new_user_session_path, class: "btn btn-outline-primary btn-sm" %>
         <% end %>
       </li>
       </ul>                   <!Menu right>
