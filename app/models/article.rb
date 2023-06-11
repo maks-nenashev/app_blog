@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
-
+    mount_uploader :avatar, AvatarUploader # Zagruzka Fotak
+    
     validates :title, presence: true, length: {minimum: 2} #walidacija
     validates :text, presence: true#, length: {minimum: 2}
 
