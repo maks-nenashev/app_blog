@@ -22,13 +22,15 @@ en:
      shared:
       links:
          reg: Sing in
-  
-  
+       
+       
   menu:
      home: Home
      articles: Articles
      contacts: Contact
      admin: Admin Panel
+     sing_in:  Sing in
+     sign_out:  Sign Out
   
   home:
     index:

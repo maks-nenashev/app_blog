@@ -25,6 +25,8 @@ pl:
      articles: Wszystkie Artykuły
      contacts: Kontakt
      admin: Panel Adminnistratora
+     sing_in:  Zaloguj sie
+     sign_out: Wylogować się
   
   home:
     index:
