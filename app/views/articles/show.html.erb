@@ -22,8 +22,8 @@
       <%end%>
   
  <h4><%= @article.title %></h4>
-  <%= image_tag @article.avatar_url(:large), class: 'img-show' if @article.avatar? %>
- <p class="lead my-3"><%= @article.text %></p>
+<%= image_tag @article.avatar_url(:large), class: 'img-show' if @article.avatar? %>
+ <p><%= @article.text %></p>
  
      <br> <!br>               <!Dobawlenie okna>
    <%= render 'tweets/commentable', commentable: @article, tweet: @tweet,  
