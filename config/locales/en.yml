@@ -60,10 +60,10 @@ en:
       show:
        thanks: 'Thanks!'
        create: 'Article has been created!!!'
-       write: 'Write youre Comment '
+       write: 'Create topic!'
        comment: 'Comment'
              # button
-       submit_comment: 'Comment' 
+       submit_comment: 'Create' 
        edit_comment: Edit comment
        delete_comment: Delete   
 
