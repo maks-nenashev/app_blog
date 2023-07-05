@@ -32,14 +32,14 @@
      <%= link_to t('.delete_article'), article_path(article), data: {'turbo-method': :delete,'turbo-confirm': 
      'Are you sure?'}, class:"btn btn-outline-danger btn-sm bi bi-trash3-fill"%>
          <%end%>    
+       <hr>
   <h5>
   <%= article.title %>
   </h5>
   <p class="my-2">
   <%= image_tag article.avatar.url(:thumb), class: 'img-thumbnail thumb' if article.avatar? %>            
-  <!h4>
-  <%= article.text %>
-  <!/h4>
+  </p>
+  <p><%= article.text %>
   </p>             
    <hr>
                      <!Ssylka na statью>
@@ -52,6 +52,5 @@
    <!/article>
 <% end %>
 <br>
-<!%== pagy_bootstrap_nav @pagy %> <!Pagy "gem pagy" razbiw na stranicy Podkluchenie>
  <%= pagination @pagy %>  <!Pagy "gem pagy" razbiw na stranicy Podkluchenie>
  <br>
