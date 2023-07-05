@@ -1,14 +1,14 @@
 class ArticlePolicy < ApplicationPolicy
     def create?
-        !user.guest?
+      true#!user.guest?
     end
   
     def update?                                    # guest_user.rb
-      user.admin_role? || user.moderator_role? || user.author?(record)
+      true#user.admin_role? || user.moderator_role? || user.author?(record)
     end
   
     def destroy?
-      user.admin_role? || user.author?(record)
+      true#user.admin_role? || user.author?(record)
     end
   
     def index?
