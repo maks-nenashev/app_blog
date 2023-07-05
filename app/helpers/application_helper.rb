@@ -26,7 +26,7 @@ module ApplicationHelper
       #end
           # Wywodim nadpis w okne
       def full_title(page_title = "")
-        base_title = "Maksym"
+        base_title = "Nenashev"
         if page_title.present?
           "#{page_title} | #{base_title}"
         else
