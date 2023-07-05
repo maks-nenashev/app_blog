@@ -14,15 +14,16 @@
   </time>  
      
      <% if policy(@article).edit?%> <! Podkluchenie Авторизация (Pundit)>
-   <%= link_to ('Edit'), edit_article_path(@article),class: "btn btn-secondary btn-sm"%> 
+   <%= link_to ('Edit'), edit_article_path(@article),class: "btn btn-secondary btn-sm bi bi-pencil-square"%> 
       <%end%>
       <% if policy(@article).destroy?%> <! Podkluchenie Авторизация (Pundit)>
    <%= link_to ('Delete'), article_path(@article), data: {'turbo-method': :delete,'turbo-confirm': 
-     'Are you sure?'}, class:"btn btn-danger btn-sm"%>
+     'Are you sure?'}, class:"btn btn-danger btn-sm bi bi-trash3-fill"%>
       <%end%>
-  
+  <hr>
  <h4><%= @article.title %></h4>
-<%= image_tag @article.avatar_url(:large), class: 'img-show' if @article.avatar? %>
+<%= image_tag @article.avatar_url(:large), class: 'img-thumbnail thumb' if @article.avatar? %>
+ <br>
  <p><%= @article.text %></p>
  
      <br> <!br>               <!Dobawlenie okna>
