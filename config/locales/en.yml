@@ -61,7 +61,7 @@ en:
        thanks: 'Thanks!'
        create: 'Article has been created!!!'
        write: 'Create topic!'
-       comment: 'Comment'
+       comment: 'Topic'
              # button
        submit_comment: 'Create' 
        edit_comment: Edit comment
