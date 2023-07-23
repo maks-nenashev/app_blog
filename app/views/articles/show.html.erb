@@ -36,8 +36,8 @@
  
     <a class="btn btn-primary d-grid gap-2 col-6 mx-auto" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Create Topic
-            </a>
-   <ul class="dropdown-menu dropdown-menu-dark">
+    </a>
+   <ul class="dropdown-menu dropdown-menu-dark"  data: {'bs-toggle': 'collapse'}
                       <!Dobawil Comment>
  <%= form_with model: [@article, @comment] do |f| %>
 
@@ -50,7 +50,7 @@
       <%= f.text_area :body, class: 'form-control', required: true, minlength:2%>
     </div>
   </div>
-<div class="d-grid gap-2 col-6 mx-auto">
+ <div class="d-grid gap-2 col-6 mx-auto">
 <%= f.submit t('.submit_comment'), class: 'btn btn-primary' %>
  </div>
  <% end %>
