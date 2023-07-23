@@ -55,13 +55,13 @@
                        <!Podkluchenie Jazykow >
             <ul class="nav col-12 col-lg-auto mb-2 mb-md-0">
           <li class="dropdown">
-            <%= link_to '#', class: 'nav-link px-2 dropdown-toggle text-dark',
+            <%= link_to '#', class: 'nav-link px-2',
               data: {"bs-toggle": 'dropdown'} do %>
               <%= tag.div '', class: "flag #{I18n.locale}-flag mt-1" %>
               <%= t I18n.locale %>
             <% end %>
             
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu dropdown-menu-dark">
               <% I18n.available_locales.each do |locale| %>
                 <li>
                   <% if I18n.locale == locale %>
