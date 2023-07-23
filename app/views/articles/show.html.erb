@@ -14,10 +14,10 @@
   </time>  
      
      <% if policy(@article).edit?%> <! Podkluchenie Авторизация (Pundit)>
-   <%= link_to ('Edit'), edit_article_path(@article),class: "btn btn-secondary btn-sm bi bi-pencil-square"%> 
+   <%= link_to t('.edit_article'), edit_article_path(@article),class: "btn btn-secondary btn-sm bi bi-pencil-square"%> 
       <%end%>
       <% if policy(@article).destroy?%> <! Podkluchenie Авторизация (Pundit)>
-   <%= link_to ('Delete'), article_path(@article), data: {'turbo-method': :delete,'turbo-confirm': 
+   <%= link_to t('.delete_article'), article_path(@article), data: {'turbo-method': :delete,'turbo-confirm': 
      'Are you sure?'}, class:"btn btn-danger btn-sm bi bi-trash3-fill"%>
       <%end%>
   <hr>
@@ -34,11 +34,11 @@
   <hr class="my-3">
 <!h4><!%= t'.write'%></h4>
  
-    <a class="btn btn-primary d-grid gap-2 col-6 mx-auto" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Create Topic
+    <a class="btn btn-primary d-grid gap-2"" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             <%= t('.Create Topic')%>
     </a>
    <ul class="dropdown-menu dropdown-menu-dark"  data: {'bs-toggle': 'collapse'}
-                      <!Dobawil Comment>
+                      <!DobawilComment>
  <%= form_with model: [@article, @comment] do |f| %>
 
   <div class="mb-3 row">
@@ -51,7 +51,7 @@
     </div>
   </div>
  <div class="d-grid gap-2 col-6 mx-auto">
-<%= f.submit t('.submit_comment'), class: 'btn btn-primary' %>
+<%= f.submit t('.submit_topic'), class: 'btn btn-primary' %>
  </div>
  <% end %>
  </ul>
@@ -59,7 +59,7 @@
 
 <!/////////////////////////////////////////////////////////////////////////////////////>
 
-<h4 class="mt-5"><%= t'.comment'%></h4>
+<h4 class="mt-5"><%= t'.topic'%></h4>
 <%= pagination @pagy %>
 <!%== pagy_bootstrap_nav @pagy %> <!Pagy "gem pagy" razbiw na stranicy Podkluchenie>
 
@@ -88,10 +88,10 @@
   <br>       
  
     <% if policy(comment).edit?%> <! Podkluchenie Авторизация (Pundit)>
- <%= link_to t('.edit_comment'), edit_article_comment_path(@article,comment),class: "btn btn-secondary btn-sm"%> 
+ <%= link_to t('.edit_comment'), edit_article_comment_path(@article,comment),class: "btn btn-secondary btn-sm btn-sm bi bi-pencil-square"%> 
     <%end%>
     <% if policy(comment).destroy?%> <! Podkluchenie Авторизация (Pundit)>
- <%= link_to t('.delete_comment'), article_comment_path(@article,comment), class: 'btn btn-danger btn-sm',
+ <%= link_to t('.delete_comment'), article_comment_path(@article,comment), class: 'btn btn-danger btn-sm  btn-sm bi bi-trash3-fill',
       data: {method: :delete, confirm: "Are you sure?"} %>
     <%end%>
 

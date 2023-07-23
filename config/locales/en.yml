@@ -60,10 +60,12 @@ en:
       show:
        thanks: 'Thanks!'
        create: 'Article has been created!!!'
-       write: 'Create topic!'
-       comment: 'Topic'
+       Create Topic: 'Create Topic!'
+       topic: 'Topic'
              # button
-       submit_comment: 'Create' 
+       submit_topic: 'Create' 
+       edit_article: Edit article
+       delete_article: Delete
        edit_comment: Edit comment
        delete_comment: Delete   
 
@@ -72,13 +74,15 @@ en:
       update:
        success: Article has been edited!
       
-      tweets:
-      create: 
-       success: Comment created!
        
   comments:
       form: 
        title: Update comment!
        submit_button: Submit Comment # Button
 
-      
+  tweets: 
+       commentable: 
+        button: Comment
+        comment: Comment
+       create: 
+        success: Comment created!

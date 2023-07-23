@@ -54,10 +54,12 @@ ru:
       show:
        thanks: 'Спасибо!'
        create: 'Статья создана'
-       write: 'Напишите комментарий!'
-       comment: 'Коментарий'
+       Create Topic: 'Создать Тему'
+       topic: 'Тема'
              #Button
-       submit_comment: 'Написать' 
+       submit_topic: 'Создать' 
+       edit_article: Редактировать 
+       delete_article: Удалить
        edit_comment: Редактировать
        delete_comment: Удалить
  
@@ -73,5 +75,10 @@ ru:
 
       tweets:
        create: 
-       success: Коментарий создан!
-       
+       success: 
+  tweets: 
+       commentable: 
+        button: Коментировать
+        comment: Коментировать
+       create: 
+        success: Коментарий создан!        

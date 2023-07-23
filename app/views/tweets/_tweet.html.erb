@@ -21,7 +21,7 @@
           <!Knopka Delete Commenta>
              <% if policy(tweet).destroy?%> <! Podkluchenie Авторизация (Pundit)>
           <%= link_to 'Delete',polymorphic_path([tweet.commentable, tweet]),
-              class: 'btn btn-danger btn-sm',
+              class: 'btn btn-danger btn-sm  btn-sm bi bi-trash3-fill',
               data: {turbo_method: :delete, confirm: 'global.dialog.you_sure'} %>
             <%end%>
           </div>

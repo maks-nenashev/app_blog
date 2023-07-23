@@ -1,7 +1,7 @@
 <% is_current_tweet = tweet&.for?(commentable) %>
 <% tweet_builder = is_current_tweet ? tweet : commentable.tweets.build %> <! Podkluchenie Авторизация (Pundit)>
 
-<%= link_to 'Comment', "##{html_id}",
+<%= link_to t('.button'), "##{html_id}",
   class: 'btn btn-primary bi bi-chat-right-text-fill', data: {'bs-toggle': 'collapse'} %>
 
 <%= tag.div class: "collapse #{'show' if is_current_tweet}" , id: html_id do %> 
@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <%= f.submit "Comment", class: 'btn btn-sm btn-primary' %>
+    <%= f.submit t('.comment'), class: 'btn btn-sm btn-primary' %>
    <% end %>
   <%end%>
   <%= render commentable.tweets.decorate %>
