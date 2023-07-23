@@ -1,5 +1,16 @@
+<% provide :page_title, 'Home' %> <!Podpis w ikonke "Kakaja stranica">
 
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
 
-&copy;@maks <%= Time.now.year%>
+<h1><%= t'.title'%></h1> <!Leniwyj perewod>
+
+<%= image_tag("Maksym.jpg", :size => "300x400") %>
+<p>
+<!img src="assets/maksym.jpg" 
+width="300"
+height="400"><!/p>
+
+
+<p><%= t'.text'%></p>
+&copy;Maksym Nenashev <%= Time.now.year%>  
+<button type="button" class="btn btn-primary bi bi-linkedin" onClick='location.href="https://www.linkedin.com/in/maksym-nenashev-0627ab220/"'></button>
+<button type="button" class="btn btn-primary bi bi-github" onClick='location.href="https://github.com/maks-nenashev"'></button>

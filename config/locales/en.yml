@@ -1,33 +1,88 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  en: English
+  ru: Russian
+  pl: Polish
+
+  activerecord:
+    attributes:
+      article:
+        title: Article
+        text: Text
+      comment:
+        body: Text
+      tweet:
+        body: Text
+      devise:
+        body: Text
+  
+  devise:
+     sessions:
+      new:
+         Log in: Log in
+     shared:
+      links:
+         reg: Sing in
+       
+       
+  menu:
+     home: Home
+     articles: Articles
+     contacts: Contact
+     admin: Admin Panel
+     sing_in:  Sing in
+     sign_out:  Sign Out
+  
+  home:
+    index:
+       title: Welcome!
+       text: Hi all! My name is Maksym! I'm a Beginner Ruby on Rails Developer! 
+             In this tutorial project, thanks to my efforts, 
+             polymorphic relationships between entities were implemented! 
+             The project is implemented on Ruby 3.2 and Rails 7.0.4 
+             I used gems like "devise" "i18n" "rubyzip" "enum" "pundit" "pagy" The project is not fully implemented! 
+             This is my first step! Thank you!!!!!
+  
+  articles:
+      index:
+       title: 'List Articles!'
+              #button
+       new: 'New article'
+       show_article: Show article
+       edit_article: Edit article
+       delete_article: Delete
+      
+      new: 
+       title: 'New Article!'
+       submit_article: Submit Article #botton
+      form:  # _form.html.erb   -- "edit"
+       title: 'Edit Article!'
+       submit_article: Submit  # Button
+      show:
+       thanks: 'Thanks!'
+       create: 'Article has been created!!!'
+       Create Topic: 'Create Topic!'
+       topic: 'Topic'
+             # button
+       submit_topic: 'Create' 
+       edit_article: Edit article
+       delete_article: Delete
+       edit_comment: Edit comment
+       delete_comment: Delete   
+
+      create:
+       success: Article created!
+      update:
+       success: Article has been edited!
+      
+       
+  comments:
+      form: 
+       title: Update comment!
+       submit_button: Submit Comment # Button
+
+  tweets: 
+       commentable: 
+        button: Comment
+        comment: Comment
+       create: 
+        success: Comment created!
