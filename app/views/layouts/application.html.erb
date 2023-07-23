@@ -45,9 +45,9 @@
             <li>
             <% if user_signed_in? %>
             Hello! <%= current_user.username %>
-           <%= link_to t('.menu.sign_out'), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary btn-sm bi bi-door-closed-fill"%>
+           <%= link_to t('menu.sign_out'), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary btn-sm bi bi-door-closed-fill"%>
           <% else %>
-         <%= link_to t('.menu.sign_in'), new_user_session_path, class: "btn btn-outline-primary btn-sm bi bi-door-open-fill" %>
+         <%= link_to t('menu.sign_in'), new_user_session_path, class: "btn btn-outline-primary btn-sm bi bi-door-open-fill" %>
         <% end %>
       </li>
       </ul> 
