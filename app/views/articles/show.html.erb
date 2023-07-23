@@ -32,8 +32,13 @@
    
 <!/////////////////////////////////////////////////////////////////////////////////////////>
   <hr class="my-3">
-<h4><%= t'.write'%></h4>
-  
+<!h4><!%= t'.write'%></h4>
+ 
+<!li class="nav-item dropdown">
+    <a class="btn btn-primary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Creat Topic
+            </a>
+   <ul class="dropdown-menu dropdown-menu-dark">
                       <!Dobawil Comment>
  <%= form_with model: [@article, @comment] do |f| %>
 
@@ -47,10 +52,11 @@
     </div>
   </div>
 
-    
-  
- <%= f.submit t('.submit_comment'), class: 'btn btn-primary' %>
+<%= f.submit t('.submit_comment'), class: 'btn btn-primary' %>
  <% end %>
+ </ul>
+<!/li>
+
 <!/////////////////////////////////////////////////////////////////////////////////////>
 
 <h4 class="mt-5"><%= t'.comment'%></h4>
