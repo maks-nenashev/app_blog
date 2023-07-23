@@ -2,7 +2,7 @@
 <% tweet_builder = is_current_tweet ? tweet : commentable.tweets.build %> <! Podkluchenie Авторизация (Pundit)>
 
 <%= link_to t('.button'), "##{html_id}",
-  class: 'btn btn-primary bi bi-chat-right-text-fill', data: {'bs-toggle': 'collapse'} %>
+  class: 'btn btn-primary bi bi-chat-right-text', data: {'bs-toggle': 'collapse'} %>
 
 <%= tag.div class: "collapse #{'show' if is_current_tweet}" , id: html_id do %> 
   
