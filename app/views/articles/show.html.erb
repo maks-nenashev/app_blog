@@ -34,8 +34,7 @@
   <hr class="my-3">
 <!h4><!%= t'.write'%></h4>
  
-<!li class="nav-item dropdown">
-    <a class="btn btn-primary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="btn btn-primary d-grid gap-2 col-6 mx-auto" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Creat Topic
             </a>
    <ul class="dropdown-menu dropdown-menu-dark">
@@ -51,8 +50,9 @@
       <%= f.text_area :body, class: 'form-control', required: true, minlength:2%>
     </div>
   </div>
-
+<div class="d-grid gap-2 col-6 mx-auto">
 <%= f.submit t('.submit_comment'), class: 'btn btn-primary' %>
+ </div>
  <% end %>
  </ul>
 <!/li>
