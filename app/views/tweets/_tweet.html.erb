@@ -1,10 +1,16 @@
-
+<br>
 <%= tag.article class: 'mb-3 card borber-0', id: dom_id(tweet) do %>
   <div class="row g-0">
     <div class="col-sm-auto text-sm-center align-self-center">
+      <section class="card-header">
       <%= tweet.user.gravatar size: 30, css_class: 'd-block' %>
       <%= tweet.user.username %>
+      </section>
     </div>
+       <!Podkluchenie time pod soobzheniem!>
+  <time datetime="<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
+  <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+  
     <div class="col-sm">
       <div class="card-body">
         <section class="card-text mb-3">
@@ -15,7 +21,7 @@
           <!Knopka Delete Commenta>
              <% if policy(tweet).destroy?%> <! Podkluchenie Авторизация (Pundit)>
           <%= link_to 'Delete',polymorphic_path([tweet.commentable, tweet]),
-              class: 'btn btn-danger btn-sm',
+              class: 'btn btn-danger btn-sm  btn-sm bi bi-trash3-fill',
               data: {turbo_method: :delete, confirm: 'global.dialog.you_sure'} %>
             <%end%>
           </div>

@@ -56,10 +56,12 @@ pl:
       show:
        thanks: 'Dziękuję!'
        create: 'Artykuł został utworzony'
-       write: 'Napisz komentarz!'
-       comment: 'Komentarz!'
+       Create Topic: 'Utwórz Temat'
+       topic: 'Temat'
                 # button
-       submit_comment: 'Napisz' 
+       submit_topic: 'Tworzyć' 
+       edit_article: Edytuj artykuł
+       delete_article: Usunąć
        edit_comment: Edytuj komentarz
        delete_comment: Usunąć
 
@@ -74,7 +76,9 @@ pl:
        title: Edytować Komentarz!
        submit_button: Edytować  # Button
 
-      tweets:
+  tweets: 
+       commentable: 
+        button: Komentarz
+        comment: Komentarz
        create: 
-       success: Komentarz został utworzony!
-       
+        success: Komentarz został utworzony!   

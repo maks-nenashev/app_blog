@@ -23,7 +23,7 @@
   <time datetime="<%= article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
   <%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
   </time>  
-           <!/section> 
+        <br>   <!/section> 
      <%= link_to t('.show_article'), article_path(article),class: "btn btn-outline-primary btn-sm"%>  
          <% if policy(article).edit?%> <! Podkluchenie Авторизация (Pundit)>
      <%= link_to t('.edit_article'), edit_article_path(article),class: "btn btn-outline-secondary btn-sm bi bi-pencil-square"%> 

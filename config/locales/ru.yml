@@ -14,17 +14,17 @@ ru:
   devise:
      sessions:
       new:
-         Log in: Авторизоваться
+         Log in: Войти
      shared:
       links:
          reg: Регистрация
-         
+      
   menu:
      home:   'Главная'
      articles: Все Cтатьи
      contacts: Контакт
      admin: Панель Админестратора
-     sing_in:  Регистрация
+     sing_in:  Войти
      sign_out:  Выйти
   
   home:
@@ -54,10 +54,12 @@ ru:
       show:
        thanks: 'Спасибо!'
        create: 'Статья создана'
-       write: 'Напишите комментарий!'
-       comment: 'Коментарий'
+       Create Topic: 'Создать Тему'
+       topic: 'Тема'
              #Button
-       submit_comment: 'Написать' 
+       submit_topic: 'Создать' 
+       edit_article: Редактировать 
+       delete_article: Удалить
        edit_comment: Редактировать
        delete_comment: Удалить
  
@@ -71,7 +73,9 @@ ru:
        title: Редактировать коментарий! 
        submit_button: Редактировать # Button   
 
-      tweets:
+  tweets: 
+       commentable: 
+        button: Коментировать
+        comment: Коментировать
        create: 
-       success: Коментарий создан!
-       
+        success: Коментарий создан!        
