@@ -14,17 +14,17 @@ ru:
   devise:
      sessions:
       new:
-         Log in: Авторизоваться
+         Log in: Войти
      shared:
       links:
          reg: Регистрация
-         
+      
   menu:
      home:   'Главная'
      articles: Все Cтатьи
      contacts: Контакт
      admin: Панель Админестратора
-     sing_in:  Регистрация
+     sing_in:  Войти
      sign_out:  Выйти
   
   home:
@@ -73,9 +73,6 @@ ru:
        title: Редактировать коментарий! 
        submit_button: Редактировать # Button   
 
-      tweets:
-       create: 
-       success: 
   tweets: 
        commentable: 
         button: Коментировать

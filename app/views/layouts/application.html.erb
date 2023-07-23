@@ -45,9 +45,9 @@
             <li>
             <% if user_signed_in? %>
             Hello! <%= current_user.username %>
-           <%= link_to t('menu.sign_out'), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary btn-sm"%>
+           <%= link_to t('.menu.sign_out'), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary btn-sm bi bi-door-closed-fill"%>
           <% else %>
-         <%= link_to t('menu.sign_in'), new_user_session_path, class: "btn btn-outline-primary btn-sm" %>
+         <%= link_to t('.menu.sign_in'), new_user_session_path, class: "btn btn-outline-primary btn-sm bi bi-door-open-fill" %>
         <% end %>
       </li>
       </ul> 
@@ -92,7 +92,7 @@
           </li>
           <a class="nav-link active" aria-current="page" href="#"> 
           <% if policy([:user]).index? %> <! Podkluchenie Авторизация (Pundit)>
-            <%= link_to "Admin Panel", admin_users_path, class: 'nav-link px-2 text-dark'%>
+            <%= link_to t("menu.admin"), admin_users_path, class: 'nav-link px-2 text-dark'%>
           <%end%></a>
           </li>
           <li class="nav-item dropdown">
