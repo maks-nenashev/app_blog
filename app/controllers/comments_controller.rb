@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
         #@comment = @article.comments.find params[:id]--:set_comment!  # 2:set_commint! "Refactoring"
         if@comment.update(comment_update_params) # Obnowlaem s nowymi parametromi
           redirect_to article_path(@article)#, anchor: "comment-#{comment.id}")   #"perenaprowlenie" 
-          flash[:success] = "Comment updated!" #Window Podtwerzdenija
+          flash[:success] = t".success" #Window Podtwerzdenija
          else
           render action: 'edit'    #"perenaprowlenie"
        end
@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
         @comment = @article.comments.build(comment_create_params)  #Comment привязывам к Article
   
       if@comment.save
-        flash[:success] = "Comment created!"  #Window Podtwerzdenija
+        flash[:success] = t".success"  #Window Podtwerzdenija
         redirect_to article_path(@article)   #"perenaprowlenie" 
       else
         load_articles_comments(do_render: true) # Rafactoring "articles_comments.rb"
@@ -43,7 +43,7 @@ class CommentsController < ApplicationController
     def destroy # 2 Udalenie kaЖdogo commeta
        #@comment = @article.comments.find params[:id]--:set_comment!  # 2:set_commint! "Refactoring"
        @comment.destroy
-       flash[:success] = "Comment deleted!"     #Window Podtwerzdenija
+       flash[:success] = t".success"     #Window Podtwerzdenija
        redirect_to article_path(@article)   #"perenaprowlenie" 
     end
     
@@ -51,7 +51,7 @@ class CommentsController < ApplicationController
         #@article = Article.find(params[:article_id])
         #@comment = @article.comments.find(params[:id])
         @comment.destroy
-        flash[:success] = "Comment deleted!"     #Window Podtwerzdenija
+        flash[:success] = t".success"     #Window Podtwerzdenija
         redirect_to article_path(@article)
       end
     
