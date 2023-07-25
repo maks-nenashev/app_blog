@@ -1,0 +1,99 @@
+ua:
+  en: Англійська
+  ru: Російська
+  pl: Польська
+  ua: Українська
+
+  activerecord:
+    attributes:
+      article:
+        title: Статья
+        text: Текст
+      comment:
+        body: Текст
+ 
+  devise:
+     sessions:
+      new:
+         Log in: Увійти
+     shared:
+      links:
+         reg: Реєстрація
+      
+  menu:
+     home:   'Головна'
+     articles: Всі Статті
+     contacts: Контакт
+     admin: Панель Адміністратора
+     sing_in:  Увійти
+     sign_out:  Вийти
+  
+  home:
+    index:
+      title: 'Ласкаво просимо!'
+      new: Нова стаття
+      text: Привіт всім! Мене звати Максим! Я Розпочинаючий Ruby on Rails розробник!
+             У цьому навчальному проекті завдяки моїм старанням були реалізовані поліморфні відносини між сутностями!
+             Проект реалізований на Ruby 3.2 та Rails 7.0.4
+             Я використовував такі gemy як "devise" "i18n" "enum" "pundit" "rubyzip" "pagy"
+             Проект не реалізований до кінця! Це мій перший крок! Дякую!!!!!
+  
+  articles:
+      index:
+       title: 'Список статей!'
+            # Button
+       new: Нова стаття 
+       show_article: Показати статтю
+       edit_article: Редагувати
+       delete_article: Видалити
+      new: 
+       title: 'Нова Стаття!'
+       submit_article: Нова стаття #botton
+      form:    # _form.html.erb   -- "edit"
+       title: 'Редагувати!'
+       submit_article: Редагувати
+      show:
+       thanks: 'Дякую!'
+       create: 'Статтю створено'
+       Create Topic: 'Створити Тему'
+       topic: 'Тема'
+             #Button
+       submit_topic: 'Створити' 
+       edit_article: Редагувати
+       delete_article: Видалити
+       edit_comment: Редагувати
+       delete_comment: Видалити
+ 
+      create:
+       success: Статтю створено! #Article created!
+      update:
+       success: Статтю редагували!
+      destroy: 
+       success: Статтю видалили!
+
+
+  comments:
+      form: 
+       title: Редагувати коментар! 
+       submit_button: Редагувати # Button   
+
+      create:
+       success: Тема створена!
+      update:
+       success: Тема редагувана!
+      destroy: 
+       success: Тема видалена!
+      show: # Kontroller zaprosil "SHOW" dla udalenija
+       success: Тема видалена!
+
+
+  tweets: 
+       commentable: # Button
+        button: Коментувати
+        comment: Коментувати
+
+       create:
+        success: Коментар створено!
+       destroy: 
+        success: Коментар видалено!
+      

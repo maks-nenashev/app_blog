@@ -2,7 +2,8 @@ en:
   en: English
   ru: Russian
   pl: Polish
-
+  ua: Ukrainian
+  
   activerecord:
     attributes:
       article:

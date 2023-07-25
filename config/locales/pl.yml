@@ -2,7 +2,8 @@ pl:
   en: Angelski
   ru: Ruski
   pl: Polski
-
+  ua: Ukraiński
+  
   activerecord:
     attributes:
       article:
