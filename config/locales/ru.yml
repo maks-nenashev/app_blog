@@ -67,15 +67,32 @@ ru:
        success: Статья созданна! #Article created!
       update:
        success: Статья изменина!
+      destroy: 
+       success: Статья удалена!
+
 
   comments:
       form: 
        title: Редактировать коментарий! 
        submit_button: Редактировать # Button   
 
+      create:
+       success: Тема создана!
+      update:
+       success: Тема изменена!
+      destroy: 
+       success: Тема удалена!
+      show: # Kontroller zaprosil "SHOW" dla udalenija
+       success: Тема удалена!
+
+
   tweets: 
-       commentable: 
+       commentable: # Button
         button: Коментировать
         comment: Коментировать
-       create: 
-        success: Коментарий создан!        
+
+       create:
+        success: Коментарий создан!
+       destroy: 
+        success: Коментарий удален!
+      

@@ -73,16 +73,29 @@ en:
        success: Article created!
       update:
        success: Article has been edited!
-      
+      destroy: 
+       success: Article hes been deleted!
        
   comments:
       form: 
        title: Update comment!
        submit_button: Submit Comment # Button
 
+      create:
+       success: Topic created!
+      update:
+       success: Topic has been edited!
+      destroy: 
+       success: Topic hes been deleted!
+      show: # Kontroller zaprosil "SHOW" dla udalenija
+       success: Topic hes been deleted!
+
   tweets: 
-       commentable: 
+       commentable: #Button
         button: Comment
         comment: Comment
+       
        create: 
         success: Comment created!
+       destroy: 
+        success: Comment hes been deleted! 

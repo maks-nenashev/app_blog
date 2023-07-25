@@ -69,16 +69,30 @@ pl:
        success: Artykuł został utworzony!
       update:
        success: Artykuł został zredagowany!
-
+      destroy: 
+       success: Artykuł został udalony!
 
   comments:
       form: 
        title: Edytować Komentarz!
        submit_button: Edytować  # Button
 
+      create:
+       success: Temat został utworzony!
+      update:
+       success: Temat został zredagowany!
+      destroy: 
+       success: Temat został udalony!
+      show: # Kontroller zaprosil "SHOW" dla udalenija
+       success: Temat został udalony!
+
+
   tweets: 
-       commentable: 
+       commentable: #Button
         button: Komentarz
         comment: Komentarz
+       
        create: 
-        success: Komentarz został utworzony!   
+        success: Komentarz został utworzony! 
+       destroy: 
+        success: Komentarz został udalony!   

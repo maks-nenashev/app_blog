@@ -23,7 +23,7 @@ class TweetsController < ApplicationController
       authorize tweet   # Eto Podkluczenie "Awtorizacii"
 
       tweet.destroy
-      flash[:success] = 'success'
+      flash[:success] = t'.success'
       redirect_to article_path(@article)
     end
     
