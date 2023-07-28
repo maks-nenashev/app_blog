@@ -13,12 +13,18 @@ pl:
         body: Теkst
   
   devise:
+     registrations:
+      new:
+         title: Rejestracja
+         Sign up: Rejestracja
      sessions:
       new:
+         title: Zaloguj sie
          Log in: Zaloguj sie
      shared:
       links:
-         reg: Rejestracja
+         Log in: Zaloguj sie
+         Sign in: Rejestracja
   
   
   menu:
