@@ -13,13 +13,18 @@ ru:
         body: Текст
  
   devise:
+     registrations:
+      new:
+         title: Регистрация
+         Sign up: Регистрация
      sessions:
       new:
+         title: Войти
          Log in: Войти
      shared:
       links:
-         reg: Регистрация
-      
+         Sign in: Регистрация
+         Log in: Войти
   menu:
      home:   'Главная'
      articles: Все Cтатьи

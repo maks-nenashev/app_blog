@@ -13,13 +13,18 @@ ua:
         body: Текст
  
   devise:
+     registrations:
+      new:
+         title: Реєстрація
+         Sign up: Реєстрація
      sessions:
       new:
+         title: Увійти
          Log in: Увійти
      shared:
       links:
-         reg: Реєстрація
-      
+         Sign in: Реєстрація
+         Log in: Увійти
   menu:
      home:   'Головна'
      articles: Всі Статті

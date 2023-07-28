@@ -17,13 +17,19 @@ en:
         body: Text
   
   devise:
+     registrations:
+      new:
+         title: Sign up
+         Sign up: Sign up
      sessions:
       new:
+         title: Log in
          Log in: Log in
      shared:
       links:
-         reg: Sing in
-       
+         Log in: Log in
+         Sign in: Sign in
+     
        
   menu:
      home: Home
