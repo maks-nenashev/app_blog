@@ -73,7 +73,7 @@ en:
        submit_topic: 'Create' 
        edit_article: Edit article
        delete_article: Delete
-       edit_comment: Edit comment
+       edit_comment: Edit topic
        delete_comment: Delete   
 
       create:

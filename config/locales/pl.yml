@@ -69,7 +69,7 @@ pl:
        submit_topic: 'Tworzyć' 
        edit_article: Edytuj artykuł
        delete_article: Usunąć
-       edit_comment: Edytuj komentarz
+       edit_comment: Edytuj temat
        delete_comment: Usunąć
 
       create:

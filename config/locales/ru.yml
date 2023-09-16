@@ -66,7 +66,7 @@ ru:
        submit_topic: 'Создать' 
        edit_article: Редактировать 
        delete_article: Удалить
-       edit_comment: Редактировать
+       edit_comment: Редактировать тему
        delete_comment: Удалить
  
       create:
