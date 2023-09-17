@@ -33,29 +33,31 @@
 <!/////////////////////////////////////////////////////////////////////////////////////////>
   <hr class="my-3">
 <!h4><!%= t'.write'%></h4>
- 
-    <a class="btn btn-primary d-grid gap-2"" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+    <!a class="btn btn-primary d-grid gap-2"" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                     <!Button Topic>
+     <a href="#" class="button2" tabindex="1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
              <%= t('.Create Topic')%>
-    </a>
-   <ul class="dropdown-menu dropdown-menu-dark"  data: {'bs-toggle': 'collapse'}
-                      <!DobawilComment>
- <%= form_with model: [@article, @comment] do |f| %>
+     </a>
+                     <!Dropdown Topic>
+  <ul class="dropdown-menu dropdown-menu-dark"  data: {'bs-toggle': 'collapse'}>
+        <%= form_with model: [@article, @comment] do |f| %>
 
-  <div class="mb-3 row">
-    <div class="col-sm-2 col-form-label">
-      <%= f.label :body %>
-    </div>
+          <div class="mb-3 row">
+             <div class="col-sm-2 col-form-label">
+               <%= f.label :body %>
+             </div>
 
-    <div class="col-sm-10">                     <! Walidacija CSS ---required: true, minlength:2,>
-      <%= f.text_area :body, class: 'form-control', required: true, minlength:2%>
-    </div>
-  </div>
- <div class="d-grid gap-2 col-6 mx-auto">
-<%= f.submit t('.submit_topic'), class: 'btn btn-primary' %>
- </div>
- <% end %>
- </ul>
-<!/li>
+          <div class="col-sm-10">                   <! Walidacija CSS ---required: true, minlength:2,>
+               <%= f.text_area :body, class: 'form-control', required: true, minlength:2%>
+             </div>
+           </div>
+          <div class="d-grid gap-2 col-6 mx-auto">
+               <%= f.submit t('.submit_topic'), class: 'btn btn-primary' %>
+          </div>
+      <% end %>
+  </ul>
+
 
 <!/////////////////////////////////////////////////////////////////////////////////////>
 
