@@ -4,9 +4,10 @@
 <h2 class="mb-4"><%= t'.title'%></h2>  <!# Wywod wsech zapisej!>
 <p>         <!Button>
     <% if policy(:article).new?%> <! Podkluchenie Авторизация (Pundit)>
-<%= link_to t('.new'), new_article_path,class: "btn btn-outline-primary bi bi-pencil-square" %>
+  <!%= link_to t('.new'), new_article_path,class: "btn btn-outline-primary bi bi-pencil-square" %>
+  <%= link_to t('.new'), new_article_path, class:"button2"%>   
     <%end%>
-<!/p>
+ <!/p>
 <%= pagination @pagy %>   <!Pagy "gem pagy" razbiw na stranicy Podkluchenie>
 </p>
 <% @articles.each do |article| %>
@@ -38,7 +39,7 @@
   <%= link_to article.title, article_path(article)%>
   </h5>
   
-  <p class="my-2"> 
+  <p class="my-2">
   <%= image_tag article.avatar.url(:thumb), class: 'img-thumbnail thumb' if article.avatar? %>
   </p>
   
