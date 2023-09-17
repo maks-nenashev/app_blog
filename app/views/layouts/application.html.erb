@@ -9,6 +9,7 @@
     <%= csp_meta_tag %>
                      <!rails assets:precompile   --Pered zapuskom servera!>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "custom", "data-turbo-track": "reload" %> <!Custom CSS>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 <body>
@@ -114,12 +115,16 @@
           <button class="btn btn-success" type="submit">Search</button>
         </form>
       </div>
+      <% if policy(:article).new?%> <! Podkluchenie Авторизация (Pundit)>
+         <%= link_to t('.new'), new_article_path, class: "button big gray bi bi-pencil-square"%>   
+      <%end%>
      </div>
       </ul>      <!Ssylki Podkluchenie>
     </nav>
    </div>
  </header>            
-              
+      
+
                   <!%= yield :main_menu%> <! Navi "Menu is _manu.html.erb">
 
 <main class="container mt-3"> <! Window Podtwerzdenija>
@@ -129,7 +134,9 @@
       
       <%= yield %>
     </main>
-             
+<br>
+
+
             <!Эта строка находится в config/initializers/devise.rb
       config.navigational_formats = ['*/*', :html, :turbo_stream]  i potom wyrubaet server>
                      <p class="notice"><%= notice %></p>
