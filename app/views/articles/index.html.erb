@@ -5,7 +5,8 @@
 <p>         <!Button>
     <% if policy(:article).new?%> <! Podkluchenie Авторизация (Pundit)>
   <!%= link_to t('.new'), new_article_path,class: "btn btn-outline-primary bi bi-pencil-square" %>
-  <%= link_to t('.new'), new_article_path, class:"button2"%>   
+  <!%= link_to t('.new'), new_article_path, class:"button2"%>   
+  <%= link_to t('.new'), new_article_path, class: "button big bi bi-pencil-square"%>
     <%end%>
  <!/p>
 <%= pagination @pagy %>   <!Pagy "gem pagy" razbiw na stranicy Podkluchenie>
