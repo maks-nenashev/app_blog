@@ -1,13 +1,14 @@
 class ArticlesController < ApplicationController
-  
-  before_action :set_article!, only: %i[show destroy edit update]  # @article = Article.find params[:id]   "Refactoring"
+     
+       # @article = Article.find params[:id]   "Refactoring"
+  before_action :set_article!, only: %i[show destroy edit update]  
                                                              
  def index   # 4: Wywod wsech zapisej!
      @articles = Article.all
  end
   
  def show  # 3: Wywodim bazu po :ID
-   # @article = Article.find params[:id]    :before_action :set_question! "Refactoring"
+   # @article = Article.find params[:id]    :before_action :set_article! "Refactoring"
      @comment = @article.comments.build       # Podkluchenie  "Commint"
      @comments = @article.comments.order created_at: :desc  # Podkluchenie  "Commint"
   end
@@ -31,11 +32,11 @@ class ArticlesController < ApplicationController
  end
   
  def edit   # 5: Wozwrat i Redactirowanie
-    #@article = Article.find params[:id]    :before_action :set_question! "Refactoring"
+    #@article = Article.find params[:id]    :before_action :set_article! "Refactoring"
  end
 
  def update #6  Wnosim izmenrnie w redaktirowanie
-    #@article = Article.find(params[:id])      :before_action :set_question! "Refactoring"
+    #@article = Article.find(params[:id])      :before_action :set_article! "Refactoring"
 
   if @article.update(article_params) # Obnowlaem s nowymi parametromi
      redirect_to @article
@@ -46,10 +47,10 @@ class ArticlesController < ApplicationController
 end
 
 def destroy # Delite publikacij
-  #@article = Article.find(params[:id]) # To чto hotim udalitь  :before_action :set_question! "Refactoring"
+  #@article = Article.find(params[:id]) # To чto hotim udalitь  :before_action :set_article! "Refactoring"
   @article.destroy
   flash[:success] = "Article deleted!"     #Window Podtwerzdenija
-  redirect_to article_path  #"perenaprowlenie"
+  redirect_to @article  #"perenaprowlenie"
 end
 
 #////////////////////////////////////////////////////////////////////////////////////
