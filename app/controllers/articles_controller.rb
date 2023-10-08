@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
   
  def show  # 3: Wywodim bazu po :ID
      load_articles_comments #Rafactoring "articles_comments.rb"
-     #@article = Article.find params[:id]    :before_action :set_question! "Refactoring"
+     #@article = Article.find params[:id]    :before_action :set_article! "Refactoring"
      #@comment = @article.comments.build       # Podkluchenie  "Commint"
      #@pagy, @comments = pagy @article.comments.order(created_at: :desc) #razbiw na stranicy # Podkluchenie  "Commint"
   end                             # chtoby "comments" wywodilo poslednie wwerchu
@@ -39,11 +39,11 @@ class ArticlesController < ApplicationController
  end
   
  def edit   # 5: Wozwrat i Redactirowanie
-    #@article = Article.find params[:id]    :before_action :set_question! "Refactoring"
+    #@article = Article.find params[:id]    :before_action :set_article! "Refactoring"
  end
 
  def update #6  Wnosim izmenrnie w redaktirowanie
-    #@article = Article.find(params[:id])      :before_action :set_question! "Refactoring"
+    #@article = Article.find(params[:id])      :before_action :set_article! "Refactoring"
 
   if @article.update(article_params) # Obnowlaem s nowymi parametromi
      redirect_to @article
@@ -54,7 +54,7 @@ class ArticlesController < ApplicationController
 end
 
 def destroy # Delite publikacij
-  #@article = Article.find(params[:id]) # To чto hotim udalitь  :before_action :set_question! "Refactoring"
+  #@article = Article.find(params[:id]) # To чto hotim udalitь  :before_action :set_article! "Refactoring"
   @article.destroy
   flash[:success] = t".success"     #Window Podtwerzdenija
   redirect_to @article  #"perenaprowlenie"
@@ -68,7 +68,7 @@ end
     params.require(:article).permit(:title, :text, :avatar)
  end
 
-  def set_article!  # :before_action :set_question! only[show destroy edit update] "Refactoring"
+  def set_article!  # :before_action :set_article! only[show destroy edit update] "Refactoring"
     @article = Article.find(params[:id])
  end
  
