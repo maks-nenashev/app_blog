@@ -1,7 +1,9 @@
 class Article < ApplicationRecord
     include Commentable # Podkluczenie "Tweet"
     include Authorship  # Podkluczenie "Autor" Awtorizacija
-    mount_uploader :avatar, AvatarUploader # Podkluczenie "Foto"
+    
+    has_one_attached :image # Foto!
+    
     
     validates :title, presence: true, length: {minimum: 3} #walidacija
     validates :text, presence: true, length: {minimum: 3}

@@ -65,7 +65,7 @@ end
  private
 
   def article_params
-    params.require(:article).permit(:title, :text, :avatar)
+    params.require(:article).permit(:title, :text, :image)
  end
 
   def set_article!  # :before_action :set_article! only[show destroy edit update] "Refactoring"
