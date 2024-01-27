@@ -34,13 +34,13 @@
   <hr class="my-3">
 <!h4><!%= t'.write'%></h4>
 
-    <a class="button big  bi bi-pencil-square" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="button big  bi bi-pencil-square" href="#collapseExample" role="button" data-bs-toggle="collapse" aria-expanded="false">
                      <!Button Topic>
      <!a href="#" class="button2" tabindex="1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
              <%= t('.Create Topic')%>
      </a>
                      <!Dropdown Topic>
-  <ul class="dropdown-menu dropdown-menu-dark"  data: {'bs-toggle': 'collapse'}>
+  <ul class="collapse" id="collapseExample"  data: {'bs-toggle': 'collapse'}>
         <%= form_with model: [@article, @comment] do |f| %>
 
           <div class="mb-3 row">
