@@ -22,7 +22,11 @@
       <%end%>
   <hr>
  <h4><%= @article.title %></h4>
+
+<% if @article.image.attached?%> <! if image nil>
 <%= image_tag @article.image, style: "width: 380px; height: auto", class: 'img-thumbnail thumb'%>
+ <% end %>
+ 
  <br>
  <p><%= @article.text %></p>
  
@@ -49,7 +53,7 @@
              </div>
 
           <div class="col-sm-10">                   <! Walidacija CSS ---required: true, minlength:2,>
-               <%= f.rich_text_area :body, class: 'form-control', required: true, minlength:2%>
+               <%= f.text_area :body, class: 'form-control', required: true, minlength:2%>
              </div>
            </div>
           <div class="d-grid gap-2 col-6 mx-auto">
