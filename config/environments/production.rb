@@ -41,6 +41,7 @@ Rails.application.configure do
   
   # Store files on Amazon S3.
   config.active_storage.service = :amazon
+  config.require_master_key = true
   #config.active_storage.service = :local
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
