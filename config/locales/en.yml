@@ -42,12 +42,12 @@ en:
   home:
     index:
        title: Welcome!
-       text: Hi all! My name is Maksym! I'm a Beginner Ruby on Rails Developer! 
+       text: Hi all! My name is Maksym! I'm a Ruby on Rails Developer! 
              In this tutorial project, thanks to my efforts, 
              polymorphic relationships between entities were implemented! 
              The project is implemented on Ruby 3.2 and Rails 7.0.4 
              I used gems like "devise" "i18n" "rubyzip" "enum" "pundit" "pagy" The project is not fully implemented! 
-             This is my first step! Thank you!!!!!
+             Thank you!!!!!
   
   articles:
       index:
