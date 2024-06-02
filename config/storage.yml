@@ -13,8 +13,12 @@ amazon:
    secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
    region: eu-north-1
    bucket: polymoblog 
-   instance_profile_credentials_timeout: 5, # defaults to 1 second
-   instance_profile_credentials_retries: 5, # defaults to 0 retries
+   http_open_timeout: 0
+   http_read_timeout: 0
+   retry_limit: 0
+   upload:
+    server_side_encryption: "" # 'aws:kms' or 'AES256'
+    cache_control: "private, max-age=<%= 1.day.to_i %>"
 # Remember not to checkin your GCS keyfile to a repository
 # google:
 #   service: GCS
