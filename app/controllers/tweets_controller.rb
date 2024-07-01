@@ -19,15 +19,35 @@ class TweetsController < ApplicationController
     end
    
     def destroy
-      tweet = @commentable.tweets.find params[:id]
-      authorize tweet   # Eto Podkluczenie "Awtorizacii"
+      @tweet = @commentable.tweets.find params[:id]
+      authorize @tweet   # Eto Podkluczenie "Awtorizacii"
 
-      tweet.destroy
+      @tweet.destroy
       flash[:success] = t'.success'
       redirect_to article_path(@article)
     end
     
-    private
+    def show
+      end
+    
+    def edit
+      @tweet = @commentable.tweets.find params[:id]
+      authorize @tweet  # Eto Podkluczenie "Awtorizacii"
+       end
+    
+    def update  # 5 Wnosim izmenrnie w redaktirowanie
+      @tweet = @commentable.tweets.find params[:id]
+      authorize @tweet  # Eto Podkluczenie "Awtorizacii"
+
+      if@tweet.update(tweet_params) # Obnowlaem s nowymi parametromi
+      redirect_to  @commentable
+      flash[:success] = "Коментар Змiнено!" #Window Podtwerzdenija
+     else
+      render action: 'edit'    #"perenaprowlenie"
+   end
+  end
+    
+  private
   
     def tweet_params
       params.require(:tweet).permit(:body).merge(user: current_user)
@@ -38,7 +58,7 @@ class TweetsController < ApplicationController
       raise ActiveRecord::RecordNotFound if klass.blank?
   
       @commentable = klass.find(params["#{klass.name.underscore}_id"])
-    end
+     end
   
     def set_question
       @article = @commentable.is_a?(Article) ? @commentable : @commentable.article

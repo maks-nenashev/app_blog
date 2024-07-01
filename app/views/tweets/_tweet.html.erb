@@ -16,6 +16,10 @@
               class: 'btn btn-danger btn-sm  btn-sm bi bi-trash3-fill',
               data: {turbo_method: :delete, confirm: 'global.dialog.you_sure'} %>
             <%end%>
+            <% if policy(tweet).edit?%> <! Podkluchenie Авторизация (Pundit)>
+            <%= link_to 'Edit',edit_polymorphic_path([tweet.commentable, tweet]),
+              class: 'btn btn-secondary btn-sm bi bi-pencil-square' %>
+            <%end%>
    </section>
    </div>
     

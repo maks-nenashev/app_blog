@@ -18,13 +18,13 @@ devise_for :users
   end
   
   resources :articles do  #вложенный маршрут:
-    resources :tweets, only: %i[create destroy] #
+    resources :tweets, only: %i[create destroy edit update] #
     resources :comments #, except: %i[new show] # Wse marшруты нужны кроме [ new show]
        
   end #4 
   
   resources :comments, except: %i[new show] do  #вложенный маршрут:
-      resources :tweets, only: %i[create destroy]
+      resources :tweets, only: %i[create destroy edit update] 
   end
     #get 'contacts' => 'contacts#new' only:[:create]
     resource :contacts, only: [:new,:create,:show], path_names: { :new => '' }
