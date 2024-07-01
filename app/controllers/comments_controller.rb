@@ -29,7 +29,6 @@ class CommentsController < ApplicationController
    
   def create# 1: create (отправить форму. POST)  
         @comment = @article.comments.build(comment_create_params)  #Comment привязывам к Article
-  
       if@comment.save
         flash[:success] = t".success"  #Window Podtwerzdenija
         redirect_to article_path(@article)   #"perenaprowlenie" 
@@ -58,11 +57,11 @@ class CommentsController < ApplicationController
      private
   
     def comment_create_params
-      params.require(:comment).permit(:body).merge(user: current_user)
+      params.require(:comment).permit(:title, :body, :image).merge(user: current_user)
     end                                      #Podkluchenie comment k "user"
     
     def comment_update_params
-      params.require(:comment).permit(:body)
+      params.require(:comment).permit(:title, :body, :image)
     end                                     
   #/////////////////////////////////////////////////////////////////////////////////
 
