@@ -29,19 +29,17 @@ class CommentsController < ApplicationController
    
   def create# 1: create (отправить форму. POST)  
         @comment = @article.comments.build(comment_create_params)  #Comment привязывам к Article
-    respond_to do |format|
-        if@comment.save
+        if@comment.valid?
+          @comment.save
         flash[:success] = t".success"  #Window Podtwerzdenija
         redirect_to article_path(@article)   #"perenaprowlenie" 
-        format.html { article_path(@article) }
-        format.turbo_stream
       else
         load_articles_comments(do_render: true) # Rafactoring "articles_comments.rb"
         #@comments = @article.comments.order created_at: :desc
         #render 'articles/show'            #"perenaprowlenie"      
       end
     end
-  end 
+   
     def destroy # 2 Udalenie kaЖdogo commeta
        #@comment = @article.comments.find params[:id]--:set_comment!  # 2:set_commint! "Refactoring"
        @comment.destroy
