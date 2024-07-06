@@ -40,7 +40,7 @@ class TweetsController < ApplicationController
       authorize @tweet  # Eto Podkluczenie "Awtorizacii"
 
       if@tweet.update(tweet_params) # Obnowlaem s nowymi parametromi
-      redirect_to  @commentable
+      redirect_to  article_path(@article)
       flash[:success] = "Коментар Змiнено!" #Window Podtwerzdenija
      else
       render action: 'edit'    #"perenaprowlenie"
