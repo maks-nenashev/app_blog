@@ -54,7 +54,9 @@ gem 'devise'
 gem 'pundit'
 gem 'sidekiq', '~> 6'
 gem 'uglifier' #Dla normalnoj raboty :rails assets:precompile
-
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection", "~> 1.0"
 # Use Sass to process CSS
 # gem "sassc-rails"
 
