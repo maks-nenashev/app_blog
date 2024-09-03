@@ -45,7 +45,7 @@
      </a>
                      <!Dropdown Topic>
   <ul class="collapse" id="collapseExample"  data: {'bs-toggle': 'collapse'}>
-        <%= form_with model: [@article, @comment] do |f| %>
+        <%= form_with model: [@article, @comment], data: {turbo:false} do |f| %>
         <div class="mb-3 row">
             <div class="col-sm-2 col-form-label">  
                 <%= f.label :title %>
