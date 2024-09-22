@@ -41,8 +41,11 @@ pl:
       text: Cześć wszystkim! Mam na imię Maksym! 
             Jestem programistą Ruby on Rails! W tym projekcie tutorialowym, 
             dzięki moim staraniom, zostały zaimplementowane relacje polimorficzne pomiędzy bytami!
+            Możesz stworzyć artykuł! Komentarz do artykułu. Utwórz tematy w artykule. 
+            Tematy można komentować. W artykule i tematach znajduje się cały atrybuty
+            "Tytul Fotografii i Opis". Możesz edytować "Artykuł Temat i Komentarze"
             Projekt jest realizowany na Ruby ​​3.2 i Rails 7.0.4 
-            Użyłem perełek gemy "devise" "i18n" "rubyzip" "enum" "pundit" "pagy" Projekt nie jest w pełni zrealizowany! 
+            Użyłem perełek gemy "devise" "i18n" "rubyzip" "enum" "pundit" "pagy" "S3"  Projekt nie jest w pełni zrealizowany! 
             Dziękuję!!!!!
   
   articles:
