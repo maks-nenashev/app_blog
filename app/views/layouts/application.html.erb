@@ -8,6 +8,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
                      <!rails assets:precompile   --Pered zapuskom servera!>
+    <link href='https://fonts.googleapis.com/css?family=Aboreto' rel='stylesheet'>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "custom", "data-turbo-track": "reload" %> <!Custom CSS>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
@@ -124,6 +125,12 @@
    </div>
  </header>            
       
+
+<style>
+body {
+    font-family: 'Sofia';font-size: 22px;
+}
+</style>
 
                   <!%= yield :main_menu%> <! Navi "Menu is _manu.html.erb">
 
