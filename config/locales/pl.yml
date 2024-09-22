@@ -1,0 +1,108 @@
+pl:
+  en: Angelski
+  ru: Ruski
+  pl: Polski
+  ua: Ukraiński
+  
+  activerecord:
+    attributes:
+      article:
+        title: Artykuł
+        text: Теkst 
+      comment:
+        body: Теkst
+  
+  devise:
+     registrations:
+      new:
+         title: Rejestracja
+         Sign up: Rejestracja
+     sessions:
+      new:
+         title: Zaloguj sie
+         Log in: Zaloguj sie
+     shared:
+      links:
+         Log in: Zaloguj sie
+         Sign in: Rejestracja
+  
+  
+  menu:
+     home:   'Dom'
+     articles: Wszystkie Artykuły
+     contacts: Kontakt
+     admin: Panel Adminnistratora
+     sing_in:  Zaloguj sie
+     sign_out: Wylogować się
+  
+  home:
+    index:
+      title: 'Witamy!'
+      text: Cześć wszystkim! Mam na imię Maksym! 
+            Jestem programistą Ruby on Rails! W tym projekcie tutorialowym, 
+            dzięki moim staraniom, zostały zaimplementowane relacje polimorficzne pomiędzy bytami!
+            Możesz stworzyć artykuł! Komentarz do artykułu. Utwórz tematy w artykule. 
+            Tematy można komentować. W artykule i tematach znajduje się cały atrybuty
+            "Tytul Fotografii i Opis". Możesz edytować "Artykuł Temat i Komentarze"
+            Projekt jest realizowany na Ruby ​​3.2 i Rails 7.0.4 
+            Użyłem perełek gemy "devise" "i18n" "rubyzip" "enum" "pundit" "pagy" "S3"  Projekt nie jest w pełni zrealizowany! 
+            Dziękuję!!!!!
+  
+  articles:
+      index:
+       title: 'Lista artykułów!'
+            #Knopka 
+       new: Nowy artykuł  
+       show_article: Pokaż artykuł
+       edit_article: Edytuj artykuł
+       delete_article: Usunąć
+      
+      new: 
+       title: 'Nowy artykuł!'
+       submit_article: Nowy artykuł # Button
+      form: # _form.html.erb   -- "edit"
+       title: 'Edytować!'
+       submit_article: Edytować  # Button
+      show:
+       thanks: 'Dziękuję!'
+       create: 'Artykuł został utworzony'
+       Create Topic: 'Utwórz Temat'
+       topic: 'Temat'
+                # button
+       submit_topic: 'Tworzyć' 
+       edit_article: Edytuj artykuł
+       delete_article: Usunąć
+       edit_comment: Edytuj temat
+       delete_comment: Usunąć
+
+      create:
+       success: Artykuł został utworzony!
+      update:
+       success: Artykuł został zredagowany!
+      destroy: 
+       success: Artykuł został udalony!
+
+  comments:
+      form: 
+       title: Edytować Komentarz!
+       submit_button: Edytować  # Button
+
+      create:
+       success: Temat został utworzony!
+      update:
+       success: Temat został zredagowany!
+      destroy: 
+       success: Temat został udalony!
+      show: # Kontroller zaprosil "SHOW" dla udalenija
+       success: Temat został udalony!
+
+
+  tweets: 
+       commentable: #Button
+        button: Komentarz
+        comment: Komentarz
+       
+       create: 
+        success: Komentarz został utworzony! 
+       destroy: 
+        success: Komentarz został udalony!   
