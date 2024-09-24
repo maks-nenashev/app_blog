@@ -4,3 +4,4 @@
 //= link custom.css
 //= link application.css
 //= link home.css
+//= link home.js
