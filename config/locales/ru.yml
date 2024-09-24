@@ -1,0 +1,107 @@
+ru:
+  en: Англиский
+  ru: Русский
+  pl: Польскй
+  ua: Украинский
+
+  activerecord:
+    attributes:
+      article:
+        title: Статья
+        text: Текст
+      comment:
+        body: Текст
+ 
+  devise:
+     registrations:
+      new:
+         title: Регистрация
+         Sign up: Регистрация
+     sessions:
+      new:
+         title: Войти
+         Log in: Войти
+     shared:
+      links:
+         Sign in: Регистрация
+         Log in: Войти
+  menu:
+     home:   'Главная'
+     articles: Все Cтатьи
+     contacts: Контакт
+     admin: Панель Админестратора
+     sing_in:  Войти
+     sign_out:  Выйти
+  
+  home:
+    index:
+      title: 'Добро пожаловать!'
+      new: Новая статья
+      text: Привет всем! Меня зовут Максим! Я Ruby on Rails разроботчик! 
+            В данном обучающем проэкте благодоря моим стараниям были реализованы полиморфные отношения между сущностями! 
+            Вы можете создать статью! Комментировать статью. Также создавать темы в статье. 
+            Темы можно коментировать. Статья и темы имеют все атребуты "Заголовок Фотографии и Описание".
+            Так же вы можете редактировать "Статью Темы и Коментарии"! 
+            Проект реализован на Ruby 3.2 и Rails 7.0.4 
+            Я использовал такие gemy как "devise" "i18n" "enum" "pundit" "rubyzip" "pagy" "S3"
+            Проект не реализовнан до конца! Спасибо!!!!!
+  
+  articles:
+      index:
+       title: 'Список статьей!'
+            # Button
+       new: Новая статья 
+       show_article: Показать статью
+       edit_article: Редактировать
+       delete_article: Удалить
+      new: 
+       title: 'Новая Статья!'
+       submit_article: Новая статья #botton
+      form:    # _form.html.erb   -- "edit"
+       title: 'Редактировать!'
+       submit_article: Редактировать
+      show:
+       thanks: 'Спасибо!'
+       create: 'Статья создана'
+       Create Topic: 'Создать Тему'
+       topic: 'Тема'
+             #Button
+       submit_topic: 'Создать' 
+       edit_article: Редактировать 
+       delete_article: Удалить
+       edit_comment: Редактировать тему
+       delete_comment: Удалить
+ 
+      create:
+       success: Статья созданна! #Article created!
+      update:
+       success: Статья изменина!
+      destroy: 
+       success: Статья удалена!
+
+
+  comments:
+      form: 
+       title: Редактировать коментарий! 
+       submit_button: Редактировать # Button   
+
+      create:
+       success: Тема создана!
+      update:
+       success: Тема изменена!
+      destroy: 
+       success: Тема удалена!
+      show: # Kontroller zaprosil "SHOW" dla udalenija
+       success: Тема удалена!
+
+
+  tweets: 
+       commentable: # Button
+        button: Коментировать
+        comment: Коментировать
+
+       create:
+        success: Коментарий создан!
+       destroy: 
+        success: Коментарий удален!
+      

@@ -1,7 +1,11 @@
 class ContactsController < ApplicationController
+    #def show
+     # @contact = Contact.find(params[:id])
+    #end
     
-    def new  #создать - new (отобразить форму. GET)
-        @contact = Contact.new 
+   
+   def new  #создать - new (отобразить форму. GET)
+        @contact = Contact.new  # Пустым оставлять тельзя!
      end
    
             
@@ -9,7 +13,8 @@ class ContactsController < ApplicationController
         @contact = Contact.new(contact_params)
      if @contact.valid?  # walidacija
         @contact.save
-     else
+        #redirect_to @contact
+      else
         render action: 'new' # Esli forma ne walidna to idet wozwrat na stranicu "new"
        end
      end
