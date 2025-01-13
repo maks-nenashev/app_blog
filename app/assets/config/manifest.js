@@ -5,3 +5,5 @@
 //= link application.css
 //= link home.css
 //= link home.js
+//= link articles.js
+//= link articles.css

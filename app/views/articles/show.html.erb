@@ -24,8 +24,14 @@
  <h4><%= @article.title %></h4>
 
 <% if @article.image.attached?%> <! if image nil>
-<%= image_tag @article.image, style: "width: 380px; height: auto", class: 'img-thumbnail thumb'%>
+<%= image_tag @article.image, style: "width: 380px; height: auto", id:"myImg", alt:"Image", class: 'img-thumbnail thumb'%>
  <% end %>
+ <!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
  
  <br>
  <p><%= @article.text %></p>
