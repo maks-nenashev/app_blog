@@ -51,7 +51,7 @@ en:
              "Title of Photography and Description" 
              You can also edit the "Topic Article and Comments"
              The project is implemented on Ruby 3.2 and Rails 7.0.4 
-             I used gems like "devise" "i18n" "rubyzip" "enum" "pundit" "pagy" "S3"  The project is not fully implemented! 
+             I used gems like "devise" "i18n" "rubyzip" "enum" "pundit" "pagy" "aws-S3"  The project is not fully implemented! 
              Thank you!!!!!
   
   articles:
