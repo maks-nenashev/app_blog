@@ -2,3 +2,8 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import * as bootstrap from "bootstrap"
+import "trix"
+import  "bootstrap/js/dist/collapse" // Podkluczenie oknaimport "trix"
+import "@rails/actiontext"
+import "./home"
+import "./articles"
