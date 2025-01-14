@@ -57,6 +57,8 @@ gem 'uglifier' #Dla normalnoj raboty :rails assets:precompile
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection", "~> 1.0"
+gem 'gravatar_image_tag', github: 'mdeering/gravatar_image_tag'
+#gem 'ruby-vips', '~> 2.1', '>= 2.1.4'
 # Use Sass to process CSS
 # gem "sassc-rails"
 

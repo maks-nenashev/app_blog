@@ -9,7 +9,7 @@
   </div>
               <! Podkluchenie okna 'username' >
   <div class="field">
-    <%= f.label :username %><br />
+    <%= f.label :username %><br/>
     <%= f.text_field :username, autocomplete: "username" %>
   </div>
 
@@ -25,6 +25,13 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+  <br>
+       <div class="form-group">
+          <div class="col-sm-8">
+            <%= f.file_field :avatar %>
+          </div>
+      </div>
+
 <br>
   <div class="actions">
     <%= f.submit t(".Sign up"),class: "btn btn-primary btn-sm"%>

@@ -2,12 +2,12 @@
 
      <!3 Wywodim bazy po ID>
 <section class="card-header">
-      <h3><!%= t'.thanks'%></h3>
-      <h4><%= @article.user.gravatar%>
-      <%= @article.user.username%></h4>  <!Connect "usera!!">
+      <!h3><!%= t'.thanks'%><!/h3>
+      <h4><%= image_tag @article.user.avatar_tumbnail, class: "avatar"%>
+          <%= @article.user.username%></h4>  <!Connect "usera!!">
       <h4><!%= t'.create'%></h4>
 </section>
-  <!h4><!%= @article.title %></h4>
+
               <!Podkluchenie time pod soobzheniem!>
   <time datetime="<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
   <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
@@ -21,21 +21,21 @@
      'Are you sure?'}, class:"btn btn-danger btn-sm bi bi-trash3-fill"%>
       <%end%>
   <hr>
- <h4><%= @article.title %></h4>
-
+  <h4><%= @article.title %></h4> 
+<p>
 <% if @article.image.attached?%> <! if image nil>
 <%= image_tag @article.image, style: "width: 380px; height: auto", id:"myImg", alt:"Image", class: 'img-thumbnail thumb'%>
  <% end %>
+
+  <%= @article.text %></p>
+ 
  <!-- The Modal -->
 <div id="myModal" class="modal">
   <span class="close">&times;</span>
   <img class="modal-content" id="img01">
   <div id="caption"></div>
 </div>
- 
- <br>
- <p><%= @article.text %></p>
- 
+     
      <br> <!br>               <!Dobawlenie okna>
    <%= render 'tweets/commentable', commentable: @article, tweet: @tweet,  
      html_id: 'articleTweets' %>
@@ -43,7 +43,7 @@
 <!/////////////////////////////////////////////////////////////////////////////////////////>
   <hr class="my-3">
 <!h4><!%= t'.write'%></h4>
-
+<%#= link_to ('edit_comment'), new_article_comment_path(@article),class: "btn btn-secondary btn-sm btn-sm bi bi-pencil-square"%> 
     <a class="button big  bi bi-pencil-square" href="#collapseExample" role="button" data-bs-toggle="collapse" aria-expanded="false">
                      <!Button Topic>
      <!a href="#" class="button2" tabindex="1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -127,3 +127,4 @@
     </div>
    </article>
 <%end%>
+

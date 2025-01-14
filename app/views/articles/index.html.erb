@@ -11,14 +11,13 @@
  <!/p>
 <%= pagination @pagy %>   <!Pagy "gem pagy" razbiw na stranicy Podkluchenie>
 </p>
+ <div class="row">
+  <div class="column">
 <% @articles.each do |article| %>
-     <!article class="card mt-3">
      
-     <!section class="card-header">
-      <h4><%= article.user.gravatar%>
-      <%= article.user.username%></h4>  <!Connect "usera!!">
-      <!/section>
-  
+      <h4><%= image_tag article.user.avatar_tumbnail, class: "avatar"%>
+          <%= article.user.username%></h4>  <!Connect "usera!!">
+      
   <div class="card-body">
 
                    <! Podkluchenie time pod soobzheniem!>
@@ -44,21 +43,20 @@
   <% if article.image.attached?%> <! if image nil>
   <%= link_to image_tag(article.image, style: "width: 380px; height: auto", class: 'img-thumbnail thumb'),article_path(article)%>
   <% end %>
-  </p>
   
-  <p>
-  <%=  article.text%>
+  <%= article.text %>
   </p>             
-   <hr>
-                     <!Ssylka na statью>
-  <!p><!%= link_to "New article", new_article_path(article),class: "btn btn-primary" %> 
-          
-                       <! rails routes>                         <!Eto JS window "Udalit post">
-  
-            
-     </div>
-   <!/article>
+
+    </div>      
+  </div>
+  <hr>
 <% end %>
 <br>
  <%= pagination @pagy %>  <!Pagy "gem pagy" razbiw na stranicy Podkluchenie>
  <br>
+
+<style>
+body {
+    font-family: 'Sofia';font-size: 22px;
+}
+</style>
