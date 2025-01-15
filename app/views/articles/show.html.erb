@@ -92,13 +92,10 @@
   <article class="mb-3 card" >
       <div class="card-body">
      
-                  
-                   
-        
   <section class="card-header">
-  <h5><%= comment.user.gravatar%>
-      <%= comment.user.username%></h5>  <!Connect "usera!!">
-  
+      <h4><%= image_tag comment.user.avatar_tumbnail, class: "avatar"%>
+          <%= comment.user.username%></h4>  <!Connect "usera!!">
+               
                <! Podkluchenie time pod soobzheniem!>
   <time datetime="<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
   <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
@@ -120,7 +117,8 @@
       data: {method: :delete, confirm: "Are you sure?"} %>
     <%end%>
 
-    <br><br>      <!Dobawlenie okna>
+    <br>
+    <br>      <!Dobawlenie okna>
  <%= render 'tweets/commentable', commentable: comment, tweet: @tweet,
   html_id: dom_id(comment, 'tweet_form') %>
     
