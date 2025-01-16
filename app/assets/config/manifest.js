@@ -7,3 +7,7 @@
 //= link home.js
 //= link articles.js
 //= link articles.css
+//= link devise.js
+//= link devise.css
+//= link tweets.js
+//= link tweets.css

@@ -3,8 +3,8 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-     <p>
-      <%= image_tag(current_user.avatar_tumbnail)%>
+     <p>                                          <!enlarge photo>
+      <%= image_tag current_user.avatar_tumbnail, class: "zoom"%>
      </p> 
        <br>
           <div class="col-sm-8">
