@@ -3,10 +3,10 @@
   <div class="row g-0">
     <div class="col-sm-auto text-sm-center align-self-center">
       <section class="card-header">
-      <h5><%#= tweet.user.gravatar %>
-          <%#= tweet.user.username %></h5>
+      
       <%= image_tag tweet.user.avatar_tumbnail, class: "avatar"%>
           <%= tweet.user.username%><!/h4>  <!Connect "usera!!">
+       
        <!Podkluchenie time pod soobzheniem!>
   <time datetime="<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
   <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
