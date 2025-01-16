@@ -77,7 +77,8 @@
     cursor: pointer;
   }
  /*//////////////////////////////////////////////////////////////////////////*/ 
-  .divider {
+ /* Blue Line */ 
+ .divider {
     font-size: 30px;
     display: flex;
     align-items: center;

@@ -16,6 +16,10 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= javascript_include_tag 'home.js', "data-turbolinks-track" => true %>
     <%= javascript_include_tag 'articles.js', "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag "devise", "data-turbo-track": "reload" %>  <!Custom CSS>
+    <%= javascript_include_tag 'devise.js', "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag "tweets", "data-turbo-track": "reload" %>  <!Custom CSS>
+    <%= javascript_include_tag 'tweets.js', "data-turbolinks-track" => true %>
   </head>
 <body>
  <div class="container mt-3">     <!t('menu.contact')>
