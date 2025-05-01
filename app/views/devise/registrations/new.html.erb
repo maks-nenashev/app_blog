@@ -1,34 +1,61 @@
-<h2><%= t'.title'%></h2>
+<section class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="card shadow-lg border-0 rounded-4 p-4 bg-white">
+        <h2 class="text-center mb-4 text-primary fw-bold">
+          <%= t('.title', default: "Реєстрація") %>
+        </h2>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-              <! Podkluchenie okna 'username' >
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autocomplete: "username" %>
-  </div>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { multipart: true }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+          <!-- Email -->
+          <div class="mb-3">
+            <%= f.label :email, "Email", class: "form-label fw-semibold" %>
+            <%= f.email_field :email, class: "form-control shadow-sm", autofocus: true, autocomplete: "email" %>
+          </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          <!-- Username -->
+          <div class="mb-3">
+            <%= f.label :username, "Ім’я користувача", class: "form-label fw-semibold" %>
+            <%= f.text_field :username, class: "form-control shadow-sm", autocomplete: "username" %>
+          </div>
+
+          <!-- Пароль -->
+          <div class="mb-3">
+            <%= f.label :password, "Пароль", class: "form-label fw-semibold" %>
+            <%= f.password_field :password, class: "form-control shadow-sm", autocomplete: "new-password" %>
+            <% if @minimum_password_length %>
+              <small class="text-muted"><%= @minimum_password_length %> символів мінімум</small>
+            <% end %>
+          </div>
+
+          <!-- Підтвердження пароля -->
+          <div class="mb-3">
+            <%= f.label :password_confirmation, "Підтвердження пароля", class: "form-label fw-semibold" %>
+            <%= f.password_field :password_confirmation, class: "form-control shadow-sm", autocomplete: "new-password" %>
+          </div>
+
+          <!-- Фото -->
+          <div class="mb-3">
+            <%= f.label :avatar, "Додати фото", class: "form-label fw-semibold" %>
+            <%= f.file_field :avatar, class: "form-control shadow-sm" %>
+          </div>
+
+          <!-- Submit -->
+          <div class="d-grid mt-4">
+            <%= f.submit t(".Sign up", default: "Зареєструватися"), class: "btn btn-success btn-lg shadow" %>
+          </div>
+
+        <% end %>
+
+        <!-- Links -->
+        <div class="text-center mt-4">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+
+    </div>
   </div>
-<br>
-  <div class="actions">
-    <%= f.submit t(".Sign up"),class: "btn btn-primary btn-sm"%>
-  </div>
-<% end %>
-<br>
-<%= render "devise/shared/links" %>
+</section>

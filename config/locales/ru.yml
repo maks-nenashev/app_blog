@@ -93,7 +93,9 @@ ru:
        success: Тема удалена!
       show: # Kontroller zaprosil "SHOW" dla udalenija
        success: Тема удалена!
-
+         # Butoom
+      edit_comment: Редактировать тему
+      delete_comment: Удалить
 
   tweets: 
        commentable: # Button

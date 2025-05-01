@@ -1,0 +1,42 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h4><%= @comment.title %></h4>
+      <small>
+        <%= image_tag @comment.user.avatar_tumbnail, class: "avatar" %>
+        Автор: <%= @comment.user.username if @comment.user %> |
+        Создано: <%= l(@comment.created_at, format: :short) %>
+      </small>
+    </div>
+    <div class="card-body">
+      <% if @comment.image.attached? %>
+        <%= image_tag @comment.image, class: "img-fluid mb-3" %>
+      <% end %>
+      <p><%= @comment.body %></p>
+    </div>
+
+    <% if policy(@comment).edit? %>
+      <div class="card-footer">
+        <%= link_to t('.edit_comment'), edit_article_comment_path(@article, @comment), class: "btn btn-secondary btn-sm bi bi-pencil-square" %> 
+      </div>
+    <% end %>
+
+    <% if policy(@comment).destroy? %>
+      <div class="card-footer">
+        <%= link_to t('.delete_comment'), article_comment_path(@article, @comment),
+          data: { turbo_method: :delete, confirm: "Are you sure?" },
+          class: "btn btn-danger btn-sm bi bi-trash3-fill" %>
+      </div>
+    <% end %>
+
+  </div> <!-- card закрывается здесь правильно -->
+
+  <br><br>
+
+  <%= render 'tweets/commentable', commentable: @comment, tweet: @tweet, html_id: dom_id(@comment, 'tweet_form') %>
+
+  <div class="mt-3">
+    <%= link_to "Назад к статье", article_path(@article), class: "btn btn-secondary" %>
+  </div>
+</div>
+
