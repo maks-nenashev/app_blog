@@ -19,10 +19,10 @@ devise_for :users
   
   resources :articles do  #вложенный маршрут:
     resources :tweets, only: %i[create destroy edit update] #
-    resources :comments #, except: %i[new show] # Wse marшруты нужны кроме [ new show]
-       
+    resources :comments, only: [:new, :create, :edit, :update, :destroy, :show]
+    #resources :tweets, only: %i[create destroy edit update] # 
   end #4 
-  
+ 
   resources :comments, except: %i[new show] do  #вложенный маршрут:
       resources :tweets, only: %i[create destroy edit update] 
   end
