@@ -1,32 +1,49 @@
-<h2><%= t'.title'%></h2>
+<section class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-  
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <div class="card shadow-lg border-0 rounded-4 p-4 bg-light">
+        <h2 class="text-center mb-4 text-primary fw-bold">
+          <%= t('.title', default: "Вхід до облікового запису") %>
+        </h2>
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          
+          <!-- Email -->
+          <div class="mb-3">
+            <%= f.label :email, "Email", class: "form-label fw-semibold" %>
+            <%= f.email_field :email, class: "form-control shadow-sm", autofocus: true, autocomplete: "email" %>
+          </div>
+
+          <!-- Пароль -->
+          <div class="mb-3">
+            <%= f.label :password, "Пароль", class: "form-label fw-semibold" %>
+            <%= f.password_field :password, class: "form-control shadow-sm", autocomplete: "current-password" %>
+          </div>
+
+          <!-- Запам'ятати -->
+          <% if devise_mapping.rememberable? %>
+            <div class="form-check mb-3">
+              <%= f.check_box :remember_me, class: "form-check-input", id: "remember_me" %>
+              <%= f.label :remember_me, "Запам’ятати мене", class: "form-check-label" %>
+            </div>
+          <% end %>
+
+          <!-- Кнопка входу -->
+          <div class="d-grid">
+            <%= f.submit t(".Log in", default: "Увійти"), class: "btn btn-primary btn-lg shadow" %>
+          </div>
+
+        <% end %>
+
+        <!-- Посилання -->
+        <div class="text-center mt-4">
+          <%= render "devise/shared/links" %>
+          <br>
+          <%= link_to "Редагувати акаунт", edit_user_registration_path, class: "text-decoration-none" %>
+        </div>
+
+      </div>
     </div>
-  <% end %>
-<br>
-  <div class="actions">
-    <%= f.submit t(".Log in"),class: "btn btn-primary btn-sm" %>
   </div>
-<% end %>
-
-<br>
-<%= render "devise/shared/links" %>
-<br>
-<p>
-  <%= link_to "Edit Accunt", edit_user_registration_path %>
-<p>
+</section>
