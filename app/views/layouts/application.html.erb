@@ -28,25 +28,42 @@
 <body>
   <div class="container mt-3">
     <!-- Header -->
-    <header class="p-1 bg-white">
-      <div class="container-fluid">
-        <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start navbar navbar-bg-dark">
-          <h2 class="navbar-brand" href="#">Tutorial Project</h2>
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+<header class="bg-white shadow-sm py-3 mb-4 border-bottom">
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="d-flex w-100 justify-content-between align-items-center">
+        <!-- Лого -->
+        <h2 class="navbar-brand fw-bold text-primary text-shadow m-0">Tutorial Project</h2>
 
-          <!-- Navbar menu -->
-          <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><%= link_to t('menu.home'), root_path, class: 'nav-link px-2 text-dark' %></li>
-            <li><%= link_to t('menu.articles'), articles_path, class: 'nav-link px-2 text-dark' %></li>
-            <li><%= link_to t('menu.contacts'), new_contacts_path, class: 'nav-link px-2 text-white' %></li>
-          </ul>
-        </nav>
+        <!-- Кнопка бургер для мобильных -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Ссылки  adapted to a mobile and ordinary version-->
+        <ul class="nav d-none d-lg-flex align-items-center gap-3 m-0">
+          <li><%= link_to t('menu.home'), root_path, class: 'nav-link px-3 text-dark fw-semibold' %></li>
+          <li><%= link_to t('menu.articles'), articles_path, class: 'nav-link px-3 text-dark fw-semibold' %></li>
+          <li><%= link_to t('menu.contacts'), new_contacts_path, class: 'nav-link px-3 text-primary fw-semibold' %></li>
+        </ul>
+
+        <!-- Профиль adapted to a mobile and ordinary version-->
+        <div class="d-none d-lg-flex align-items-center gap-3">
+          <% if user_signed_in? %>
+            <%= image_tag current_user.avatar_tumbnail, class: "avatar rounded-circle", size: "40x40" %>
+            <strong><%= current_user.username %></strong>
+            <%= link_to "Edit Account", edit_user_registration_path, class: 'text-decoration-none text-dark' %>
+            <%= link_to t('menu.sign_out'), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary btn-sm bi bi-door-closed-fill" %>
+          <% else %>
+            <%= link_to t('menu.sign_in'), new_user_session_path, class: "btn btn-outline-primary btn-sm bi bi-door-open-fill" %>
+          <% end %>
+        </div>
       </div>
-    </header>
+    </nav>
+  </div>
+</header>
 
-    <!-- Side panel (offcanvas) for mobile -->
+<!-- Side panel (offcanvas) for mobile -->
     <div class="offcanvas offcanvas-end text-bg-white" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Меню</h5>
@@ -132,6 +149,22 @@
       font-size: 22px;
     }
   </style>
+
+<style>
+  .text-shadow {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .navbar-brand {
+    font-family: 'Aboreto', cursive;
+    font-size: 1.75rem;
+  }
+
+  .nav-link:hover {
+    text-decoration: underline;
+    transition: all 0.2s ease-in-out;
+  }
+</style>
 
   <!-- Main Content -->
   <main class="container mt-3">
