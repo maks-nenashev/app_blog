@@ -1,9 +1,10 @@
+// ✅ Все @use идут СНАЧАЛА
+@use "bootstrap/scss/bootstrap";
+@use "custom";
+@use "articles";
+@use "devise";
+@use "home";
+@use "tweets";
+
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
-
-@import 'bootstrap/scss/transitions';
-
-@import 'actiontext.css';
-
-@import 'custom';
-

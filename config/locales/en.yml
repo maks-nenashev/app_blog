@@ -42,17 +42,26 @@ en:
   home:
     index:
        title: Welcome!
-       text: Hi all! My name is Maksym! I'm a Ruby on Rails Developer! 
-             In this tutorial project, thanks to my efforts, 
-             polymorphic relationships between entities were implemented! 
-             You can create an Article! Comment on the article. Also create topics in the article. 
-             Topics can be commanded. 
-             The article and topics have all the atrebuts 
-             "Title of Photography and Description" 
-             You can also edit the "Topic Article and Comments"
-             The project is implemented on Ruby 3.2 and Rails 7.0.4 
-             I used gems like "devise" "i18n" "rubyzip" "enum" "pundit" "pagy" "aws-S3"  The project is not fully implemented! 
-             Thank you!!!!!
+       text: Обо мне Привет! 
+             Меня зовут Максим Ненашев, я разработчик и энтузиаст в области технологий, который превращает идеи в работающие проекты. Уже более 10 лет я живу в Польше и работаю над 
+             собственными веб-приложениями — от социальных сетей до полезных сервисов для поиска 
+             пропавших людей и вещей. 
+       
+             Мои основные инструменты — Ruby on Rails, R, Shiny, Python, а также облачные технологии AWS и 
+             современные методы обработки данных. Я верю, что технологии должны быть не только 
+             красивыми, но и полезными.
+
+             На этом сайте вы найдёте ссылки на мои проекты;
+
+                     социальная сеть,
+
+                     международный поисковый сервис,
+
+                     аналитические панели и дашборды,
+                     и другие работы, созданные с душой и вниманием к деталям.
+
+             Если вы хотите предложить сотрудничество, оставить отзыв или просто пообщаться — буду 
+             рад связи.
   
   articles:
       index:

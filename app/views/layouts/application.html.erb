@@ -14,7 +14,7 @@
     
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
+   
     <!-- Styles -->
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "custom", "home", "articles", "devise", "tweets", "data-turbo-track": "reload" %>
@@ -33,8 +33,8 @@
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="d-flex w-100 justify-content-between align-items-center">
         <!-- Лого -->
-        <h2 class="navbar-brand fw-bold text-primary text-shadow m-0">Tutorial Project</h2>
-
+        <h2 class="navbar-brand fw-bold text-primary text-shadow m-0">Maksym Nenashev</h2>
+ 
         <!-- Кнопка бургер для мобильных -->
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
           <span class="navbar-toggler-icon"></span>
@@ -46,18 +46,37 @@
           <li><%= link_to t('menu.articles'), articles_path, class: 'nav-link px-3 text-dark fw-semibold' %></li>
           <li><%= link_to t('menu.contacts'), new_contacts_path, class: 'nav-link px-3 text-primary fw-semibold' %></li>
         </ul>
+        
+    <!-- Podkluchenie Jazykow or Adapted to a mobile and ordinary version-->
+      <div class="d-none d-lg-flex align-items-center gap-3"><!-- Языки и Аватаг с Профильем в одной горизонтальной строке -->
+           <div class="dropdown">
+               <%= link_to '#', class: 'nav-link px-2 d-flex align-items-center', data: { "bs-toggle": 'dropdown' } do %>
+               <%= tag.div '', class: "flag #{I18n.locale}-flag mt-1 bi bi-globe me-1" %>
+               <%= t I18n.locale %>
+            <% end %>
+        <ul class="dropdown-menu dropdown-menu-dark">
+               <% I18n.available_locales.each do |locale| %>
+              <li>
+                     <% if I18n.locale == locale %>
+                     <%= tag.span t(locale), class: 'dropdown-item' %>
+                     <% else %>
+                     <%= link_to t(locale), url_for(locale: locale), class: 'dropdown-item' %>
+                   <% end %>
+             </li>
+                   <% end %>
+        </ul>
+      </div>
 
-        <!-- Профиль adapted to a mobile and ordinary version-->
-        <div class="d-none d-lg-flex align-items-center gap-3">
-          <% if user_signed_in? %>
-            <%= image_tag current_user.avatar_tumbnail, class: "avatar rounded-circle", size: "40x40" %>
-            <strong><%= current_user.username %></strong>
-            <%= link_to "Edit Account", edit_user_registration_path, class: 'text-decoration-none text-dark' %>
-            <%= link_to t('menu.sign_out'), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary btn-sm bi bi-door-closed-fill" %>
-          <% else %>
-            <%= link_to t('menu.sign_in'), new_user_session_path, class: "btn btn-outline-primary btn-sm bi bi-door-open-fill" %>
-          <% end %>
-        </div>
+  <!-- Профиль User-->
+     <% if user_signed_in? %>
+       <%= image_tag current_user.avatar_tumbnail, class: "avatar rounded-circle", size: "40x40" %>
+        <strong><%= current_user.username %></strong>
+          <%= link_to "Edit Account", edit_user_registration_path, class: 'text-decoration-none text-dark' %>
+          <%= link_to t('menu.sign_out'), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary btn-sm bi bi-door-closed-fill" %>
+               <% else %>
+          <%= link_to t('menu.sign_in'), new_user_session_path, class: "btn btn-outline-primary btn-sm bi bi-door-open-fill" %>
+     <% end %>
+       </div> <!-- END brought the block of tongues to the avatar & lang-->
       </div>
     </nav>
   </div>
@@ -74,12 +93,12 @@
         <ul class="nav col-12 col-lg-auto mb-2 mb-md-0 px-3">
           <li>
             <% if user_signed_in? %>
-        <div class="d-flex align-items-center gap-2"> <!All one line>
+        <div class="d-flex align-items-center gap-2"> <!--All one line-->
             <%= image_tag current_user.avatar_tumbnail, class: "avatar rounded-circle", size: "40x40" %>
-        <strong><%= current_user.username %></strong>
+              <strong><%= current_user.username %></strong>
             <%= link_to "Edit Account", edit_user_registration_path, class: 'nav-link px-2 text-dark' %>
         </div> 
-             <br>
+              <br>
               <%= link_to t('menu.sign_out'), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary btn-sm bi bi-door-closed-fill" %>
             <% else %>
               <%= link_to t('menu.sign_in'), new_user_session_path, class: "btn btn-outline-primary btn-sm bi bi-door-open-fill" %>
@@ -114,7 +133,7 @@
         </ul>
 
                     <!Podkluchenie Jazykow >
-            <ul class="nav col-12 col-lg-auto mb-2 mb-md-0">
+        <ul class="nav col-12 col-lg-auto mb-2 mb-md-0">
           <li class="dropdown">
             <%= link_to '#', class: 'nav-link px-4',
               data: {"bs-toggle": 'dropdown'} do %>
@@ -142,30 +161,6 @@
     </div>
   </div>
 
-  <!-- Custom CSS for body font and size -->
-  <style>
-    body {
-      font-family: 'Sofia';
-      font-size: 22px;
-    }
-  </style>
-
-<style>
-  .text-shadow {
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  }
-
-  .navbar-brand {
-    font-family: 'Aboreto', cursive;
-    font-size: 1.75rem;
-  }
-
-  .nav-link:hover {
-    text-decoration: underline;
-    transition: all 0.2s ease-in-out;
-  }
-</style>
-
   <!-- Main Content -->
   <main class="container mt-3">
     <% flash.each do |k, v| %>
@@ -180,6 +175,7 @@
 
   <!-- Bootstrap JS -->
   <%= javascript_include_tag "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js", defer: true %>
+  
 </body>
 
 </html>

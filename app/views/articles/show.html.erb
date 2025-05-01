@@ -1,89 +1,94 @@
-<% provide :page_title, 'Article has been created!!!' %> <!Podpis w ikonke "Kakaja stranica">
+<% provide :page_title, @article.title %>
 
-     <!3 Wywodim bazy po ID>
-<section class="card-header">
-      <!h3><!%= t'.thanks'%><!/h3>
-      <h4><%= image_tag @article.user.avatar_tumbnail, class: "avatar"%>
-          <%= @article.user.username%></h4>  <!Connect "usera!!">
-      <h4><!%= t'.create'%></h4>
-</section>
-
-              <!Podkluchenie time pod soobzheniem!>
-  <time datetime="<%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
-  <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-  </time>  
-     
-     <% if policy(@article).edit?%> <! Podkluchenie Авторизация (Pundit)>
-   <%= link_to t('.edit_article'), edit_article_path(@article),class: "btn btn-secondary btn-sm bi bi-pencil-square"%> 
-      <%end%>
-      <% if policy(@article).destroy?%> <! Podkluchenie Авторизация (Pundit)>
-   <%= link_to t('.delete_article'), article_path(@article), data: {'turbo-method': :delete,'turbo-confirm': 
-     'Are you sure?'}, class:"btn btn-danger btn-sm bi bi-trash3-fill"%>
-      <%end%>
-  <hr>
-  <h4><%= @article.title %></h4> 
-<p>
-<% if @article.image.attached?%> <! if image nil>
-<%= image_tag @article.image, style: "width: 380px; height: auto", id:"myImg", alt:"Image", class: 'img-thumbnail thumb'%>
- <% end %>
-
-  <%= @article.text %></p>
+<div class="container my-5">
+  <!-- Заголовок и автор -->
  
- <!-- The Modal -->
-<div id="myModal" class="modal">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="img01">
-  <div id="caption"></div>
-</div>
-     
-     <br> <!br>               <!Dobawlenie okna>
-   <%= render 'tweets/commentable', commentable: @article, tweet: @tweet,  
-     html_id: 'articleTweets' %>
-   
-<!/////////////////////////////////////////////////////////////////////////////////////////>
- <!-- Статья и комментарии -->
-<h4 class="mt-5"><%= t('.topic') %></h4>
-<%= link_to t('.new_comment'), new_article_comment_path(@article), class: "btn btn-primary my-3" %>
+ <header class="mb-4">
+    <h1 class="h4 fw-bold mb-4 text-break text-center"><%= @article.title %></h1>
 
-<%= pagination @pagy %>
+    <% if @article.image.attached? %>
+      <div class="mx-auto" style="max-width: 720px;">
+        <!-- Фото -->
+        <div class="text-center mb-3">
+          <%= image_tag @article.image, class: "img-fluid rounded shadow-sm w-100", alt: "Article image" %>
+        </div>
 
-<br>
-<% @comments.each do |comment| %>
-  <article class="mb-3 card">
-    <div class="card-body">
+        <!-- Автор под фото, адаптивный -->
+        <div class="d-flex flex-column flex-md-row align-items-start gap-2 px-2">
+          <%= image_tag @article.user.avatar_tumbnail, class: "rounded-circle", width: 40, height: 40 %>
+          <div class="small text-start">
+            <strong><%= @article.user.username %></strong><br>
+            <span class="text-muted">
+              <%= t('.create') %>
+              <time datetime="<%= @article.created_at.iso8601 %>">
+                <%= l(@article.created_at, format: :short) %>
+              </time>
+            </span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </header>
 
-      <section class="card-header">
-        <h4>
-          <%= image_tag comment.user.avatar_tumbnail, class: "avatar" %>
-          <%= comment.user.username %>
-        </h4>
+<!-- Текст статьи -->
+  <div class="mb-5 fs-6 text-center px-2 px-md-5">
+    <%= simple_format(@article.text) %>
+  </div>
 
-        <time datetime="<%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %>">
-          <%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-        </time>
-      </section>
-
-      <h4><%= link_to comment.title, article_comment_path(@article, comment)%></h4>
-
-      <% if comment.image.attached? %>
-        <%= link_to image_tag(comment.image, style: "width: 380px; height: auto", class: 'img-thumbnail thumb'), article_comment_path(@article, comment) %>
-        <%#=  image_tag comment.image, style: "width: 380px; height: auto", class: 'img-thumbnail thumb' %>
+  <!-- Кнопки редактирования -->
+  <div class="mb-4 d-flex flex-wrap gap-2">
+    <% if policy(@article).edit? %>
+      <%= link_to edit_article_path(@article), class: "btn btn-outline-primary" do %>
+        <i class="bi bi-pencil-square me-1"></i> <%= t('.edit_article') %>
       <% end %>
+    <% end %>
 
-      <h4><%= comment.body %></h4>
+    <% if policy(@article).destroy? %>
+      <%= link_to article_path(@article),
+                  data: { 'turbo-method': :delete, 'turbo-confirm': t('.are_you_sure') },
+                  class: "btn btn-outline-danger" do %>
+        <i class="bi bi-trash3-fill me-1"></i> <%= t('.delete_article') %>
+      <% end %>
+    <% end %>
+  </div>
 
-      <%# if policy(comment).edit? %>
-        <%#= link_to t('.edit_comment'), edit_article_comment_path(@article, comment), class: "btn btn-secondary btn-sm bi bi-pencil-square" %> 
-      <%# end %>
+  <!-- Виджет комментариев -->
+  <%= render 'tweets/commentable', commentable: @article, tweet: @tweet, html_id: 'articleTweets' %>
 
-      <%# if policy(comment).destroy? %>
-        <%#= link_to t('.delete_comment'), article_comment_path(@article, comment), data: { method: :delete, confirm: "Are you sure?" }, class: "btn btn-danger btn-sm bi bi-trash3-fill" %>
-      <%# end %>
+  <hr class="my-5" />
 
-      <br><br>
+  <!-- Комментарии -->
+  <section>
+    <h2 class="h4 mb-4"><%= t('.topic') %></h2>
+    <%= link_to t('.new_comment'), new_article_comment_path(@article), class: "btn btn-primary mb-4" %>
+    <%= pagination @pagy %>
 
-      <%#= render 'tweets/commentable', commentable: comment, tweet: @tweet, html_id: dom_id(comment, 'tweet_form') %>
+    <% @comments.each do |comment| %>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div class="d-flex align-items-center">
+              <%= image_tag comment.user.avatar_tumbnail, class: "rounded-circle me-2", width: 40, height: 40 %>
+              <strong><%= comment.user.username %></strong>
+            </div>
+            <small class="text-muted">
+              <time datetime="<%= comment.created_at.iso8601 %>">
+                <%= l(comment.created_at, format: :short) %>
+              </time>
+            </small>
+          </div>
 
-    </div>
-  </article>
-<% end %>
+          <h5 class="card-title"><%= link_to comment.title, article_comment_path(@article, comment), class: "text-decoration-none" %></h5>
+
+          <% if comment.image.attached? %>
+            <div class="mb-3">
+              <%= link_to image_tag(comment.image, class: "img-fluid rounded"), article_comment_path(@article, comment) %>
+            </div>
+          <% end %>
+
+          <p class="card-text"><%= simple_format(comment.body) %></p>
+        </div>
+      </div>
+    <% end %>
+  </section>
+</div>

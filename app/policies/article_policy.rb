@@ -4,11 +4,11 @@ class ArticlePolicy < ApplicationPolicy
     end
   
     def update?                                    # guest_user.rb
-      true#user.admin_role? || user.moderator_role? || user.author?(record)
+      user.admin_role? || user.moderator_role? || user.author?(record)
     end
   
     def destroy?
-      true#user.admin_role? || user.author?(record)
+      user.admin_role? || user.author?(record)
     end
   
     def index?

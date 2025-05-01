@@ -1,7 +1,6 @@
 //= link_tree ../images
 //= link_tree ../builds
 //= link application.js
-//= link custom.css
 //= link application.css
 //= link home.css
 //= link home.js
@@ -11,3 +10,5 @@
 //= link devise.css
 //= link tweets.js
 //= link tweets.css
+//= link custom.css
+//= link custom.js
