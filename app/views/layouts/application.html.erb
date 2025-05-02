@@ -14,39 +14,79 @@
     
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
+   
     <!-- Styles -->
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "custom", "home", "articles", "devise", "tweets", "data-turbo-track": "reload" %>
 
     <!-- Scripts -->
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <%= javascript_include_tag "home.js", "articles.js", "devise.js", "tweets.js", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "custom.js", "home.js", "articles.js", "devise.js", "tweets.js", "data-turbo-track": "reload" %>
 
 </head>
 
 <body>
   <div class="container mt-3">
     <!-- Header -->
-    <header class="p-1 bg-white">
-      <div class="container-fluid">
-        <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start navbar navbar-bg-dark">
-          <h2 class="navbar-brand" href="#">Tutorial Project</h2>
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+<header class="bg-white shadow-lg py-3 mb-4 border-bottom">
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="d-flex w-100 justify-content-between align-items-center">
+        <!-- Лого -->
+        <!h2 class="navbar-brand fw-bold text-primary text-shadow m-0"><!/h2>
+        <h2 class="navbar-brand fw-bold text-primary m-0" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">
+          Maksym Nenashev
+        </h2>
+ 
+        <!-- Кнопка бургер для мобильных -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-          <!-- Navbar menu -->
-          <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><%= link_to t('menu.home'), root_path, class: 'nav-link px-2 text-dark' %></li>
-            <li><%= link_to t('menu.articles'), articles_path, class: 'nav-link px-2 text-dark' %></li>
-            <li><%= link_to t('menu.contacts'), new_contacts_path, class: 'nav-link px-2 text-white' %></li>
-          </ul>
-        </nav>
+        <!-- Ссылки адаптированные для мобильной и обычной версии -->
+        <ul class="nav d-none d-lg-flex align-items-center gap-3 m-0">
+          <li><%= link_to t('menu.home'), root_path, class: 'nav-link px-3 text-dark fw-semibold' %></li>
+          <li><%= link_to t('menu.articles'), articles_path, class: 'nav-link px-3 text-dark fw-semibold' %></li>
+          <li><%= link_to t('menu.contacts'), new_contacts_path, class: 'nav-link px-3 text-primary fw-semibold' %></li>
+        </ul>
+        
+        <!-- Подключение языков -->
+        <div class="d-none d-lg-flex align-items-center gap-3">
+          <!-- Языки -->
+          <div class="dropdown">
+            <%= link_to '#', class: 'nav-link px-2 d-flex align-items-center', data: { "bs-toggle": 'dropdown' } do %>
+              <%= tag.div '', class: "flag #{I18n.locale}-flag mt-1 bi bi-globe me-1" %>
+              <%= t I18n.locale %>
+            <% end %>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <% I18n.available_locales.each do |locale| %>
+                <li>
+                  <% if I18n.locale == locale %>
+                    <%= tag.span t(locale), class: 'dropdown-item' %>
+                  <% else %>
+                    <%= link_to t(locale), url_for(locale: locale), class: 'dropdown-item' %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+
+          <!-- Профиль пользователя -->
+          <% if user_signed_in? %>
+            <%= image_tag current_user.avatar_tumbnail, class: "avatar rounded-circle shadow-sm", size: "40x40" %>
+            <strong><%= current_user.username %></strong>
+            <%= link_to "Edit Account", edit_user_registration_path, class: 'text-decoration-none text-dark' %>
+            <%= link_to t('menu.sign_out'), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary btn-sm bi bi-door-closed-fill" %>
+          <% else %>
+            <%= link_to t('menu.sign_in'), new_user_session_path, class: "btn btn-outline-primary btn-sm bi bi-door-open-fill" %>
+          <% end %>
+        </div>
       </div>
-    </header>
+    </nav>
+  </div>
+</header>
 
-    <!-- Side panel (offcanvas) for mobile -->
+<!-- Side panel (offcanvas) for mobile -->
     <div class="offcanvas offcanvas-end text-bg-white" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Меню</h5>
@@ -57,12 +97,12 @@
         <ul class="nav col-12 col-lg-auto mb-2 mb-md-0 px-3">
           <li>
             <% if user_signed_in? %>
-        <div class="d-flex align-items-center gap-2"> <!All one line>
+        <div class="d-flex align-items-center gap-2"> <!--All one line-->
             <%= image_tag current_user.avatar_tumbnail, class: "avatar rounded-circle", size: "40x40" %>
-        <strong><%= current_user.username %></strong>
+              <strong><%= current_user.username %></strong>
             <%= link_to "Edit Account", edit_user_registration_path, class: 'nav-link px-2 text-dark' %>
         </div> 
-             <br>
+              <br>
               <%= link_to t('menu.sign_out'), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary btn-sm bi bi-door-closed-fill" %>
             <% else %>
               <%= link_to t('menu.sign_in'), new_user_session_path, class: "btn btn-outline-primary btn-sm bi bi-door-open-fill" %>
@@ -97,7 +137,7 @@
         </ul>
 
                     <!Podkluchenie Jazykow >
-            <ul class="nav col-12 col-lg-auto mb-2 mb-md-0">
+        <ul class="nav col-12 col-lg-auto mb-2 mb-md-0">
           <li class="dropdown">
             <%= link_to '#', class: 'nav-link px-4',
               data: {"bs-toggle": 'dropdown'} do %>
@@ -125,14 +165,6 @@
     </div>
   </div>
 
-  <!-- Custom CSS for body font and size -->
-  <style>
-    body {
-      font-family: 'Sofia';
-      font-size: 22px;
-    }
-  </style>
-
   <!-- Main Content -->
   <main class="container mt-3">
     <% flash.each do |k, v| %>
@@ -147,6 +179,8 @@
 
   <!-- Bootstrap JS -->
   <%= javascript_include_tag "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js", defer: true %>
+  
+  <!script src="https://cdn.tailwindcss.com"><!/script>
 </body>
 
 </html>

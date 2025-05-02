@@ -1,41 +1,46 @@
-<% provide :page_title, 'New Articles' %> <!Podpis w ikonke "Kakaja stranica">
+<% provide :page_title, 'New Articles' %>
 
-<br>
-<h2><%= t'.title'%></h2><!%= t'articles.new.title'% Leniwyj perewod>
+<section class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
 
-<%= form_for :article, url: articles_path, data: {turbo:false}  do |f| %>
+      <div class="card shadow-lg border-0 rounded-4 p-4 bg-white">
+        <!-- Заголовок страницы -->
+        <h2 class="text-center mb-4 text-primary fw-bold">
+          <%= t('.title', default: "Новая статья") %>
+        </h2>
 
+        <%= form_for :article, url: articles_path, data: { turbo: false } do |f| %>
+          <!-- Отображение ошибок -->
+          <%= render 'shared/errors', object: @article %>
 
-<%= render 'shared/errors', object: @article %> <!Walidacija - papka shared/_errors>
-<% if @article && @article.errors.full_messages.any?%> <!Prowerka! Esli estj ochybka to nepropustit>
-<% end%>
+          <!-- Заголовок статьи -->
+          <div class="mb-3">
+            <%= f.label :title, "Заголовок статьи", class: "form-label fw-semibold" %>
+            <%= f.text_field :title, placeholder: "Введите заголовок", class: "form-control shadow-sm", required: true, minlength: 2 %>
+          </div>
 
+          <!-- Текст статьи -->
+          <div class="mb-3">
+            <%= f.label :text, "Текст статьи", class: "form-label fw-semibold" %>
+            <%= f.text_area :text, placeholder: "Введите текст", class: "form-control shadow-sm", rows: 6, required: true, minlength: 2 %>
+          </div>
 
-<div class="mb-3 row">
-<div class="col-sm-2 col-form-label">  
-    <%= f.label :title %>
-</div>
+          <!-- Загрузка изображения -->
+          <div class="mb-3">
+           <label class="btn btn-dark">
+            Upload image
+             <%= f.file_field :image, style: "display: none;" %>
+            </label>
+          </div>
 
-<div class="col-sm-10">          <! Walidacija CSS ---required: true, minlength:2,>
-    <%= f.text_field :title, placeholder: "Title", class: "form-control"%>
-</div>
-</div>
+          <!-- Кнопка отправки -->
+          <div class="d-grid mt-4">
+            <%= f.submit t('.submit_article', default: "Создать статью"), class: "btn btn-success btn-lg shadow" %>
+          </div>
+        <% end %>
+      </div>
 
-<div class="mb-3 row">
-<div class="col-sm-2 col-form-label">
-    <%= f.label :text %>
-</div>
-
-<div class="col-sm-10">     <! Walidacija CSS ---required: true, minlength:2,>
-    <%= f.text_area :text, placeholder: "Text", class: "form-control"%>
-</div>
-</div>
-
-<div class="col-sm-10">     
-    <%= f.file_field :image, class: "btn btn-outline-primary btn-sm"%>
-</div>
-  <br>
-  
-  <%= f.submit t('.submit_article'), class: "btn btn-primary"%>
-
-<%end%>
+    </div>
+  </div>
+</section>

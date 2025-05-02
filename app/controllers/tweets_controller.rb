@@ -11,7 +11,7 @@ class TweetsController < ApplicationController
 
       if @tweet.save
         flash[:success] = t".success" # Window Podtwerzdenija
-        redirect_to article_path(@article)
+        redirect_to polymorphic_path(@commentable) # <-- Вот здесь всё происходит правильно
       else
         @tweet = @tweet.decorate
         load_articles_comments do_render: true

@@ -63,7 +63,7 @@ ru:
       show:
        thanks: 'Спасибо!'
        create: 'Статья создана'
-       Create Topic: 'Создать Тему'
+       new_topic: 'Создать Тему'
        topic: 'Тема'
              #Button
        submit_topic: 'Создать' 

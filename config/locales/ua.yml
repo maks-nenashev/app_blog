@@ -63,7 +63,7 @@ ua:
       show:
        thanks: 'Дякую!'
        create: 'Статтю створено'
-       Create Topic: 'Створити Тему'
+       new_topic: 'Створити Тему'
        topic: 'Тема'
              #Button
        submit_topic: 'Створити' 
