@@ -1,40 +1,40 @@
-<br>
-<%= tag.article class: 'mb-3 card borber-0', id: dom_id(tweet) do %>
+<%= tag.article class: 'mb-4 card shadow-lg border-0', id: dom_id(tweet) do %>
   <div class="row g-0">
-    <div class="col-sm-auto text-sm-center align-self-center">
-      <section class="card-header">
-      
-      <%= image_tag tweet.user.avatar_tumbnail, class: "avatar"%>
-          <%= tweet.user.username %><!/h4> -- <!Connect "usera!!-- ">
-       
-       <!Podkluchenie time pod soobzheniem!>
-  <time datetime="<%= tweet.created_at.strftime("%Y-%m-%d %H:%M:%S")%>">
-  <%= tweet.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-  
-           <!Knopka Delete Commenta>
-           <% if policy(tweet).destroy?%> <! Podkluchenie Авторизация (Pundit)>
-            <%= link_to 'Delete',polymorphic_path([tweet.commentable, tweet]),
-              class: 'btn btn-danger btn-sm  btn-sm bi bi-trash3-fill',
-              data: { turbo_method: :delete, confirm: 'Are you sure?' } %>
-            <%end%>
-            <% if policy(tweet).edit?%> <! Podkluchenie Авторизация (Pundit)>
-            <%= link_to 'Edit',edit_polymorphic_path([tweet.commentable, tweet]),
-              class: 'btn btn-secondary btn-sm bi bi-pencil-square' %>
-            <%end%>
-   </section>
-   </div>
-    
-    <div class="col-sm">
+    <!-- Левая колонка: Аватар и информация о пользователе -->
+    <div class="col-12 col-sm-3 text-center p-3">
+      <section class="d-flex flex-column align-items-center">
+        <!-- Аватар пользователя -->
+        <%= image_tag tweet.user.avatar_tumbnail, class: "avatar rounded-circle mb-2", alt: "#{tweet.user.username}'s avatar" %>
+        <h5 class="mb-1 text-truncate"><%= tweet.user.username %></h5>
+
+        <!-- Время создания -->
+        <time datetime="<%= tweet.created_at.strftime('%Y-%m-%d %H:%M:%S') %>" class="text-muted small">
+          <%= tweet.created_at.strftime('%d %b %Y, %H:%M') %>
+        </time>
+      </section>
+    </div>
+
+    <!-- Правая колонка: Текст комментария -->
+    <div class="col-12 col-sm-9">
       <div class="card-body">
-        <section class="card-text mb-3">
-          <div class="col-sm-9">
-            
-            <p>
-              <%= sanitize tweet.body %>
-            </p>
-          
-          </div>
-        </section>
+        <!-- Кнопки управления (Edit/Delete) -->
+        <div class="d-flex justify-content-end mb-2">
+          <% if policy(tweet).edit? %>
+            <%= link_to 'Edit', edit_polymorphic_path([tweet.commentable, tweet]),
+                        class: 'btn btn-outline-secondary btn-sm bi bi-pencil-square me-2' %>
+          <% end %>
+          <% if policy(tweet).destroy? %>
+            <%= link_to 'Delete', polymorphic_path([tweet.commentable, tweet]),
+                        class: 'btn btn-outline-danger btn-sm bi bi-trash3-fill',
+                        data: { turbo_method: :delete, confirm: 'Are you sure?' } %>
+          <% end %>
+        </div>
+
+        <!-- Текст комментария -->
+        <h6 class="card-subtitle mb-2 text-muted">Комментарий</h6>
+        <p class="card-text fs-6">
+          <%= sanitize tweet.body, tags: %w(strong em a p br ul ol li), attributes: %w(href title) %>
+        </p>
       </div>
     </div>
   </div>

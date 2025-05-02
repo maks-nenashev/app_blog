@@ -66,7 +66,7 @@ pl:
       show:
        thanks: 'Dziękuję!'
        create: 'Artykuł został utworzony'
-       Create Topic: 'Utwórz Temat'
+       new_topic: 'Utwórz Temat'
        topic: 'Temat'
                 # button
        submit_topic: 'Tworzyć' 

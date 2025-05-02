@@ -1,43 +1,44 @@
 <% provide :page_title, 'New Articles' %>
 
-<div class="container my-5">
-  <!-- Заголовок страницы -->
-  <div class="text-center mb-4">
-    <h2 class="fw-bold"><%= t('.title') %></h2>
-  </div>
+<section class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
 
-  <!-- Форма создания статьи -->
-  <div class="card shadow-sm">
-    <div class="card-body">
-      <%= form_for :article, url: articles_path, data: { turbo: false } do |f| %>
+      <div class="card shadow-lg border-0 rounded-4 p-4 bg-white">
+        <!-- Заголовок страницы -->
+        <h2 class="text-center mb-4 text-primary fw-bold">
+          <%= t('.title', default: "Новая статья") %>
+        </h2>
 
-        <!-- Отображение ошибок -->
-        <%= render 'shared/errors', object: @article %>
+        <%= form_for :article, url: articles_path, data: { turbo: false } do |f| %>
+          <!-- Отображение ошибок -->
+          <%= render 'shared/errors', object: @article %>
 
-        <!-- Заголовок статьи -->
-        <div class="mb-3">
-          <%= f.label :title, class: "form-label fw-semibold" %>
-          <%= f.text_field :title, placeholder: "Enter title", class: "form-control", required: true, minlength: 2 %>
-        </div>
+          <!-- Заголовок статьи -->
+          <div class="mb-3">
+            <%= f.label :title, "Заголовок статьи", class: "form-label fw-semibold" %>
+            <%= f.text_field :title, placeholder: "Введите заголовок", class: "form-control shadow-sm", required: true, minlength: 2 %>
+          </div>
 
-        <!-- Текст статьи -->
-        <div class="mb-3">
-          <%= f.label :text, class: "form-label fw-semibold" %>
-          <%= f.text_area :text, placeholder: "Enter text", class: "form-control", rows: 6, required: true, minlength: 2 %>
-        </div>
+          <!-- Текст статьи -->
+          <div class="mb-3">
+            <%= f.label :text, "Текст статьи", class: "form-label fw-semibold" %>
+            <%= f.text_area :text, placeholder: "Введите текст", class: "form-control shadow-sm", rows: 6, required: true, minlength: 2 %>
+          </div>
 
-        <!-- Загрузка изображения -->
-        <div class="mb-4">
-          <%= f.label :image, class: "form-label fw-semibold" %><br>
-          <%= f.file_field :image, class: "form-control" %>
-        </div>
+          <!-- Загрузка изображения -->
+          <div class="mb-3">
+            <%= f.label :image, "Загрузить изображение", class: "form-label fw-semibold" %>
+            <%= f.file_field :image, class: "form-control shadow-sm" %>
+          </div>
 
-        <!-- Кнопка отправки -->
-        <div class="d-grid">
-          <%= f.submit t('.submit_article'), class: "btn btn-primary btn-lg shadow-sm" %>
-        </div>
+          <!-- Кнопка отправки -->
+          <div class="d-grid mt-4">
+            <%= f.submit t('.submit_article', default: "Создать статью"), class: "btn btn-success btn-lg shadow" %>
+          </div>
+        <% end %>
+      </div>
 
-      <% end %>
     </div>
   </div>
-</div>
+</section>

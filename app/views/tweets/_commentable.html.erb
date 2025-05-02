@@ -1,31 +1,46 @@
 <% is_current_tweet = tweet&.for?(commentable) %>
-<% tweet_builder = is_current_tweet ? tweet : commentable.tweets.build %> <! Podkluchenie Авторизация (Pundit)>
+<% tweet_builder = is_current_tweet ? tweet : commentable.tweets.build %>
 
-<%= link_to t('.button'), "##{html_id}",
-  class: 'btn btn-primary bi bi-chat-right-text', data: {'bs-toggle': 'collapse'} %>
+<div class="d-flex justify-content-center mb-4">
+  <!-- Кнопка для раскрытия формы -->
+  <% button_color = local_assigns[:button_color] || 'rgb(192, 166, 20)' %>
+  <% button_text_color = local_assigns[:button_text_color] || '#000' %>
+  <% button_border_color = local_assigns[:button_border_color] || '#FFD700' %>
 
-<%= tag.div class: "collapse #{'show' if is_current_tweet}" , id: html_id do %> 
-  
-  <% if policy(tweet_builder).create?%> <! Podkluchenie Авторизация (Pundit)>
-  <%= form_with model: [commentable, tweet_builder],
-  
-  class: 'pt-3 border-top my-2' do |f| %>
+  <%= link_to t('.button'), "##{html_id}",
+              class: 'btn btn-sm shadow-lg fw-semibold',
+              style: "background-color: #{button_color}; color: #{button_text_color}; border-color: #{button_border_color}; width: 400px; text-align: center;",
+              data: { 'bs-toggle': 'collapse', 'bs-target': "##{html_id}" },
+              aria: { expanded: is_current_tweet ? 'true' : 'false', controls: html_id } %>
+</div>
+
+<%= tag.div class: "collapse #{'show' if is_current_tweet} bg-white shadow-lg rounded p-4", id: html_id do %>
+  <% if policy(tweet_builder).create? %>
+    <!-- Форма добавления комментария -->
+    <%= form_with model: [commentable, tweet_builder], class: 'pt-3' do |f| %>
+      <!-- Ошибки -->
       <% if is_current_tweet %>
-      <%= render 'shared/errors', object: tweet %>
+        <div class="shadow-sm p-2 bg-light rounded">
+          <%= render 'shared/errors', object: tweet %>
+        </div>
+      <% end %>
+
+      <!-- Поле для текста -->
+      <div class="mb-3 shadow-sm p-3 bg-light rounded">
+        <%= f.label :body, "Ваш комментарий", class: "form-label fw-semibold text-muted" %>
+        <%= f.text_area :body, class: 'form-control shadow-sm rounded', rows: 3, placeholder: "Введите текст..." %>
+      </div>
+
+      <!-- Кнопка отправки -->
+      <div class="d-flex justify-content-end">
+        <%= f.submit t('.comment', default: 'Комментировать'), class: 'btn btn-success btn-sm fw-semibold shadow-lg' %>
+      </div>
     <% end %>
+  <% end %>
 
-    <div class="mb-3 row">
-      <div class="col-sm-2 col-form-label">
-        <%= f.label :body %>
-      </div>
-
-      <div class="col-sm-10">
-        <%= f.text_area :body, class: 'form-control form-control-sm' %>
-      </div>
-    </div>
-
-    <%= f.submit t('.comment'), class: 'btn btn-primary' %>
-   <% end %>
-  <%end%>
-  <%= render commentable.tweets.decorate %>
+  <!-- Список комментариев -->
+  <div class="mt-4 shadow-sm p-3 bg-light rounded">
+    <h5 class="fw-bold text-secondary">Комментарии:</h5>
+    <%= render commentable.tweets.decorate %>
+  </div>
 <% end %>

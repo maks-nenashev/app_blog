@@ -81,8 +81,8 @@ en:
       show:
        thanks: 'Thanks!'
        create: 'Article has been created!!!'
-       Create Topic: 'Create Topic!'
-       topic: 'Topic'
+       new_topic: 'Create Topic!'
+       topic: 'Topic-s'
              # button
        submit_topic: 'Create' 
        edit_article: Edit article
