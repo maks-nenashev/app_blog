@@ -89,7 +89,7 @@ en:
        delete_article: Delete
        edit_comment: Edit topic
        delete_comment: Delete   
-
+       
       create:
        success: Article created!
       update:
@@ -98,10 +98,13 @@ en:
        success: Article hes been deleted!
        
   comments:
+      new:
+       submit_button: Create Topic # Button
+      edit:
+       update_button: Update Topic # Button
+      
       form: 
        title: Update comment!
-       submit_button: Submit Comment # Button
-
       create:
        success: Topic created!
       update:

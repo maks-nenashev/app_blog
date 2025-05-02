@@ -11,6 +11,10 @@ class CommentPolicy < ApplicationPolicy
       user.admin_role? || user.author?(record)
     end
   
+    def new?
+       true#user.author?(record) # или user.admin? и т.д.
+    end
+    
     def index?
       true
     end

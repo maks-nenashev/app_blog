@@ -1,6 +1,6 @@
 class ArticlePolicy < ApplicationPolicy
     def create?
-      true#!user.guest?
+      !user.guest?
     end
   
     def update?                                    # guest_user.rb

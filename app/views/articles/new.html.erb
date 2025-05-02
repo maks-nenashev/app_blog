@@ -28,8 +28,10 @@
 
           <!-- Загрузка изображения -->
           <div class="mb-3">
-            <%= f.label :image, "Загрузить изображение", class: "form-label fw-semibold" %>
-            <%= f.file_field :image, class: "form-control shadow-sm" %>
+           <label class="btn btn-dark">
+            Upload image
+             <%= f.file_field :image, style: "display: none;" %>
+            </label>
           </div>
 
           <!-- Кнопка отправки -->

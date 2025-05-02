@@ -20,14 +20,13 @@
   </div>
 
   <!-- Поле для загрузки изображения -->
-  <div class="mb-4 row">
-    <div class="col-sm-3 col-form-label">
-      <%= f.label :image, 'Изображение', class: 'form-label fw-bold text-primary' %>
-    </div>
-    <div class="col-sm-9">
-      <%= f.file_field :image, class: "form-control shadow-lg rounded-3" %>
-    </div>
-  </div>
+  <!-- Загрузка изображения -->
+          <div class="mb-3">
+           <label class="btn btn-dark">
+            Upload image
+             <%= f.file_field :image, style: "display: none;" %>
+            </label>
+          </div>
 
   <!-- Кнопка отправки -->
   <div class="d-flex justify-content-end">

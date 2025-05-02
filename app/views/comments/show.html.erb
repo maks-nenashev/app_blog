@@ -1,42 +1,59 @@
-<div class="container mt-4">
-  <div class="card">
-    <div class="card-header">
-      <h4><%= @comment.title %></h4>
-      <small>
-        <%= image_tag @comment.user.avatar_tumbnail, class: "avatar" %>
-        Автор: <%= @comment.user.username if @comment.user %> |
-        Создано: <%= l(@comment.created_at, format: :short) %>
-      </small>
-    </div>
-    <div class="card-body">
-      <% if @comment.image.attached? %>
-        <%= image_tag @comment.image, class: "img-fluid mb-3" %>
-      <% end %>
-      <p><%= @comment.body %></p>
-    </div>
+<div class="container my-5">
+  <div class="divider"><h1><%= t('.topic') %></h1></div>
+  <!-- Заголовок и автор -->
+  <header class="mb-4">
+    <h1 class="h4 fw-bold mb-4 text-break text-center"><%= @comment.title %></h1>
 
-    <% if policy(@comment).edit? %>
-      <div class="card-footer">
-        <%= link_to t('.edit_comment'), edit_article_comment_path(@article, @comment), class: "btn btn-secondary btn-sm bi bi-pencil-square" %> 
+  </header>
+
+  <!-- Изображение комментария -->
+  <% if @comment.image.attached? %>
+    <div class="mx-auto" style="max-width: 720px;">
+      <div class="text-center mb-3">
+        <%= image_tag @comment.image, class: "img-fluid rounded shadow-sm w-100", alt: "Comment image" %>
       </div>
+    <div class="d-flex flex-column flex-md-row align-items-start gap-2 px-2">
+      <%= image_tag @comment.user.avatar_tumbnail, class: "rounded-circle", width: 40, height: 40 %>
+      <div class="small text-start">
+        <strong><%= @comment.user.username %></strong><br>
+        <span class="text-muted fs-7">
+          <%= l(@comment.created_at, format: :short) %>
+        </span>
+       </div>
+      </div>
+    </div>
+  <% end %>
+
+  <!-- Текст комментария -->
+  <div class="mb-5 fs-6 text-center px-2 px-md-5">
+    <%= simple_format(@comment.body) %>
+  </div>
+
+  <!-- Кнопки редактирования и удаления -->
+  <div class="mb-4 d-flex flex-wrap gap-2">
+    <% if policy(@comment).edit? %>
+      <%= link_to edit_article_comment_path(@article, @comment), class: "btn btn-outline-primary" do %>
+        <i class="bi bi-pencil-square me-1"></i> <%= t('.edit_comment') %>
+      <% end %>
     <% end %>
 
     <% if policy(@comment).destroy? %>
-      <div class="card-footer">
-        <%= link_to t('.delete_comment'), article_comment_path(@article, @comment),
-          data: { turbo_method: :delete, confirm: "Are you sure?" },
-          class: "btn btn-danger btn-sm bi bi-trash3-fill" %>
-      </div>
+      <%= link_to article_comment_path(@article, @comment),
+                  data: { 'turbo-method': :delete, 'turbo-confirm': t('.are_you_sure') },
+                  class: "btn btn-outline-danger" do %>
+        <i class="bi bi-trash3-fill me-1"></i> <%= t('.delete_comment') %>
+      <% end %>
     <% end %>
+     <!div class="text-center mt-3">
+     <%= link_to t('.back_to_all_articles', default: "Вернуться ко всем статьям"), articles_path, class: "btn btn-outline-secondary" %>
+     <!/div>
+  </div>
 
-  </div> <!-- card закрывается здесь правильно -->
-
-  <br><br>
-
+  <!-- Виджет комментариев -->
   <%= render 'tweets/commentable', commentable: @comment, tweet: @tweet, html_id: dom_id(@comment, 'tweet_form') %>
 
-  <div class="mt-3">
-    <%= link_to "Назад к статье", article_path(@article), class: "btn btn-secondary" %>
-  </div>
+  <hr class="my-5 border-top border-warning" style="border-width: 65px;" />
+  <!div class="divider"><!h1><%#= t('.topic') %><!/h1><!/div>
 </div>
+
 
