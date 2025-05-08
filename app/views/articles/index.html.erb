@@ -22,7 +22,7 @@
         <div class="col-md-4 d-flex align-items-center justify-content-center bg-light shadow-sm">
           <% if article.image.attached? %>
             <%= link_to image_tag(article.image, class: "img-fluid rounded-start shadow-sm", alt: article.title), article_path(article) %>
-          <% else %>
+          <% else %> <!--if you don't have a images this will be avatar-->
             <%= image_tag article.user.avatar_tumbnail, class: "rounded-circle shadow-sm", size: "150x150", alt: article.user.username %>
           <% end %>
         </div>
@@ -72,33 +72,3 @@
     <%= pagination @pagy %>
   </div>
 </section>
-
-<style>
-body {
-    font-family: 'Sofia', sans-serif;
-    font-size: 18px;
-}
-
-.card {
-    border: none;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.card-body {
-    padding: 1.5rem;
-}
-
-.avatar {
-    border: 2px solid #ddd;
-}
-
-.img-thumbnail.thumb {
-    transition: transform 0.2s ease-in-out;
-}
-
-.img-thumbnail.thumb:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-}
-</style>
