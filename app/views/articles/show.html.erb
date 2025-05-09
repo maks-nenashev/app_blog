@@ -69,7 +69,7 @@
   <!-- Комментарии в широких карточках -->
   <div class="d-flex flex-wrap justify-content-center gap-4">
     <% @comments.each do |comment| %>
-      <div class="card border-0 shadow-lg custom-shadow" style="flex: 0 0 calc(23% - 1rem); min-width: 320px; max-width: 100%; min-height: 520px;">
+      <div class="card border-0 shadow-lg custom-shadow" style="flex: 0 0 calc(31% - 1rem); min-width: 320px; max-width: 100%; min-height: 520px;">
         <div class="card-body d-flex flex-column justify-content-between p-4">
           <div>
             <!-- Автор и дата -->
@@ -77,7 +77,7 @@
               <%= image_tag comment.user.avatar_tumbnail, class: "rounded-circle me-2", width: 50, height: 50 %>
               <div class="d-flex flex-column">
                 <strong class="fs-6"><%= comment.user.username %></strong> <!-- Имя пользователя в одной строке -->
-                <div class="text-muted small mt-1" style="font-size: 0.3rem;"> <!-- SIZE TEXT-->
+                <div class="text-muted small mt-1" style="font-size: 0.7rem;"> <!-- SIZE TEXT-->
                   <%= l(comment.created_at, format: :short) %> <!-- Дата и время под именем -->
                 </div>
               </div>
@@ -85,7 +85,7 @@
 
             <!-- Заголовок -->
             <h5 class="card-title fw-semibold mb-3">
-              <%= link_to comment.title, article_comment_path(@article, comment), class: "text-decoration-none text-primary", style: "font-size: 1.1rem;" %>
+              <%= link_to comment.title, article_comment_path(@article, comment),class: "text-dark text-decoration-none text-primary", style: "font-size: 1.1rem;" %>
             </h5>
 
             <!-- Изображение комментария -->
