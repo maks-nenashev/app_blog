@@ -2,7 +2,7 @@ pl:
   en: Angelski
   ru: Ruski
   pl: Polski
-  ua: Ukraiński
+  uk: Ukraiński
   
   activerecord:
     attributes:
@@ -67,7 +67,7 @@ pl:
        thanks: 'Dziękuję!'
        create: 'Artykuł został utworzony'
        new_topic: 'Utwórz Temat'
-       topic: 'Temat'
+       topic: 'Temat-y'
                 # button
        submit_topic: 'Tworzyć' 
        edit_article: Edytuj artykuł

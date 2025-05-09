@@ -1,8 +1,8 @@
-ua:
+uk:
   en: Англійська
   ru: Російська
   pl: Польська
-  ua: Українська
+  uk: Українська
 
   activerecord:
     attributes:
@@ -11,7 +11,7 @@ ua:
         text: Текст
       comment:
         body: Текст
- 
+
   devise:
      registrations:
       new:
@@ -64,7 +64,7 @@ ua:
        thanks: 'Дякую!'
        create: 'Статтю створено'
        new_topic: 'Створити Тему'
-       topic: 'Тема'
+       topic: 'Тема-и'
              #Button
        submit_topic: 'Створити' 
        edit_article: Редагувати
