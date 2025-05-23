@@ -51,25 +51,30 @@
         </ul>
         
         <!-- Подключение языков -->
-        <div class="d-none d-lg-flex align-items-center gap-3">
-          <!-- Языки -->
+   <div class="d-none d-lg-flex align-items-center gap-3"> 
           <div class="dropdown">
             <%= link_to '#', class: 'nav-link px-2 d-flex align-items-center', data: { "bs-toggle": 'dropdown' } do %>
-              <%= tag.div '', class: "flag #{I18n.locale}-flag mt-1 bi bi-globe me-1" %>
-              <%= t I18n.locale %>
+            <%= image_tag("flags/#{locale}.svg", alt: locale, width: 20, height: 15, class: "me-2") %>
+              <%= t(locale) %>
             <% end %>
-            <ul class="dropdown-menu dropdown-menu-dark">
-              <% I18n.available_locales.each do |locale| %>
-                <li>
-                  <% if I18n.locale == locale %>
-                    <%= tag.span t(locale), class: 'dropdown-item' %>
-                  <% else %>
-                    <%= link_to t(locale), url_for(locale: locale), class: 'dropdown-item' %>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
+    <ul class="dropdown-menu dropdown-menu-dark">
+            <% I18n.available_locales.each do |locale| %>
+      <li>
+            <% if I18n.locale == locale %>
+             <span class="dropdown-item d-flex align-items-center">
+                 <%= image_tag("flags/#{locale}.svg", alt: locale, width: 20, height: 15, class: "me-2") %>
+                <%= t(locale) %>
+             </span>
+            <% else %>
+                <%= link_to url_for(locale: locale), class: 'dropdown-item d-flex align-items-center', data: { turbo: false } do %>
+                <%= image_tag("flags/#{locale}.svg", alt: locale, width: 20, height: 15, class: "me-2") %>
+                <%= t(locale) %>
+             <% end %>
+           <% end %>
+      </li>
+     <% end %>
+    </ul>
+  </div>
 
           <!-- Профиль пользователя -->
           <% if user_signed_in? %>
@@ -137,28 +142,29 @@
         </ul>
 
                     <!Podkluchenie Jazykow >
-        <ul class="nav col-12 col-lg-auto mb-2 mb-md-0">
-          <li class="dropdown">
-            <%= link_to '#', class: 'nav-link px-4',
-              data: {"bs-toggle": 'dropdown'} do %>
-              <%= tag.div '', class: "flag #{I18n.locale}-flag mt-1 bi bi-globe" %>
-              <%= t I18n.locale %>
+        <div class="mt-3 px-3">
+  <div class="dropdown">
+    <%= link_to '#', class: 'btn btn-light dropdown-toggle w-100 d-flex align-items-center justify-content-center',
+        data: { "bs-toggle": 'dropdown' } do %>
+      <%= image_tag("flags/#{I18n.locale}.svg", alt: I18n.locale, width: 20, height: 15, class: "me-2") %>
+      <%= t I18n.locale %>
+    <% end %>
+    
+    <ul class="dropdown-menu w-100">
+      <% I18n.available_locales.each do |locale| %>
+        <% unless I18n.locale == locale %>
+          <li>
+            <%= link_to url_for(locale: locale), data: { turbo: false },
+                class: "dropdown-item d-flex align-items-center" do %>
+              <%= image_tag("flags/#{locale}.svg", alt: locale, width: 20, height: 15, class: "me-2") %>
+              <%= t(locale) %>
             <% end %>
-            
-            <ul class="dropdown-menu dropdown-menu-dark">
-              <% I18n.available_locales.each do |locale| %>
-                <li>
-                  <% if I18n.locale == locale %>
-                    <%= tag.span t(locale), class: 'dropdown-item' %>
-                  <% else %>
-                    <%= link_to t(locale), url_for(locale: locale),
-                      class: 'dropdown-item' %>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
           </li>
-        </ul> 
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
       
       
       </div>
@@ -177,10 +183,6 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
-  <!-- Bootstrap JS -->
-  <%= javascript_include_tag "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js", defer: true %>
-  
-  <!script src="https://cdn.tailwindcss.com"><!/script>
 </body>
 
 </html>
