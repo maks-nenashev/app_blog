@@ -1,7 +1,7 @@
 <% provide :page_title, 'Home' %> <!Podpis w ikonke "Kakaja stranica">
 
 
-<div class="divider"><h1><%= t'.title'%></h1></div>
+<div class="divider"><h1><%= t('home.index.title').html_safe %></h1></div>
 
 <div class="container py-5">
   <div class="row justify-content-center align-items-center g-5">
@@ -13,18 +13,11 @@
 
     <!-- Текст -->
     <div class="col-md-7">
-      <h2 class="fw-bold mb-3">🙋‍♂️ Немного обо мне</h2>
+      <h2 class="fw-bold mb-3"></h2>
       <p class="lead" style="text-align: justify;">
-        Привет! Я — <strong>Maksym Nenashev</strong>. Не просто разработчик, а человек с миссией.  
-        Пишу код, чтобы улучшать мир: строю <code>поисковую систему</code>, создаю <code>социальные платформы</code>,  
-        визуализирую данные в <code>Shiny</code>, развиваю проекты на <code>Ruby on Rails</code> и <code>R</code>.  
+        <%= t('home.index.little_about_me').html_safe %>
       </p>
-      <p class="text-muted" style="text-align: justify;">
-        В моём арсенале: облака (AWS), аналитика, алгоритмы, автоматизация, и огромная жажда перемен.  
-        Моя цель — не просто работа, а создание инструментов, которые работают <strong>во благо людей</strong>.  
-        Учусь, создаю, двигаюсь. И да — у меня двое детей и огонь в сердце. 🔥
-      </p>
-
+      
       <!-- Кнопки -->
       <div class="d-flex gap-3 mt-4">
         <a href="https://github.com/maks-nenashev" target="_blank" class="btn btn-dark shadow-sm">

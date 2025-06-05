@@ -38,21 +38,22 @@ pl:
   home:
     index:
       title: 'Witamy!'
-      text: Cześć wszystkim! Mam na imię Maksym! 
-            Jestem programistą Ruby on Rails! W tym projekcie tutorialowym, 
-            dzięki moim staraniom, zostały zaimplementowane relacje polimorficzne pomiędzy bytami!
-            Możesz stworzyć artykuł! Komentarz do artykułu. Utwórz tematy w artykule. 
-            Tematy można komentować. W artykule i tematach znajduje się cały atrybuty
-            "Tytul Fotografii i Opis". Możesz edytować "Artykuł Temat i Komentarze"
-            Projekt jest realizowany na Ruby ​​3.2 i Rails 7.0.4 
-            Użyłem perełek gemy "devise" "i18n" "rubyzip" "enum" "pundit" "pagy" "aws-S3"  Projekt nie jest w pełni zrealizowany! 
-            Dziękuję!!!!!
+      little_about_me: |
+       <div style="font-family: Poppins, Arial, sans-serif; font-size: 1.1rem; color: #222;">
+       <span style="font-size: 1.5rem; font-weight: bold;">🙋‍♂️ Kilka słów o mnie</span><br>
+       <span style="color: #0056b3;"><strong>Cześć! Jestem Maksym Nenashev.</strong></span> Nie jestem tylko <em>programistą</em>, ale <span style="font-weight: 600;">człowiekiem z misją</span>.<br>
+       Piszę kod, aby <span style="color:#21ba45;font-weight:600;">zmieniać świat na lepsze</span>: tworzę wyszukiwarki, buduję platformy społecznościowe, wizualizuję dane w <span style="font-family: Orbitron, sans-serif;">Shiny</span>, rozwijam projekty w <span style="color:#bb2200">Ruby on Rails</span> oraz <span style="color:#306998">R</span>.<br><br>
+       W moim arsenale znajdziesz: <strong>chmurę (AWS)</strong>, <span style="font-style:italic;">analitykę</span>, <strong>algorytmy</strong>, <span style="text-decoration: underline;">automatyzację</span> oraz ogromną <span style="color:#ff6600">potrzebę zmian</span>.<br>
+       Moim celem nie jest tylko praca, ale <span style="color:#21ba45;font-weight:600;">tworzenie narzędzi naprawdę pożytecznych dla ludzi</span>.<br>
+       Uczę się, tworzę, idę do przodu.<br>
+       <span style="font-weight:bold; color:#bb2200;">I tak — jestem ojcem dwójki dzieci i mam ogień w sercu. 🔥</span>
+       </div>
+
   
   articles:
       index:
        title: 'Lista artykułów!'
-            #Knopka 
-       new: Nowy artykuł  
+       new: Nowy artykuł # Button
        show_article: Pokaż artykuł
        edit_article: Edytuj artykuł
        delete_article: Usunąć
@@ -66,6 +67,8 @@ pl:
       show:
        thanks: 'Dziękuję!'
        create: 'Artykuł został utworzony'
+       back_to_all_articles: 'Powrót do wszystkich artykułów' # Button
+       
        new_topic: 'Utwórz Temat'
        topic: 'Temat-y'
                 # button
@@ -83,26 +86,37 @@ pl:
        success: Artykuł został udalony!
 
   comments:
-      form: 
-       title: Edytować Komentarz!
-       submit_button: Edytować  # Button
-
-      create:
-       success: Temat został utworzony!
-      update:
-       success: Temat został zredagowany!
-      destroy: 
-       success: Temat został udalony!
-      show: # Kontroller zaprosil "SHOW" dla udalenija
-       success: Temat został udalony!
-
-
+    show:
+      back_to_article: Powrót do artykuła # Button  
+      edit_comment: Edytuj temat # Button
+      delete_comment: Usunąć temat # Button
+    
+    create:
+      success: Temat został utworzony!
+    update:
+      success: Temat został zredagowany!
+    destroy: 
+      success: Temat został udalony!
+    
   tweets: 
-       commentable: #Button
-        button: Komentarz
-        comment: Komentarz
-       
-       create: 
-        success: Komentarz został utworzony! 
-       destroy: 
-        success: Komentarz został udalony!   
+    commentable: #Button
+      button: Comentować
+      comment: Comentować
+      your_comment_title: Twój komentarz
+      enter_text_placeh: Wprowadź swój komentarz tutaj...
+      comment_button: Comentować
+      comment_title: Komentarz-y
+    tweet:  
+      edit_comment: Edytuj komentarz
+      delete_comment: Usuń komentarz
+    edit:
+      title: Tekst komentarza
+      enter_text_placeh: Wprowadź swój komentarz tutaj...
+      submit_button: Edytuj komentarz # Button
+
+    create: 
+      success: Komentarz został utworzony!
+    destroy: 
+      success: Komentarz został udalony!
+    update: 
+      success: Komentarz został zredagowany!

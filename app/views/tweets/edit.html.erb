@@ -1,16 +1,16 @@
-<%= form_with model: [@article, @comment, @tweet], html: { class: 'shadow-lg p-4 rounded-4 bg-light' } do |f| %>
+<%= form_with model: [@commentable, @tweet], html: { class: 'shadow-lg p-4 rounded-4 bg-light' } do |f| %>
   <!-- Поле для текста -->
   <div class="mb-4 row">
     <div class="col-sm-3 col-form-label">
-      <%= f.label :body, "Текст", class: "form-label fw-bold text-primary" %>
+      <%= f.label :body, t(".title"), class: "form-label fw-bold text-primary" %>
     </div>
     <div class="col-sm-9">
-      <%= f.text_area :body, placeholder: "Введите текст...", class: 'form-control shadow-sm rounded-3', required: true, minlength: 2 %>
+      <%= f.text_area :body, placeholder: t(".enter_text_placeh"), class: 'form-control shadow-sm rounded-3', required: true, minlength: 2 %>
     </div>
   </div>
 
   <!-- Кнопка отправки -->
   <div class="d-flex justify-content-end">
-    <%= f.submit t('.submit_button', default: 'Отправить'), class: 'btn btn-success btn-lg fw-bold shadow-lg' %>
+    <%= f.submit t('.submit_button'), class: 'btn btn-success btn-lg fw-bold shadow-lg' %>
   </div>
 <% end %>
