@@ -27,20 +27,20 @@
 
       <!-- Поле для текста -->
       <div class="mb-3 shadow-sm p-3 bg-light rounded">
-        <%= f.label :body, "Ваш комментарий", class: "form-label fw-semibold text-muted" %>
-        <%= f.text_area :body, class: 'form-control shadow-sm rounded', rows: 3, placeholder: "Введите текст..." %>
+        <%= f.label :body, t(".your_comment_title"), class: "form-label fw-semibold text-muted" %>
+        <%= f.text_area :body, class: 'form-control shadow-sm rounded', rows: 3, placeholder: t(".enter_text_placeh") %>
       </div>
 
       <!-- Кнопка отправки -->
       <div class="d-flex justify-content-end">
-        <%= f.submit t('.comment', default: 'Комментировать'), class: 'btn btn-success btn-sm fw-semibold shadow-lg' %>
+        <%= f.submit t('.comment_button'), class: 'btn btn-success btn-sm fw-semibold shadow-lg' %>
       </div>
     <% end %>
   <% end %>
 
   <!-- Список комментариев -->
   <div class="mt-4 shadow-sm p-3 bg-light rounded">
-    <h5 class="fw-bold text-secondary">Комментарии:</h5>
+    <h5 class="fw-bold text-secondary"><%= t(".comment_title") %></h5>
     <%= render commentable.tweets.decorate %>
   </div>
 <% end %>

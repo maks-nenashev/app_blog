@@ -11,8 +11,8 @@ class CommentsController < ApplicationController
     def update  # 5 Wnosim izmenrnie w redaktirowanie
         #@comment = @article.comments.find params[:id]--:set_comment!  # 2:set_commint! "Refactoring"
         if@comment.update(comment_update_params) # Obnowlaem s nowymi parametromi
-          redirect_to article_comment_path(@article)#, anchor: "comment-#{comment.id}")   #"perenaprowlenie" 
           flash[:success] = t".success" #Window Podtwerzdenija
+          redirect_to article_comment_path(@article, @comment)
          else
           render action: 'edit'    #"perenaprowlenie"
        end

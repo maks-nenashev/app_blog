@@ -14,14 +14,14 @@
     
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-   
+    
     <!-- Styles -->
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "custom", "home", "articles", "devise", "tweets", "data-turbo-track": "reload" %>
 
     <!-- Scripts -->
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <%= javascript_include_tag "custom.js", "home.js", "articles.js", "devise.js", "tweets.js", "data-turbo-track": "reload" %>
+    <%#= javascript_include_tag "custom.js", "home.js", "articles.js", "devise.js", "tweets.js", "data-turbo-track": "reload" %>
 
 </head>
 
@@ -33,7 +33,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="d-flex w-100 justify-content-between align-items-center">
         <!-- Лого -->
-        <!h2 class="navbar-brand fw-bold text-primary text-shadow m-0"><!/h2>
+        <!--h2 class="navbar-brand fw-bold text-primary text-shadow m-0"><!/h2-->
         <h2 class="navbar-brand fw-bold text-primary m-0" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">
           Maksym Nenashev
         </h2>

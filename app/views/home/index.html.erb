@@ -1,20 +1,40 @@
 <% provide :page_title, 'Home' %> <!Podpis w ikonke "Kakaja stranica">
 
 
-<div class="divider"><h1><%= t'.title'%></h1></div>
+<div class="divider"><h1><%= t('home.index.title').html_safe %></h1></div>
 
+<div class="container py-5">
+  <div class="row justify-content-center align-items-center g-5">
+    
+    <!-- Аватар без овала -->
+    <div class="col-md-4 text-center">
+      <%= image_tag "mn.jpg", id:"myImg", alt: "Maksym Nenashev", class: "img-fluid rounded shadow-lg", style: "max-width: 350px;" %>
+    </div>
 
-<div class="text-center"> <!Center image>
-<%= image_tag("mn.jpg", id:"myImg", alt:"Hi There!", :size => "370x420", class:'img-thumbnail thumb')%>
+    <!-- Текст -->
+    <div class="col-md-7">
+      <h2 class="fw-bold mb-3"></h2>
+      <p class="lead" style="text-align: justify;">
+        <%= t('home.index.little_about_me').html_safe %>
+      </p>
+      
+      <!-- Кнопки -->
+      <div class="d-flex gap-3 mt-4">
+        <a href="https://github.com/maks-nenashev" target="_blank" class="btn btn-dark shadow-sm">
+          <i class="bi bi-github"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/maksym-nenashev-0627ab220/" target="_blank" class="btn btn-primary shadow-sm">
+          <i class="bi bi-linkedin"></i> LinkedIn
+        </a>
+        <a href="mailto:maksym@nenashev.net" class="btn btn-success shadow-sm">
+          <i class="bi bi-envelope-fill"></i> Email
+        </a>
+       <!--button type="button" class="btn btn-primary bi bi-github" onClick='location.href="https://github.com/maks-nenashev"'></button-->
+      </div>
+    </div>
+
+  </div>
 </div>
-
-<p><%= t'.text'%></p>
-
-Maksym Nenashev <%= Time.now.year%>  
-<button type="button" class="btn btn-primary bi bi-linkedin" onClick='location.href="https://www.linkedin.com/in/maksym-nenashev-0627ab220/"'></button>
-<button type="button" class="btn btn-primary bi bi-github" onClick='location.href="https://github.com/maks-nenashev"'></button>
-<!button type="button" class="btn btn-primary bi bi-twitter" onClick='location.href="https://twitter.com/MaksymNenashev"'></button>
-
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -22,12 +42,3 @@ Maksym Nenashev <%= Time.now.year%>
   <img class="modal-content" id="img01">
   <div id="caption"></div>
 </div>
-
-
-<style>
-{
-  font-family: 'Sofia';font-size: 22px;
-}
-</style>
-
-

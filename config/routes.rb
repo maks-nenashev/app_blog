@@ -23,7 +23,7 @@ devise_for :users
     #resources :tweets, only: %i[create destroy edit update] # 
   end #4 
  
-  resources :comments, except: %i[new show] do  #вложенный маршрут:
+  resources :comments, except: %i[new] do  #вложенный маршрут:
       resources :tweets, only: %i[create destroy edit update] 
   end
     #get 'contacts' => 'contacts#new' only:[:create]

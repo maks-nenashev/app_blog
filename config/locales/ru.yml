@@ -37,19 +37,21 @@ ru:
     index:
       title: 'Добро пожаловать!'
       new: Новая статья
-      text: Привет всем! Меня зовут Максим! Я Ruby on Rails разроботчик! 
-            В данном обучающем проэкте благодоря моим стараниям были реализованы полиморфные отношения между сущностями! 
-            Вы можете создать статью! Комментировать статью. Также создавать темы в статье. 
-            Темы можно коментировать. Статья и темы имеют все атребуты "Заголовок Фотографии и Описание".
-            Так же вы можете редактировать "Статью Темы и Коментарии"! 
-            Проект реализован на Ruby 3.2 и Rails 7.0.4 
-            Я использовал такие gemy как "devise" "i18n" "enum" "pundit" "rubyzip" "pagy" "aws-S3"
-            Проект не реализовнан до конца! Спасибо!!!!!
+      little_about_me: |
+       <div style="font-family: Poppins, Arial, sans-serif; font-size: 1.1rem; color: #222;">
+       <span style="font-size: 1.5rem; font-weight: bold;">🙋‍♂️ Немного обо мне</span><br>
+       <span style="color: #0056b3;"><strong>Привет! Я — Максим Ненашев.</strong></span> Я не просто <em>разработчик</em>, а <span style="font-weight: 600;">человек с миссией</span>.<br>
+       Я пишу код, чтобы <span style="color:#21ba45;font-weight:600;">делать мир лучше</span>: создаю поисковые системы, строю социальные платформы, визуализирую данные в <span style="font-family: Orbitron, sans-serif;">Shiny</span> и развиваю проекты на <span style="color:#bb2200">Ruby on Rails</span> и <span style="color:#306998">R</span>.<br><br>
+       В моём арсенале: <strong>облака (AWS)</strong>, <span style="font-style:italic;">аналитика</span>, <strong>алгоритмы</strong>, <span style="text-decoration: underline;">автоматизация</span> и огромная <span style="color:#ff6600">жажда перемен</span>.<br>
+       Моя цель — не просто работать, а <span style="color:#21ba45;font-weight:600;">создавать инструменты, которые приносят реальную пользу людям</span>.<br>
+       Я учусь, создаю, двигаюсь вперёд.<br>
+       <span style="font-weight:bold; color:#bb2200;">И да — я отец двоих детей и у меня огонь в сердце. 🔥</span>
+       </div>
+
   
   articles:
       index:
        title: 'Список статьей!'
-            # Button
        new: Новая статья 
        show_article: Показать статью
        edit_article: Редактировать
@@ -63,9 +65,9 @@ ru:
       show:
        thanks: 'Спасибо!'
        create: 'Статья создана'
+       back_to_all_articles: 'Вернуться ко всем статьям' # Button
        new_topic: 'Создать Тему'
        topic: 'Тема'
-             #Button
        submit_topic: 'Создать' 
        edit_article: Редактировать 
        delete_article: Удалить
@@ -81,29 +83,37 @@ ru:
 
 
   comments:
-      form: 
-       title: Редактировать коментарий! 
-       submit_button: Редактировать # Button   
-
-      create:
-       success: Тема создана!
-      update:
-       success: Тема изменена!
-      destroy: 
-       success: Тема удалена!
-      show: # Kontroller zaprosil "SHOW" dla udalenija
-       success: Тема удалена!
-         # Butoom
-      edit_comment: Редактировать тему
-      delete_comment: Удалить
+    show:
+      back_to_article: Вернуться к статье # Button  
+      edit_comment: Редактировать тему # Button
+      delete_comment: Удалить тему # Button
+      
+    create:
+      success: Тема создана!
+    update:
+      success: Тема изменена!
+    destroy: 
+      success: Тема удалена!
 
   tweets: 
-       commentable: # Button
-        button: Коментировать
-        comment: Коментировать
+    commentable: #Button
+      button: Коментировать
+      comment: Коментировать
+      your_comment_title: Ваш комментарий
+      enter_text_placeh: Введите ваш комментарий здесь...
+      comment_button: Коментировать
+      comment_title: Комментарий
+    tweet:  
+      edit_comment: Редактировать
+      delete_comment: Удалить
+    edit:
+      title: Текст комментария
+      enter_text_placeh: Введите ваш комментарий здесь...
+      submit_button: Редактировать комментарий # Button
 
-       create:
-        success: Коментарий создан!
-       destroy: 
-        success: Коментарий удален!
-      
+    create: 
+      success: Комментарий создан!
+    destroy: 
+      success: Комментарий удален!
+    update: 
+      success: Комментарий изменен!

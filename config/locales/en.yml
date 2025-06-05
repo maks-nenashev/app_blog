@@ -40,34 +40,23 @@ en:
      sign_out:  Sign Out
   
   home:
-    index:
-       title: Welcome!
-       text: Обо мне Привет! 
-             Меня зовут Максим Ненашев, я разработчик и энтузиаст в области технологий, который превращает идеи в работающие проекты. Уже более 10 лет я живу в Польше и работаю над 
-             собственными веб-приложениями — от социальных сетей до полезных сервисов для поиска 
-             пропавших людей и вещей. 
+    index: 
+      title: "<span style='font-family:Poppins,Arial,sans-serif; font-size:2rem; font-weight:700;'>Welcome!</span>"
+      little_about_me: |
+       <div style="font-family: Poppins, Arial, sans-serif; font-size: 1.1rem; color: #222;">
+        <span style="font-size: 1.5rem; font-weight: bold;">🙋‍♂️ A little about me</span><br>
+        <span style="color: #0056b3;"><strong>Hello! I'm Maksym Nenashev.</strong></span> Not just a <em>developer</em>, but a <span style="font-weight: 600;">person with a mission</span>.<br>
+        I write code to <span style="color:#21ba45;font-weight:600;">make the world better</span>: I build search engines, create social platforms, visualize data in <span style="font-family: Orbitron, sans-serif;">Shiny</span>, and develop projects with <span style="color:#bb2200">Ruby on Rails</span> and <span style="color:#306998">R</span>.<br><br>
+        My toolkit includes: <strong>cloud (AWS)</strong>, <span style="font-style:italic;">analytics</span>, <strong>algorithms</strong>, <span style="text-decoration: underline;">automation</span>, and an enormous <span style="color:#ff6600">hunger for change</span>.<br>
+        My goal is not just to work, but to <span style="color:#21ba45;font-weight:600;">create tools that genuinely benefit people</span>.<br>
+        I learn, I build, I move forward.<br>
+        <span style="font-weight:bold; color:#bb2200;">And yes — I'm a father of two and I've got fire in my heart. 🔥</span>
+       </div>
        
-             Мои основные инструменты — Ruby on Rails, R, Shiny, Python, а также облачные технологии AWS и 
-             современные методы обработки данных. Я верю, что технологии должны быть не только 
-             красивыми, но и полезными.
-
-             На этом сайте вы найдёте ссылки на мои проекты;
-
-                     социальная сеть,
-
-                     международный поисковый сервис,
-
-                     аналитические панели и дашборды,
-                     и другие работы, созданные с душой и вниманием к деталям.
-
-             Если вы хотите предложить сотрудничество, оставить отзыв или просто пообщаться — буду 
-             рад связи.
-  
   articles:
       index:
        title: 'List Articles!'
-              #button
-       new: 'New article'
+       new: 'New article' # Button
        show_article: Show article
        edit_article: Edit article
        delete_article: Delete
@@ -79,12 +68,10 @@ en:
        title: 'Edit Article!'
        submit_article: Submit  # Button
       show:
-       thanks: 'Thanks!'
-       create: 'Article has been created!!!'
+       back_to_all_articles: 'Back to all articles' # Button
        new_topic: 'Create Topic!'
        topic: 'Topic-s'
-             # button
-       submit_topic: 'Create' 
+       submit_topic: 'Create' #Button
        edit_article: Edit article
        delete_article: Delete
        edit_comment: Edit topic
@@ -98,28 +85,37 @@ en:
        success: Article hes been deleted!
        
   comments:
-      new:
-       submit_button: Create Topic # Button
-      edit:
-       update_button: Update Topic # Button
-      
-      form: 
-       title: Update comment!
-      create:
-       success: Topic created!
-      update:
-       success: Topic has been edited!
-      destroy: 
-       success: Topic hes been deleted!
-      show: # Kontroller zaprosil "SHOW" dla udalenija
-       success: Topic hes been deleted!
-
+    show:
+      back_to_article: Back to article # Button
+      edit_comment: Edit topic # Button
+      delete_comment: Delete topic # Button
+  
+    create:
+      success: Topic created!
+    update:
+      success: Topic has been edited!
+    destroy: 
+      success: Topic hes been deleted!
+    
   tweets: 
-       commentable: #Button
-        button: Comment
-        comment: Comment
-       
-       create: 
-        success: Comment created!
-       destroy: 
-        success: Comment hes been deleted! 
+    commentable: #Button
+      button: Comment
+      comment: Comment
+      your_comment_title: Your comment
+      enter_text_placeh: Enter your comment here...
+      comment_button: Comment
+      comment_title: Comment's
+    tweet:  
+      edit_comment: Edit comment
+      delete_comment: Delete comment
+    edit:
+      title: Text of comment
+      enter_text_placeh: Enter your comment here...
+      submit_button: Edit comment # Button
+    
+    create: 
+      success: Comment created!
+    destroy: 
+      success: Comment hes been deleted! 
+    update: 
+      success: Comment has been edited!

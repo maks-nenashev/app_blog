@@ -20,18 +20,18 @@
         <!-- Кнопки управления (Edit/Delete) -->
         <div class="d-flex justify-content-end mb-2">
           <% if policy(tweet).edit? %>
-            <%= link_to 'Edit', edit_polymorphic_path([tweet.commentable, tweet]),
+            <%= link_to t('.edit_comment'), edit_polymorphic_path([tweet.commentable, tweet]),
                         class: 'btn btn-outline-secondary btn-sm bi bi-pencil-square me-2' %>
           <% end %>
           <% if policy(tweet).destroy? %>
-            <%= link_to 'Delete', polymorphic_path([tweet.commentable, tweet]),
+            <%= link_to t('.delete_comment'), polymorphic_path([tweet.commentable, tweet]),
                         class: 'btn btn-outline-danger btn-sm bi bi-trash3-fill',
                         data: { turbo_method: :delete, confirm: 'Are you sure?' } %>
           <% end %>
         </div>
 
         <!-- Текст комментария -->
-        <h6 class="card-subtitle mb-2 text-muted">Комментарий</h6>
+        <h6 class="card-subtitle mb-2 text-muted"></h6>
         <p class="card-text fs-6">
           <%= sanitize tweet.body, tags: %w(strong em a p br ul ol li), attributes: %w(href title) %>
         </p>

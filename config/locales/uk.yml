@@ -36,21 +36,22 @@ uk:
   home:
     index:
       title: 'Ласкаво просимо!'
-      new: Нова стаття
-      text:  Привіт всім! Мене звати Максим! Я Ruby on Rails розробник!
-             У цьому навчальному проекті завдяки моїм старанням були реалізовані поліморфні відносини між сутностями!
-             Ви можете створити статтю! Прокоментуйте статтю. Також створюйте теми у статті. 
-             Теми можна командувати. Стаття та теми мають усі атребути.
-             "Назва Фотографії та Опис". Ви також можете редагувати "Теми Статті та Коментарі"
-             Проект реалізований на Ruby 3.2 та Rails 7.0.4
-             Я використовував такі gemy як "devise" "i18n" "enum" "pundit" "rubyzip" "pagy" "aws-S3"
-             Проект не реалізований до кінця! Дякую!!!!!
+      little_about_me: |
+       <div style="font-family: Poppins, Arial, sans-serif; font-size: 1.1rem; color: #222;">
+       <span style="font-size: 1.5rem; font-weight: bold;">🙋‍♂️ Трішки про мене</span><br>
+       <span style="color: #0056b3;"><strong>Привіт! Я — Максим Ненашев.</strong></span> Я не просто <em>розробник</em>, а <span style="font-weight: 600;">людина з місією</span>.<br>
+       Пишу код, щоб <span style="color:#21ba45;font-weight:600;">змінювати світ на краще</span>: створюю пошукові системи, будую соціальні платформи, візуалізую дані у <span style="font-family: Orbitron, sans-serif;">Shiny</span> та розвиваю проєкти на <span style="color:#bb2200">Ruby on Rails</span> і <span style="color:#306998">R</span>.<br><br>
+       Мій арсенал: <strong>хмара (AWS)</strong>, <span style="font-style:italic;">аналітика</span>, <strong>алгоритми</strong>, <span style="text-decoration: underline;">автоматизація</span> та величезне <span style="color:#ff6600">бажання змін</span>.<br>
+       Моя мета — не просто працювати, а <span style="color:#21ba45;font-weight:600;">створювати інструменти, які реально приносять користь людям</span>.<br>
+       Вчуся, створюю, рухаюся вперед.<br>
+       <span style="font-weight:bold; color:#bb2200;">І так — я тато двох дітей і маю вогонь у серці. 🔥</span>
+       </div>
+
   
   articles:
       index:
        title: 'Список статей!'
-            # Button
-       new: Нова стаття 
+       new: Нова стаття # Button
        show_article: Показати статтю
        edit_article: Редагувати
        delete_article: Видалити
@@ -63,9 +64,9 @@ uk:
       show:
        thanks: 'Дякую!'
        create: 'Статтю створено'
+       back_to_all_articles: 'Назад до всіх статей' # Button
        new_topic: 'Створити Тему'
        topic: 'Тема-и'
-             #Button
        submit_topic: 'Створити' 
        edit_article: Редагувати
        delete_article: Видалити
@@ -81,27 +82,38 @@ uk:
 
 
   comments:
-      form: 
-       title: Редагувати коментар! 
-       submit_button: Редагувати # Button   
-
-      create:
-       success: Тема створена!
-      update:
-       success: Тема редагувана!
-      destroy: 
-       success: Тема видалена!
-      show: # Kontroller zaprosil "SHOW" dla udalenija
-       success: Тема видалена!
-
-
+    show:
+      back_to_article: Повернутися до статi # Button
+      edit_comment: Редагувати тему # Button
+      delete_comment: Видалити тему # Button
+      
+    create:
+      success: Тема створена!
+    update:
+      success: Тема редагувана!
+    destroy: 
+      success: Тема видалена!
+    
   tweets: 
-       commentable: # Button
-        button: Коментувати
-        comment: Коментувати
+    commentable: #Button
+      button: Коментувати
+      comment: Коментувати
+      your_comment_title: Ваш коментар
+      enter_text_placeh: Введіть ваш коментар тут...
+      comment_button: Коментувати
+      comment_title: Коментарі
+    tweet:  
+      edit_comment: Редагувати
+      delete_comment: Удалити
+    edit:
+      title: Текст коментаря
+      enter_text_placeh: Введіть ваш коментар тут...
+      submit_button: Редагувати коментар # Button
 
-       create:
-        success: Коментар створено!
-       destroy: 
-        success: Коментар видалено!
+    create: 
+      success: Коментарій створено!
+    destroy: 
+      success: Коментарій видалено!
+    update: 
+      success: Коментарій редаговано!
       
