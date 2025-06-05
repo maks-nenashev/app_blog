@@ -24,7 +24,7 @@ class TweetsController < ApplicationController
 
       @tweet.destroy
       flash[:success] = t'.success'
-      redirect_to article_path(@article)
+      redirect_to polymorphic_path(@commentable)
     end
     
     def show
@@ -35,18 +35,26 @@ class TweetsController < ApplicationController
       authorize @tweet  # Eto Podkluczenie "Awtorizacii"
        end
     
-    def update  # 5 Wnosim izmenrnie w redaktirowanie
+    def update
       @tweet = @commentable.tweets.find params[:id]
-      authorize @tweet  # Eto Podkluczenie "Awtorizacii"
+      authorize @tweet
 
-      if@tweet.update(tweet_params) # Obnowlaem s nowymi parametromi
-      redirect_to  article_path(@article)
-      flash[:success] = "Коментар Змiнено!" #Window Podtwerzdenija
+     if @tweet.update(tweet_params)
+      flash[:success] = t('.success')
+     if @commentable.is_a?(Article)
+      redirect_to article_path(@commentable)
+     elsif @commentable.is_a?(Comment)
+      redirect_to article_comment_path(@commentable.article, @commentable)
      else
-      render action: 'edit'    #"perenaprowlenie"
-   end
+      redirect_to root_path
+     end
+    else
+      render :edit
+    end
   end
-    
+
+
+
   private
   
     def tweet_params
