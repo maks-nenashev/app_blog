@@ -13,18 +13,33 @@ pl:
         body: Теkst
   
   devise:
-     registrations:
+    registrations:
       new:
-         title: Rejestracja
-         Sign up: Rejestracja
-     sessions:
+        title: Rejestracja
+        Sign up: Rejestracja
+      edit:
+        title: Edytuj profil
+        avatar: Dodaj awatar
+        new_image_title: Nowy obraz
+        new_image: Nowy plik
+        email: Email
+        username: Nazwa użytkownika
+        password: Hasło
+        six_simbols: znaków minimum
+        password_confi: Potwierdzenie hasła
+        exact_password: Dokładne hasło (do potwierdzenia)
+        save_changes: Zapisz zmiany # Button
+        delete_title: Usuń konto
+        delete_button: Usuń konto
+        back: Powrót do profilu # Button
+    sessions:
       new:
-         title: Zaloguj sie
-         Log in: Zaloguj sie
-     shared:
+        title: Zaloguj sie
+        Log in: Zaloguj sie
+    shared:
       links:
-         Log in: Zaloguj sie
-         Sign in: Rejestracja
+        Log in: Zaloguj sie
+        Sign in: Rejestracja
   
   
   menu:
@@ -87,6 +102,7 @@ pl:
 
   comments:
     show:
+      topic: Temat
       back_to_article: Powrót do artykuła # Button  
       edit_comment: Edytuj temat # Button
       delete_comment: Usunąć temat # Button

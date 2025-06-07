@@ -13,18 +13,33 @@ uk:
         body: Текст
 
   devise:
-     registrations:
+    registrations:
       new:
-         title: Реєстрація
-         Sign up: Реєстрація
-     sessions:
+        title: Реєстрація
+        Sign up: Реєстрація
+      edit:
+        title: Редагувати профіль
+        avatar: Додати аватар
+        new_image_title: Новий аватар
+        new_image: Новий файл
+        email: Email
+        username: Ім'я користувача
+        password: Пароль
+        six_simbols: символів мінімум
+        password_confi: Підтвердження пароля
+        exact_password: Точний пароль (для підтвердження)
+        save_changes: Зберегти зміни # Button
+        delete_title: Видалити акаунт
+        delete_button: Видалити акаунт
+        back: Назад до профілю # Button
+    sessions:
       new:
-         title: Увійти
-         Log in: Увійти
-     shared:
+        title: Увійти
+        Log in: Увійти
+    shared:
       links:
-         Sign in: Реєстрація
-         Log in: Увійти
+        Sign in: Реєстрація
+        Log in: Увійти
   menu:
      home:   'Головна'
      articles: Всі Статті
@@ -83,6 +98,7 @@ uk:
 
   comments:
     show:
+      topic: Тема
       back_to_article: Повернутися до статi # Button
       edit_comment: Редагувати тему # Button
       delete_comment: Видалити тему # Button

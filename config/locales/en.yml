@@ -17,18 +17,33 @@ en:
         body: Text
   
   devise:
-     registrations:
+    registrations:
       new:
-         title: Sign up
-         Sign up: Sign up
-     sessions:
+        title: Sign up
+        Sign up: Sign up
+      edit:
+        title: Edit profile
+        avatar: add Avatar
+        new_image_title: New image
+        new_image: New file
+        email: Email
+        username: Username
+        password: Password
+        six_simbols: symbols minimum
+        password_confi: Password confirmation
+        exact_password: Exact password (for confirmation)
+        save_changes: Save changes # Button
+        delete_title: Delete account
+        delete_button: Delete account
+        back: Back to profile # Button
+    sessions:  
       new:
-         title: Log in
-         Log in: Log in
-     shared:
+        title: Log in
+        Log in: Log in
+    shared:
       links:
-         Log in: Log in
-         Sign in: Sign in
+        Log in: Log in
+        Sign in: Sign in
      
        
   menu:
@@ -86,6 +101,7 @@ en:
        
   comments:
     show:
+      topic: Topic
       back_to_article: Back to article # Button
       edit_comment: Edit topic # Button
       delete_comment: Delete topic # Button
