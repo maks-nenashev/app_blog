@@ -4,7 +4,7 @@
 
       <div class="card shadow-lg border-0 rounded-4 p-4 bg-light">
         <h2 class="text-center mb-4 text-primary fw-bold">
-          <%= t('.title', default: "Редагувати профіль") %>
+          <%= t('.title') %>
         </h2>
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
@@ -16,13 +16,16 @@
           </div>
 
           <div class="mb-3">
-            <%= f.label :avatar, "Оновити фото", class: "form-label fw-semibold" %>
-            <%= f.file_field :avatar, class: "form-control shadow-sm" %>
+            <label class="btn btn-outline-secondary btn-lg px-4 shadow rounded-4 mb-0 fw-bold" style="color: #444;">
+             <i class="bi bi-person-circle me-2"></i>
+             <%= t(".avatar") %>
+             <%= f.file_field :avatar, id: "avatarUpload", style: "display: none;" %>
+          </label>
           </div>
 
           <!-- Email -->
           <div class="mb-3">
-            <%= f.label :email, "Email", class: "form-label fw-semibold" %>
+            <%= f.label :email, t(".email"), class: "form-label fw-semibold" %>
             <%= f.email_field :email, class: "form-control shadow-sm", autofocus: true, autocomplete: "email" %>
           </div>
 
@@ -34,46 +37,46 @@
 
           <!-- Username -->
           <div class="mb-3">
-            <%= f.label :username, "Ім’я користувача", class: "form-label fw-semibold" %>
+            <%= f.label :username, t(".username"), class: "form-label fw-semibold" %>
             <%= f.text_field :username, class: "form-control shadow-sm", autocomplete: "username" %>
           </div>
 
           <!-- New Password -->
           <div class="mb-3">
-            <%= f.label :password, "Новий пароль", class: "form-label fw-semibold" %>
+            <%= f.label :password, t(".new_password"), class: "form-label fw-semibold" %>
             <%= f.password_field :password, class: "form-control shadow-sm", autocomplete: "new-password" %>
             <% if @minimum_password_length %>
-              <small class="text-muted"><%= @minimum_password_length %> символів мінімум</small>
+              <small class="text-muted"><%= @minimum_password_length %> <%= t(".six_simbols") %></small>
             <% end %>
           </div>
 
           <!-- Password confirmation -->
           <div class="mb-3">
-            <%= f.label :password_confirmation, "Підтвердження пароля", class: "form-label fw-semibold" %>
+            <%= f.label :password_confirmation, t(".password_confi"), class: "form-label fw-semibold" %>
             <%= f.password_field :password_confirmation, class: "form-control shadow-sm", autocomplete: "new-password" %>
           </div>
 
           <!-- Current Password -->
           <div class="mb-3">
-            <%= f.label :current_password, "Поточний пароль (для підтвердження)", class: "form-label fw-semibold" %>
+            <%= f.label :current_password, t(".exact_password"), class: "form-label fw-semibold" %>
             <%= f.password_field :current_password, class: "form-control shadow-sm", autocomplete: "current-password" %>
           </div>
 
           <!-- Submit -->
           <div class="d-grid mt-4">
-            <%= f.submit "Зберегти зміни", class: "btn btn-success shadow" %>
+            <%= f.submit t(".save_changes"), class: "btn btn-success shadow" %>
           </div>
         <% end %>
 
         <!-- Cancel account -->
         <div class="mt-4 text-center">
-          <h5 class="fw-bold">Видалити акаунт</h5>
-          <%= button_to "Видалити акаунт", registration_path(resource_name), method: :delete, data: { confirm: "Ви впевнені?" }, class: "btn btn-outline-danger btn-sm mt-2 shadow-sm" %>
+          <h5 class="fw-bold"><%= t(".delete_title")%></h5>
+          <%= button_to t(".delete_button"), registration_path(resource_name), method: :delete, data: { confirm: "Ви впевнені?" }, class: "btn btn-outline-danger btn-sm mt-2 shadow-sm" %>
         </div>
 
         <!-- Back -->
         <div class="mt-3 text-center">
-          <%= link_to "Назад", :back, class: "btn btn-outline-secondary btn-sm shadow-sm" %>
+          <%= link_to t(".back"), :back, class: "btn btn-outline-secondary btn-sm shadow-sm" %>
         </div>
 
       </div>

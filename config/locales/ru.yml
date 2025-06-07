@@ -13,18 +13,33 @@ ru:
         body: Текст
  
   devise:
-     registrations:
+    registrations:
       new:
-         title: Регистрация
-         Sign up: Регистрация
-     sessions:
+        title: Регистрация
+        Sign up: Регистрация
+      edit:
+        title: Редактировать профиль
+        avatar: Добавить аватар
+        new_image_title: Новый аватар
+        new_image: Новый файл
+        email: Email
+        username: Имя пользователя
+        password: Пароль
+        six_simbols: символов минимум
+        password_confi: Подтверждение пароля
+        exact_password: Точный пароль (для подтверждения)
+        save_changes: Сохранить изменения # Button
+        delete_title: Удалить аккаунт
+        delete_button: Удалить аккаунт
+        back: Назад к профилю # Button
+    sessions:
       new:
-         title: Войти
-         Log in: Войти
-     shared:
+        title: Войти
+        Log in: Войти
+    shared:
       links:
-         Sign in: Регистрация
-         Log in: Войти
+        Sign in: Регистрация
+        Log in: Войти
   menu:
      home:   'Главная'
      articles: Все Cтатьи
@@ -84,6 +99,7 @@ ru:
 
   comments:
     show:
+      topic: Тема
       back_to_article: Вернуться к статье # Button  
       edit_comment: Редактировать тему # Button
       delete_comment: Удалить тему # Button
