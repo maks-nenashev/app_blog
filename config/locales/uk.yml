@@ -64,36 +64,41 @@ uk:
 
   
   articles:
-      index:
-       title: 'Список статей!'
-       new: Нова стаття # Button
-       show_article: Показати статтю
-       edit_article: Редагувати
-       delete_article: Видалити
-      new: 
-       title: 'Нова Стаття!'
-       submit_article: Нова стаття #botton
-      form:    # _form.html.erb   -- "edit"
-       title: 'Редагувати!'
-       submit_article: Редагувати
-      show:
-       thanks: 'Дякую!'
-       create: 'Статтю створено'
-       back_to_all_articles: 'Назад до всіх статей' # Button
-       new_topic: 'Створити Тему'
-       topic: 'Тема-и'
-       submit_topic: 'Створити' 
-       edit_article: Редагувати
-       delete_article: Видалити
-       edit_comment: Редагувати тему
-       delete_comment: Видалити
+    index:
+      title: 'Список статей!'
+      new: Нова стаття # Button
+      show_article: Показати статтю
+      edit_article: Редагувати
+      delete_article: Видалити
+    new: 
+      title: 'Створити статтю'
+      title_art: 'Заголовок статті'
+      place_title: 'Введіть ваш заголовок тут...'
+      text_art: 'Текст'
+      place_text: 'Введіть ваш текст тут...'
+      button: Добавити зображення # Button
+      submit_article: Створити статтю # Button
+    form:    # _form.html.erb   -- "edit"
+      title: 'Редагувати!'
+      submit_article: Редагувати
+    show:
+      thanks: 'Дякую!'
+      create: 'Статтю створено'
+      back_to_all_articles: 'Назад до всіх статей' # Button
+      new_topic: 'Створити Тему'
+      topic: 'Тема-и'
+      submit_topic: 'Створити' 
+      edit_article: Редагувати
+      delete_article: Видалити
+      edit_comment: Редагувати тему
+      delete_comment: Видалити
  
-      create:
-       success: Статтю створено! #Article created!
-      update:
-       success: Статтю редагували!
-      destroy: 
-       success: Статтю видалили!
+    create:
+      success: Статтю створено! #Article created!
+    update:
+      success: Статтю редагували!
+    destroy: 
+      success: Статтю видалили!
 
 
   comments:

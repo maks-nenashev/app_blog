@@ -66,39 +66,44 @@ pl:
 
   
   articles:
-      index:
-       title: 'Lista artykułów!'
-       new: Nowy artykuł # Button
-       show_article: Pokaż artykuł
-       edit_article: Edytuj artykuł
-       delete_article: Usunąć
+    index:
+      title: 'Lista artykułów!'
+      new: Nowy artykuł # Button
+      show_article: Pokaż artykuł
+      edit_article: Edytuj artykuł
+      delete_article: Usunąć
       
-      new: 
-       title: 'Nowy artykuł!'
-       submit_article: Nowy artykuł # Button
-      form: # _form.html.erb   -- "edit"
-       title: 'Edytować!'
-       submit_article: Edytować  # Button
-      show:
-       thanks: 'Dziękuję!'
-       create: 'Artykuł został utworzony'
-       back_to_all_articles: 'Powrót do wszystkich artykułów' # Button
+    new: 
+      title: 'Nowy artykuł!' 
+      title_art: 'Tytuł'
+      place_title: 'Wprowadź swój tytuł tutaj...'
+      text_art: 'Tekst'
+      place_text: 'Wprowadź swój tekst tutaj...'
+      button: Prześlij obraz # Button
+      submit_article: Nowy artykuł # Button
+    form: # _form.html.erb   -- "edit"
+      title: 'Edytować!'
+      submit_article: Edytować  # Button
+    show:
+      thanks: 'Dziękuję!'
+      create: 'Artykuł został utworzony'
+      back_to_all_articles: 'Powrót do wszystkich artykułów' # Button
        
-       new_topic: 'Utwórz Temat'
-       topic: 'Temat-y'
+      new_topic: 'Utwórz Temat'
+      topic: 'Temat-y'
                 # button
-       submit_topic: 'Tworzyć' 
-       edit_article: Edytuj artykuł
-       delete_article: Usunąć
-       edit_comment: Edytuj temat
-       delete_comment: Usunąć
+      submit_topic: 'Tworzyć' 
+      edit_article: Edytuj artykuł
+      delete_article: Usunąć
+      edit_comment: Edytuj temat
+      delete_comment: Usunąć
 
-      create:
-       success: Artykuł został utworzony!
-      update:
-       success: Artykuł został zredagowany!
-      destroy: 
-       success: Artykuł został udalony!
+    create:
+      success: Artykuł został utworzony!
+    update:
+      success: Artykuł został zredagowany!
+    destroy: 
+      success: Artykuł został udalony!
 
   comments:
     show:
