@@ -69,28 +69,33 @@ en:
        </div>
        
   articles:
-      index:
-       title: 'List Articles!'
-       new: 'New article' # Button
-       show_article: Show article
-       edit_article: Edit article
-       delete_article: Delete
+    index:
+      title: 'List Articles!'
+      new: 'New article' # Button
+      show_article: Show article
+      edit_article: Edit article
+      delete_article: Delete
       
-      new: 
-       title: 'New Article!'
-       submit_article: Submit Article #botton
-      form:  # _form.html.erb   -- "edit"
-       title: 'Edit Article!'
-       submit_article: Submit  # Button
-      show:
-       back_to_all_articles: 'Back to all articles' # Button
-       new_topic: 'Create Topic!'
-       topic: 'Topic-s'
-       submit_topic: 'Create' #Button
-       edit_article: Edit article
-       delete_article: Delete
-       edit_comment: Edit topic
-       delete_comment: Delete   
+    new: 
+      title: 'New Article!'
+      title_art: 'Title'
+      place_title: 'Enter your title here...'
+      text_art: 'Text'
+      place_text: 'Enter your text here...'
+      button: Upload image # Button
+      submit_article: Submit Article #botton
+    form:  # _form.html.erb   -- "edit"
+      title: 'Edit Article!'
+      submit_article: Submit  # Button
+    show:
+      back_to_all_articles: 'Back to all articles' # Button
+      new_topic: 'Create Topic!'
+      topic: 'Topic-s'
+      submit_topic: 'Create' #Button
+      edit_article: Edit article
+      delete_article: Delete
+      edit_comment: Edit topic
+      delete_comment: Delete   
        
       create:
        success: Article created!

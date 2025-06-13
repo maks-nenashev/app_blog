@@ -65,36 +65,41 @@ ru:
 
   
   articles:
-      index:
-       title: 'Список статьей!'
-       new: Новая статья 
-       show_article: Показать статью
-       edit_article: Редактировать
-       delete_article: Удалить
-      new: 
-       title: 'Новая Статья!'
-       submit_article: Новая статья #botton
-      form:    # _form.html.erb   -- "edit"
-       title: 'Редактировать!'
-       submit_article: Редактировать
-      show:
-       thanks: 'Спасибо!'
-       create: 'Статья создана'
-       back_to_all_articles: 'Вернуться ко всем статьям' # Button
-       new_topic: 'Создать Тему'
-       topic: 'Тема'
-       submit_topic: 'Создать' 
-       edit_article: Редактировать 
-       delete_article: Удалить
-       edit_comment: Редактировать тему
-       delete_comment: Удалить
+    index:
+      title: 'Список статьей!'
+      new: Новая статья 
+      show_article: Показать статью
+      edit_article: Редактировать
+      delete_article: Удалить
+    new: 
+      title: 'Создать новую статью'
+      title_art: 'Заголовок'
+      place_title: 'Введите ваш заголовок здесь...'
+      text_art: 'Текст'
+      place_text: 'Введите ваш текст здесь...'
+      button: Отправить изображение # Button
+      submit_article: Создать статью # Button
+    form:    # _form.html.erb   -- "edit"
+      title: 'Редактировать!'
+      submit_article: Редактировать
+    show:
+      thanks: 'Спасибо!'
+      create: 'Статья создана'
+      back_to_all_articles: 'Вернуться ко всем статьям' # Button
+      new_topic: 'Создать Тему'
+      topic: 'Тема'
+      submit_topic: 'Создать' 
+      edit_article: Редактировать 
+      delete_article: Удалить
+      edit_comment: Редактировать тему
+      delete_comment: Удалить
  
-      create:
-       success: Статья созданна! #Article created!
-      update:
-       success: Статья изменина!
-      destroy: 
-       success: Статья удалена!
+    create:
+      success: Статья созданна! #Article created!
+    update:
+      success: Статья изменина!
+    destroy: 
+      success: Статья удалена!
 
 
   comments:

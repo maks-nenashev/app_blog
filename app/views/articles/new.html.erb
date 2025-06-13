@@ -7,7 +7,7 @@
       <div class="card shadow-lg border-0 rounded-4 p-4 bg-white">
         <!-- Заголовок страницы -->
         <h2 class="text-center mb-4 text-primary fw-bold">
-          <%= t('.title', default: "Новая статья") %>
+          <%= t('.title') %>
         </h2>
 
         <%= form_for :article, url: articles_path, data: { turbo: false } do |f| %>
@@ -16,20 +16,20 @@
 
           <!-- Заголовок статьи -->
           <div class="mb-3">
-            <%= f.label :title, "Заголовок статьи", class: "form-label fw-semibold" %>
-            <%= f.text_field :title, placeholder: "Введите заголовок", class: "form-control shadow-sm", required: true, minlength: 2 %>
+            <%= f.label :title, t(".title_art"), class: "form-label fw-semibold" %>
+            <%= f.text_field :title, placeholder: t(".place_title"), class: "form-control shadow-sm", required: true, minlength: 2 %>
           </div>
 
           <!-- Текст статьи -->
           <div class="mb-3">
-            <%= f.label :text, "Текст статьи", class: "form-label fw-semibold" %>
-            <%= f.text_area :text, placeholder: "Введите текст", class: "form-control shadow-sm", rows: 6, required: true, minlength: 2 %>
+            <%= f.label :text, t(".text_art"), class: "form-label fw-semibold" %>
+            <%= f.text_area :text, placeholder: t(".place_text"), class: "form-control shadow-sm", rows: 6, required: true, minlength: 2 %>
           </div>
 
           <!-- Загрузка изображения -->
           <div class="mb-3">
            <label class="btn btn-dark">
-            Upload image
+           <%= t(".button") %>
              <%= f.file_field :image, style: "display: none;" %>
             </label>
           </div>
