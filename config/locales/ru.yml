@@ -17,6 +17,12 @@ ru:
       new:
         title: Регистрация
         Sign up: Регистрация
+        email: e-mail
+        username: Имя пользователя
+        password: Пароль
+        six_symbol: минимальное количество символов
+        new_password: Подтвердить пароль
+        avatar: Загрузить аватар
       edit:
         title: Редактировать профиль
         avatar: Добавить аватар
@@ -24,7 +30,7 @@ ru:
         new_image: Новый файл
         email: Email
         username: Имя пользователя
-        password: Пароль
+        new_password: Пароль
         six_simbols: символов минимум
         password_confi: Подтверждение пароля
         exact_password: Точный пароль (для подтверждения)
@@ -36,10 +42,14 @@ ru:
       new:
         title: Войти
         Log in: Войти
+        password: Пароль
+        remember: Запомнить меня
+        edit_account: Редактировать аккаунт
     shared:
       links:
         Sign in: Регистрация
         Log in: Войти
+        forgot: Забыли пароль?
   menu:
      home:   'Главная'
      articles: Все Cтатьи

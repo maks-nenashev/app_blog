@@ -17,6 +17,12 @@ pl:
       new:
         title: Rejestracja
         Sign up: Rejestracja
+        email: e-mail
+        username: Nazwa użytkownika
+        password: Hasło
+        six_symbol: minimalna liczba znaków
+        new_password: Potwierdź hasło
+        avatar: Prześlij awatar
       edit:
         title: Edytuj profil
         avatar: Dodaj awatar
@@ -24,7 +30,7 @@ pl:
         new_image: Nowy plik
         email: Email
         username: Nazwa użytkownika
-        password: Hasło
+        new_password: Hasło
         six_simbols: znaków minimum
         password_confi: Potwierdzenie hasła
         exact_password: Dokładne hasło (do potwierdzenia)
@@ -36,11 +42,14 @@ pl:
       new:
         title: Zaloguj sie
         Log in: Zaloguj sie
+        password: Hasło
+        remember: Zapamiętaj mnie
+        edit_account: Edytuj konto
     shared:
       links:
         Log in: Zaloguj sie
         Sign in: Rejestracja
-  
+        forgot: Zapomniałeś hasła?
   
   menu:
      home:   'Dom'

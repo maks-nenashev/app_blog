@@ -21,6 +21,12 @@ en:
       new:
         title: Sign up
         Sign up: Sign up
+        email: e-mail
+        username: Username
+        password: Password
+        six_symbol: minimum number of characters
+        new_password: Confirm password
+        avatar: Upload avatar
       edit:
         title: Edit profile
         avatar: add Avatar
@@ -28,7 +34,7 @@ en:
         new_image: New file
         email: Email
         username: Username
-        password: Password
+        new_password: Password
         six_simbols: symbols minimum
         password_confi: Password confirmation
         exact_password: Exact password (for confirmation)
@@ -40,11 +46,14 @@ en:
       new:
         title: Log in
         Log in: Log in
+        password: Password
+        remember: Remember me
+        edit_account: Edit account
     shared:
       links:
         Log in: Log in
         Sign in: Sign in
-     
+        forgot: Forgot your password?
        
   menu:
      home: Home
