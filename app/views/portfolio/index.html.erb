@@ -1,0 +1,82 @@
+<div class="container my-5">
+  <h1 class="text-center animate__animated animate__fadeInDown display-4 fw-bold my-5" style="font-family: 'Aboreto', cursive; color: #333;">
+   My Projects
+  </h1>
+  
+  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+    
+    <!-- FindWay -->
+    <div class="col">
+      <div class="card h-100 shadow-lg border-0 rounded-4">
+        <%= image_tag "findway.png", class: "card-img-top rounded-top-4", alt: "FindWay project" %>
+        <div class="card-body">
+          <h5 class="card-title fw-bold text-primary">FindWay</h5>
+          <p class="card-text">
+            A search engine for lost people and items. Built with Ruby on Rails, PostgreSQL, and Bootstrap.
+          </p>
+          <details>
+            <summary class="text-primary" style="cursor: pointer;">Read more…</summary>
+            <p class="mt-2 small">
+               A socially impactful search engine helping people locate missing loved ones, pets, or stolen valuables. 
+               Built from scratch with multilingual support, secure authentication via Devise and OmniAuth, and AWS S3 for media storage. 
+               Designed to be fast, intuitive, and mobile-friendly — with a focus on real needs during wartime.
+            </p>
+            </details>
+          <p class="small text-muted mt-2">Stack: Ruby on Rails, Devise, i18n, OmniAuth, S3</p>
+          <a href="https://findway.pro" class="btn btn-outline-primary btn-sm" target="_blank">
+            🌍 Visit project
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shiny Dashboard -->
+    <div class="col">
+      <div class="card h-100 shadow-lg border-0 rounded-4">
+        <%= image_tag "shiny-dashboard.png", class: "card-img-top rounded-top-4", alt: "Shiny Dashboard" %>
+        <div class="card-body">
+          <h5 class="card-title fw-bold text-success">UkrCar Analytics</h5>
+          <p class="card-text">
+            An interactive Shiny dashboard analyzing the Ukrainian automotive market (2017–2023).
+          </p>
+          <details>
+            <summary class="text-success" style="cursor: pointer;">Read more…</summary>
+            <p class="mt-2 small">
+               A master's thesis project: a fully interactive R/Shiny dashboard tracking vehicle registrations in Ukraine (2017–2023). 
+               Features include dynamic plots, time series forecasting, linear regression, model-(ARIMA), and advanced ETL workflows. 
+               Designed for policymakers, economists, and automotive analysts.
+            </p>
+            </details>
+          <p class="small text-muted mt-2">Stack: R, Shiny, Plotly, Leaflet, ETL, Time Series, S3</p>
+          <a href="https://statauto.net" class="btn btn-outline-success btn-sm" target="_blank">
+            🌐 Preview dashboard
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Maksym Social -->
+    <div class="col">
+      <div class="card h-100 shadow-lg border-0 rounded-4">
+        <%= image_tag "maksym-social.png", class: "card-img-top rounded-top-4", alt: "Maksym Social Network" %>
+        <div class="card-body">
+          <h5 class="card-title fw-bold text-dark">Maksym Social</h5>
+          <p class="card-text">
+            A multilingual social network with tweets, articles, avatars and full user management.
+          </p>
+          <details>
+            <summary class="text-dark" style="cursor: pointer;">Read more…</summary>
+            <p class="mt-2 small">
+             A custom-built social network supporting tweets, blog articles, avatars, multilingual interface, and profile editing. 
+             Includes role-based access control, responsive UI, Devise-based authentication, and image uploads via ActiveStorage. 
+             Created to explore full-stack Rails architecture and user-centric UX design.
+            </p>
+            </details>
+          <p class="small text-muted mt-2">Stack: Ruby on Rails, Devise, Bootstrap 5, i18n, S3</p>
+          <%= link_to "Open portfolio", articles_path, class: "btn btn-outline-dark btn-sm" %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

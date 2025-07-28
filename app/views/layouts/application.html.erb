@@ -8,6 +8,8 @@
 
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
 
   <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
@@ -47,6 +49,7 @@
         <ul class="nav d-none d-lg-flex align-items-center gap-3 m-0">
           <li><%= link_to t('menu.home'), root_path, class: 'nav-link px-3 text-dark fw-semibold' %></li>
           <li><%= link_to t('menu.articles'), articles_path, class: 'nav-link px-3 text-dark fw-semibold' %></li>
+          <li><%= link_to "Portfolio", portfolio_path, class: 'nav-link px-3 text-dark fw-semibold' %></li>
           <li><%= link_to t('menu.contacts'), new_contacts_path, class: 'nav-link px-3 text-primary fw-semibold' %></li>
         </ul>
         
