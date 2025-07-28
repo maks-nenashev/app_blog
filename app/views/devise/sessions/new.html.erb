@@ -17,7 +17,7 @@
 
           <!-- Пароль -->
           <div class="mb-3">
-            <%= f.label :password, "Пароль", class: "form-label fw-semibold" %>
+            <%= f.label :password, t(".password"), class: "form-label fw-semibold" %>
             <%= f.password_field :password, class: "form-control shadow-sm", autocomplete: "current-password" %>
           </div>
 
@@ -25,7 +25,7 @@
           <% if devise_mapping.rememberable? %>
             <div class="form-check mb-3">
               <%= f.check_box :remember_me, class: "form-check-input", id: "remember_me" %>
-              <%= f.label :remember_me, "Запам’ятати мене", class: "form-check-label" %>
+              <%= f.label :remember_me, t(".remember"), class: "form-check-label" %>
             </div>
           <% end %>
 
@@ -40,7 +40,7 @@
         <div class="text-center mt-4">
           <%= render "devise/shared/links" %>
           <br>
-          <%= link_to "Редагувати акаунт", edit_user_registration_path, class: "text-decoration-none" %>
+          <%= link_to t(".edit_account"), edit_user_registration_path, class: "text-decoration-none" %>
         </div>
 
       </div>
