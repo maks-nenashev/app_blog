@@ -173,15 +173,15 @@
 
   <!-- Main Content -->
   <main class="container mt-3">
-    <% flash.each do |k, v| %>
-      <%= tag.div v, class: "alert alert-#{k}", role: 'alert' %>
+    <% flash.each do |key, value| %>
+       <div class="container mt-4">
+       <div class="alert alert-<%= key == 'notice' ? 'success' : 'danger' %> text-center shadow">
+        <%= value %>
+       </div>
+       </div>
     <% end %>
-    <%= yield %>
+   <%= yield %>
   </main>
-
-  <!-- Notices and Alerts -->
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 
 </body>
 
