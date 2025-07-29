@@ -10,8 +10,7 @@
   <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-
-  <!-- Google Fonts -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
     
     <!-- Bootstrap Icons -->
@@ -19,7 +18,7 @@
     
     <!-- Styles -->
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag "custom", "home", "articles", "devise", "tweets", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "custom", "home", "articles", "devise", "tweets", "portfolio", "data-turbo-track": "reload" %>
 
     <!-- Scripts -->
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
@@ -128,6 +127,9 @@
           <!-- Articles link -->
           <li class="nav-item">
             <%= link_to t('menu.articles'), articles_path, class: 'nav-link px-3 text-dark bi bi-journals' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Portfolio", portfolio_path, class: 'nav-link px-3 text-dark fw-semibold' %>
           </li>
           <!-- Contacts link -->
           <li class="nav-item">

@@ -12,3 +12,4 @@
 //= link tweets.css
 //= link custom.css
 //= link custom.js
+//= link portfolio.css
