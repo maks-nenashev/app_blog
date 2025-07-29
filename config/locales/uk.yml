@@ -17,6 +17,12 @@ uk:
       new:
         title: Реєстрація
         Sign up: Реєстрація
+        email: e-mail
+        username: Ім'я користувача
+        password: Пароль
+        six_symbol: мінімальна кількість символів
+        new_password: Підтвердити пароль
+        avatar: Завантажити аватар
       edit:
         title: Редагувати профіль
         avatar: Додати аватар
@@ -24,7 +30,7 @@ uk:
         new_image: Новий файл
         email: Email
         username: Ім'я користувача
-        password: Пароль
+        new_password: Пароль
         six_simbols: символів мінімум
         password_confi: Підтвердження пароля
         exact_password: Точний пароль (для підтвердження)
@@ -36,10 +42,14 @@ uk:
       new:
         title: Увійти
         Log in: Увійти
+        password: Пароль
+        remember: Запам’ятати мене
+        edit_account: Редагувати обліковий запис
     shared:
       links:
         Sign in: Реєстрація
         Log in: Увійти
+        forgot: Забули пароль?
   menu:
      home:   'Головна'
      articles: Всі Статті

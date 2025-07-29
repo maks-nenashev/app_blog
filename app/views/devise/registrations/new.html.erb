@@ -4,7 +4,7 @@
 
       <div class="card shadow-lg border-0 rounded-4 p-4 bg-white">
         <h2 class="text-center mb-4 text-primary fw-bold">
-          <%= t('.title', default: "Реєстрація") %>
+          <%= t('.title') %>
         </h2>
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { multipart: true }) do |f| %>
@@ -12,35 +12,36 @@
 
           <!-- Email -->
           <div class="mb-3">
-            <%= f.label :email, "Email", class: "form-label fw-semibold" %>
+            <%= f.label :email, t('.email'), class: "form-label fw-semibold" %>
             <%= f.email_field :email, class: "form-control shadow-sm", autofocus: true, autocomplete: "email" %>
           </div>
 
           <!-- Username -->
           <div class="mb-3">
-            <%= f.label :username, "Ім’я користувача", class: "form-label fw-semibold" %>
+            <%= f.label :username, t('.username'), class: "form-label fw-semibold" %>
             <%= f.text_field :username, class: "form-control shadow-sm", autocomplete: "username" %>
           </div>
 
           <!-- Пароль -->
           <div class="mb-3">
-            <%= f.label :password, "Пароль", class: "form-label fw-semibold" %>
+            <%= f.label :password, t('.password'), class: "form-label fw-semibold" %>
             <%= f.password_field :password, class: "form-control shadow-sm", autocomplete: "new-password" %>
             <% if @minimum_password_length %>
-              <small class="text-muted"><%= @minimum_password_length %> символів мінімум</small>
+              <small class="text-muted"><%= @minimum_password_length %> <%= t(".six_symbol")%></small>
             <% end %>
           </div>
 
           <!-- Підтвердження пароля -->
           <div class="mb-3">
-            <%= f.label :password_confirmation, "Підтвердження пароля", class: "form-label fw-semibold" %>
+            <%= f.label :password_confirmation, t('.new_password'), class: "form-label fw-semibold" %>
             <%= f.password_field :password_confirmation, class: "form-control shadow-sm", autocomplete: "new-password" %>
           </div>
 
-          <!-- Фото -->
           <div class="mb-3">
-            <%= f.label :avatar, "Додати фото", class: "form-label fw-semibold" %>
-            <%= f.file_field :avatar, class: "form-control shadow-sm" %>
+           <label class="btn btn-dark">
+            <%= f.label :avatar, t(".avatar") %><br />
+            <%= f.file_field :avatar, style: "display: none;" %>
+           </label>
           </div>
 
           <!-- Submit -->
