@@ -106,12 +106,12 @@ en:
       edit_comment: Edit topic
       delete_comment: Delete   
        
-      create:
-       success: Article created!
-      update:
-       success: Article has been edited!
-      destroy: 
-       success: Article hes been deleted!
+    create:
+      success: Article created!
+    update:
+      success: Article has been edited!
+    destroy: 
+      success: Article hes been deleted!
        
   comments:
     show:
