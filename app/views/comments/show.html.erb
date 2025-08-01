@@ -4,30 +4,70 @@
   <header class="mb-4">
     <h1 class="h4 fw-bold mb-4 text-break text-center"><%= @comment.title %></h1>
 
-  </header>
+ <% if @comment.images.attached? %>
+  <div class="d-flex justify-content-center align-items-start mt-4">
+    <!-- БОЛЬШАЯ КАРТИНКА с тенью и скруглением -->
+    <div class="d-flex flex-column align-items-center w-100 shadow-lg rounded-4" style="max-width: 640px; background: #fff;">
+      <img id="main-comment-image-<%= @comment.id %>"
+           src="<%= url_for(@comment.images.first.variant(resize_to_limit: [720, 400])) %>"
+           class="img-fluid rounded shadow w-100"
+           style="max-width: 640px;"
+           alt="Main comment image">
 
-  <!-- Изображение комментария -->
-  <% if @comment.image.attached? %>
-    <div class="mx-auto" style="max-width: 720px;">
-      <div class="text-center mb-3">
-        <%= image_tag @comment.image, class: "img-fluid rounded shadow-sm w-100", alt: "Comment image" %>
+      <!-- МИНИАТЮРЫ: ТОЛЬКО ПОД ФОТО НА МОБИЛЬНЫХ -->
+<% if @comment.images.size > 1 %>
+        <!--div class="d-flex flex-row gap-2 mt-2 d-md-none justify-content-center"-->
+        <div class="d-flex flex-row gap-2 mt-2 d-md-none justify-content-center shadow rounded-3 bg-white p-2">
+          <% @comment.images.each_with_index do |img, i| %>
+            <% next if i == 0 %>
+            <%= image_tag img.variant(resize_to_limit: [90, 90]),
+              class: "img-thumbnail shadow-sm border border-secondary preview-thumb",
+              style: "width:90px; height:90px; object-fit:cover; cursor:pointer;",
+              alt: "Mini image #{i+1}",
+              data: { large: url_for(img.variant(resize_to_limit: [720, 400])), main: "main-comment-image-#{@comment.id}" } %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- МИНИАТЮРЫ: ТОЛЬКО СПРАВА НА ДЕСКТОПЕ -->
+    <% if @comment.images.size > 1 %>
+      <!--div class="d-none d-md-flex flex-column gap-2 ms-4"-->
+        <div class="d-none d-md-flex flex-column gap-2 ms-4 shadow rounded-3 bg-white p-2">  
+        <% @comment.images.each_with_index do |img, i| %>
+          <% next if i == 0 %>
+          <%= image_tag img.variant(resize_to_limit: [90, 90]),
+            class: "img-thumbnail shadow-sm border border-secondary preview-thumb",
+            style: "width:90px; height:90px; object-fit:cover; cursor:pointer;",
+            alt: "Mini image #{i+1}",
+            data: { large: url_for(img.variant(resize_to_limit: [720, 400])), main: "main-comment-image-#{@comment.id}" } %>
+        <% end %>
       </div>
-    <div class="d-flex flex-column flex-md-row align-items-start gap-2 px-2">
+    <% end %>
+  </div>
+
+  <!-- Автор под фото (как и было) -->
+  <div class="w-100 mt-2" style="max-width: 640px;">
+    <div class="d-flex align-items-center gap-2">
       <%= image_tag @comment.user.avatar_tumbnail, class: "rounded-circle", width: 40, height: 40 %>
       <div class="small text-start">
         <strong><%= @comment.user.username %></strong><br>
         <span class="text-muted fs-7">
           <%= l(@comment.created_at, format: :short) %>
         </span>
-       </div>
       </div>
     </div>
-  <% end %>
+  </div>
+<% end %>
+
+  
+  </header>
 
   <!-- Текст комментария -->
-  <div class="mb-5 fs-6 text-center px-2 px-md-5">
-    <%= simple_format(@comment.body) %>
-  </div>
+    <div class="mb-2 mt-3 fs-5 text-start px-2 px-md-4" style="line-height:1.7;">
+    <!--div class="mb-2 mt-3 fs-5 text-start px-2 px-md-4 shadow-lg rounded-4 border border-light" style="line-height:1.7; background: #fff;"-->
+      <%= simple_format(@comment.body) %>
+    </div>
 
   <!-- Кнопки редактирования и удаления -->
   <div class="mb-4 d-flex flex-wrap gap-2">
@@ -44,16 +84,33 @@
         <i class="bi bi-trash3-fill me-1"></i> <%= t('.delete_comment') %>
       <% end %>
     <% end %>
-     <!div class="text-center mt-3">
+     <!--div class="text-center mt-3"-->
      <%= link_to t('.back_to_article'), article_path(@article), class: "btn btn-outline-secondary" %>
-     <!/div>
+     <!--/div-->
   </div>
 
   <!-- Виджет комментариев -->
   <%= render 'tweets/commentable', commentable: @comment, tweet: @tweet, html_id: dom_id(@comment, 'tweet_form') %>
 
   <hr class="my-5 border-top border-warning" style="border-width: 65px;" />
-  <!div class="divider"><!h1><%#= t('.topic') %><!/h1><!/div>
+  <!--div class="divider"><!h1><%#= t('.topic') %><!/h1><!/div-->
 </div>
 
+<script>
+ document.addEventListener("turbo:load", function() {
+  // Для каждой миниатюры комментов (и только их)
+  document.querySelectorAll('.preview-thumb').forEach(function(thumb) {
+    thumb.addEventListener('click', function() {
+      // Найти id главной картинки через data-main
+      var mainImg = document.getElementById(this.dataset.main);
+      if (mainImg) mainImg.src = this.dataset.large;
+      // Сбросить рамку со всех в этом блоке, выделить только выбранную
+      let siblings = thumb.parentElement.querySelectorAll('.preview-thumb');
+      siblings.forEach(t => t.classList.remove('border-primary'));
+      this.classList.add('border-primary');
+    });
+  });
+});
+
+</script>
 

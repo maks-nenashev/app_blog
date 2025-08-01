@@ -65,11 +65,11 @@ class CommentsController < ApplicationController
      private
   
     def comment_create_params
-      params.require(:comment).permit(:title, :body, :image).merge(user: current_user)
+      params.require(:comment).permit(:title, :body, images: []).merge(user: current_user)
     end                                      #Podkluchenie comment k "user"
     
     def comment_update_params
-      params.require(:comment).permit(:title, :body, :image)
+      params.require(:comment).permit(:title, :body, images: [])
     end                                     
   #/////////////////////////////////////////////////////////////////////////////////
 

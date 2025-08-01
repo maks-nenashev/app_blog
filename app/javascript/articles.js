@@ -24,3 +24,18 @@ document.addEventListener("turbo:load", function () {
     };
   }
 });
+
+// Обработчик для миниатюр изображений
+// Обновление главного изображения при клике на миниатюру
+document.addEventListener("turbo:load", function() {
+  var allThumbs = document.querySelectorAll('.preview-image');
+  allThumbs.forEach(function(thumb) {
+    thumb.addEventListener('click', function() {
+      var mainImg = document.getElementById('main-image');
+      if (mainImg) mainImg.src = this.dataset.large;
+      // выделить выбранную миниатюру рамкой
+      allThumbs.forEach(t => t.classList.remove('border-primary'));
+      this.classList.add('border-primary');
+    });
+  });
+});
