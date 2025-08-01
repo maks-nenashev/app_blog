@@ -24,7 +24,7 @@
           <div class="mb-3">
            <label class="btn btn-dark">
             Upload image
-             <%= f.file_field :image, style: "display: none;" %>
+             <%= f.file_field :images, multiple: true, accept: "image/*", style: "display: none;" %>
             </label>
           </div>
 

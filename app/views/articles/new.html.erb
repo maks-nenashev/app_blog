@@ -10,7 +10,7 @@
           <%= t('.title') %>
         </h2>
 
-        <%= form_for :article, url: articles_path, data: { turbo: false } do |f| %>
+        <%= form_for :article, url: articles_path, html: { multipart: true }, data: { turbo: false } do |f| %>
           <!-- Отображение ошибок -->
           <%= render 'shared/errors', object: @article %>
 
@@ -30,7 +30,7 @@
           <div class="mb-3">
            <label class="btn btn-dark">
            <%= t(".button") %>
-             <%= f.file_field :image, style: "display: none;" %>
+             <%= f.file_field :images, multiple: true, style: "display: none;" %>
             </label>
           </div>
 

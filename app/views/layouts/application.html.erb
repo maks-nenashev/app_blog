@@ -49,7 +49,7 @@
           <li><%= link_to t('menu.home'), root_path, class: 'nav-link px-3 text-dark fw-semibold' %></li>
           <li><%= link_to t('menu.articles'), articles_path, class: 'nav-link px-3 text-dark fw-semibold' %></li>
           <li><%= link_to "Portfolio", portfolio_path, class: 'nav-link px-3 text-dark fw-semibold' %></li>
-          <li><%= link_to t('menu.contacts'), new_contacts_path, class: 'nav-link px-3 text-primary fw-semibold' %></li>
+          <!--li><%= link_to t('menu.contacts'), new_contacts_path, class: 'nav-link px-3 text-primary fw-semibold' %></li-->
         </ul>
         
         <!-- Подключение языков -->
@@ -129,12 +129,12 @@
             <%= link_to t('menu.articles'), articles_path, class: 'nav-link px-3 text-dark bi bi-journals' %>
           </li>
           <li class="nav-item">
-            <%= link_to "Portfolio", portfolio_path, class: 'nav-link px-3 text-dark fw-semibold' %>
+            <%= link_to "Portfolio", portfolio_path, class: 'nav-link px-3 text-dark bi bi-tencent-qq' %>
           </li>
           <!-- Contacts link -->
-          <li class="nav-item">
+          <!--li class="nav-item">
             <%= link_to t('menu.contacts'), new_contacts_path, class: 'nav-link px-3 text-dark bi bi-tencent-qq' %>
-          </li>
+          </li-->
           <!-- Admin link (if authorized) -->
           <% if policy([:user]).index? %>
             <li class="nav-item">

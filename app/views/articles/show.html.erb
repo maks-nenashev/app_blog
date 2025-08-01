@@ -2,38 +2,70 @@
 
 <div class="container my-5">
   <!-- Заголовок и автор -->
- 
- <header class="mb-4">
+  <header class="mb-4">
     <h1 class="h4 fw-bold mb-4 text-break text-center"><%= @article.title %></h1>
 
-    <% if @article.image.attached? %>
-      <div class="mx-auto" style="max-width: 720px;">
-        <!-- Фото -->
-        <div class="text-center mb-3">
-          <%= image_tag @article.image, class: "img-fluid rounded shadow-sm w-100", alt: "Article image" %>
-        </div>
+    <!-- Блок картинок: основная + миниатюры справа -->
+    <div class="d-flex flex-column flex-md-row justify-content-center align-items-start">
+  <!-- Левая часть: большая фотка + автор + миниатюры на мобиле -->
+  <div class="d-flex flex-column align-items-center w-100 shadow rounded-4 bg-white p-2" style="max-width: 640px;">
+  <!-- Большая фотка -->
+  <img id="main-image"
+       src="<%= url_for(@article.images.first.variant(resize_to_limit: [720, 400])) %>"
+       class="img-fluid rounded shadow-sm w-100"
+       style="max-width: 640px;"
+       alt="Main image">
 
-        <!-- Автор под фото, адаптивный -->
-        <div class="d-flex flex-column flex-md-row align-items-start gap-2 px-2">
-          <%= image_tag @article.user.avatar_tumbnail, class: "rounded-circle", width: 40, height: 40 %>
-          <div class="small text-start">
-            <strong><%= @article.user.username %></strong><br>
-            <span class="text-muted">
-              <%= t('.create') %>
-              <time datetime="<%= @article.created_at.iso8601 %>">
-                <%= l(@article.created_at, format: :short) %>
-              </time>
-            </span>
-          </div>
-        </div>
+    <!-- Миниатюры: видны под фото только на мобильных -->
+    <% if @article.images.size > 1 %>
+      <div class="d-flex flex-row gap-2 mt-2 d-md-none justify-content-center">
+        <% @article.images.each_with_index do |img, i| %>
+          <% next if i == 0 %>
+          <%= image_tag img.variant(resize_to_limit: [90, 90]),
+            class: "img-thumbnail shadow-sm border border-secondary preview-image",
+            style: "width:90px; height:90px; object-fit:cover; cursor:pointer;",
+            alt: "Mini image #{i+1}",
+            data: { large: url_for(img.variant(resize_to_limit: [720, 400])) } %>
+        <% end %>
       </div>
     <% end %>
+  </div>
+
+  <!-- Миниатюры: видны только справа на md+ экранах -->
+  <% if @article.images.size > 1 %>
+    <div class="d-none d-md-flex flex-column gap-2 ms-4 mt-2">
+      <% @article.images.each_with_index do |img, i| %>
+        <% next if i == 0 %>
+        <%= image_tag img.variant(resize_to_limit: [90, 90]),
+          class: "img-thumbnail shadow-sm border border-secondary preview-image",
+          style: "width:90px; height:90px; object-fit:cover; cursor:pointer;",
+          alt: "Mini image #{i+1}",
+          data: { large: url_for(img.variant(resize_to_limit: [720, 400])) } %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+   
+   <!-- Автор сразу под фото, по левому краю -->
+    <div class="d-flex align-items-center gap-2 mt-2" style="margin-left: 0;">
+      <%= image_tag @article.user.avatar_tumbnail, class: "rounded-circle", width: 40, height: 40 %>
+      <div class="small text-start">
+        <strong><%= @article.user.username %></strong><br>
+        <span class="text-muted">
+          <%= t('.create') %>
+          <time datetime="<%= @article.created_at.iso8601 %>"><%= l(@article.created_at, format: :short) %></time>
+        </span>
+      </div>
+    </div>
+
+    <!/div>
   </header>
 
-<!-- Текст статьи -->
-  <div class="mb-5 fs-6 text-center px-2 px-md-5">
-    <%= simple_format(@article.text) %>
-  </div>
+<!-- Текст сразу после блока, отступ минимальный -->
+<div class="mb-2 mt-3 fs-5 text-start px-2 px-md-4" style="line-height:1.7;">
+<!--div class="mb-2 mt-3 fs-5 text-start px-2 px-md-4 shadow-lg rounded-4 border border-light" style="line-height:1.7; background: #fff;"-->
+  <%= simple_format(@article.text) %>
+</div>
 
   <!-- Кнопки редактирования -->
   <div class="mb-4 d-flex flex-wrap gap-2">
@@ -42,7 +74,6 @@
         <i class="bi bi-pencil-square me-1"></i> <%= t('.edit_article') %>
       <% end %>
     <% end %>
-
     <% if policy(@article).destroy? %>
       <%= link_to article_path(@article),
                   data: { 'turbo-method': :delete, 'turbo-confirm': t('.are_you_sure') },
@@ -56,60 +87,71 @@
   <!-- Виджет комментариев -->
   <%= render 'tweets/commentable', commentable: @article, tweet: @tweet, html_id: 'articleTweets' %>
 
- <!hr class="my-5 border-top border-warning" style="border-width: 65px;" />
- <div class="divider"><h1><%= t('.topic') %></h1></div>
-  <!br>
-  
-<!-- Комментарии -->
-<section>
-     <div class="d-flex justify-content-center mt-5"> 
-  <%= link_to t('.new_topic'), new_article_comment_path(@article), class: "btn btn-primary mb-4" %>
-     </div>
-  <br>
-  <!-- Комментарии в широких карточках -->
-  <div class="d-flex flex-wrap justify-content-center gap-4">
-    <% @comments.each do |comment| %>
-      <div class="card border-0 shadow-lg custom-shadow" style="flex: 0 0 calc(31% - 1rem); min-width: 320px; max-width: 100%; min-height: 520px;">
-        <div class="card-body d-flex flex-column justify-content-between p-4">
-          <div>
-            <!-- Автор и дата -->
-            <div class="d-flex align-items-center mb-3">
-              <%= image_tag comment.user.avatar_tumbnail, class: "rounded-circle me-2", width: 50, height: 50 %>
-              <div class="d-flex flex-column">
-                <strong class="fs-6"><%= comment.user.username %></strong> <!-- Имя пользователя в одной строке -->
-                <div class="text-muted small mt-1" style="font-size: 0.7rem;"> <!-- SIZE TEXT-->
-                  <%= l(comment.created_at, format: :short) %> <!-- Дата и время под именем -->
+  <!-- Разделитель -->
+  <hr class="my-5 border-top border-warning" style="border-width: 65px;" />
+  <div class="divider"><h1><%= t('.topic') %></h1></div>
+
+  <!-- Комментарии -->
+  <section>
+    <div class="d-flex justify-content-center mt-5"> 
+      <%= link_to t('.new_topic'), new_article_comment_path(@article), class: "btn btn-primary mb-4" %>
+    </div>
+    <div class="d-flex flex-wrap justify-content-center gap-4">
+      <% @comments.each do |comment| %>
+        <div class="card border-0 shadow-lg custom-shadow" style="flex: 0 0 calc(31% - 1rem); min-width: 320px; max-width: 100%; min-height: 520px;">
+          <div class="card-body d-flex flex-column justify-content-between p-4">
+            <div>
+              <!-- Автор и дата -->
+              <div class="d-flex align-items-center mb-3">
+                <%= image_tag comment.user.avatar_tumbnail, class: "rounded-circle me-2", width: 50, height: 50 %>
+                <div class="d-flex flex-column">
+                  <strong class="fs-6"><%= comment.user.username %></strong>
+                  <div class="text-muted small mt-1" style="font-size: 0.7rem;">
+                    <%= l(comment.created_at, format: :short) %>
+                  </div>
                 </div>
               </div>
+              <!-- Заголовок -->
+              <h5 class="card-title fw-semibold mb-3">
+                <%= link_to comment.title, article_comment_path(@article, comment), class: "text-dark text-decoration-none text-primary", style: "font-size: 1.1rem;" %>
+              </h5>
+              <!-- Изображение комментария -->
+               <% if comment.images.attached? %>
+                  <div class="text-center mb-3">
+                   <%= link_to image_tag(comment.images.first.variant(resize_to_limit: [720, 400]),
+                      class: "img-fluid rounded shadow-sm w-100",
+                      style: "max-width:420px;",
+                      alt: "Comment image"),
+                      article_comment_path(@article, comment) %>
+                  </div>
+               <% end %>
+              <!-- Текст -->
+              <p class="card-text text-secondary small">
+                <%= truncate(strip_tags(comment.body), length: 170) %>
+              </p>
             </div>
-
-            <!-- Заголовок -->
-            <h5 class="card-title fw-semibold mb-3">
-              <%= link_to comment.title, article_comment_path(@article, comment),class: "text-dark text-decoration-none text-primary", style: "font-size: 1.1rem;" %>
-            </h5>
-
-            <!-- Изображение комментария -->
-            <% if comment.image.attached? %>
-              <div class="mb-3">
-                <%= link_to image_tag(comment.image, class: "img-fluid rounded shadow-sm", style: "max-height: 200px; object-fit: cover; width: 100%;"), article_comment_path(@article, comment) %>
-              </div>
-            <% end %>
-
-            <!-- Текст -->
-            <p class="card-text text-secondary small">
-              <%= truncate(strip_tags(comment.body), length: 170) %>
-            </p>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
-
-  <!-- Центрированная пагинация -->
-  <div class="d-flex justify-content-center mt-5">
-    <%= pagination @pagy if defined?(@pagy) %>
-  </div>
-</section>
-
-
+      <% end %>
+    </div>
+    <!-- Центрированная пагинация -->
+    <div class="d-flex justify-content-center mt-5">
+      <%= pagination @pagy if defined?(@pagy) %>
+    </div>
+  </section>
 </div>
+
+<script>
+  document.addEventListener("turbo:load", function() {
+  var allThumbs = document.querySelectorAll('.preview-image');
+  allThumbs.forEach(function(thumb) {
+    thumb.addEventListener('click', function() {
+      var mainImg = document.getElementById('main-image');
+      if (mainImg) mainImg.src = this.dataset.large;
+      // выделить выбранную миниатюру рамкой
+      allThumbs.forEach(t => t.classList.remove('border-primary'));
+      this.classList.add('border-primary');
+    });
+  });
+});
+</script>
