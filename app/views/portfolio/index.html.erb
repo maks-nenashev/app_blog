@@ -1,8 +1,8 @@
 <div class="container my-5">
-  <h1 class="text-center animate__animated animate__fadeInDown display-4 fw-bold my-5" style="font-family: 'Aboreto', cursive; color: #333;">
-   My Projects
-  </h1>
-  
+   <!-- Header with title -->
+<h1 class="text-center animate__animated animate__fadeInDown display-4 fw-bold my-5" style="font-family: 'Aboreto', cursive; color: #333;">
+  <%= t('.main_slogan', default: 'Where ideas come to life') %>
+</h1>
   <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
     
     <!-- FindWay -->
@@ -15,14 +15,12 @@
             findway.pro
            </a>
            <p class="card-text">
-            A search engine for lost people and items. Built with Ruby on Rails, PostgreSQL, and Bootstrap.
+            <%= t('.title_1') %>
           </p>
           <details>
-            <summary class="text-primary" style="cursor: pointer;">Read more…</summary>
+            <summary class="text-primary" style="cursor: pointer;"><%= t('.read_1') %> </summary>
             <p class="mt-2 small">
-               A socially impactful search engine helping people locate missing loved ones, pets, or stolen valuables. 
-               Built from scratch with multilingual support, secure authentication via Devise and OmniAuth, and AWS S3 for media storage. 
-               Designed to be fast, intuitive, and mobile-friendly — with a focus on real needs during wartime.
+              <%= t('.text_1') %>
             </p>
             </details>
           <p class="small text-muted mt-2">Stack: Ruby on Rails, i18n, OmniAuth, Docker, S3</p>
@@ -40,19 +38,17 @@
       <div class="card h-100 shadow-lg border-0 rounded-4">
         <%= image_tag "shiny-dashboard.png", class: "card-img-top rounded-top-4", alt: "Shiny Dashboard" %>
         <div class="card-body">
-          <h5 class="card-title fw-bold text-success">UkrCar Analytics</h5>
+          <h5 class="card-title fw-bold text-success"><%= t('.title_2_1') %></h5>
            <a href="https://statauto.net" target="_blank" rel="noopener">
             statauto.net
            </a>
           <p class="card-text">
-            An interactive Shiny dashboard analyzing the Ukrainian automotive market (2017–2023).
+            <%= t('.title_2') %>
           </p>
           <details>
-            <summary class="text-success" style="cursor: pointer;">Read more…</summary>
+            <summary class="text-info" style="cursor: pointer;"><%= t('.read_2') %></summary>
             <p class="mt-2 small">
-               A master's thesis project: a fully interactive R/Shiny dashboard tracking vehicle registrations in Ukraine (2017–2023). 
-               Features include dynamic plots, time series forecasting, linear regression, model-(ARIMA), and advanced ETL workflows. 
-               Designed for policymakers, economists, and automotive analysts.
+               <%= t('.text_2') %>
             </p>
             </details>
            <p class="small text-muted mt-2">
@@ -75,14 +71,12 @@
           <h5 class="card-title fw-bold text-dark">Maksym Social </h5>
             <%= link_to "nenashev.net", articles_path %>
           <p class="card-text">
-            A multilingual social network with tweets, articles, avatars and full user management.
+            <%= t('.title_3') %>
           </p>
           <details>
-            <summary class="text-dark" style="cursor: pointer;">Read more…</summary>
+            <summary class="text-dark" style="cursor: pointer;"><%= t('.read_3') %></summary>
             <p class="mt-2 small">
-             A custom-built social network supporting tweets, blog articles, avatars, multilingual interface, and profile editing. 
-             Includes role-based access control, responsive UI, Devise-based authentication, and image uploads via ActiveStorage. 
-             Created to explore full-stack Rails architecture and user-centric UX design.
+             <%= t('.text_3') %>
             </p>
             </details>
           <p class="small text-muted mt-2">Stack: Ruby on Rails, Bootstrap 5, i18n, Docker, S3</p>
@@ -104,16 +98,12 @@
       <h5 class="card-title fw-bold text-primary">PromoFindWay.pro</h5>
       <%= link_to "promofindway.pro", "https://promofindway.pro", target: "_blank" %>
       <p class="card-text">
-        A multilingual landing page for the FindWay project, built with <b>Sinatra</b> and featuring seamless i18n integration and smooth animations.
+      <%= t('.title_4').html_safe  %>
       </p>
       <details>
-        <summary class="text-primary" style="cursor: pointer;">Read more…</summary>
+        <summary class="text-primary" style="cursor: pointer;"><%= t('.read_4') %></summary>
         <p class="mt-2 small">
-          This is a live presentation site and gateway for the FindWay search platform.<br>
-          • <b>Internationalization</b>: Supports English, Ukrainian, and Polish via flexible YAML-based i18n.<br>
-          • <b>Modern design</b>: Adaptive, clean Bootstrap 5 UI with animated elements.<br>
-          • <b>Production-ready</b>: Dockerized, reverse-proxied with Nginx, and secured with HTTPS via Let's Encrypt.<br>
-          • <b>Role</b>: Full cycle — from idea and design to infrastructure and deployment.
+          <%= t('.text_4').html_safe %>
         </p>
       </details>
       <p class="small text-muted mt-2">Stack: Ruby, Sinatra, ERB, Bootstrap 5, i18n, Docker, Nginx, Certbot</p>
@@ -132,20 +122,17 @@
   <div class="card h-100 shadow-lg border-0 rounded-4">
     <%= image_tag "findway-aimod.png", class: "card-img-top rounded-top-4", alt: "FindWay AI Moderator" %>
     <div class="card-body">
-      <h5 class="card-title fw-bold text-info">FindWay AI Moderator</h5>
+      <h5 class="card-title fw-bold text-info">AI Moderator</h5>
       <a href="#" class="link-secondary disabled" tabindex="-1" aria-disabled="true">
         (in progress, coming soon)
       </a>
       <p class="card-text">
-        Advanced AI-powered content moderation engine for the FindWay platform, leveraging <b>R</b>, <b>Keras</b>, and <b>TensorFlow</b> for robust and ethical content filtering.
+        <%= t('.title_5').html_safe %>
       </p>
       <details>
-        <summary class="text-info" style="cursor: pointer;">Read more…</summary>
+        <summary class="text-info" style="cursor: pointer;"><%= t('.read_5') %></summary>
         <p class="mt-2 small">
-          • <b>Purpose</b>: Automatically detect and block toxic, offensive, or unwanted content before publication.<br>
-          • <b>Technology</b>: Deep learning models trained on multilingual datasets, integrated directly into the FindWay workflow.<br>
-          • <b>Flexibility</b>: Real-time inference, customizable moderation policies for various languages and scenarios.<br>
-          • <b>Impact</b>: Reduces manual moderation workload, protects the community, and helps comply with regulations.
+         <%= t('.text_5').html_safe %>
         </p>
       </details>
       <p class="small text-muted mt-2">
