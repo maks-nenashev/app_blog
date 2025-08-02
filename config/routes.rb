@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'portfolio/index'
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do #Podkluchenie Perewoda
 #///////////////////////////////////////////////////////////////////////////
    # Awtoruzacija
@@ -27,7 +26,9 @@ devise_for :users
   resources :comments, except: %i[new] do  #вложенный маршрут:
       resources :tweets, only: %i[create destroy edit update] 
   end
-    get "portfolio", to: "portfolio#index"
+    
+  get "portfolio", to: "portfolio#index"
+    
     #get 'contacts' => 'contacts#new' only:[:create]
     resource :contacts, only: [:new,:create,:show], path_names: { :new => '' }
                                               #Etot code dla 'contacts' => 'contacts#new'
