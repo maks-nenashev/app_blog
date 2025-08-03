@@ -15,6 +15,8 @@ en:
         body: Text
       devise:
         body: Text
+      portfolio:
+        body: Text
   
   devise:
     registrations:
@@ -58,13 +60,17 @@ en:
   menu:
      home: Home
      articles: Articles
+     portfolio: Portfolio
      contacts: Contact
      admin: Admin Panel
-     sing_in:  Sing in
-     sign_out:  Sign Out
+     edit_account: Edit Account
+     menu: Menu
+     sign_in: Log in
+     sign_out: Log out
   
   home:
     index: 
+      main_slogan: "Where ideas come to life"
       title: "<span style='font-family:Poppins,Arial,sans-serif; font-size:2rem; font-weight:700;'>Welcome!</span>"
       little_about_me: |
        <div style="font-family: Poppins, Arial, sans-serif; font-size: 1.1rem; color: #222;">
@@ -142,7 +148,52 @@ en:
       title: Text of comment
       enter_text_placeh: Enter your comment here...
       submit_button: Edit comment # Button
-    
+  
+  portfolio:
+    index:
+      # FindWay
+      main_slogan: "My Projects"
+      title_1: "A search engine for lost people and items. Built with Ruby on Rails, PostgreSQL, and Bootstrap."
+      read_1: "Read more…"
+      text_1: |
+        A socially impactful search engine helping people locate missing loved ones, pets, or stolen valuables.
+        Built from scratch with multilingual support, secure authentication via Devise and OmniAuth, and AWS S3 for media storage.
+        Designed to be fast, intuitive, and mobile-friendly — with a focus on real needs during wartime.
+      #Shiny Dashboard
+      title_2: "An interactive Shiny dashboard analyzing the Ukrainian automotive market (2017–2023)."
+      title_2_1: | 
+                Master's Thesis "UkrCar Analytics"
+      read_2: "Read more…"
+      text_2: |
+             A master's thesis project: a fully interactive R/Shiny dashboard tracking vehicle registrations in Ukraine (2017–2023). 
+               Features include dynamic plots, time series forecasting, linear regression, model-(ARIMA), and advanced ETL workflows. 
+               Designed for policymakers, economists, and automotive analysts.
+      #Social Network
+      title_3: "A social platform for sharing and discussing articles, built with Ruby on Rails and PostgreSQL."
+      read_3: "Read more…"
+      text_3: |
+        A custom-built social network supporting tweets, blog articles, avatars, multilingual interface, and profile editing.
+        Includes role-based access control, responsive UI, Devise-based authentication, and image uploads via ActiveStorage.
+        Created to explore full-stack Rails architecture and user-centric UX design.
+      #FindWay Landing Page
+      title_4: "A multilingual landing page for the FindWay project, built with <b>Sinatra</b> and featuring seamless i18n integration and smooth animations."
+      read_4: "Read more…"
+      text_4: |
+        This is a live presentation site and gateway for the FindWay search platform.
+        • Internationalization: Supports English, Ukrainian, and Polish via flexible YAML-based i18n.
+        • Modern design: Adaptive, clean Bootstrap 5 UI with animated elements.
+        • Production-ready: Dockerized, reverse-proxied with Nginx, and secured with HTTPS via Let's Encrypt.
+        • Role: Full cycle — from idea and design to infrastructure and deployment.
+      #AI Moderation Engine
+      title_5: "Advanced AI-powered content moderation engine for the FindWay platform,
+                leveraging <b>R</b>, <b>Keras</b>, and <b>TensorFlow</b> for robust and ethical content filtering."
+      read_5: "Read more…"
+      text_5: |
+        • Purpose: Automatically detect and block toxic, offensive, or unwanted content before publication.
+        • Technology: Deep learning models trained on multilingual datasets, integrated directly into the FindWay workflow.
+        • Flexibility: Real-time inference, customizable moderation policies for various languages and scenarios.
+        • Impact: Reduces manual moderation workload, protects the community, and helps comply with regulations.
+
     create: 
       success: Comment created!
     destroy: 

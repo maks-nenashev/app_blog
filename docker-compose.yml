@@ -2,11 +2,13 @@ version: "3.8"
 services:
   db:
     image: postgres:14
+    restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
+      POSTGRES_DB: app_blog_production   # Лучше указать имя базы явно
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql/data
 
   web:
     build: .
@@ -18,4 +20,8 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: postgres://postgres:password@db:5432/postgres
+      DATABASE_URL: postgres://postgres:password@db:5432/app_blog_production
+
+volumes:
+  db_data:
+

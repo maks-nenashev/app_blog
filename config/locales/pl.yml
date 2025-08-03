@@ -52,15 +52,19 @@ pl:
         forgot: Zapomniałeś hasła?
   
   menu:
-     home:   'Dom'
-     articles: Wszystkie Artykuły
-     contacts: Kontakt
-     admin: Panel Adminnistratora
-     sing_in:  Zaloguj sie
-     sign_out: Wylogować się
-  
+    home: Dom
+    articles: Wszystkie Artykuły
+    portfolio: Portfolio
+    contacts: Kontakt
+    admin: Panel Admina
+    edit_account: Edytuj konto
+    menu: Menu
+    sign_in: Zaloguj się
+    sign_out: Wyloguj się
+
   home:
     index:
+      main_slogan: "Gdzie pomysły stają się rzeczywistością"
       title: 'Witamy!'
       little_about_me: |
        <div style="font-family: Poppins, Arial, sans-serif; font-size: 1.1rem; color: #222;">
@@ -143,6 +147,50 @@ pl:
       title: Tekst komentarza
       enter_text_placeh: Wprowadź swój komentarz tutaj...
       submit_button: Edytuj komentarz # Button
+  
+  portfolio:
+    index:
+      # FindWay
+      main_slogan: "Moje Projekty"
+      title_1: "Wyszukiwarka zaginionych osób i przedmiotów. Zbudowana w Ruby on Rails, PostgreSQL i Bootstrap."
+      read_1: "Czytaj więcej…"
+      text_1: |
+        Społecznie ważna wyszukiwarka pomagająca odnajdywać zaginionych bliskich, zwierzęta domowe lub skradzione wartościowe rzeczy.
+        Zbudowana od podstaw z obsługą wielu języków, bezpieczną autoryzacją (Devise, OmniAuth) i magazynem multimediów AWS S3.
+        Zaprojektowana tak, by była szybka, intuicyjna i przyjazna na urządzeniach mobilnych — z naciskiem na realne potrzeby w czasie wojny.
+      # Shiny Dashboard
+      title_2: "Interaktywny dashboard Shiny analizujący rynek motoryzacyjny Ukrainy (2017–2023)."
+      title_2_1: |
+        Praca magisterska „UkrCar Analytics”
+      read_2: "Czytaj więcej…"
+      text_2: |
+        Projekt magisterski: w pełni interaktywny dashboard R/Shiny śledzący rejestracje pojazdów na Ukrainie (2017–2023).
+        Funkcje: dynamiczne wykresy, prognozowanie szeregów czasowych, regresja liniowa, model ARIMA oraz zaawansowane przetwarzanie ETL.
+        Zaprojektowany z myślą o decydentach, ekonomistach i analitykach branży motoryzacyjnej.
+      # Social Network
+      title_3: "Platforma społecznościowa do dzielenia się artykułami i dyskusji, zbudowana w Ruby on Rails i PostgreSQL."
+      read_3: "Czytaj więcej…"
+      text_3: |
+        Własna sieć społecznościowa obsługująca tweety, artykuły, awatary, wielojęzyczny interfejs i edycję profilu.
+        Obejmuje kontrolę dostępu na podstawie ról, responsywny interfejs, autoryzację Devise oraz przesyłanie obrazów przez ActiveStorage.
+        Stworzona, by eksplorować pełen stos architektury Rails i UX zorientowany na użytkownika.
+      # FindWay Landing Page
+      title_4: "Wielojęzyczny landing page dla projektu FindWay, zbudowany w <b>Sinatra</b> z integracją i18n i płynnymi animacjami."
+      read_4: "Czytaj więcej…"
+      text_4: |
+        To jest strona prezentacyjna i brama do platformy FindWay.
+        • Internacjonalizacja: Obsługuje angielski, ukraiński i polski przez elastyczne i18n oparte na YAML.
+        • Nowoczesny design: Adaptacyjny, przejrzysty interfejs Bootstrap 5 z animowanymi elementami.
+        • Gotowe do produkcji: Docker, reverse proxy Nginx, zabezpieczone HTTPS przez Let's Encrypt.
+        • Rola: Pełen cykl — od pomysłu i projektu po infrastrukturę i wdrożenie.
+      # AI Moderation Engine
+      title_5: "Zaawansowany silnik moderacji treści AI dla FindWay, wykorzystujący <b>R</b>, <b>Keras</b> i <b>TensorFlow</b> do etycznej i skutecznej filtracji."
+      read_5: "Czytaj więcej…"
+      text_5: |
+        • Cel: Automatyczne wykrywanie i blokowanie toksycznych, obraźliwych lub niepożądanych treści przed publikacją.
+        • Technologia: Głębokie uczenie na wielojęzycznych zbiorach danych, z integracją bezpośrednio w workflow FindWay.
+        • Elastyczność: Wnioskowanie w czasie rzeczywistym, konfigurowalne polityki moderacji dla różnych języków i sytuacji.
+        • Wpływ: Zmniejsza obciążenie moderatorów, chroni społeczność i wspiera zgodność z regulacjami.
 
     create: 
       success: Komentarz został utworzony!

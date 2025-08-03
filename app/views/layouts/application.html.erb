@@ -48,7 +48,7 @@
         <ul class="nav d-none d-lg-flex align-items-center gap-3 m-0">
           <li><%= link_to t('menu.home'), root_path, class: 'nav-link px-3 text-dark fw-semibold' %></li>
           <li><%= link_to t('menu.articles'), articles_path, class: 'nav-link px-3 text-dark fw-semibold' %></li>
-          <li><%= link_to "Portfolio", portfolio_path, class: 'nav-link px-3 text-dark fw-semibold' %></li>
+          <li><%= link_to t('menu.portfolio'), portfolio_path, class: 'nav-link px-3 text-dark fw-semibold' %></li>
           <!--li><%= link_to t('menu.contacts'), new_contacts_path, class: 'nav-link px-3 text-primary fw-semibold' %></li-->
         </ul>
         
@@ -80,12 +80,18 @@
 
           <!-- Профиль пользователя -->
           <% if user_signed_in? %>
-            <%= image_tag current_user.avatar_tumbnail, class: "avatar rounded-circle shadow-sm", size: "40x40" %>
+            <%= image_tag current_user.avatar_tumbnail, class: "avatar rounded-circle shadow-sm", size: "35x35" %>
             <strong><%= current_user.username %></strong>
-            <%= link_to "Edit Account", edit_user_registration_path, class: 'text-decoration-none text-dark' %>
-            <%= link_to t('menu.sign_out'), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary btn-sm bi bi-door-closed-fill" %>
+           <%= link_to edit_user_registration_path,
+            class: "btn btn-dark btn-sm shadow d-flex align-items-center px-3 py-1",
+            style: "font-size:0.97rem; line-height:1.0; min-height:31px;" do %>
+            <i class="bi bi-person-gear fs-5"></i>
+           <%= t('menu.edit_account') %>
+           <% end %>
+
+            <%= link_to t('menu.sign_out'), destroy_user_session_path(locale: I18n.locale), method: :delete, class: "btn btn-outline-primary btn-sm bi bi-door-closed-fill" %>
           <% else %>
-            <%= link_to t('menu.sign_in'), new_user_session_path, class: "btn btn-outline-primary btn-sm bi bi-door-open-fill" %>
+            <%= link_to t('menu.sign_in'), new_user_session_path(locale: I18n.locale), class: "btn btn-outline-primary btn-sm bi bi-door-open-fill" %>
           <% end %>
         </div>
       </div>
@@ -94,28 +100,35 @@
 </header>
 
 <!-- Side panel (offcanvas) for mobile -->
+<!--/////////////////////////////////////////////////////////////////////////-->
     <div class="offcanvas offcanvas-end text-bg-white" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Меню</h5>
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"><%= t('.menu') %></h5>
         <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
        
-        <!-- User profile or login/logout -->
-        <ul class="nav col-12 col-lg-auto mb-2 mb-md-0 px-3">
-          <li>
-            <% if user_signed_in? %>
-        <div class="d-flex align-items-center gap-2"> <!--All one line-->
-            <%= image_tag current_user.avatar_tumbnail, class: "avatar rounded-circle", size: "40x40" %>
-              <strong><%= current_user.username %></strong>
-            <%= link_to "Edit Account", edit_user_registration_path, class: 'nav-link px-2 text-dark' %>
-        </div> 
-              <br>
-              <%= link_to t('menu.sign_out'), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary btn-sm bi bi-door-closed-fill" %>
-            <% else %>
-              <%= link_to t('menu.sign_in'), new_user_session_path, class: "btn btn-outline-primary btn-sm bi bi-door-open-fill" %>
-            <% end %>
-          </li>
-        </ul>
+        <!-- User profile or login/logout Mobil-->
+  <ul class="nav col-12 col-lg-auto mb-2 mb-md-0 px-3">
+  <li>
+    <% if user_signed_in? %>
+      <div class="d-flex align-items-center gap-2">
+        <%= image_tag current_user.avatar_tumbnail, class: "avatar rounded-circle", size: "40x40" %>
+        <strong><%= current_user.username %></strong>
+        <%= link_to edit_user_registration_path,
+            class: "btn btn-dark btn-sm shadow d-flex align-items-center px-3 py-1",
+            style: "font-size:0.97rem; line-height:1.0; min-height:31px;" do %>
+            <i class="bi bi-person-gear fs-5"></i>
+           <%= t('menu.edit_account') %>
+           <% end %>
+      </div>
+      <br>
+      <%= link_to t('menu.sign_out'), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary btn-sm bi bi-door-closed-fill mt-2" %>
+    <% else %>
+      <%= link_to t('menu.sign_in'), new_user_session_path, class: "btn btn-outline-primary btn-sm bi bi-door-closed-fill" %>
+    <% end %>
+  </li>
+</ul>
+
       
       
       <div class="offcanvas-body">
@@ -129,7 +142,7 @@
             <%= link_to t('menu.articles'), articles_path, class: 'nav-link px-3 text-dark bi bi-journals' %>
           </li>
           <li class="nav-item">
-            <%= link_to "Portfolio", portfolio_path, class: 'nav-link px-3 text-dark bi bi-tencent-qq' %>
+            <%= link_to t('menu.portfolio'), portfolio_path, class: 'nav-link px-3 text-dark bi bi-tencent-qq' %>
           </li>
           <!-- Contacts link -->
           <!--li class="nav-item">
@@ -191,3 +204,6 @@
 </body>
 
 </html>
+
+
+

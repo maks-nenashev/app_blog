@@ -44,6 +44,7 @@ gem "caxlsx_rails",  "~> 0.6"
 gem "rubyzip",       "~> 2.3", ">= 2.3.2"
 gem "rubyXL",        "~> 3.4"
 gem "image_processing", "~> 1.2"
+gem 'ruby-vips'
 
 # --- Пагинация, декораторы, другие удобства ---
 gem "pagy",   "~> 6.0.2"
