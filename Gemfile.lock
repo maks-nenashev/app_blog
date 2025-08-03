@@ -393,6 +393,7 @@ DEPENDENCIES
   pundit
   rails (~> 7.0.4, >= 7.0.4.2)
   rails-i18n
+  ruby-vips
   rubyXL (~> 3.4)
   rubyzip (~> 2.3, >= 2.3.2)
   sassc-rails (~> 2.1, >= 2.1.2)
