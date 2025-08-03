@@ -1,13 +1,13 @@
 class User < ApplicationRecord
-              #podkluczenie "rabotaet"
+              #Connecting the model to the database
   has_many :articles, dependent: :destroy
   has_many :comments, dependent: :destroy
   
-                # Ролевая модель, enum
+                # Roles for the user
   enum role: { basic: 0, moderator: 1, admin: 2 }, _suffix: :role
   attr_accessor :old_password, :remember_token, :admin_edit
      
-  # Awtorizacija
+  # Awtorizacija Pandit
   def guest?
     false
     end
