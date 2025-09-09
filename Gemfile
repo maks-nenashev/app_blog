@@ -9,8 +9,8 @@ gem "puma", "~> 5.0"
 gem "bootsnap", require: false # ускорение загрузки
 
 # --- Active Record, базы данных ---
-gem "sqlite3", "~> 1.4"
-gem "pg",     "~> 1.4", ">= 1.4.6"
+#gem "sqlite3", "~> 1.4"
+gem "pg"
 gem "activerecord-import", "~> 1.2"
 
 # --- Аутентификация, авторизация, OAuth, загрузка файлов ---
