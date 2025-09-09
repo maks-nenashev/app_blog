@@ -1,0 +1,196 @@
+nl:
+  nl: Nederlands
+  en: Engels
+  pl: Pools
+  uk: Oekraïens
+
+  activerecord:
+    attributes:
+      article:
+        title: Artikel
+        text: Tekst
+      comment:
+        body: Tekst
+      tweet:
+        body: Tekst
+      devise:
+        body: Tekst
+      portfolio:
+        body: Tekst
+
+  devise:
+    registrations:
+      new:
+        title: Registreren
+        Sign up: Aanmelden
+        email: E-mail
+        username: Gebruikersnaam
+        password: Wachtwoord
+        six_symbol: minimaal aantal tekens
+        new_password: Bevestig wachtwoord
+        avatar: Avatar uploaden
+      edit:
+        title: Profiel bewerken
+        avatar: Voeg avatar toe
+        new_image_title: Nieuwe afbeelding
+        new_image: Nieuw bestand
+        email: E-mail
+        username: Gebruikersnaam
+        new_password: Wachtwoord
+        six_simbols: minimaal aantal tekens
+        password_confi: Bevestig wachtwoord
+        exact_password: Huidig wachtwoord (voor bevestiging)
+        save_changes: Wijzigingen opslaan
+        delete_title: Account verwijderen
+        delete_button: Account verwijderen
+        back: Terug naar profiel
+    sessions:  
+      new:
+        title: Inloggen
+        Log in: Inloggen
+        password: Wachtwoord
+        remember: Onthoud mij
+        edit_account: Account bewerken
+    shared:
+      links:
+        Log in: Inloggen
+        Sign in: Aanmelden
+        forgot: Wachtwoord vergeten?
+
+  menu:
+    home: Home
+    articles: Artikelen
+    portfolio: Portfolio
+    contacts: Contact
+    admin: Beheerder
+    edit_account: Account bewerken
+    menu: Menu
+    sign_in: Inloggen
+    sign_out: Uitloggen
+
+  home:
+    index: 
+      main_slogan: "Waar ideeën tot leven komen"
+      title: "<span style='font-family:Poppins,Arial,sans-serif; font-size:2rem; font-weight:700;'>Welkom!</span>"
+      little_about_me: |
+        <div style="font-family: Poppins, Arial, sans-serif; font-size: 1.1rem; color: #222;">
+          <span style="font-size: 1.5rem; font-weight: bold;">🙋‍♂️ Even voorstellen</span><br>
+          <span style="color: #0056b3;"><strong>Hallo! Ik ben Maksym Nenashev.</strong></span> Niet zomaar een <em>ontwikkelaar</em>, maar een <span style="font-weight: 600;">persoon met een missie</span>.<br>
+          Ik schrijf code om de <span style="color:#21ba45;font-weight:600;">wereld te verbeteren</span>: ik bouw zoekmachines, sociale platforms, visualiseer data in <span style="font-family: Orbitron, sans-serif;">Shiny</span> en ontwikkel projecten met <span style="color:#bb2200">Ruby on Rails</span> en <span style="color:#306998">R</span>.<br><br>
+          Mijn toolkit bevat: <strong>cloud (AWS)</strong>, <span style="font-style:italic;">analytics</span>, <strong>algoritmes</strong>, <span style="text-decoration: underline;">automatisering</span> en een enorme <span style="color:#ff6600">honger naar verandering</span>.<br>
+          Mijn doel is niet alleen werken, maar <span style="color:#21ba45;font-weight:600;">hulpmiddelen creëren die echt mensen helpen</span>.<br>
+          Ik leer, ik bouw, ik ga vooruit.<br>
+          <span style="font-weight:bold; color:#bb2200;">En ja — ik ben vader van twee en ik heb vuur in mijn hart. 🔥</span>
+        </div>
+
+  articles:
+    index:
+      title: 'Artikelenlijst!'
+      new: 'Nieuw artikel'
+      show_article: Toon artikel
+      edit_article: Artikel bewerken
+      delete_article: Verwijderen
+
+    new: 
+      title: 'Nieuw artikel!'
+      title_art: 'Titel'
+      place_title: 'Voer hier je titel in...'
+      text_art: 'Tekst'
+      place_text: 'Voer hier je tekst in...'
+      button: Afbeelding uploaden
+      submit_article: Artikel verzenden
+    form:
+      title: 'Artikel bewerken!'
+      submit_article: Verzenden
+    show:
+      back_to_all_articles: 'Terug naar alle artikelen'
+      new_topic: 'Onderwerp maken!'
+      topic: 'Onderwerpen'
+      submit_topic: 'Aanmaken'
+      edit_article: Artikel bewerken
+      delete_article: Verwijderen
+      edit_comment: Onderwerp bewerken
+      delete_comment: Verwijderen
+
+    create:
+      success: Artikel aangemaakt!
+    update:
+      success: Artikel is bijgewerkt!
+    destroy: 
+      success: Artikel is verwijderd!
+
+  comments:
+    show:
+      topic: Onderwerp
+      back_to_article: Terug naar artikel
+      edit_comment: Onderwerp bewerken
+      delete_comment: Onderwerp verwijderen
+
+    create:
+      success: Onderwerp aangemaakt!
+    update:
+      success: Onderwerp is bijgewerkt!
+    destroy: 
+      success: Onderwerp is verwijderd!
+
+  tweets: 
+    commentable:
+      button: Reageren
+      comment: Reactie
+      your_comment_title: Jouw reactie
+      enter_text_placeh: Voer je reactie hier in...
+      comment_button: Reageren
+      comment_title: Reacties
+    tweet:  
+      edit_comment: Reactie bewerken
+      delete_comment: Reactie verwijderen
+    edit:
+      title: Reactietekst
+      enter_text_placeh: Voer je reactie hier in...
+      submit_button: Reactie bijwerken
+
+  portfolio:
+    index:
+      main_slogan: "Mijn Projecten"
+      title_1: "Een zoekmachine voor vermiste personen en voorwerpen. Gemaakt met Ruby on Rails, PostgreSQL en Bootstrap."
+      read_1: "Lees meer…"
+      text_1: |
+        Een sociaal betrokken zoekmachine om mensen te helpen hun geliefden, huisdieren of gestolen bezittingen terug te vinden.
+        Vanaf nul gebouwd met meertalige ondersteuning, veilige authenticatie via Devise en OmniAuth, en AWS S3 voor mediaopslag.
+        Ontworpen om snel, intuïtief en mobielvriendelijk te zijn — met een focus op echte behoeften in oorlogstijd.
+      title_2: "Een interactieve Shiny-dashboardanalyse van de Oekraïense automarkt (2017–2023)."
+      title_2_1: |
+        Masterproef "UkrCar Analytics"
+      read_2: "Lees meer…"
+      text_2: |
+        Een masterproject: een volledig interactief R/Shiny-dashboard dat voertuigregistraties in Oekraïne bijhoudt (2017–2023). 
+        Functies zijn onder meer dynamische grafieken, tijdreeksvoorspellingen, lineaire regressie, ARIMA-modellen en geavanceerde ETL-workflows.
+        Ontworpen voor beleidsmakers, economen en analisten.
+      title_3: "Een sociaal platform voor het delen en bespreken van artikelen, gebouwd met Ruby on Rails en PostgreSQL."
+      read_3: "Lees meer…"
+      text_3: |
+        Een zelfgebouwd sociaal netwerk dat tweets, blogartikelen, avatars, meertalige interfaces en profielbewerking ondersteunt.
+        Inclusief toegangscontrole op basis van rollen, responsieve UI, Devise-authenticatie en afbeeldingsuploads via ActiveStorage.
+        Gemaakt om volledige stack Rails-architectuur en UX-design te verkennen.
+      title_4: "Een meertalige landingspagina voor het FindWay-project, gebouwd met <b>Sinatra</b>, voorzien van naadloze i18n-integratie en vloeiende animaties."
+      read_4: "Lees meer…"
+      text_4: |
+        Dit is een live presentatiesite en toegangspoort tot het FindWay-platform.
+        • Internationalisatie: Ondersteunt Engels, Oekraïens en Pools via flexibele YAML-gebaseerde i18n.
+        • Modern ontwerp: Adaptieve, schone Bootstrap 5 UI met animaties.
+        • Productieklaar: Gedockeriseerd, reverse-proxied met Nginx, beveiligd met HTTPS via Let's Encrypt.
+        • Rol: Volledige cyclus — van idee en ontwerp tot infrastructuur en implementatie.
+      title_5: "Geavanceerde AI-aangedreven moderatiemotor voor FindWay, met <b>R</b>, <b>Keras</b> en <b>TensorFlow</b> voor robuuste en ethische inhoudsfiltering."
+      read_5: "Lees meer…"
+      text_5: |
+        • Doel: Automatisch toxische, aanstootgevende of ongewenste inhoud detecteren en blokkeren vóór publicatie.
+        • Technologie: Deep learning modellen getraind op meertalige datasets, direct geïntegreerd in FindWay.
+        • Flexibiliteit: Realtime inferentie, aanpasbaar beleid per taal en situatie.
+        • Impact: Vermindert handmatige moderatielast, beschermt de gemeenschap en helpt bij naleving van regelgeving.
+
+    create: 
+      success: Reactie aangemaakt!
+    destroy: 
+      success: Reactie verwijderd!
+    update: 
+      success: Reactie bijgewerkt!
