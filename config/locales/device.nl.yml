@@ -1,0 +1,64 @@
+nl:
+  devise:
+    confirmations:
+      confirmed: "Je e-mailadres is succesvol bevestigd."
+      send_instructions: "Je ontvangt binnenkort een e-mail met instructies om je e-mailadres te bevestigen."
+      send_paranoid_instructions: "Als je e-mailadres in onze database staat, ontvang je binnenkort een e-mail met instructies om je e-mailadres te bevestigen."
+    failure:
+      already_authenticated: "Je bent al aangemeld."
+      inactive: "Je account is nog niet geactiveerd."
+      invalid: "Ongeldige %{authentication_keys} of wachtwoord."
+      locked: "Je account is geblokkeerd."
+      last_attempt: "Je hebt nog één poging voordat je account wordt geblokkeerd."
+      not_found_in_database: "Ongeldige %{authentication_keys} of wachtwoord."
+      timeout: "Je sessie is verlopen. Meld je opnieuw aan om door te gaan."
+      unauthenticated: "Je moet inloggen of registreren voordat je verder kunt gaan."
+      unconfirmed: "Je moet je e-mailadres bevestigen voordat je verder kunt gaan."
+    mailer:
+      confirmation_instructions:
+        subject: "Bevestigingsinstructies"
+      reset_password_instructions:
+        subject: "Wachtwoord reset instructies"
+      unlock_instructions:
+        subject: "Instructies om account te ontgrendelen"
+      email_changed:
+        subject: "E-mailadres gewijzigd"
+      password_change:
+        subject: "Wachtwoord gewijzigd"
+    omniauth_callbacks:
+      failure: "Authenticatie via %{kind} is mislukt omdat: \"%{reason}\"."
+      success: "Succesvol geauthenticeerd via %{kind} account."
+    passwords:
+      no_token: "Je kunt deze pagina niet openen zonder een link uit een wachtwoord-reset e-mail. Gebruik de volledige link uit de e-mail."
+      send_instructions: "Je ontvangt binnenkort een e-mail met instructies om je wachtwoord opnieuw in te stellen."
+      send_paranoid_instructions: "Als je e-mailadres in onze database staat, ontvang je binnenkort een link om je wachtwoord opnieuw in te stellen."
+      updated: "Je wachtwoord is succesvol gewijzigd. Je bent nu ingelogd."
+      updated_not_active: "Je wachtwoord is succesvol gewijzigd."
+    registrations:
+      destroyed: "Tot ziens! Je account is succesvol verwijderd. Hopelijk tot snel!"
+      signed_up: "Welkom! Je bent succesvol geregistreerd."
+      signed_up_but_inactive: "Je bent succesvol geregistreerd, maar we konden je niet aanmelden omdat je account nog niet is geactiveerd."
+      signed_up_but_locked: "Je bent succesvol geregistreerd, maar je account is geblokkeerd."
+      signed_up_but_unconfirmed: "Een bevestigingslink is naar je e-mailadres verzonden. Volg de link om je account te activeren."
+      update_needs_confirmation: "Je account is succesvol bijgewerkt, maar we moeten je nieuwe e-mailadres bevestigen. Controleer je e-mail en volg de bevestigingslink."
+      updated: "Je account is succesvol bijgewerkt."
+      updated_but_not_signed_in: "Je account is bijgewerkt, maar omdat je wachtwoord is gewijzigd, moet je opnieuw inloggen."
+    sessions:
+      signed_in: "Succesvol ingelogd."
+      signed_out: "Succesvol uitgelogd."
+      already_signed_out: "Je bent al uitgelogd."
+    unlocks:
+      send_instructions: "Je ontvangt binnenkort een e-mail met instructies om je account te ontgrendelen."
+      send_paranoid_instructions: "Als je account bestaat, ontvang je binnenkort een e-mail om het te ontgrendelen."
+      unlocked: "Je account is succesvol ontgrendeld. Log opnieuw in om door te gaan."
+
+  errors:
+    messages:
+      already_confirmed: "was al bevestigd, probeer in te loggen"
+      confirmation_period_expired: "moet worden bevestigd binnen %{period}, vraag een nieuwe aan"
+      expired: "is verlopen, vraag een nieuwe aan"
+      not_found: "niet gevonden"
+      not_locked: "was niet geblokkeerd"
+      not_saved:
+        one: "1 fout verhinderde het opslaan van deze %{resource}:"
+        other: "%{count} fouten verhinderden het opslaan van deze %{resource}:"

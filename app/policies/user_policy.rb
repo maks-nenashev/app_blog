@@ -4,11 +4,11 @@ class UserPolicy < ApplicationPolicy
     end
   
     def update?
-      true#user.admin_role?
+      user.admin_role?
     end
   
     def index?
-      true#user.admin_role?
+      user.admin_role?
     end
   
     def show?
