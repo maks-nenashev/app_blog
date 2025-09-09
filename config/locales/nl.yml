@@ -148,6 +148,13 @@ nl:
       title: Reactietekst
       enter_text_placeh: Voer je reactie hier in...
       submit_button: Reactie bijwerken
+    
+    create: 
+      success: Reactie aangemaakt!
+    destroy: 
+      success: Reactie verwijderd!
+    update: 
+      success: Reactie bijgewerkt!
 
   portfolio:
     index:
@@ -188,9 +195,4 @@ nl:
         • Flexibiliteit: Realtime inferentie, aanpasbaar beleid per taal en situatie.
         • Impact: Vermindert handmatige moderatielast, beschermt de gemeenschap en helpt bij naleving van regelgeving.
 
-    create: 
-      success: Reactie aangemaakt!
-    destroy: 
-      success: Reactie verwijderd!
-    update: 
-      success: Reactie bijgewerkt!
+    

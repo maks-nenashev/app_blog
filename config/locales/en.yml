@@ -148,7 +148,14 @@ en:
       title: Text of comment
       enter_text_placeh: Enter your comment here...
       submit_button: Edit comment # Button
-  
+    
+    create: 
+      success: Comment created!
+    destroy: 
+      success: Comment hes been deleted! 
+    update: 
+      success: Comment has been edited!
+
   portfolio:
     index:
       # FindWay
@@ -194,9 +201,4 @@ en:
         • Flexibility: Real-time inference, customizable moderation policies for various languages and scenarios.
         • Impact: Reduces manual moderation workload, protects the community, and helps comply with regulations.
 
-    create: 
-      success: Comment created!
-    destroy: 
-      success: Comment hes been deleted! 
-    update: 
-      success: Comment has been edited!
+    

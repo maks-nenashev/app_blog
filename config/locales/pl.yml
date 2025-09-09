@@ -147,7 +147,14 @@ pl:
       title: Tekst komentarza
       enter_text_placeh: Wprowadź swój komentarz tutaj...
       submit_button: Edytuj komentarz # Button
-  
+    
+    create: 
+      success: Komentarz został utworzony!
+    destroy: 
+      success: Komentarz został udalony!
+    update: 
+      success: Komentarz został zredagowany!
+
   portfolio:
     index:
       # FindWay
@@ -192,9 +199,4 @@ pl:
         • Elastyczność: Wnioskowanie w czasie rzeczywistym, konfigurowalne polityki moderacji dla różnych języków i sytuacji.
         • Wpływ: Zmniejsza obciążenie moderatorów, chroni społeczność i wspiera zgodność z regulacjami.
 
-    create: 
-      success: Komentarz został utworzony!
-    destroy: 
-      success: Komentarz został udalony!
-    update: 
-      success: Komentarz został zredagowany!
+    
