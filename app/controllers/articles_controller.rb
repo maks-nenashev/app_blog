@@ -42,16 +42,22 @@ class ArticlesController < ApplicationController
     #@article = Article.find params[:id]    :before_action :set_article! "Refactoring"
  end
 
- def update #6  Wnosim izmenrnie w redaktirowanie
-    #@article = Article.find(params[:id])      :before_action :set_article! "Refactoring"
+ def update
+  if @article.update(article_params)
+    if params[:article][:images].present?
+      @article.images.purge # удаляет все старые картинки
+      params[:article][:images].each do |image|
+        @article.images.attach(image)
+      end
+    end
 
-  if @article.update(article_params) # Obnowlaem s nowymi parametromi
-     redirect_to @article
-     flash[:success] = t".success" #"Article updated!" #Window Podtwerzdenija
-    else
-     render action: 'edit'    #"perenaprowlenie"
+    flash[:success] = t(".success")
+    redirect_to @article
+  else
+    render :edit
   end
 end
+
 
 def destroy # Delite publikacij
   #@article = Article.find(params[:id]) # To чto hotim udalitь  :before_action :set_article! "Refactoring"
