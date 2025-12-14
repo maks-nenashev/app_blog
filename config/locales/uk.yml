@@ -51,15 +51,15 @@ uk:
         Log in: Увійти
         forgot: Забули пароль?
   menu:
-    home:   'Головна'
+    home: Головна
     articles: Всі Статті
-    portfolio: Портфоліо
+    portfolio: Мої Проєкти
     contacts: Контакт
     admin: Панель Адміністратора
     edit_account: Редагувати акаунт
     menu: Меню
-    sign_in:  Увійти
-    sign_out:  Вийти
+    sign_in: Увійти
+    sign_out: Вийти
   
   home:
     index:

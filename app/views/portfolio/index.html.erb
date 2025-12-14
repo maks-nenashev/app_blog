@@ -96,7 +96,9 @@
     <%= image_tag "promofindway-pro.png", class: "card-img-top rounded-top-4", alt: "PromoFindWay Landing" %>
     <div class="card-body">
       <h5 class="card-title fw-bold text-primary">PromoFindWay.pro</h5>
-      <%= link_to "https://promofindway.pro", target: "_blank" %>
+      <a href="https://promofindway.pro" target="_blank" rel="noopener">
+            promofindway.pro
+      </a>
       <p class="card-text">
       <%= t('.title_4').html_safe  %>
       </p>
@@ -107,7 +109,6 @@
         </p>
       </details>
       <p class="small text-muted mt-2">Stack: Ruby, Sinatra, ERB, Bootstrap 5, i18n, Docker, Nginx, Certbot</p>
-      <%#= link_to "🌍 Visit landing", "https://promofindway.pro", class: "btn btn-outline-primary btn-sm", target: "_blank" %>
       <a href="https://promofindway.pro" class="btn btn-sm shadow"
              target="_blank"
              style="background:linear-gradient(90deg, #246bfd 0%, #18e1b5 100%); color:#fff; border:none; border-radius:12px;">
