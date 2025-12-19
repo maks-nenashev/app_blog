@@ -7,14 +7,24 @@
 
     <!-- Блок картинок: основная + миниатюры справа -->
     <div class="d-flex flex-column flex-md-row justify-content-center align-items-start">
-  <!-- Левая часть: большая фотка + автор + миниатюры на мобиле -->
-  <div class="d-flex flex-column align-items-center w-100 shadow rounded-4 bg-white p-2" style="max-width: 640px;">
-  <!-- Большая фотка -->
-  <img id="main-image"
+    <!-- Левая часть: большая фотка + автор + миниатюры на мобиле -->
+    <div class="d-flex flex-column align-items-center w-100 shadow rounded-4 bg-white p-2" style="max-width: 640px;">
+  
+    <% if @article.images.attached? %>
+     <!-- Большая фотка -->
+    <img id="main-image"
        src="<%= url_for(@article.images.first.variant(resize_to_limit: [720, 400])) %>"
        class="img-fluid rounded shadow-sm w-100"
        style="max-width: 640px;"
        alt="Main image">
+    <% else %>
+    <!-- Аватарка пользователя, если изображений нет -->
+    <%= image_tag @article.user.avatar_tumbnail,
+                class: "rounded-circle shadow-sm",
+                size: "150x150",
+                alt: @article.user.username %>
+    <% end %>
+
 
     <!-- Миниатюры: видны под фото только на мобильных -->
     <% if @article.images.size > 1 %>
@@ -140,18 +150,3 @@
     </div>
   </section>
 </div>
-
-<script>
-  document.addEventListener("turbo:load", function() {
-  var allThumbs = document.querySelectorAll('.preview-image');
-  allThumbs.forEach(function(thumb) {
-    thumb.addEventListener('click', function() {
-      var mainImg = document.getElementById('main-image');
-      if (mainImg) mainImg.src = this.dataset.large;
-      // выделить выбранную миниатюру рамкой
-      allThumbs.forEach(t => t.classList.remove('border-primary'));
-      this.classList.add('border-primary');
-    });
-  });
-});
-</script>
