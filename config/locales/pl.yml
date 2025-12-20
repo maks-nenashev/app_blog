@@ -159,12 +159,16 @@ pl:
     index:
       # FindWay
       main_slogan: "Moje Projekty"
-      title_1: "Wyszukiwarka zaginionych osób i przedmiotów. Zbudowana w Ruby on Rails, PostgreSQL i Bootstrap."
+      title_1: "Asynchroniczna platforma wyszukiwania i danych. Zbudowana w Ruby on Rails, PostgreSQL i Bootstrap."
       read_1: "Czytaj więcej…"
       text_1: |
-        Społecznie ważna wyszukiwarka pomagająca odnajdywać zaginionych bliskich, zwierzęta domowe lub skradzione wartościowe rzeczy.
-        Zbudowana od podstaw z obsługą wielu języków, bezpieczną autoryzacją (Devise, OmniAuth) i magazynem multimediów AWS S3.
-        Zaprojektowana tak, by była szybka, intuicyjna i przyjazna na urządzeniach mobilnych — z naciskiem na realne potrzeby w czasie wojny.
+        FindWay to globalnie zorientowana, asynchroniczna platforma wyszukiwania i danych zaprojektowana do zbierania, indeksowania i udostępniania 
+        pilnych przypadków zgłaszanych przez użytkowników dotyczących zaginionych osób, zwierząt i skradzionego mienia ponad granicami. 
+        System działa jako zunifikowany silnik danych z wielojęzycznymi, niezależnymi od regionu modelami danych i obsługą spraw transgranicznych. 
+        Zbudowany od podstaw w Ruby on Rails, skalowalnym magazynie mediów przy użyciu AWS S3 oraz architekturze zoptymalizowanej pod kątem 
+        dużej liczby zapisów i odkrywania w czasie rzeczywistym. Platforma jest zaprojektowana do integracji mikroserwisów moderacji wspomaganych 
+        przez AI do filtrowania tekstu i mediów, działających jako niezależne, skalowalne komponenty w ramach systemu. FindWay jest inżynierią 
+        dla niezawodności, integralności danych i odporności operacyjnej w stresujących, rzeczywistych scenariuszach, w tym podczas kryzysów i wojny.
       # Shiny Dashboard
       title_2: "Interaktywny dashboard Shiny analizujący rynek motoryzacyjny Ukrainy (2017–2023)."
       title_2_1: |
@@ -178,9 +182,11 @@ pl:
       title_3: "Platforma społecznościowa do dzielenia się artykułami i dyskusji, zbudowana w Ruby on Rails i PostgreSQL."
       read_3: "Czytaj więcej…"
       text_3: |
-        Własna sieć społecznościowa obsługująca tweety, artykuły, awatary, wielojęzyczny interfejs i edycję profilu.
-        Obejmuje kontrolę dostępu na podstawie ról, responsywny interfejs, autoryzację Devise oraz przesyłanie obrazów przez ActiveStorage.
-        Stworzona, by eksplorować pełen stos architektury Rails i UX zorientowany na użytkownika.
+        System obsługuje treści generowane przez użytkowników, z pełną funkcjonalnością komentowania na wielu poziomach, 
+        w tym komentarze do postów i dyskusje w ramach tematycznych wątków. Treści są strukturyzowane wokół tematów, 
+        co pozwala użytkownikom tworzyć, omawiać i moderować tematy jako niezależne jednostki dyskusyjne, 
+        co skutkuje złożonymi relacjami polimorficznymi między użytkownikami, typami treści i interakcjami.
+        Platforma obejmuje obsługę interfejsu wielojęzycznego.
       # FindWay Landing Page
       title_4: "Wielojęzyczny landing page dla projektu FindWay, zbudowany w <b>Sinatra</b> z integracją i18n i płynnymi animacjami."
       read_4: "Czytaj więcej…"

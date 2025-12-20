@@ -160,12 +160,15 @@ en:
     index:
       # FindWay
       main_slogan: "My Projects"
-      title_1: "A search engine for lost people and items. Built with Ruby on Rails, PostgreSQL, and Bootstrap."
+      title_1: "Asynchronous search and data platform. Built with Ruby on Rails, PostgreSQL, and Bootstrap."
       read_1: "Read more…"
       text_1: |
-        A socially impactful search engine helping people locate missing loved ones, pets, or stolen valuables.
-        Built from scratch with multilingual support, secure authentication via Devise and OmniAuth, and AWS S3 for media storage.
-        Designed to be fast, intuitive, and mobile-friendly — with a focus on real needs during wartime.
+        FindWay is a globally oriented, asynchronous search and data platform designed to collect, index, and surface time-critical 
+        user-generated cases involving missing persons, animals, and stolen property across borders. The system operates as a unified 
+        data engine with multilingual, region-agnostic data models and cross-border case handling. Built from scratch with Ruby on Rails, 
+        scalable media storage using AWS S3, and an architecture optimized for high-volume writes and real-time discovery. The platform is designed 
+        to integrate AI-assisted moderation microservices for text and media filtering, operating as independent, scalable components within the system. 
+        FindWay is engineered for reliability, data integrity, and operational resilience in high-stress, real-world scenarios, including crisis and wartime conditions.
       #Shiny Dashboard
       title_2: "An interactive Shiny dashboard analyzing the Ukrainian automotive market (2017–2023)."
       title_2_1: | 
@@ -179,9 +182,10 @@ en:
       title_3: "A social platform for sharing and discussing articles, built with Ruby on Rails and PostgreSQL."
       read_3: "Read more…"
       text_3: |
-        A custom-built social network supporting tweets, blog articles, avatars, multilingual interface, and profile editing.
-        Includes role-based access control, responsive UI, Devise-based authentication, and image uploads via ActiveStorage.
-        Created to explore full-stack Rails architecture and user-centric UX design.
+        The system supports user-generated posts, with full commenting functionality at multiple levels, including comments on posts and 
+        discussions within thematic threads. Content is structured around topics, allowing users to create, discuss, and moderate themes as 
+        independent discussion units, resulting in complex polymorphic relationships between users, content types, and interactions.
+        The platform includes, multilingual interface support.
       #FindWay Landing Page
       title_4: "A multilingual landing page for the FindWay project, built with <b>Sinatra</b> and featuring seamless i18n integration and smooth animations."
       read_4: "Read more…"
