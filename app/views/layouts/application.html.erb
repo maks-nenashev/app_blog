@@ -143,20 +143,40 @@
 </ul>
 
       
-      
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <!-- Home link -->
-          <li class="nav-item">
-            <%= link_to t('menu.home'), root_path, class: 'nav-link px-3 text-dark bi bi-house-door' %>
-          </li>
-          <!-- Articles link -->
-          <li class="nav-item">
-            <%= link_to t('menu.articles'), articles_path, class: 'nav-link px-3 text-dark bi bi-journals' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to t('menu.portfolio'), portfolio_path, class: 'nav-link px-3 text-dark bi bi-tencent-qq' %>
-          </li>
+            <div class="offcanvas-body">
+  <ul class="navbar-nav flex-grow-1">
+    <!-- Home -->
+    <li class="nav-item mb-3">
+      <%= link_to root_path,
+          class: 'nav-link px-4 py-3 rounded-4 shadow-sm fw-semibold fs-5
+                  d-flex align-items-center gap-3 bg-light text-dark
+                  hover-shadow transition' do %>
+        <i class="bi bi-house-door fs-4 text-primary"></i>
+        <span><%= t('menu.home') %></span>
+      <% end %>
+    </li>
+
+    <!-- Articles -->
+    <li class="nav-item mb-3">
+      <%= link_to articles_path,
+          class: 'nav-link px-4 py-3 rounded-4 shadow-sm fw-semibold fs-5
+                  d-flex align-items-center gap-3 bg-light text-dark
+                  hover-shadow transition' do %>
+        <i class="bi bi-journals fs-4 text-primary"></i>
+        <span><%= t('menu.articles') %></span>
+      <% end %>
+    </li>
+
+    <!-- Portfolio -->
+    <li class="nav-item mb-3">
+      <%= link_to portfolio_path,
+          class: 'nav-link px-4 py-3 rounded-4 shadow-sm fw-semibold fs-5
+                  d-flex align-items-center gap-3 bg-light text-dark
+                  hover-shadow transition' do %>
+        <i class="bi bi-briefcase fs-4 text-primary"></i>
+        <span><%= t('menu.portfolio') %></span>
+      <% end %>
+    </li>
           <!-- Contacts link -->
           <!--li class="nav-item">
             <%= link_to t('menu.contacts'), new_contacts_path, class: 'nav-link px-3 text-dark bi bi-tencent-qq' %>
@@ -217,6 +237,3 @@
 </body>
 
 </html>
-
-
-
