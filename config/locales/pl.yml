@@ -197,7 +197,7 @@ pl:
         • Gotowe do produkcji: Docker, reverse proxy Nginx, zabezpieczone HTTPS przez Let's Encrypt.
         • Rola: Pełen cykl — od pomysłu i projektu po infrastrukturę i wdrożenie.
       # AI Moderation Engine
-      title_5: "Zaawansowany silnik moderacji treści AI dla FindWay, wykorzystujący <b>R</b>, <b>Keras</b> i <b>TensorFlow</b> do etycznej i skutecznej filtracji."
+      title_5: "Zaawansowany silnik moderacji treści AI dla FindWay, wykorzystujący <b>Python</b>, <b>Keras</b> i <b>TensorFlow</b> do etycznej i skutecznej filtracji."
       read_5: "Czytaj więcej…"
       text_5: |
         • Cel: Automatyczne wykrywanie i blokowanie toksycznych, obraźliwych lub niepożądanych treści przed publikacją.

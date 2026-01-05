@@ -197,7 +197,7 @@ en:
         • Role: Full cycle — from idea and design to infrastructure and deployment.
       #AI Moderation Engine
       title_5: "Advanced AI-powered content moderation engine for the FindWay platform,
-                leveraging <b>R</b>, <b>Keras</b>, and <b>TensorFlow</b> for robust and ethical content filtering."
+                leveraging <b>Python</b>, <b>Keras</b>, and <b>TensorFlow</b> for robust and ethical content filtering."
       read_5: "Read more…"
       text_5: |
         • Purpose: Automatically detect and block toxic, offensive, or unwanted content before publication.

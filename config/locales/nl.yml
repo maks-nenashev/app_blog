@@ -200,7 +200,7 @@ nl:
         • Productieklaar: Gedockeriseerd, reverse-proxied met Nginx, beveiligd met HTTPS via Let's Encrypt.
         • Rol: Volledige cyclus — van idee en ontwerp tot infrastructuur en implementatie.
       # AI Moderation Engine
-      title_5: "Geavanceerde AI-aangedreven moderatiemotor voor FindWay, met <b>R</b>, <b>Keras</b> en <b>TensorFlow</b> voor robuuste en ethische inhoudsfiltering."
+      title_5: "Geavanceerde AI-aangedreven moderatiemotor voor FindWay, met <b>Python</b>, <b>Keras</b> en <b>TensorFlow</b> voor robuuste en ethische inhoudsfiltering."
       read_5: "Lees meer…"
       text_5: |
         • Doel: Automatisch toxische, aanstootgevende of ongewenste inhoud detecteren en blokkeren vóór publicatie.
