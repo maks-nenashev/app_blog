@@ -67,15 +67,58 @@ pl:
       main_slogan: "Gdzie pomysły stają się rzeczywistością"
       title: 'Witamy!'
       little_about_me: |
-       <div style="font-family: Poppins, Arial, sans-serif; font-size: 1.1rem; color: #222;">
-       <span style="font-size: 1.5rem; font-weight: bold;">🙋‍♂️ Kilka słów o mnie</span><br>
-       <span style="color: #0056b3;"><strong>Cześć! Jestem Maksym Nenashev.</strong></span> Nie jestem tylko <em>programistą</em>, ale <span style="font-weight: 600;">człowiekiem z misją</span>.<br>
-       Piszę kod, aby <span style="color:#21ba45;font-weight:600;">zmieniać świat na lepsze</span>: tworzę wyszukiwarki, buduję platformy społecznościowe, wizualizuję dane w <span style="font-family: Orbitron, sans-serif;">Shiny</span>, rozwijam projekty w <span style="color:#bb2200">Ruby on Rails</span> oraz <span style="color:#306998">R</span>.<br><br>
-       W moim arsenale znajdziesz: <strong>chmurę (AWS)</strong>, <span style="font-style:italic;">analitykę</span>, <strong>algorytmy</strong>, <span style="text-decoration: underline;">automatyzację</span> oraz ogromną <span style="color:#ff6600">potrzebę zmian</span>.<br>
-       Moim celem nie jest tylko praca, ale <span style="color:#21ba45;font-weight:600;">tworzenie narzędzi naprawdę pożytecznych dla ludzi</span>.<br>
-       Uczę się, tworzę, idę do przodu.<br>
-       <span style="font-weight:bold; color:#bb2200;">I tak — jestem ojcem dwójki dzieci i mam ogień w sercu. 🔥</span>
+       <div style="font-family: Inter, system-ui, -apple-system, Arial, sans-serif;
+            font-size: 1.05rem;
+            color: #1f2937;
+            line-height: 1.7;
+            max-width: 820px;">
+
+       <h2 style="font-weight: 600; margin-bottom: 0.5rem;">
+           Maksym Nenashev
+       </h2>
+
+       <p style="margin-top: 0; color: #4b5563;">
+           System Engineer · Platformy danych i systemy decyzyjne
+       </p>
+
+       <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 1.5rem 0;">
+
+       <p>
+          Projektuję i tworzę <strong>asynchroniczne, oparte na danych platformy</strong>
+          oraz <strong>systemy podejmowania decyzji</strong>, w których dane,
+          algorytmy i logika decyzyjna współdziałają w środowiskach produkcyjnych.
+       </p>
+
+       <p>
+          Moja praca obejmuje architekturę backendu, API, przetwarzanie danych,
+          analitykę oraz komponenty oparte na sztucznej inteligencji.
+          Skupiam się na <strong>zachowaniu systemu</strong>, skalowalności
+          oraz jasnym rozdziale pomiędzy sygnałami, decyzjami i wykonaniem.
+       </p>
+
+       <p>
+          Główne technologie, z którymi pracuję, to
+          <strong>Ruby on Rails</strong>,
+          <strong>Python</strong>,
+          <strong>R/Shiny</strong>
+          oraz komponenty uczenia maszynowego tworzone z użyciem <strong>Keras</strong>.
+          Traktuję uczenie maszynowe jako część szerszego systemu,
+          a nie jako odizolowane rozwiązanie.
+       </p>
+
+       <p>
+          Interesują mnie złożone systemy, przetwarzanie asynchroniczne,
+          obserwowalność oraz odpowiedzialne wykorzystanie AI
+          w rzeczywistych produktach.
+       </p>
+
+       <p style="color:#6b7280; font-size: 0.95rem; margin-top: 2rem;">
+          Poza pracą jestem ojcem dwójki dzieci.
+          Tworzenie niezawodnych systemów dziś oznacza budowanie lepszej przyszłości jutro.
+       </p>
+
        </div>
+
 
   
   articles:

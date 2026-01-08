@@ -66,15 +66,58 @@ uk:
       main_slogan: "Де ідеї стають реальністю"
       title: 'Ласкаво просимо!'
       little_about_me: |
-       <div style="font-family: Poppins, Arial, sans-serif; font-size: 1.1rem; color: #222;">
-       <span style="font-size: 1.5rem; font-weight: bold;">🙋‍♂️ Трішки про мене</span><br>
-       <span style="color: #0056b3;"><strong>Привіт! Я — Максим Ненашев.</strong></span> Я не просто <em>розробник</em>, а <span style="font-weight: 600;">людина з місією</span>.<br>
-       Пишу код, щоб <span style="color:#21ba45;font-weight:600;">змінювати світ на краще</span>: створюю пошукові системи, будую соціальні платформи, візуалізую дані у <span style="font-family: Orbitron, sans-serif;">Shiny</span> та розвиваю проєкти на <span style="color:#bb2200">Ruby on Rails</span> і <span style="color:#306998">R</span>.<br><br>
-       Мій арсенал: <strong>хмара (AWS)</strong>, <span style="font-style:italic;">аналітика</span>, <strong>алгоритми</strong>, <span style="text-decoration: underline;">автоматизація</span> та величезне <span style="color:#ff6600">бажання змін</span>.<br>
-       Моя мета — не просто працювати, а <span style="color:#21ba45;font-weight:600;">створювати інструменти, які реально приносять користь людям</span>.<br>
-       Вчуся, створюю, рухаюся вперед.<br>
-       <span style="font-weight:bold; color:#bb2200;">І так — я тато двох дітей і маю вогонь у серці. 🔥</span>
-       </div>
+        <div style="font-family: Inter, system-ui, -apple-system, Arial, sans-serif;
+            font-size: 1.05rem;
+            color: #1f2937;
+            line-height: 1.7;
+            max-width: 820px;">
+
+        <h2 style="font-weight: 600; margin-bottom: 0.5rem;">
+          Максим Ненашев
+        </h2>
+
+        <p style="margin-top: 0; color: #4b5563;">
+          Системний інженер · Платформи даних і системи прийняття рішень
+        </p>
+
+        <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 1.5rem 0;">
+
+        <p>
+            Я проєктую та створюю <strong>асинхронні, орієнтовані на дані платформи</strong>
+            та <strong>системи прийняття рішень</strong>, у яких дані, алгоритми
+            й логіка управління взаємодіють у виробничих середовищах.
+        </p>
+
+        <p>
+            Моя робота охоплює архітектуру бекенду, API, обробку даних,
+            аналітику та компоненти на основі штучного інтелекту.
+            Я зосереджуюсь на <strong>поведінці системи</strong>, масштабованості
+            та чіткому розділенні між сигналами, рішеннями й виконанням.
+        </p>
+
+        <p>
+            Основні технології, з якими я працюю:
+            <strong>Ruby on Rails</strong>,
+            <strong>Python</strong>,
+            <strong>R/Shiny</strong>,
+            а також компоненти машинного навчання,
+            створені з використанням <strong>Keras</strong>.
+            Я розглядаю машинне навчання як частину ширшої системи,
+            а не як ізольоване рішення.
+        </p>
+
+        <p>
+            Мене цікавлять складні системи, асинхронна обробка,
+            спостережуваність та відповідальне використання
+            штучного інтелекту в реальних продуктах.
+        </p>
+
+        <p style="color:#6b7280; font-size: 0.95rem; margin-top: 2rem;">
+            Поза роботою я — батько двох дітей.
+            Створення надійних систем сьогодні означає побудову кращого майбутнього завтра.
+        </p>
+
+        </div>
 
   
   articles:

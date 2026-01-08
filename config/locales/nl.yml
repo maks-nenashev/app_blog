@@ -73,15 +73,59 @@ nl:
       main_slogan: "Waar ideeën tot leven komen"
       title: "<span style='font-family:Poppins,Arial,sans-serif; font-size:2rem; font-weight:700;'>Welkom!</span>"
       little_about_me: |
-        <div style="font-family: Poppins, Arial, sans-serif; font-size: 1.1rem; color: #222;">
-          <span style="font-size: 1.5rem; font-weight: bold;">🙋‍♂️ Even voorstellen</span><br>
-          <span style="color: #0056b3;"><strong>Hallo! Ik ben Maksym Nenashev.</strong></span> Niet zomaar een <em>ontwikkelaar</em>, maar een <span style="font-weight: 600;">persoon met een missie</span>.<br>
-          Ik schrijf code om de <span style="color:#21ba45;font-weight:600;">wereld te verbeteren</span>: ik bouw zoekmachines, sociale platforms, visualiseer data in <span style="font-family: Orbitron, sans-serif;">Shiny</span> en ontwikkel projecten met <span style="color:#bb2200">Ruby on Rails</span> en <span style="color:#306998">R</span>.<br><br>
-          Mijn toolkit bevat: <strong>cloud (AWS)</strong>, <span style="font-style:italic;">analytics</span>, <strong>algoritmes</strong>, <span style="text-decoration: underline;">automatisering</span> en een enorme <span style="color:#ff6600">honger naar verandering</span>.<br>
-          Mijn doel is niet alleen werken, maar <span style="color:#21ba45;font-weight:600;">hulpmiddelen creëren die echt mensen helpen</span>.<br>
-          Ik leer, ik bouw, ik ga vooruit.<br>
-          <span style="font-weight:bold; color:#bb2200;">En ja — ik ben vader van twee en ik heb vuur in mijn hart. 🔥</span>
+        <div style="font-family: Inter, system-ui, -apple-system, Arial, sans-serif;
+            font-size: 1.05rem;
+            color: #1f2937;
+            line-height: 1.7;
+            max-width: 820px;">
+
+        <h2 style="font-weight: 600; margin-bottom: 0.5rem;">
+            Maksym Nenashev
+        </h2>
+
+        <p style="margin-top: 0; color: #4b5563;">
+            System Engineer · Data- en besluitvormingsplatformen
+        </p>
+
+        <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 1.5rem 0;">
+
+        <p>
+           Ik ontwerp en bouw <strong>asynchrone, data-gedreven platformen</strong>
+           en <strong>besluitvormingssystemen</strong> waarin data, algoritmen
+           en beleidslogica samenwerken in productieomgevingen.
+        </p>
+
+        <p>
+           Mijn werk omvat backendarchitectuur, API’s, dataverwerking,
+           analytics en AI-gedreven componenten.
+           Ik focus op <strong>systeemgedrag</strong>, schaalbaarheid
+           en een duidelijke scheiding tussen signalen, beslissingen en uitvoering.
+        </p>
+
+        <p>
+           Kerntechnologieën waarmee ik werk zijn
+           <strong>Ruby on Rails</strong>,
+           <strong>Python</strong>,
+           <strong>R/Shiny</strong>
+           en machine-learningcomponenten gebouwd met <strong>Keras</strong>.
+           Ik beschouw machine learning als onderdeel van een breder systeem,
+           niet als een op zichzelf staande oplossing.
+        </p>
+
+        <p>
+           Ik ben geïnteresseerd in complexe systemen,
+           asynchrone verwerking, observability
+           en het verantwoord toepassen van AI
+           in echte producten.
+        </p>
+
+        <p style="color:#6b7280; font-size: 0.95rem; margin-top: 2rem;">
+           Buiten mijn werk ben ik vader van twee kinderen.
+           Betrouwbare systemen bouwen vandaag betekent werken aan een betere toekomst morgen.
+        </p>
+
         </div>
+
 
   articles:
     index:

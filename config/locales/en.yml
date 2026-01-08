@@ -72,17 +72,57 @@ en:
     index: 
       main_slogan: "Where ideas come to life"
       title: "<span style='font-family:Poppins,Arial,sans-serif; font-size:2rem; font-weight:700;'>Welcome!</span>"
-      little_about_me: |
-       <div style="font-family: Poppins, Arial, sans-serif; font-size: 1.1rem; color: #222;">
-        <span style="font-size: 1.5rem; font-weight: bold;">🙋‍♂️ A little about me</span><br>
-        <span style="color: #0056b3;"><strong>Hello! I'm Maksym Nenashev.</strong></span> Not just a <em>developer</em>, but a <span style="font-weight: 600;">person with a mission</span>.<br>
-        I write code to <span style="color:#21ba45;font-weight:600;">make the world better</span>: I build search engines, create social platforms, visualize data in <span style="font-family: Orbitron, sans-serif;">Shiny</span>, and develop projects with <span style="color:#bb2200">Ruby on Rails</span> and <span style="color:#306998">R</span>.<br><br>
-        My toolkit includes: <strong>cloud (AWS)</strong>, <span style="font-style:italic;">analytics</span>, <strong>algorithms</strong>, <span style="text-decoration: underline;">automation</span>, and an enormous <span style="color:#ff6600">hunger for change</span>.<br>
-        My goal is not just to work, but to <span style="color:#21ba45;font-weight:600;">create tools that genuinely benefit people</span>.<br>
-        I learn, I build, I move forward.<br>
-        <span style="font-weight:bold; color:#bb2200;">And yes — I'm a father of two and I've got fire in my heart. 🔥</span>
-       </div>
-       
+      little_about_me: | 
+        <div style="font-family: Inter, system-ui, -apple-system, Arial, sans-serif;
+            font-size: 1.05rem;
+            color: #1f2937;
+            line-height: 1.7;
+            max-width: 820px;">
+
+        <h2 style="font-weight: 600; margin-bottom: 0.5rem;">
+           Maksym Nenashev
+        </h2>
+
+        <p style="margin-top: 0; color: #4b5563;">
+           System Engineer · Data & Decision Platforms
+        </p>
+
+        <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 1.5rem 0;">
+
+        <p>
+           I design and build <strong>asynchronous, data-driven platforms</strong>
+           and <strong>decision systems</strong> where data, algorithms, and policy logic
+           work together in production environments.
+        </p>
+
+        <p>
+           My work spans backend architecture, APIs, data processing, analytics,
+           and AI-powered components. I focus on <strong>system behavior</strong>,
+           scalability, and clear separation between signals, decisions, and execution.
+        </p>
+
+        <p>
+           Core technologies include
+           <strong>Ruby on Rails</strong>,
+           <strong>Python</strong>,
+           <strong>R/Shiny</strong>,
+           and ML components built with <strong>Keras</strong>.
+           I treat machine learning as part of a broader system, not as an isolated solution.
+        </p>
+
+        <p>
+           I’m interested in complex systems, asynchronous processing,
+           observability, and responsible use of AI in real-world products.
+        </p>
+
+        <p style="color:#6b7280; font-size: 0.95rem; margin-top: 2rem;">
+           Outside of work, I’m a father of two.
+           Building reliable systems today means building a better future tomorrow.
+        </p>
+
+        </div>
+
+               
   articles:
     index:
       title: 'List Articles!'
