@@ -152,5 +152,32 @@
   </div>
 </div>
 
+<div class="col">
+  <div class="card h-100 shadow-lg border-0 rounded-4">
+    <%= image_tag "cnn.jpg", class: "card-img-top rounded-top-4", alt: "CNN Visual Moderator" %>
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title fw-bold text-danger">CNN Visual Moderator</h5>
+      <a href="#" class="link-secondary disabled" tabindex="-1" aria-disabled="true">
+        (Internal System)
+      </a>
+      <p class="card-text mt-2">
+        <%= t('.title_6', default: 'Automated visual content moderation using Convolutional Neural Networks.') %>
+      </p>
+      <details class="mb-3">
+        <summary class="text-danger" style="cursor: pointer;"><%= t('.read_6', default: 'Technical details') %></summary>
+        <p class="mt-2 small">
+          <%= t('.text_6', default: 'High-performance image classification and object detection. Designed to filter sensitive visual data with focus on precision and recall.') %>
+        </p>
+      </details>
+        <p class="small text-muted mt-2">
+          <strong>Stack:</strong> Python, PyTorch, OpenCV, FastAPI, Sidekiq, Redis, Docker, Hetzner, Ruby (Faraday)
+        </p>
+        <a href="#" class="btn btn-outline-danger btn-sm disabled w-100" tabindex="-1" aria-disabled="true">
+          <i class="bi bi-shield-check"></i> Soon in Production
+        </a>
+    </div>
+  </div>
+</div>
+  
   </div>
 </div>
