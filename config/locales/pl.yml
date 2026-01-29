@@ -101,7 +101,7 @@ pl:
           <strong>Ruby on Rails</strong>,
           <strong>Python</strong>,
           <strong>R/Shiny</strong>
-          oraz komponenty uczenia maszynowego tworzone z użyciem <strong>Keras</strong>.
+          oraz komponenty uczenia maszynowego tworzone z użyciem <strong>Scikit-learn, PyTorch, TensorFlow, Keras</strong>.
           Traktuję uczenie maszynowe jako część szerszego systemu,
           a nie jako odizolowane rozwiązanie.
        </p>
@@ -110,11 +110,6 @@ pl:
           Interesują mnie złożone systemy, przetwarzanie asynchroniczne,
           obserwowalność oraz odpowiedzialne wykorzystanie AI
           w rzeczywistych produktach.
-       </p>
-
-       <p style="color:#6b7280; font-size: 0.95rem; margin-top: 2rem;">
-          Poza pracą jestem ojcem dwójki dzieci.
-          Tworzenie niezawodnych systemów dziś oznacza budowanie lepszej przyszłości jutro.
        </p>
 
        </div>
@@ -240,12 +235,14 @@ pl:
         • Gotowe do produkcji: Docker, reverse proxy Nginx, zabezpieczone HTTPS przez Let's Encrypt.
         • Rola: Pełen cykl — od pomysłu i projektu po infrastrukturę i wdrożenie.
       # AI Moderation Engine
-      title_5: "Zaawansowany silnik moderacji treści AI dla FindWay, wykorzystujący <b>Python</b>, <b>Keras</b> i <b>TensorFlow</b> do etycznej i skutecznej filtracji."
-      read_5: "Czytaj więcej…"
+      title_5: "Modułowy system moderacji AI dla FindWay."
+      read_5: "Stos technologiczny i architektura..."
       text_5: |
-        • Cel: Automatyczne wykrywanie i blokowanie toksycznych, obraźliwych lub niepożądanych treści przed publikacją.
-        • Technologia: Głębokie uczenie na wielojęzycznych zbiorach danych, z integracją bezpośrednio w workflow FindWay.
-        • Elastyczność: Wnioskowanie w czasie rzeczywistym, konfigurowalne polityki moderacji dla różnych języków i sytuacji.
-        • Wpływ: Zmniejsza obciążenie moderatorów, chroni społeczność i wspiera zgodność z regulacjami.
+        Architektura z 8 modeli:
+        System jest zorganizowany w cztery niezależne kontury językowe (WNP/CIS, Europa, Kraje Bałtyckie, Zachód). Każdy kontur wykorzystuje dwa oddzielne modele ML: klasyfikator semantyczny oraz wyspecjalizowany model do wykrywania slangu, zniekształceń tekstu i obfuskacji.
 
-    
+        Filtrowanie hybrydowe:
+        Końcowa decyzja podejmowana jest na poziomie warstwy policy, w oparciu o wyniki modeli neuronowych oraz deterministyczne reguły. Takie podejście zapewnia ścisłą klasyfikację treści na Approved, Pending Review oraz Blocked, bez bezpośredniego uzależnienia od pojedynczego modelu.
+
+        Dynamiczne progi:
+        Progi czułości są konfigurowane niezależnie dla każdego konturu językowego i mogą być modyfikowane w czasie rzeczywistym w zależności od wzorców tekstowych, znaków specjalnych oraz stopnia zniekształcenia danych wejściowych.

@@ -19,3 +19,4 @@ test:
 production:
   <<: *default
   database: app_blog_production
+  host: db # Прямо указываем имя сервиса из docker-compose

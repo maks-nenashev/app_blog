@@ -107,7 +107,7 @@ nl:
            <strong>Ruby on Rails</strong>,
            <strong>Python</strong>,
            <strong>R/Shiny</strong>
-           en machine-learningcomponenten gebouwd met <strong>Keras</strong>.
+           en machine-learningcomponenten gebouwd met <strong>Scikit-learn, PyTorch, TensorFlow, Keras</strong>.
            Ik beschouw machine learning als onderdeel van een breder systeem,
            niet als een op zichzelf staande oplossing.
         </p>
@@ -117,11 +117,6 @@ nl:
            asynchrone verwerking, observability
            en het verantwoord toepassen van AI
            in echte producten.
-        </p>
-
-        <p style="color:#6b7280; font-size: 0.95rem; margin-top: 2rem;">
-           Buiten mijn werk ben ik vader van twee kinderen.
-           Betrouwbare systemen bouwen vandaag betekent werken aan een betere toekomst morgen.
         </p>
 
         </div>
@@ -244,12 +239,14 @@ nl:
         • Productieklaar: Gedockeriseerd, reverse-proxied met Nginx, beveiligd met HTTPS via Let's Encrypt.
         • Rol: Volledige cyclus — van idee en ontwerp tot infrastructuur en implementatie.
       # AI Moderation Engine
-      title_5: "Geavanceerde AI-aangedreven moderatiemotor voor FindWay, met <b>Python</b>, <b>Keras</b> en <b>TensorFlow</b> voor robuuste en ethische inhoudsfiltering."
-      read_5: "Lees meer…"
+      title_5: "Modulair AI-moderatiesysteem voor FindWay."
+      read_5: "Technische stack en architectuur..."
       text_5: |
-        • Doel: Automatisch toxische, aanstootgevende of ongewenste inhoud detecteren en blokkeren vóór publicatie.
-        • Technologie: Deep learning modellen getraind op meertalige datasets, direct geïntegreerd in FindWay.
-        • Flexibiliteit: Realtime inferentie, aanpasbaar beleid per taal en situatie.
-        • Impact: Vermindert handmatige moderatielast, beschermt de gemeenschap en helpt bij naleving van regelgeving.
+        Architectuur met 8 modellen:
+        Het systeem is georganiseerd in vier onafhankelijke taalkundige contouren (GOS/CIS, Europa, Baltische staten, Westen). Elke contour maakt gebruik van twee afzonderlijke ML-modellen: een semantische classifier en een gespecialiseerd model voor het detecteren van slang, tekstvervormingen en obfuscatie.
 
-    
+        Hybride filtering:
+        De uiteindelijke beslissing wordt genomen op het niveau van de policy-laag, op basis van neurale netwerkscores en deterministische regels. Deze aanpak zorgt voor een strikte classificatie van content in Approved, Pending Review en Blocked, zonder directe afhankelijkheid van één enkele modeluitkomst.
+
+        Dynamische drempels:
+        Gevoeligheidsdrempels worden afzonderlijk geconfigureerd voor elke taalkundige contour en kunnen tijdens runtime worden aangepast op basis van tekstuele patronen, speciale tekens en de mate van vervorming van de invoertekst.
