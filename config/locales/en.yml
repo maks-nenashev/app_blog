@@ -106,18 +106,13 @@ en:
            <strong>Ruby on Rails</strong>,
            <strong>Python</strong>,
            <strong>R/Shiny</strong>,
-           and ML components built with <strong>Keras</strong>.
+           and ML components built with <strong>Scikit-learn, PyTorch, TensorFlow, Keras</strong>.
            I treat machine learning as part of a broader system, not as an isolated solution.
         </p>
 
         <p>
            I’m interested in complex systems, asynchronous processing,
            observability, and responsible use of AI in real-world products.
-        </p>
-
-        <p style="color:#6b7280; font-size: 0.95rem; margin-top: 2rem;">
-           Outside of work, I’m a father of two.
-           Building reliable systems today means building a better future tomorrow.
         </p>
 
         </div>
@@ -236,13 +231,14 @@ en:
         • Production-ready: Dockerized, reverse-proxied with Nginx, and secured with HTTPS via Let's Encrypt.
         • Role: Full cycle — from idea and design to infrastructure and deployment.
       #AI Moderation Engine
-      title_5: "Advanced AI-powered content moderation engine for the FindWay platform,
-                leveraging <b>Python</b>, <b>Keras</b>, and <b>TensorFlow</b> for robust and ethical content filtering."
-      read_5: "Read more…"
+      title_5: "Modular AI Content Moderation System for FindWay."
+      read_5: "Technical stack and architecture..."
       text_5: |
-        • Purpose: Automatically detect and block toxic, offensive, or unwanted content before publication.
-        • Technology: Deep learning models trained on multilingual datasets, integrated directly into the FindWay workflow.
-        • Flexibility: Real-time inference, customizable moderation policies for various languages and scenarios.
-        • Impact: Reduces manual moderation workload, protects the community, and helps comply with regulations.
+        Architecture with 8 models:
+        The system is organized into four independent language contours (CIS, Europe, Baltics, West). Each contour uses two separate ML models: a semantic classifier and a specialized model for detecting slang, text distortions, and obfuscation.
 
-    
+        Hybrid filtering:
+        The final decision is produced by a policy layer based on neural network scoring and deterministic rules. This approach ensures strict classification of content into Approved, Pending Review, and Blocked, without direct reliance on a single model.
+
+        Dynamic thresholds:
+        Sensitivity thresholds are configured independently for each language contour and can change at runtime depending on textual patterns, special characters, and the degree of input text distortion.
