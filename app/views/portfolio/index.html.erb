@@ -7,133 +7,136 @@
     
     <!-- FindWay -->
     <div class="col">
-      <div class="card h-100 shadow-lg border-0 rounded-4">
-        <%= image_tag "findway.png", class: "card-img-top rounded-top-4", alt: "FindWay project" %>
-        <div class="card-body">
+      <div class="card h-100 shadow-lg border-0 rounded-4 project-card">
+        <%= image_tag "findway.png", class: "card-img-top rounded-top-4", alt: "FindWay" %>
+        <div class="card-body d-flex flex-column">
           <h5 class="card-title fw-bold text-primary">FindWay</h5>
-           <a href="https://findway.pro" target="_blank" rel="noopener">
-            findway.pro
-           </a>
-           <p class="card-text">
-            <%= t('.title_1') %>
-          </p>
-          <details>
-            <summary class="text-primary" style="cursor: pointer;"><%= t('.read_1') %> </summary>
-            <p class="mt-2 small">
-              <%= t('.text_1') %>
-            </p>
-            </details>
-          <p class="small text-muted mt-2">
-            <strong>Stack:</strong> Ruby on Rails, i18n, OmniAuth, Docker, S3
-          </p>
-          <a href="https://findway.pro" class="btn btn-sm shadow"
-             target="_blank"
-             style="background:linear-gradient(90deg, #246bfd 0%, #18e1b5 100%); color:#fff; border:none; border-radius:12px;">
-             🌍 Visit project
-           </a>
+          <a href="https://findway.pro" target="_blank" rel="noopener" class="small mb-2 d-inline-block">findway.pro</a>
+          <p class="card-text small"><%= t('.title_1') %></p>
+          <details class="mb-3">
+            <summary class="text-primary small fw-bold" style="cursor: pointer;"><%= t('.read_1') %></summary>
+            <p class="mt-2 small"><%= t('.text_1') %></p>
+          </details>
+          <div class="mt-auto">
+            <div class="mb-3">
+              <span class="tech-badge">Ruby on Rails</span>
+              <span class="tech-badge">i18n</span>
+              <span class="tech-badge">OmniAuth</span>
+              <span class="tech-badge">AWS SES</span>
+              <span class="tech-badge">S3</span>
+              <span class="tech-badge">Sidekiq</span>
+              <span class="tech-badge">Docker</span>
+              <span class="tech-badge">Hetzner</span>
+              <span class="tech-badge">Nginx</span>
+            </div>
+            <a href="https://findway.pro" class="btn btn-sm w-100 shadow-sm" style="background:linear-gradient(90deg, #246bfd 0%, #18e1b5 100%); color:#fff; border:none; border-radius:10px;">🌍 Visit project</a>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Shiny Dashboard -->
     <div class="col">
-      <div class="card h-100 shadow-lg border-0 rounded-4">
+      <div class="card h-100 shadow-lg border-0 rounded-4 project-card">
         <%= image_tag "shiny-dashboard.png", class: "card-img-top rounded-top-4", alt: "Shiny Dashboard" %>
-        <div class="card-body">
+        <div class="card-body d-flex flex-column">
           <h5 class="card-title fw-bold text-success"><%= t('.title_2_1') %></h5>
-           <a href="https://statauto.net" target="_blank" rel="noopener">
-            statauto.net
-           </a>
-          <p class="card-text">
-            <%= t('.title_2') %>
-          </p>
-          <details>
-            <summary class="text-info" style="cursor: pointer;"><%= t('.read_2') %></summary>
-            <p class="mt-2 small">
-               <%= t('.text_2') %>
-            </p>
-            </details>
-           <p class="small text-muted mt-2">
-            <strong>Stack:</strong> R, Shiny, Plotly, Leaflet, ETL, Time Series, ARIMA, Linear Regression, S3, Imgix, Docker
-           </p>
-           <a href="https://statauto.net" class="btn btn-sm shadow"
-             target="_blank"
-             style="background:linear-gradient(90deg, #246bfd 0%, #18e1b5 100%); color:#fff; border:none; border-radius:12px;">
-             🌍 Visit project
-           </a>
+          <a href="https://statauto.net" target="_blank" rel="noopener" class="small mb-2 d-inline-block">statauto.net</a>
+          <p class="card-text small"><%= t('.title_2') %></p>
+          <details class="mb-3">
+            <summary class="text-info small fw-bold" style="cursor: pointer;"><%= t('.read_2') %></summary>
+            <p class="mt-2 small"><%= t('.text_2') %></p>
+          </details>
+          <div class="mt-auto">
+            <div class="mb-3">
+              <span class="tech-badge">R</span>
+              <span class="tech-badge">Shiny</span>
+              <span class="tech-badge">ETL</span>
+              <span class="tech-badge">Time Series</span>
+              <span class="tech-badge">ARIMA</span>
+              <span class="tech-badge">Linear Regression</span>
+              <span class="tech-badge">Docker</span>
+              <span class="tech-badge">S3</span>
+              <span class="tech-badge">Hetzner</span>
+            </div>
+            <a href="https://statauto.net" class="btn btn-sm w-100 shadow-sm" style="background:linear-gradient(90deg, #246bfd 0%, #18e1b5 100%); color:#fff; border:none; border-radius:10px;">🌍 Visit project</a>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Maksym Social -->
     <div class="col">
-      <div class="card h-100 shadow-lg border-0 rounded-4">
-        <%= image_tag "maksym-social.png", class: "card-img-top rounded-top-4", alt: "Maksym Social Network" %>
-        <div class="card-body">
-          <h5 class="card-title fw-bold text-dark">Maksym Social </h5>
-            <%= link_to "nenashev.net", articles_path %>
-          <p class="card-text">
-            <%= t('.title_3') %>
-          </p>
-          <details>
-            <summary class="text-dark" style="cursor: pointer;"><%= t('.read_3') %></summary>
-            <p class="mt-2 small">
-             <%= t('.text_3') %>
-            </p>
-            </details>
-          <p class="small text-muted mt-2">
-            <strong>Stack:</strong> Ruby on Rails, Bootstrap 5, i18n, Docker, S3
-          </p>
-          <a href="<%= articles_path %>"
-             class="btn btn-sm shadow"
-             style="background:linear-gradient(90deg, #246bfd 0%, #18e1b5 100%); color:#fff; border:none; border-radius:12px;">
-             🌍 Visit articles
-          </a>
-
+      <div class="card h-100 shadow-lg border-0 rounded-4 project-card">
+        <%= image_tag "maksym-social.png", class: "card-img-top rounded-top-4", alt: "Maksym Social" %>
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title fw-bold text-dark">Maksym Social</h5>
+          <%= link_to "nenashev.net", articles_path, class: "small mb-2 d-inline-block" %>
+          <p class="card-text small"><%= t('.title_3') %></p>
+          <details class="mb-3">
+            <summary class="text-dark small fw-bold" style="cursor: pointer;"><%= t('.read_3') %></summary>
+            <p class="mt-2 small"><%= t('.text_3') %></p>
+          </details>
+          <div class="mt-auto">
+            <div class="mb-3">
+              <span class="tech-badge">Ruby on Rails</span>
+              <span class="tech-badge">Bootstrap 5</span>
+              <span class="tech-badge">i18n</span>
+              <span class="tech-badge">S3</span>
+              <span class="tech-badge">Sidekiq</span>
+              <span class="tech-badge">Docker</span>
+              <span class="tech-badge">Hetzner</span>
+              <span class="tech-badge">Nginx</span>
+            </div>
+            <a href="<%= articles_path %>" class="btn btn-sm w-100 shadow-sm" style="background:linear-gradient(90deg, #246bfd 0%, #18e1b5 100%); color:#fff; border:none; border-radius:10px;">🌍 Visit articles</a>
+          </div>
         </div>
       </div>
     </div>
-   
+
     <!-- PromoFindWay Landing -->
 <div class="col">
-  <div class="card h-100 shadow-lg border-0 rounded-4">
-    <%= image_tag "promofindway-pro.png", class: "card-img-top rounded-top-4", alt: "PromoFindWay Landing" %>
-    <div class="card-body">
-      <h5 class="card-title fw-bold text-primary">PromoFindWay.pro</h5>
-      <a href="https://promofindway.pro" target="_blank" rel="noopener">
-            promofindway.pro
-      </a>
-      <p class="card-text">
-      <%= t('.title_4').html_safe  %>
-      </p>
-      <details>
-        <summary class="text-primary" style="cursor: pointer;"><%= t('.read_4') %></summary>
-        <p class="mt-2 small">
-          <%= t('.text_4').html_safe %>
+    <div class="card h-100 shadow-lg border-0 rounded-4 project-card">
+      <%= image_tag "promofindway-pro.png", class: "card-img-top rounded-top-4", alt: "PromoFindWay" %>
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title fw-bold" style="color: #9d72ff;">PromoFindWay.pro</h5>
+        <a href="https://promofindway.pro" target="_blank" rel="noopener" class="small mb-2 d-inline-block">promofindway.pro</a>
+        
+        <p class="card-text small">
+          <%= t('.title_4').html_safe %>
         </p>
-      </details>
-      <p class="small text-muted mt-2">
-      <strong>Stack:</strong> Ruby, Sinatra, ERB, Bootstrap 5, i18n, Docker, Nginx, Certbot
-      </p>
-      <a href="https://promofindway.pro" class="btn btn-sm shadow"
-             target="_blank"
-             style="background:linear-gradient(90deg, #246bfd 0%, #18e1b5 100%); color:#fff; border:none; border-radius:12px;">
+        
+        <details class="mb-3">
+          <summary style="cursor: pointer; color: #9d72ff;" class="small fw-bold"><%= t('.read_4') %></summary>
+          <p class="mt-2 small"><%= t('.text_4').html_safe %></p>
+        </details>
+        
+        <div class="mt-auto">
+          <div class="mb-3">
+            <span class="tech-badge">Ruby</span>
+            <span class="tech-badge">Sinatra</span>
+            <span class="tech-badge">Bootstrap 5</span>
+            <span class="tech-badge">Docker</span>
+            <span class="tech-badge">i18n</span>
+            <span class="tech-badge">Nginx</span>
+            <span class="tech-badge">Hetzner</span>
+          </div>
+          <a href="https://promofindway.pro" class="btn btn-sm w-100 shadow-sm"
+             class="btn btn-sm w-100 shadow-sm" style="background:linear-gradient(90deg, #246bfd 0%, #18e1b5 100%); color:#fff; border:none; border-radius:10px;">
              🌍 Visit project
-           </a>
-     </div>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
     
     <!-- FindWay AI Moderator -->
 <div class="col">
   <div class="card h-100 shadow-lg border-0 rounded-4">
-    <%= image_tag "NLP.png", class: "card-img-top rounded-top-4", alt: "FindWay AI Moderator" %>
+    <%= image_tag "NLP.jpg", class: "card-img-top rounded-top-4", alt: "FindWay AI Moderator" %>
     <div class="card-body">
       <h5 class="card-title fw-bold text-info">AI Moderator System</h5>
-      <a href="#" class="link-secondary disabled" tabindex="-1" aria-disabled="true">
-        (Integrated & Active)
-      </a>
-      <p class="card-text">
+       <span class="badge bg-light text-muted border mb-2 align-self-start">Integrated & Active</span> 
+      <!p class="card-text">
+       <p class="card-text small">
         <%= t('.title_5').html_safe %>
       </p>
       <details>
@@ -142,43 +145,148 @@
          <%= t('.text_5').html_safe %>
         </p>
       </details>
-      <p class="small text-muted mt-2">
-        <strong>Stack:</strong> Python (FastAPI), Scikit-learn, Docker, Ruby (Faraday), REST API
-      </p>
-      <a href="#" class="btn btn-outline-info btn-sm disabled" tabindex="-1" aria-disabled="true">
-        ✅ Production Ready
-      </a>
+      <div class="mt-auto">
+          <div class="mb-3">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">FastAPI</span>
+            <span class="tech-badge">Scikit-learn</span>
+            <span class="tech-badge">Docker</span>
+            <span class="tech-badge">Ruby (Faraday)</span>
+            <span class="tech-badge">Hetzner</span>
+            <span class="tech-badge">REST API</span>
+          </div>
+          <a href="#" class="btn btn-sm w-100 shadow-sm"
+             class="btn btn-sm w-100 shadow-sm" style="background:linear-gradient(90deg, #246bfd 0%, #18e1b5 100%); color:#fff; border:none; border-radius:10px;">
+             ✅ System Active
+          </a>
+      </div>
     </div>
   </div>
 </div>
-
+   
+    <!-- CNN Visual Moderator -->
 <div class="col">
-  <div class="card h-100 shadow-lg border-0 rounded-4">
-    <%= image_tag "cnn.jpg", class: "card-img-top rounded-top-4", alt: "CNN Visual Moderator" %>
+    <div class="card h-100 shadow-lg border-0 rounded-4 project-card">
+      <%= image_tag "cnn.jpg", class: "card-img-top rounded-top-4", alt: "CNN Moderator" %>
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title fw-bold" style="color: #ff4757;">CNN Visual Moderator</h5>
+        <span class="badge bg-light text-muted border mb-2 align-self-start">Internal System</span>
+        
+        <p class="card-text small">
+          <%= t('.title_6', default: 'Automated visual content moderation using Convolutional Neural Networks.') %>
+        </p>
+        
+        <details class="mb-3">
+          <summary style="cursor: pointer; color: #ff4757;" class="small fw-bold"><%= t('.read_6', default: 'Read more...') %></summary>
+          <p class="mt-2 small"><%= t('.text_6', default: 'High-performance image classification and object detection. Designed to filter sensitive visual data with focus on precision and recall.') %></p>
+        </details>
+        
+        <div class="mt-auto">
+          <div class="mb-3">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">PyTorch</span>
+            <span class="tech-badge">FastAPI</span>
+            <span class="tech-badge">OpenCV</span>
+            <span class="tech-badge">Docker</span>
+            <span class="tech-badge">Hetzner</span>
+            <span class="tech-badge">REST API</span>
+          </div>
+          <a href="#" class="btn btn-sm w-100 shadow-sm"
+             class="btn btn-sm w-100 shadow-sm" style="background:linear-gradient(90deg, #246bfd 0%, #18e1b5 100%); color:#fff; border:none; border-radius:10px;">
+             ✅ System Active
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <!-- FindWay Mobile App -->
+  <div class="col">
+  <div class="card h-100 shadow-lg border-0 rounded-4 project-card">
+    <%# Рекомендую заменить на скриншот мобильного интерфейса %>
+    <%= image_tag "phone.jpg", class: "card-img-top rounded-top-4", alt: "FindWay Mobile App" %>
+    
     <div class="card-body d-flex flex-column">
-      <h5 class="card-title fw-bold text-danger">CNN Visual Moderator</h5>
-      <a href="#" class="link-secondary disabled" tabindex="-1" aria-disabled="true">
-        (Internal System)
-      </a>
-      <p class="card-text mt-2">
-        <%= t('.title_6', default: 'Automated visual content moderation using Convolutional Neural Networks.') %>
+      <h5 class="card-title fw-bold" style="color: #027dfd;">FindWay Mobile</h5>
+      <span class="badge bg-light text-primary border mb-2 align-self-start">Under Development</span>
+      
+      <p class="card-text small">
+        <%= t('.mobile_title', default: 'Cross-platform mobile application for iOS and Android. Seamless integration with FindWay ecosystem.') %>
       </p>
+
       <details class="mb-3">
-        <summary class="text-danger" style="cursor: pointer;"><%= t('.read_6', default: 'Technical details') %></summary>
+        <summary style="cursor: pointer; color: #027dfd;" class="small fw-bold">
+          <%= t('.mobile_read', default: 'Development Details') %>
+        </summary>
         <p class="mt-2 small">
-          <%= t('.text_6', default: 'High-performance image classification and object detection. Designed to filter sensitive visual data with focus on precision and recall.') %>
+          <%= t('.mobile_text', default: 'Building a unified experience using Flutter. The app consumes Rails REST API, implementing secure authentication, real-time data sync, and offline-first capabilities.') %>
         </p>
       </details>
-        <p class="small text-muted mt-2">
-          <strong>Stack:</strong> Python, PyTorch, OpenCV, FastAPI, Sidekiq, Redis, Docker, Hetzner, Ruby (Faraday)
-        </p>
-        <a href="#" class="btn btn-outline-danger btn-sm disabled w-100" tabindex="-1" aria-disabled="true">
-          <i class="bi bi-shield-check"></i> Soon in Production
+
+      <div class="mt-auto">
+        <div class="mb-3">
+          <span class="tech-badge">Dart</span>
+          <span class="tech-badge">Flutter</span>
+          <span class="tech-badge">REST API</span>
+          <span class="tech-badge">Riverpod</span>
+          <span class="tech-badge">App Store</span>
+          <span class="tech-badge">Google Play</span>
+        </div>
+        <a href="#" class="btn btn-sm w-100 shadow-sm"
+             class="btn btn-sm w-100 shadow-sm" style="background:linear-gradient(90deg, #246bfd 0%, #18e1b5 100%); color:#fff; border:none; border-radius:10px;">
+             ✅ Coming Soon in Prodaction
         </a>
+      </div>
     </div>
   </div>
 </div>
-  
+
   </div>
 </div>
 
+<style>
+  /* Эффект при наведении на карточку */
+  .project-card {
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
+  }
+  .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12) !important;
+  }
+
+<style>
+  /* Анимация и подъем карточки */
+  .project-card { 
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease; 
+  }
+  
+  .project-card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12) !important; 
+  }
+
+  /* Дизайн тегов стека технологий */
+  .tech-badge {
+    font-family: 'SFMono-Regular', Consolas, monospace;
+    font-size: 0.7rem; 
+    font-weight: 600; 
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 3px 8px; 
+    border-radius: 6px;
+    background: #f1f5f9; 
+    color: #475569; 
+    border: 1px solid #e2e8f0;
+    display: inline-block; 
+    margin-bottom: 4px; 
+    margin-right: 2px;
+  }
+
+  /* Акцент на раскрывающемся тексте */
+  details p {
+    border-left: 2px solid #e2e8f0;
+    padding-left: 1rem;
+    color: #64748b;
+    margin-top: 0.5rem;
+  }
+</style>
