@@ -8,7 +8,7 @@
     <!-- FindWay -->
     <div class="col">
       <div class="card h-100 shadow-lg border-0 rounded-4 project-card">
-        <%= image_tag "findway.png", class: "card-img-top rounded-top-4", alt: "FindWay" %>
+        <%= image_tag "findway_new.png", class: "card-img-top rounded-top-4", alt: "FindWay" %>
         <div class="card-body d-flex flex-column">
           <h5 class="card-title fw-bold text-primary">FindWay</h5>
           <a href="https://findway.pro" target="_blank" rel="noopener" class="small mb-2 d-inline-block">findway.pro</a>
@@ -37,7 +37,7 @@
 
     <div class="col">
       <div class="card h-100 shadow-lg border-0 rounded-4 project-card">
-        <%= image_tag "shiny-dashboard.png", class: "card-img-top rounded-top-4", alt: "Shiny Dashboard" %>
+        <%= image_tag "dashboard.png", class: "card-img-top rounded-top-4", alt: "Shiny Dashboard" %>
         <div class="card-body d-flex flex-column">
           <h5 class="card-title fw-bold text-success"><%= t('.title_2_1') %></h5>
           <a href="https://statauto.net" target="_blank" rel="noopener" class="small mb-2 d-inline-block">statauto.net</a>
@@ -139,7 +139,7 @@
        <p class="card-text small">
         <%= t('.title_5').html_safe %>
       </p>
-      <details>
+      <details class="mb-3">
         <summary class="text-info" style="cursor: pointer;"><%= t('.read_5') %></summary>
         <p class="mt-2 small">
          <%= t('.text_5').html_safe %>
@@ -173,12 +173,14 @@
         <span class="badge bg-light text-muted border mb-2 align-self-start">Internal System</span>
         
         <p class="card-text small">
-          <%= t('.title_6', default: 'Automated visual content moderation using Convolutional Neural Networks.') %>
+          <%= t('.title_6') %>
         </p>
         
         <details class="mb-3">
-          <summary style="cursor: pointer; color: #ff4757;" class="small fw-bold"><%= t('.read_6', default: 'Read more...') %></summary>
-          <p class="mt-2 small"><%= t('.text_6', default: 'High-performance image classification and object detection. Designed to filter sensitive visual data with focus on precision and recall.') %></p>
+          <summary style="cursor: pointer; color: #ff4757;" class="small fw-bold"><%= t('.read_6') %></summary>
+          <p class="mt-2 small">
+         <%= t('.text_6').html_safe %>
+        </p>
         </details>
         
         <div class="mt-auto">
