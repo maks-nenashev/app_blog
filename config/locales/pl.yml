@@ -246,3 +246,18 @@ pl:
 
         Dynamiczne progi:
         Progi czułości są konfigurowane niezależnie dla każdego konturu językowego i mogą być modyfikowane w czasie rzeczywistym w zależności od wzorców tekstowych, znaków specjalnych oraz stopnia zniekształcenia danych wejściowych.
+      title_6: "Moduł Computer Vision CNN"
+      read_6: "Technologiczny stos i architektura..."
+      text_6: |
+        Moduł (EfficientNet-B0, FaceNet/ArcFace, moderacja treści)
+        Moduł opiera się na architekturze EfficientNet-B0 — efektywnej sieci neuronowej do analizy obrazów. Służy do automatycznej analizy treści wizualnych i filtrowania niedozwolonych materiałów.
+
+        System computer vision realizuje:
+
+        • wykrywanie i filtrowanie niedozwolonych treści wizualnych (przemoc, materiały zakazane lub o charakterze erotycznym);
+        • klasyfikację obrazów na potrzeby moderacji;
+        • przygotowanie danych do dalszej analizy.
+
+        Do rozpoznawania twarzy wykorzystywane są modele FaceNet/ArcFace, oparte na embeddingach (wektorowych reprezentacjach obrazów). Pozwala to na wysoką dokładność dopasowania twarzy, uwzględniając różnice w kątach ujęcia, oświetleniu i jakości zdjęć.
+
+        Moduł jest zintegrowany z systemem moderacji i infrastrukturą wyszukiwania, zapewniając bezpieczeństwo treści oraz wsparcie inteligentnej analizy obrazów.
