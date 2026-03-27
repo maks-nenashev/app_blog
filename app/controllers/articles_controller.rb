@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
    after_action :verify_authorized                                                         
  
    def index # 4: Wywod wsech zapisej!
-    @pagy, @articles = pagy Article.includes(:user).order(created_at: :desc),items:3
+    @pagy, @articles = pagy Article.includes(:user).order(created_at: :desc),items:6
     @articles = @articles.decorate
     #authorize @article
    end                                               # chtoby "articles" wywodilo poslednie wwerchu

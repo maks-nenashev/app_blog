@@ -251,10 +251,10 @@ nl:
         Dynamische drempels:
         Gevoeligheidsdrempels worden afzonderlijk geconfigureerd voor elke taalkundige contour en kunnen tijdens runtime worden aangepast op basis van tekstuele patronen, speciale tekens en de mate van vervorming van de invoertekst.
       
-      title_6: "Computer Vision CNN Module"
+      title_6: "Computer Vision CNN Module voor FindWay."
       read_6: "Technical stack and architecture..."
       text_6: |
-        Module (EfficientNet-B0, FaceNet/ArcFace, Content Moderation)
+        Module (EfficientNet-B0, ArcFace, Content Moderation)
         The module is based on the EfficientNet-B0 architecture—an efficient convolutional neural network for image analysis. It is used for automatic analysis of visual content and filtering of inappropriate materials.
 
         The computer vision system performs:
@@ -263,6 +263,6 @@ nl:
         • image classification for moderation purposes;
         • data preparation for further analysis.
 
-        FaceNet/ArcFace models based on embeddings (vector representations of images) are used for facial recognition tasks. This enables high-accuracy face matching, accounting for differences in camera angles, lighting, and image quality.
+        ArcFace models based on embeddings (vector representations of images) are used for facial recognition tasks. This enables high-accuracy face matching, accounting for differences in camera angles, lighting, and image quality.
 
         The module is integrated into the moderation system and search infrastructure, ensuring content safety and supporting intelligent image analysis.
