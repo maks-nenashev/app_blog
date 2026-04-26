@@ -4,7 +4,7 @@ set -e # Exit immediately if a command exits with a non-zero status.
 
 # --- Configuration ---
 APP_NAME="app_blog"
-SERVER_IP="159.69.108.58"
+SERVER_IP="46.225.145.50"
 REMOTE_PATH="/opt/app_blog/"
 USER="root"
 
