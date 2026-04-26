@@ -78,6 +78,8 @@ Rails.application.configure do
   config.hosts << "nenashev.net"
   config.hosts << "www.nenashev.net"
   config.hosts << "46.225.145.50"
+  config.hosts << "127.0.0.1"
+  config.hosts << "localhost"
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 end
