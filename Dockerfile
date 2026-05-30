@@ -1,9 +1,8 @@
 FROM ruby:3.2.9
 
-# 1. Установка системных зависимостей + Node.js и Yarn
-# Мы добавляем официальный репозиторий Node.js, чтобы версия была актуальной для Rails 7
-RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
-    apt-get update -qq && apt-get install -y \
+# 1. Установка актуальной Node.js (22.x LTS) и системных зависимостей
+RUN curl -sL https://deb.nodesource.com/setup_22.x | bash - && \
+    apt-get update -qq && apt-get install -y --no-install-recommends \
     build-essential \
     libpq-dev \
     git \
@@ -17,18 +16,23 @@ RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
 
 WORKDIR /app
 
-# 2. Установка зависимостей Ruby
+# 2. Установка dependencies
 COPY Gemfile Gemfile.lock ./
-RUN git init && gem install bundler && bundle install
+RUN gem install bundler && bundle install
 
-# 3. Копирование кода приложения
+# 3. Копирование кода
 COPY . .
 
-# 4. Предварительная компиляция ассетов (Production-only)
-# SECRET_KEY_BASE_DUMMY позволяет собрать ассеты без доступа к реальным секретам
+# Принудительное игнорирование несовместимости пакетов sass
+RUN yarn config set ignore-engines true && yarn install
+
+# Заглушка для Git
+RUN git init
+
+# 4. Предварительная компиляция ассетов
 RUN RAILS_ENV=production SECRET_KEY_BASE_DUMMY=1 bundle exec rails assets:precompile
 
 EXPOSE 3000
 
-# 5. Скрипт запуска с очисткой PID-файла
+# 5. Инструкция запуска
 CMD ["sh", "-c", "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"]
