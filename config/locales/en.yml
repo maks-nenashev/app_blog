@@ -3,7 +3,8 @@ en:
   nl: Dutch
   pl: Polish
   uk: Ukrainian
-  
+  ru: Russian
+
   activerecord:
     attributes:
       article:

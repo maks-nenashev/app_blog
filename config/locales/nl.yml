@@ -3,6 +3,7 @@ nl:
   en: Engels
   pl: Pools
   uk: Oekraïens
+  ru: Russisch
 
   activerecord:
     attributes:

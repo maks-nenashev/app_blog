@@ -3,6 +3,7 @@ uk:
   nl: Нідерландська
   pl: Польська
   uk: Українська
+  ru: Російська
 
   activerecord:
     attributes:
