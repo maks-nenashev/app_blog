@@ -3,7 +3,8 @@ pl:
   nl: Niderlandzki
   pl: Polski
   uk: Ukraiński
-  
+  ru: Rosyjski
+
   activerecord:
     attributes:
       article:
@@ -78,7 +79,7 @@ pl:
        </h2>
 
        <p style="margin-top: 0; color: #4b5563;">
-           System Engineer · Platformy danych i systemy decyzyjne
+          Distributed System Engineer · Platformy danych i systemy decyzyjne
        </p>
 
        <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 1.5rem 0;">
