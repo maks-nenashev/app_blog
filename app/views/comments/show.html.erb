@@ -1,116 +1,174 @@
-<div class="container my-5">
-  <div class="divider"><h1><%= t('.topic') %></h1></div>
-  <!-- Заголовок и автор -->
-  <header class="mb-4">
-    <h1 class="h4 fw-bold mb-4 text-break text-center"><%= @comment.title %></h1>
-
- <% if @comment.images.attached? %>
-  <div class="d-flex justify-content-center align-items-start mt-4">
-    <!-- БОЛЬШАЯ КАРТИНКА с тенью и скруглением -->
-    <div class="d-flex flex-column align-items-center w-100 shadow-lg rounded-4" style="max-width: 640px; background: #fff;">
-      <img id="main-comment-image-<%= @comment.id %>"
-           src="<%= url_for(@comment.images.first.variant(resize_to_limit: [720, 400])) %>"
-           class="img-fluid rounded shadow w-100"
-           style="max-width: 640px;"
-           alt="Main comment image">
-
-      <!-- МИНИАТЮРЫ: ТОЛЬКО ПОД ФОТО НА МОБИЛЬНЫХ -->
-<% if @comment.images.size > 1 %>
-        <!--div class="d-flex flex-row gap-2 mt-2 d-md-none justify-content-center"-->
-        <div class="d-flex flex-row gap-2 mt-2 d-md-none justify-content-center shadow rounded-3 bg-white p-2">
-          <% @comment.images.each_with_index do |img, i| %>
-            <% next if i == 0 %>
-            <%= image_tag img.variant(resize_to_limit: [90, 90]),
-              class: "img-thumbnail shadow-sm border border-secondary preview-thumb",
-              style: "width:90px; height:90px; object-fit:cover; cursor:pointer;",
-              alt: "Mini image #{i+1}",
-              data: { large: url_for(img.variant(resize_to_limit: [720, 400])), main: "main-comment-image-#{@comment.id}" } %>
-          <% end %>
+<div class="container my-5" style="max-width: 860px;">
+  <!-- Основная карточка контента -->
+  <article class="card border-0 shadow-sm rounded-4 p-4 p-md-5 bg-white mb-4">
+    
+    <!-- Верхняя панель: Автор и бейдж топика -->
+    <div class="d-flex align-items-center justify-content-between pb-3 mb-4 border-bottom border-light-subtle">
+      <div class="d-flex align-items-center gap-3">
+        <%= image_tag @comment.user.avatar_tumbnail, class: "rounded-circle border border-2 border-white shadow-sm object-fit-cover", width: 46, height: 46, alt: @comment.user.username %>
+        <div>
+          <h6 class="fw-bold text-dark mb-0"><%= @comment.user.username %></h6>
+          <span class="text-muted fs-7 d-flex align-items-center gap-1 mt-1">
+            <i class="bi bi-clock"></i> <%= l(@comment.created_at, format: :short) %>
+          </span>
         </div>
-      <% end %>
+      </div>
+      <span class="badge bg-body-secondary text-secondary border border-light-subtle px-3 py-2 rounded-pill fw-medium fs-7">
+        <%= t('.topic') %>
+      </span>
     </div>
 
-    <!-- МИНИАТЮРЫ: ТОЛЬКО СПРАВА НА ДЕСКТОПЕ -->
-    <% if @comment.images.size > 1 %>
-      <!--div class="d-none d-md-flex flex-column gap-2 ms-4"-->
-        <div class="d-none d-md-flex flex-column gap-2 ms-4 shadow rounded-3 bg-white p-2">  
-        <% @comment.images.each_with_index do |img, i| %>
-          <% next if i == 0 %>
-          <%= image_tag img.variant(resize_to_limit: [90, 90]),
-            class: "img-thumbnail shadow-sm border border-secondary preview-thumb",
-            style: "width:90px; height:90px; object-fit:cover; cursor:pointer;",
-            alt: "Mini image #{i+1}",
-            data: { large: url_for(img.variant(resize_to_limit: [720, 400])), main: "main-comment-image-#{@comment.id}" } %>
+    <!-- Заголовок -->
+    <h1 class="h3 fw-bold text-dark text-break mb-4"><%= @comment.title %></h1>
+
+    <!-- Галерея изображений -->
+    <% if @comment.images.attached? %>
+      <div class="d-flex flex-column flex-md-row justify-content-center align-items-center align-items-md-start gap-3 mb-4">
+        
+        <!-- Главное фото с плавающим фокусом -->
+        <div class="main-image-wrapper shadow-sm rounded-4 overflow-hidden bg-light w-100 border border-light-subtle position-relative" style="max-width: 640px;">
+          <%= image_tag url_for(@comment.images.first.variant(resize_to_limit: [720, 400])),
+                        id: "main-comment-image-#{@comment.id}",
+                        class: "img-fluid w-100 object-fit-cover transition-all",
+                        style: "max-height: 420px; min-height: 250px;",
+                        alt: "Main comment image" %>
+        </div>
+
+        <!-- Адаптивные миниатюры -->
+        <% if @comment.images.size > 1 %>
+          <div class="d-flex flex-row flex-md-column gap-2 p-2 shadow-sm rounded-4 bg-light border border-light-subtle preview-thumbs-container overflow-auto" style="max-width: 640px;">
+            <% @comment.images.each_with_index do |img, i| %>
+              <%= image_tag img.variant(resize_to_limit: [90, 90]),
+                            class: "img-thumbnail border-2 rounded-3 preview-thumb transition-all #{i == 0 ? 'border-primary shadow-sm scale-up' : 'border-transparent opacity-75'}",
+                            style: "width: 68px; height: 68px; object-fit: cover; cursor: pointer;",
+                            alt: "Thumbnail #{i + 1}",
+                            data: {
+                              large: url_for(img.variant(resize_to_limit: [720, 400])),
+                              main: "main-comment-image-#{@comment.id}"
+                            } %>
+            <% end %>
+          </div>
+        <% end %>
+
+      </div>
+    <% end %>
+
+    <!-- Текст публикации -->
+    <div class="comment-body text-secondary fs-5 lh-lg mb-4 px-1 <%= 'text-center' if @comment.body.length < 80 %>">
+      <%= simple_format(@comment.body) %>
+    </div>
+
+    <!-- Панель действий: Кастомные Soft-кнопки вместо дефолтных outline -->
+    <div class="pt-3 border-top border-light-subtle d-flex flex-wrap align-items-center justify-content-between gap-2">
+      <div class="d-flex gap-2">
+        <% if policy(@comment).edit? %>
+          <%= link_to edit_article_comment_path(@article, @comment), class: "btn btn-soft-primary rounded-pill px-3 py-2 d-inline-flex align-items-center gap-2 fw-medium fs-7" do %>
+            <i class="bi bi-pencil-square"></i> <%= t('.edit_comment') %>
+          <% end %>
+        <% end %>
+
+        <% if policy(@comment).destroy? %>
+          <%= link_to article_comment_path(@article, @comment),
+                      data: { 'turbo-method': :delete, 'turbo-confirm': t('.are_you_sure') },
+                      class: "btn btn-soft-danger rounded-pill px-3 py-2 d-inline-flex align-items-center gap-2 fw-medium fs-7" do %>
+            <i class="bi bi-trash3"></i> <%= t('.delete_comment') %>
+          <% end %>
         <% end %>
       </div>
-    <% end %>
-  </div>
 
-  <!-- Автор под фото (как и было) -->
-  <div class="w-100 mt-2" style="max-width: 640px;">
-    <div class="d-flex align-items-center gap-2">
-      <%= image_tag @comment.user.avatar_tumbnail, class: "rounded-circle", width: 40, height: 40 %>
-      <div class="small text-start">
-        <strong><%= @comment.user.username %></strong><br>
-        <span class="text-muted fs-7">
-          <%= l(@comment.created_at, format: :short) %>
-        </span>
-      </div>
+      <%= link_to article_path(@article), class: "btn btn-soft-secondary rounded-pill px-4 py-2 d-inline-flex align-items-center gap-2 fw-medium fs-7" do %>
+        <i class="bi bi-arrow-left"></i> <%= t('.back_to_article') %>
+      <% end %>
     </div>
-  </div>
-<% end %>
 
- <div class="mb-2 mt-3 fs-5 px-2 px-md-4 <%= "text-center" if @comment.body.length < 80 %>" style="line-height:1.7;">
-  <%= simple_format(@comment.body) %>
+  </article>
+
+  <!-- Блок комментариев -->
+  <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+    <%= render 'tweets/commentable', commentable: @comment, tweet: @tweet, html_id: dom_id(@comment, 'tweet_form') %>
+  </div>
 </div>
 
+<!-- Изолированные CSS-стили для компонента -->
+<style>
+  .btn-soft-primary {
+    background-color: rgba(13, 110, 253, 0.08);
+    color: #0d6efd;
+    border: none;
+    transition: all 0.2s ease;
+  }
+  .btn-soft-primary:hover {
+    background-color: #0d6efd;
+    color: #ffffff;
+    transform: translateY(-1px);
+  }
 
-  </header>
+  .btn-soft-danger {
+    background-color: rgba(220, 53, 69, 0.08);
+    color: #dc3545;
+    border: none;
+    transition: all 0.2s ease;
+  }
+  .btn-soft-danger:hover {
+    background-color: #dc3545;
+    color: #ffffff;
+    transform: translateY(-1px);
+  }
 
-  
+  .btn-soft-secondary {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    border: 1px solid #e9ecef;
+    transition: all 0.2s ease;
+  }
+  .btn-soft-secondary:hover {
+    background-color: #e9ecef;
+    color: #212529;
+    transform: translateY(-1px);
+  }
 
-  <!-- Кнопки редактирования и удаления -->
-  <div class="mb-4 d-flex flex-wrap gap-2">
-    <% if policy(@comment).edit? %>
-      <%= link_to edit_article_comment_path(@article, @comment), class: "btn btn-outline-primary" do %>
-        <i class="bi bi-pencil-square me-1"></i> <%= t('.edit_comment') %>
-      <% end %>
-    <% end %>
+  .preview-thumb {
+    transition: all 0.2s ease-in-out;
+  }
+  .preview-thumb:hover {
+    opacity: 1 !important;
+    transform: scale(1.05);
+  }
+  .preview-thumb.border-primary {
+    opacity: 1 !important;
+    box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25);
+  }
 
-    <% if policy(@comment).destroy? %>
-      <%= link_to article_comment_path(@article, @comment),
-                  data: { 'turbo-method': :delete, 'turbo-confirm': t('.are_you_sure') },
-                  class: "btn btn-outline-danger" do %>
-        <i class="bi bi-trash3-fill me-1"></i> <%= t('.delete_comment') %>
-      <% end %>
-    <% end %>
-     <!--div class="text-center mt-3"-->
-     <%= link_to t('.back_to_article'), article_path(@article), class: "btn btn-outline-secondary" %>
-     <!--/div-->
-  </div>
-
-  <!-- Виджет комментариев -->
-  <%= render 'tweets/commentable', commentable: @comment, tweet: @tweet, html_id: dom_id(@comment, 'tweet_form') %>
-
-  <hr class="my-5 border-top border-warning" style="border-width: 65px;" />
-  <!--div class="divider"><!h1><%#= t('.topic') %><!/h1><!/div-->
-</div>
+  .transition-all {
+    transition: all 0.25s ease-in-out;
+  }
+</style>
 
 <script>
- document.addEventListener("turbo:load", function() {
-  // Для каждой миниатюры комментов (и только их)
-  document.querySelectorAll('.preview-thumb').forEach(function(thumb) {
-    thumb.addEventListener('click', function() {
-      // Найти id главной картинки через data-main
-      var mainImg = document.getElementById(this.dataset.main);
-      if (mainImg) mainImg.src = this.dataset.large;
-      // Сбросить рамку со всех в этом блоке, выделить только выбранную
-      let siblings = thumb.parentElement.querySelectorAll('.preview-thumb');
-      siblings.forEach(t => t.classList.remove('border-primary'));
-      this.classList.add('border-primary');
+  if (!window.commentGalleryInitialized) {
+    window.commentGalleryInitialized = true;
+    document.addEventListener("click", function(event) {
+      const thumb = event.target.closest('.preview-thumb');
+      if (!thumb) return;
+
+      const mainImg = document.getElementById(thumb.dataset.main);
+      if (mainImg && thumb.dataset.large) {
+        mainImg.style.opacity = '0.4';
+        setTimeout(() => {
+          mainImg.src = thumb.dataset.large;
+          mainImg.style.opacity = '1';
+        }, 120);
+      }
+
+      const container = thumb.closest('.preview-thumbs-container');
+      if (container) {
+        container.querySelectorAll('.preview-thumb').forEach(t => {
+          t.classList.remove('border-primary', 'shadow-sm', 'opacity-100');
+          t.classList.add('border-transparent', 'opacity-75');
+        });
+        thumb.classList.remove('border-transparent', 'opacity-75');
+        thumb.classList.add('border-primary', 'shadow-sm', 'opacity-100');
+      }
     });
-  });
-});
-
+  }
 </script>
-

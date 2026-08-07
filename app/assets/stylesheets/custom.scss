@@ -47,3 +47,86 @@ transition: all 0.2s ease-in-out;
 .transition {
   transition: all .2s ease;
 }
+
+/* Custom CSS for hover effects layouts mobile buttons */
+  /* Выпадающий список языков */
+.btn-header-pill {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    color: #343a40;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 6px 14px;
+    border-radius: 50rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.btn-header-pill:hover, .btn-header-pill:focus {
+    background-color: #e9ecef;
+    color: #1a1e26;
+}
+
+/* Кнопка входа (Sign In) */
+.btn-auth-login {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    color: #ffffff !important;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 8px 20px;
+    border-radius: 50rem;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.25);
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-auth-login:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(13, 110, 253, 0.35);
+}
+
+/* Иконка настроек (Edit Account) */
+.btn-icon-soft {
+    background-color: #ffffff;
+    color: #495057;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dee2e6;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.btn-icon-soft:hover {
+    background-color: #212529;
+    color: #ffffff;
+    border-color: #212529;
+}
+
+/* Кнопка выхода (Sign Out) */
+.btn-auth-logout {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.btn-auth-logout:hover {
+    background-color: #dc3545;
+    color: #ffffff;
+}
