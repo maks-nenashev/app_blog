@@ -1,0 +1,195 @@
+<div class="container py-5">
+  <!-- Заголовок страницы -->
+  <div class="text-center mb-5">
+    <h1 class="fw-bold display-5" style="color: #027dfd;"><%= t('.title', default: 'Gallery') %></h1>
+    <p class="text-muted mb-2"><%= t('.subtitle', default: 'Presentations, conferences and key moments of projects') %></p>
+
+    <!-- Выровненный блок названия конференции и кнопки YouTube -->
+    <div class="d-inline-flex flex-wrap align-items-center justify-content-center gap-2 mt-2">
+      <span class="badge bg-light text-primary border px-3 py-2 rounded-pill fw-semibold fs-6 text-wrap">
+        <%= t('.conference_name', default: 'XIV Traditional Scientific Conference NEW ECONOMY 2026') %>
+      </span>
+      
+      <a href="https://www.youtube.com/watch?v=n8SxVkSLwiU" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="btn btn-sm btn-outline-danger rounded-pill px-3 py-2 fw-semibold d-inline-flex align-items-center gap-1 shadow-sm">
+        <i class="bi bi-youtube fs-6"></i>
+        <span><%= t('.watch_on_youtube', default: 'Watch Presentation') %></span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Bento Grid -->
+  <div class="bento-gallery">
+    <!-- Main Focus Item (2x2) -->
+    <div class="bento-item bento-2x2 shadow-lg" onclick="openLightbox(this)" data-caption="ICAS Conference Presentation — Keynote Delegates">
+      <%= image_tag "gallery/conference_main.jpg", alt: "ICAS Conference Presentation", loading: "lazy", class: "w-100 h-100 object-fit-cover" %>
+      <div class="bento-overlay">
+        <span class="badge bg-primary mb-1 align-self-start">Keynote</span>
+        <h6 class="m-0 text-white fw-bold">ICAS Conference Presentation</h6>
+      </div>
+    </div>
+
+    <!-- Regular Item (1x1) -->
+    <div class="bento-item shadow-sm" onclick="openLightbox(this)" data-caption="FindWay Architecture — Core System Presentation">
+      <%= image_tag "gallery/speaker_stage.jpg", alt: "FindWay Architecture", loading: "lazy", class: "w-100 h-100 object-fit-cover" %>
+      <div class="bento-overlay">
+        <span class="text-white small fw-bold">Presentations — FindWay Architecture</span>
+      </div>
+    </div>
+
+    <!-- Wide Item (2x1) -->
+    <div class="bento-item bento-2x1 shadow-sm" onclick="openLightbox(this)" data-caption="Q&A Session & Discussion — Risk Control Panel">
+      <%= image_tag "gallery/panel_discussion.jpg", alt: "Q&A Session & Discussion", loading: "lazy", class: "w-100 h-100 object-fit-cover" %>
+      <div class="bento-overlay">
+        <span class="text-white small fw-bold">Q&A Session & Discussion</span>
+      </div>
+    </div>
+
+    <!-- Regular Item (1x1) -->
+    <div class="bento-item shadow-sm" onclick="openLightbox(this)" data-caption="AI Moderation Engine Live Demo — Pipeline Overview">
+      <%= image_tag "gallery/tech_demo.jpg", alt: "AI Moderation Engine Live Demo", loading: "lazy", class: "w-100 h-100 object-fit-cover" %>
+      <div class="bento-overlay">
+        <span class="text-white small fw-bold">AI Moderation Engine Live Demo</span>
+      </div>
+    </div>
+
+    <!-- Tall Item (1x2) -->
+    <div class="bento-item bento-1x2 shadow-sm" onclick="openLightbox(this)" data-caption="Networking & Backstage — ICAS Institute">
+      <%= image_tag "gallery/networking.jpg", alt: "Networking & Backstage", loading: "lazy", class: "w-100 h-100 object-fit-cover" %>
+      <div class="bento-overlay">
+        <span class="text-white small fw-bold">Networking & Backstage</span>
+      </div>
+    </div>
+
+    <!-- Video Record Item (2x2) -->
+    <div class="bento-item bento-2x2 shadow-lg" 
+         data-video-url="https://www.youtube.com/embed/n8SxVkSLwiU" 
+         onclick="openVideoModal(this.dataset.videoUrl)">
+      <%= image_tag "gallery/speaker_stage_2.jpg", alt: "Watch Presentation", loading: "lazy", class: "w-100 h-100 object-fit-cover" %>
+      <div class="bento-overlay d-flex flex-column justify-content-between">
+        <span class="badge bg-danger align-self-start"><i class="bi bi-play-fill"></i> Video Record</span>
+        <div>
+          <h6 class="m-0 text-white fw-bold">Watch ICAS Keynote Presentation</h6>
+          <span class="text-white-50 small">YouTube • Live Record</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox Photo Modal -->
+<dialog id="galleryLightbox" class="p-0 border-0 rounded-4 shadow-lg overflow-hidden" onclick="if(event.target === this) closeLightbox();">
+  <div class="position-relative bg-dark p-3 d-flex flex-column align-items-center">
+    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3 z-3" onclick="closeLightbox()"></button>
+    <img id="lightboxImg" src="" alt="Full view" style="max-height: 80vh; max-width: 90vw; object-fit: contain; border-radius: 12px;">
+    <p id="lightboxCaption" class="text-white-50 mt-3 mb-0 small text-center px-3"></p>
+  </div>
+</dialog>
+
+<!-- Lightbox Video Modal -->
+<dialog id="videoLightbox" class="p-0 border-0 rounded-4 shadow-lg overflow-hidden" onclick="if(event.target === this) closeVideoModal();">
+  <div class="position-relative bg-dark p-3 d-flex flex-column align-items-center" style="width: 85vw; max-width: 860px;">
+    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3 z-3" onclick="closeVideoModal()"></button>
+    <div class="ratio ratio-16x9 w-100 rounded-3 overflow-hidden mt-4">
+      <iframe id="youtubeIframe" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</dialog>
+
+<style>
+  .bento-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-auto-rows: 220px;
+    grid-auto-flow: dense;
+    gap: 1.25rem;
+  }
+
+  .bento-item {
+    position: relative;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #111;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .bento-item img {
+    transition: transform 0.5s ease;
+  }
+
+  .bento-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(2, 125, 253, 0.25) !important;
+  }
+
+  .bento-item:hover img {
+    transform: scale(1.05);
+  }
+
+  .bento-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.85) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .bento-gallery {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .bento-2x2 { grid-column: span 2; grid-row: span 2; }
+    .bento-2x1 { grid-column: span 2; grid-row: span 1; }
+    .bento-1x2 { grid-column: span 1; grid-row: span 2; }
+  }
+
+  #galleryLightbox::backdrop,
+  #videoLightbox::backdrop {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+  }
+</style>
+
+<script>
+  window.openLightbox = function(element) {
+    const img = element.querySelector('img');
+    const caption = element.getAttribute('data-caption') || element.querySelector('.bento-overlay')?.innerText || '';
+    const dialog = document.getElementById('galleryLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    
+    if (dialog && img && lightboxImg && lightboxCaption) {
+      lightboxImg.src = img.src;
+      lightboxCaption.innerText = caption;
+      dialog.showModal();
+    }
+  };
+
+  window.closeLightbox = function() {
+    const dialog = document.getElementById('galleryLightbox');
+    if (dialog) dialog.close();
+  };
+
+  window.openVideoModal = function(videoUrl) {
+    const dialog = document.getElementById('videoLightbox');
+    const iframe = document.getElementById('youtubeIframe');
+    if (dialog && iframe && videoUrl) {
+      iframe.src = videoUrl + "?autoplay=1";
+      dialog.showModal();
+    }
+  };
+
+  window.closeVideoModal = function() {
+    const dialog = document.getElementById('videoLightbox');
+    const iframe = document.getElementById('youtubeIframe');
+    if (dialog && iframe) {
+      iframe.src = "";
+      dialog.close();
+    }
+  };
+</script>

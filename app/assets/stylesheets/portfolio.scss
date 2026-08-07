@@ -86,3 +86,57 @@ h1.display-4 {
 }
 /*____________________________________________________________________*/
 
+
+/* Модальное окно для FindWay Mobile */
+  #findWayMobileDialog::backdrop {
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+  }
+/*_____________________________________________________________________*/
+
+
+  /* Эффект при наведении на карточку ___________________________________*/
+  .project-card {
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
+  }
+  .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12) !important;
+  }
+
+  /* Дизайн тегов стека технологий */
+  /* Анимация и подъем карточки */
+  .project-card { 
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease; 
+  }
+  
+  .project-card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12) !important; 
+  }
+
+  /* Дизайн тегов стека технологий */
+  .tech-badge {
+    font-family: 'SFMono-Regular', Consolas, monospace;
+    font-size: 0.7rem; 
+    font-weight: 600; 
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 3px 8px; 
+    border-radius: 6px;
+    background: #f1f5f9; 
+    color: #475569; 
+    border: 1px solid #e2e8f0;
+    display: inline-block; 
+    margin-bottom: 4px; 
+    margin-right: 2px;
+  }
+
+  /* Акцент на раскрывающемся тексте */
+  details p {
+    border-left: 2px solid #e2e8f0;
+    padding-left: 1rem;
+    color: #64748b;
+    margin-top: 0.5rem;
+  }
+/*_____________________________________________________________________*/

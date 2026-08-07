@@ -1,0 +1,95 @@
+<div class="container my-5">
+  <!-- Header -->
+  <div class="mb-5 text-center text-md-start">
+    <h1 class="fw-bold text-dark display-6">Scientific Manuscripts</h1>
+    <p class="text-muted fs-6">Peer-reviewed publications, system architectures, and scientific manuscripts.</p>
+  </div>
+
+  <!-- Список рукописей -->
+  <div class="d-flex flex-column gap-4">
+
+   <!--   1  КАРТОЧКА: AI Content Moderation System -->
+<!-- КАРТОЧКА: AI Content Moderation System -->
+<div class="manuscript-card p-3 p-md-4 background-white mb-4">
+  <div class="row g-4 align-items-center">
+    
+    <!-- Слева: Изображение / Логотип ICAS / Economic Journal -->
+    <div class="col-12 col-md-3 col-lg-2 text-center">
+      <div class="journal-cover-wrapper">
+        <%= image_tag "journals/oikos.png", alt: "ICAS / Economic Journal", class: "journal-cover img-fluid" %>
+      </div>
+    </div>
+
+    <!-- Справа: Контент -->
+    <div class="col-12 col-md-9 col-lg-10">
+      
+     <!-- Мета-теги (Badges) -->
+<div class="d-flex flex-wrap gap-2 mb-2 align-items-center">
+  <span class="badge-journal">ECONOMICS – Innovative and Economic Research Journal </span>
+  <span class="badge-quartile">Scopus Q2</span>
+  <span class="badge-status status-published">Published</span>
+  <span class="badge-role">Sole Author</span>
+  <span class="badge-tech">JEL: C45, L86, O33</span>
+</div>
+
+      <!-- Название статьи -->
+      <h3 class="manuscript-title mb-2">
+        <a href="https://github.com/maks-nenashev/Moderator" target="_blank">
+          Design and Implementation of a Multi-Model AI-Based Content Moderation System in a Production Environment
+        </a>
+      </h3>
+
+      <!-- Выходные данные журнала и аффилиация -->
+      <div class="journal-meta mb-3">
+        <span class="fw-bold text-dark">Wyższa Szkoła Biznesu - National Louis University (WSB-NLU)</span>
+        <span class="text-muted">· Research Paper · 2026</span>
+      </div>
+
+      <!-- Краткое описание (Abstract) -->
+      <p class="manuscript-abstract text-secondary mb-3">
+        An empirical study on the production-grade deployment of a fault-tolerant, multi-model AI moderation system powering the FindWay platform. The architecture decouples user interactions from heavy analytical tasks via an asynchronous distributed queue pipeline. It integrates an ensemble of 8 specialized NLP models (v3. v3.1–v6. v6.1), an EfficientNet-B0 computer vision module, and ArcFace biometric embeddings. Governed by a Policy Layer with Weighted Confidence Thresholding, the system prioritizes risk control and false-positive minimization—achieving 94.5% Precision in text and 91.8% in vision under continuous sub-second latency.
+      </p>
+
+      <!-- Нижняя панель действий -->
+      <div class="d-flex flex-wrap gap-3 align-items-center pt-2 border-top border-light">
+        <a href="https://github.com/maks-nenashev/Moderator" target="_blank" class="btn-manuscript-action">
+          <i class="bi bi-github me-1"></i> NLP Moderator System
+        </a>
+        <a href="https://github.com/maks-nenashev/Moderator-CNN" target="_blank" class="btn-manuscript-action text-secondary">
+          <i class="bi bi-github me-1"></i> CNN Vision System
+        </a>
+        <a href="https://orcid.org/0009-0005-6517-7266" target="_blank" class="btn-manuscript-action text-muted ms-auto">
+          <i class="bi bi-patch-check-fill text-primary me-1"></i> Verified via ORCID
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+    <!-- / КАРТОЧКА -->
+
+  </div>
+</div>
+
+<style>
+.badge-tech {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    border: 1px solid #e9ecef;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.badge-journal {
+    background-color: #1a1e26;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.3px;
+}
+</style>

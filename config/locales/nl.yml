@@ -62,6 +62,8 @@ nl:
     home: Home
     articles: Artikelen
     portfolio: Mijn Projecten
+    manuscripts: Manuskripe
+    gallery: Galerij
     contacts: Contact
     admin: Beheerder
     edit_account: Account bewerken
@@ -122,6 +124,15 @@ nl:
 
         </div>
 
+      core_principles: "Kernprincipes en denkwijze"
+      manifesto: "Kracht is de bereidheid om te gaan waar anderen zelfs maar bang zijn om te kijken"
+      read_manifesto: "Lees de manifest"
+      quote_author: "Friedrich Nietzsche"
+      quote: 
+        "Juist daar, op die plaatsen waar de meesten zich afwenden, begint het echte pad naar jezelf.
+        Daar, waar het donker, angstig en ongewoon is. Waar geen applaus is, maar jij en jouw waarheid.
+        Kracht ligt niet in geschreeuw, niet in schijnbare zekerheid, maar in de stille instemming om naar binnen te gaan.
+        Tegen alles in. Zonder steun. Omdat je weet dat er geen andere weg is."
 
   articles:
     index:

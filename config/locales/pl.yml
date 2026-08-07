@@ -56,6 +56,8 @@ pl:
     home: Dom
     articles: Wszystkie Artykuły
     portfolio: Moje Projekty
+    manuscripts: Manuskrypty
+    gallery: Galeria
     contacts: Kontakt
     admin: Panel Admina
     edit_account: Edytuj konto
@@ -115,7 +117,15 @@ pl:
 
        </div>
 
-
+      core_principles: "Podstawowe zasady i sposób myślenia"
+      manifesto: "Siła to gotowość do podążania tam, gdzie inni boją się nawet spojrzeć"
+      read_manifesto: "Przeczytaj manifest"
+      quote_author: "Friedrich Nietzsche"
+      quote: 
+        "To właśnie tam, w miejscach, z których większość odwraca wzrok, zaczyna się prawdziwa droga do siebie.
+        Tam, gdzie jest ciemno, niepokojąco i nieprzyjemnie. Gdzie nie ma oklasków, ale jesteś ty i twoja prawda
+        Siła nie tkwi w krzyku, nie w pozornej pewności siebie, lecz w cichym przyzwoleniu na zagłębienie się.
+        Wbrew wszystkiemu. Bez wsparcia. Bo wiesz, że nie ma innej drogi."
   
   articles:
     index:

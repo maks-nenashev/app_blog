@@ -62,51 +62,67 @@
           <li><%= link_to t('menu.home'), root_path, class: 'nav-link px-3 text-dark fw-semibold' %></li>
           <li><%= link_to t('menu.articles'), articles_path, class: 'nav-link px-3 text-dark fw-semibold' %></li>
           <li><%= link_to t('menu.portfolio'), portfolio_path, class: 'nav-link px-3 text-dark fw-semibold' %></li>
-          <!--li><%= link_to t('menu.contacts'), new_contacts_path, class: 'nav-link px-3 text-primary fw-semibold' %></li-->
+          <li><%= link_to t('menu.manuscripts'), manuscripts_path, class: 'nav-link px-3 text-dark fw-semibold' %></li>
+          <li><%= link_to t('menu.gallery'), gallery_path, class: 'nav-link px-3 text-dark fw-semibold' %></li>
+           <!--li><%= link_to t('menu.contacts'), new_contacts_path, class: 'nav-link px-3 text-primary fw-semibold' %></li-->
         </ul>
         
-        <!-- Подключение языков -->
-   <div class="d-none d-lg-flex align-items-center gap-3"> 
-          <div class="dropdown">
-            <%= link_to '#', class: 'nav-link px-2 d-flex align-items-center', data: { "bs-toggle": 'dropdown' } do %>
-            <%= image_tag("flags/#{locale}.svg", alt: locale, width: 20, height: 15, class: "me-2") %>
-              <%= t(locale) %>
+<!-- Подключение языков и авторизация -->
+<div class="d-none d-lg-flex align-items-center gap-3"> 
+  
+  <!-- Выпадающий список языков (Pill Style) -->
+  <div class="dropdown">
+    <%= link_to '#', class: 'btn-header-pill dropdown-toggle', data: { "bs-toggle": 'dropdown' } do %>
+      <%= image_tag("flags/#{locale}.svg", alt: locale, width: 18, height: 13, class: "me-2 rounded-1") %>
+      <span><%= locale.to_s.upcase %></span>
+    <% end %>
+    <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3 mt-2 py-2">
+      <% I18n.available_locales.each do |loc| %>
+        <li>
+          <% if I18n.locale == loc %>
+            <span class="dropdown-item active fw-semibold d-flex align-items-center gap-2">
+              <%= image_tag("flags/#{loc}.svg", alt: loc, width: 18, height: 13, class: "rounded-1") %>
+              <%= t(loc) %>
+            </span>
+          <% else %>
+            <%= link_to url_for(locale: loc), class: 'dropdown-item d-flex align-items-center gap-2', data: { turbo: false } do %>
+              <%= image_tag("flags/#{loc}.svg", alt: loc, width: 18, height: 13, class: "rounded-1") %>
+              <%= t(loc) %>
             <% end %>
-    <ul class="dropdown-menu dropdown-menu-dark">
-            <% I18n.available_locales.each do |locale| %>
-      <li>
-            <% if I18n.locale == locale %>
-             <span class="dropdown-item d-flex align-items-center">
-                 <%= image_tag("flags/#{locale}.svg", alt: locale, width: 20, height: 15, class: "me-2") %>
-                <%= t(locale) %>
-             </span>
-            <% else %>
-                <%= link_to url_for(locale: locale), class: 'dropdown-item d-flex align-items-center', data: { turbo: false } do %>
-                <%= image_tag("flags/#{locale}.svg", alt: locale, width: 20, height: 15, class: "me-2") %>
-                <%= t(locale) %>
-             <% end %>
-           <% end %>
-      </li>
-     <% end %>
+          <% end %>
+        </li>
+      <% end %>
     </ul>
   </div>
 
-          <!-- Профиль пользователя -->
-          <% if user_signed_in? %>
-            <%= image_tag current_user.avatar_tumbnail, class: "avatar rounded-circle shadow-sm", size: "35x35" %>
-            <strong><%= current_user.username %></strong>
-           <%= link_to edit_user_registration_path,
-            class: "btn btn-dark btn-sm shadow d-flex align-items-center px-3 py-1",
-            style: "font-size:0.97rem; line-height:1.0; min-height:31px;" do %>
-            <i class="bi bi-person-gear fs-5"></i>
-           <%= t('menu.edit_account') %>
-           <% end %>
+  <div class="vr h-50 my-auto text-muted opacity-25"></div>
 
-            <%= link_to t('menu.sign_out'), destroy_user_session_path(locale: I18n.locale), method: :delete, class: "btn btn-outline-primary btn-sm bi bi-door-closed-fill" %>
-          <% else %>
-            <%= link_to t('menu.sign_in'), new_user_session_path(locale: I18n.locale), class: "btn btn-outline-primary btn-sm bi bi-door-open-fill" %>
-          <% end %>
-        </div>
+  <!-- Статус пользователя / Авторизация -->
+  <% if user_signed_in? %>
+    <!-- Компактный виджет профиля -->
+    <div class="user-profile-badge d-flex align-items-center gap-2 bg-light p-1 pe-2 rounded-pill border">
+      <%= image_tag current_user.avatar_tumbnail, class: "avatar rounded-circle border border-white shadow-sm", size: "32x32" %>
+      <span class="fw-bold text-dark fs-6 px-1"><%= current_user.username %></span>
+      
+      <!-- Настройки -->
+      <%= link_to edit_user_registration_path, class: "btn-icon-soft", title: t('menu.edit_account') do %>
+        <i class="bi bi-gear-fill"></i>
+      <% end %>
+
+      <!-- Выход -->
+      <%= link_to destroy_user_session_path(locale: I18n.locale), data: { turbo_method: :delete }, class: "btn-auth-logout", title: t('menu.sign_out') do %>
+        <i class="bi bi-box-arrow-right"></i>
+      <% end %>
+    </div>
+  <% else %>
+    <!-- Градиентная кнопка входа -->
+    <%= link_to new_user_session_path(locale: I18n.locale), class: "btn-auth-login" do %>
+      <i class="bi bi-box-arrow-in-right me-2"></i>
+      <span><%= t('menu.sign_in') %></span>
+    <% end %>
+  <% end %>
+
+</div>
       </div>
     </nav>
   </div>
@@ -135,7 +151,7 @@
            <% end %>
       </div>
       <br>
-      <%= link_to t('menu.sign_out'), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary btn-sm bi bi-door-closed-fill mt-2" %>
+    <%= link_to t('menu.sign_out'), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary btn-sm bi bi-door-closed-fill mt-2" %>
     <% else %>
       <%= link_to t('menu.sign_in'), new_user_session_path, class: "btn btn-outline-primary btn-sm bi bi-door-closed-fill" %>
     <% end %>
@@ -177,6 +193,28 @@
         <span><%= t('menu.portfolio') %></span>
       <% end %>
     </li>
+
+<!-- Manuscript -->
+<li class="nav-item mb-3">
+  <%= link_to manuscripts_path,
+      class: 'nav-link px-4 py-3 rounded-4 shadow-sm fw-semibold fs-5
+              d-flex align-items-center gap-3 bg-light text-dark
+              hover-shadow transition' do %>
+   <i class="bi bi-journal-richtext fs-4 text-primary"></i> 
+    <span><%= t('menu.manuscripts') %></span>
+  <% end %>
+</li>
+ 
+ <!-- Gallery -->
+<li class="nav-item mb-3">
+  <%= link_to gallery_path,
+      class: 'nav-link px-4 py-3 rounded-4 shadow-sm fw-semibold fs-5
+              d-flex align-items-center gap-3 bg-light text-dark
+              hover-shadow transition' do %>
+     <i class="bi bi-images fs-4 text-primary"></i>
+    <span><%= t('menu.gallery') %></span>
+  <% end %>
+</li>
           <!-- Contacts link -->
           <!--li class="nav-item">
             <%= link_to t('menu.contacts'), new_contacts_path, class: 'nav-link px-3 text-dark bi bi-tencent-qq' %>
@@ -237,3 +275,5 @@
 </body>
 
 </html>
+
+

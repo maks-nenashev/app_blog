@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'gallery/index'
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do #Podkluchenie Perewoda
 #///////////////////////////////////////////////////////////////////////////
    # Awtoruzacija
@@ -28,7 +29,9 @@ devise_for :users
   end
     
   get "portfolio", to: "portfolio#index"
-    
+  get 'gallery', to: 'gallery#index'
+
+  resources :manuscripts, only: [:index]
     #get 'contacts' => 'contacts#new' only:[:create]
     resource :contacts, only: [:new,:create,:show], path_names: { :new => '' }
                                               #Etot code dla 'contacts' => 'contacts#new'

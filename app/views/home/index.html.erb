@@ -1,56 +1,305 @@
-<% provide :page_title, 'Home' %> <!Podpis w ikonke "Kakaja stranica">
+<% provide :page_title, 'Home' %>
 
- <!-- Header with title -->
+<!-- Header with title -->
 <h1 class="text-center animate__animated animate__fadeInDown display-4 fw-bold my-5" style="font-family: 'Aboreto', cursive; color: #333;">
   <%= t('.main_slogan', default: 'Where ideas come to life') %>
 </h1>
-<!--div class="divider"><!h1><%= t('home.index.title').html_safe %><!/h1><!/div-->
 
 <div class="container py-5">
   <div class="row justify-content-center align-items-center g-5">
     
-     <!--Photo and ramka-->
-     <div class="col-md-4 text-center">
-          <%= image_tag "mn.jpg",
+    <!-- Photo Section -->
+    <div class="col-md-4 text-center">
+      <%= image_tag "mn.jpg",
           id: "myImg",
           alt: "Maksym Nenashev",
           class: "img-fluid rounded shadow-lg",
           style: "max-width:350px; border: 4px solid rgba(255,255,255,0.8); box-shadow: 0 6px 24px rgba(0,0,0,0.16);" %>
-     </div>
+    </div>
 
-
-    <!-- Текст -->
+    <!-- Text & Links Section -->
     <div class="col-md-7">
-      <h2 class="fw-bold mb-3"></h2>
       <p class="lead" style="text-align: justify;">
         <%= t('home.index.little_about_me').html_safe %>
       </p>
       
-      <!-- Кнопки -->
-<div class="d-flex flex-column flex-md-row gap-3 mt-4 align-items-center align-items-md-start text-center text-md-start">
-  <a href="https://github.com/maks-nenashev" target="_blank" class="btn btn-dark shadow-sm">
-    <i class="bi bi-github"></i> GitHub
-  </a>
-  <a href="https://www.linkedin.com/in/maksym-nenashev-0627ab220/" target="_blank" class="btn btn-primary shadow-sm">
-    <i class="bi bi-linkedin"></i> LinkedIn
-  </a>
-  <span class="fw-bold fs-5" style="font-family: monospace;">
-    <i class="bi bi-envelope-fill text-success me-2"></i>
-    maksym@nenashev.net
-  </span>
-</div>
+      <!-- Modern Social & Contact Links Container -->
+      <div class="d-flex flex-wrap gap-4 mt-4 align-items-center justify-content-center justify-content-md-start">
+        
+        <!-- GitHub Block -->
+        <div class="d-flex flex-column align-items-center gap-2">
+          <a href="https://github.com/maks-nenashev" target="_blank" class="btn-modern-square">
+            <i class="bi bi-github"></i>
+          </a>
+          <span class="btn-modern-label">GitHub</span>
+        </div>
+        
+        <!-- LinkedIn Block -->
+        <div class="d-flex flex-column align-items-center gap-2">
+          <a href="https://www.linkedin.com/in/maksym-nenashev-0627ab220/" target="_blank" class="btn-modern-square">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <span class="btn-modern-label">LinkedIn</span>
+        </div>
+        
+        <!-- Google Scholar Block -->
+        <div class="d-flex flex-column align-items-center gap-2">
+          <a href="#" target="_blank" class="btn-modern-square">
+            <i class="bi bi-mortarboard-fill"></i>
+          </a>
+          <span class="btn-modern-label">Scholar</span>
+        </div>
+        
+        <!-- ORCID ID Block -->
+        <div class="d-flex flex-column align-items-center gap-2">
+          <a href="https://orcid.org/0009-0005-6517-7266" target="_blank" class="btn-modern-square">
+            <i class="bi bi-patch-check-fill"></i>
+          </a>
+          <span class="btn-modern-label">ORCID ID</span>
+        </div>
 
+        <!-- Email Block -->
+        <div class="d-flex flex-column align-items-start align-self-start">
+          <a href="mailto:maksym@nenashev.net" class="btn-modern-email">
+            <i class="bi bi-envelope-fill text-success"></i>
+            <span>maksym@nenashev.net</span>
+          </a>
+          <span class="btn-modern-label opacity-0">&nbsp;</span>
+        </div>
 
-       <!--button type="button" class="btn btn-primary bi bi-github" onClick='location.href="https://github.com/maks-nenashev"'></button-->
       </div>
     </div>
 
   </div>
 </div>
 
-<!-- The Modal -->
+<!-- Блок-триггер манифеста с декоративным фоном -->
+<section class="my-5">
+  <div class="card border-0 rounded-4 shadow-sm bg-dark text-white p-4 p-md-5 text-center position-relative overflow-hidden mindset-card">
+
+    <!-- Фоновые полупрозрачные водяные знаки -->
+    <i class="bi bi-quote mindset-bg-icon left-icon"></i>
+    <i class="bi bi-quote mindset-bg-icon right-icon"></i>
+
+    <div class="position-relative z-1 max-w-700 mx-auto">
+      <span class="badge bg-outline-light border border-secondary text-light px-3 py-2 rounded-pill mb-3 text-uppercase tracking-wider small">
+        <%= t('.core_principles') %>
+      </span>
+      <blockquote class="blockquote fs-4 fw-light fst-italic mb-4 text-white-50">
+        <p class="m-0">
+          <%= t('home.index.manifesto', default: 'Strength is the willingness to go where others fear to even look') %>
+        </p>
+      </blockquote>
+
+      <!-- Кнопка вызова модального окна -->
+      <button type="button" 
+              class="btn btn-outline-light rounded-pill px-4 py-2 fw-semibold d-inline-flex align-items-center gap-2 position-relative z-2"
+              onclick="document.getElementById('customQuotesDialog').showModal()">
+        <i class="bi bi-quote fs-5"></i>
+        <span><%= t('.read_manifesto') %></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Изолированное модальное окно (Native HTML5 <dialog>) -->
+<dialog id="customQuotesDialog" 
+        onclick="if(event.target === this) this.close()"
+        class="quotes-dialog-box border-0 rounded-4 shadow-lg p-0 bg-dark text-white">
+  <div class="position-relative p-4 p-md-5">
+    
+    <!-- Нативный крестик закрытия -->
+    <button type="button" 
+            class="quotes-dialog-close-btn" 
+            onclick="document.getElementById('customQuotesDialog').close()" 
+            aria-label="Close">&times;</button>
+
+    <div class="text-center mb-4">
+      <!--span class="text-secondary text-uppercase small tracking-widest fw-bold"><%= t('home.index.quote_author') %></span-->
+      <h3 class="fw-bold mt-1 text-white"><%= t('home.index.quote_author') %></h3>
+      <hr class="border-secondary my-3 opacity-25">
+    </div>
+
+    <div class="mb-4">
+      <p class="fs-5 text-white-50 lh-lg fst-italic text-center m-0">
+        <%= t('home.index.manifesto', default: 'Strength is the willingness to go where others fear to even look') %>
+      </p>
+    </div>
+
+    <div class="bg-black bg-opacity-50 p-4 rounded-3 border border-secondary border-opacity-25">
+      <p class="lh-lg text-white-50 m-0" style="font-size: 1.05rem;">
+        <%= t('home.index.quote') %>
+      </p>
+    </div>
+
+    <div class="text-end mt-4">
+      <small class="text-muted fst-italic">— XIX век</small>
+    </div>
+
+  </div>
+</dialog>
+
+<!-- Image Lightbox Modal Structure -->
 <div id="myModal" class="modal">
   <span class="close">&times;</span>
   <img class="modal-content" id="img01">
   <div id="caption"></div>
 </div>
+
+<style>
+  /* ==========================================================================
+     SECTION 1: Social & Contact Links (Кнопки соцсетей и Email)
+     ========================================================================== */
+
+  /* Квадратные иконки соцсетей (GitHub, LinkedIn, Scholar, ORCID) */
+  .btn-modern-square {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      background-color: #ffffff;
+      color: #1a1e26;
+      border-radius: 18px;
+      font-size: 1.5rem;
+      text-decoration: none;
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .btn-modern-square:hover {
+      color: #000000;
+      transform: translateY(-4px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.09);
+      background-color: #ffffff;
+  }
+
+  /* Прямоугольная кнопка Email */
+  .btn-modern-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      height: 56px;
+      padding: 0 20px;
+      background-color: #ffffff;
+      color: #1a1e26;
+      border-radius: 18px;
+      font-family: monospace;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .btn-modern-email i {
+      font-size: 1.2rem;
+  }
+
+  .btn-modern-email:hover {
+      color: #000000;
+      transform: translateY(-4px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.09);
+      background-color: #ffffff;
+  }
+
+  /* Подписи под кнопками соцсетей */
+  .btn-modern-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #6c757d;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.2s ease;
+  }
+
+  .d-flex:hover .btn-modern-label {
+      color: #212529;
+  }
+
+  /* ==========================================================================
+     SECTION 2: Layout & Typography Utilities (Утилиты верстки и шрифтов)
+     ========================================================================== */
+
+  .tracking-wider { letter-spacing: 0.08em; }
+  .tracking-widest { letter-spacing: 0.15em; }
+  .max-w-700 { max-width: 700px; }
+
+  /* ==========================================================================
+     SECTION 3: Native Quotes Dialog (Модальное окно цитат и манифеста)
+     ========================================================================== */
+
+  /* Контейнер окна и точное центрирование по экрану */
+  dialog#customQuotesDialog {
+    max-width: 650px;
+    width: 90vw;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+  }
+
+  /* Размытие и затемнение подложки (backdrop) */
+  dialog#customQuotesDialog::backdrop {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+  }
+
+  /* Кнопка закрытия (Крестик) */
+  .quotes-dialog-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 2.2rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 100;
+  }
+
+  .quotes-dialog-close-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  /* ==========================================================================
+     SECTION 4: Mindset Ambient Card Styles
+     ========================================================================== */
+
+  /* Карточка с радиальным свечением от центра к краям */
+  .mindset-card {
+    background: radial-gradient(circle at center, #1a1e24 0%, #0d0f12 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  /* Фоновые иконки-кавычки */
+  .mindset-bg-icon {
+    position: absolute;
+    font-size: 14rem;
+    line-height: 1;
+    color: #ffffff;
+    opacity: 0.035;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+
+  .mindset-bg-icon.left-icon {
+    top: -40px;
+    left: -20px;
+    transform: rotate(-12deg);
+  }
+
+  .mindset-bg-icon.right-icon {
+    bottom: -60px;
+    right: -20px;
+    transform: rotate(168deg);
+  }
+</style>
