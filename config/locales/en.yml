@@ -62,6 +62,8 @@ en:
      home: Home
      articles: Articles
      portfolio: My Projects
+     manuscripts: Manuscripts
+     gallery: Gallery
      contacts: Contact
      admin: Admin Panel
      edit_account: Edit Account
@@ -117,8 +119,17 @@ en:
         </p>
 
         </div>
-
-               
+      
+      core_principles: "Core Principles & Mindset"
+      manifesto: "Strength is the willingness to go where others fear to even look"
+      read_manifesto: "Read the manifesto"
+      quote_author: "Friedrich Nietzsche"
+      quote: 
+        "It is there, in those places where most turn away, that the true path to oneself begins. 
+        To where it is dark, uneasy, and unfamiliar. Where there are no applause, but there is you and your truth. 
+        Strength is not in the shout, not in the showy confidence, but in the silent consent to go deep. 
+        Against all odds. Without support. Because you know — there is no other way."
+  
   articles:
     index:
       title: 'List Articles!'
@@ -258,3 +269,6 @@ en:
         ArcFace models based on embeddings (vector representations of images) are used for facial recognition tasks. This enables high-accuracy face matching, accounting for differences in camera angles, lighting, and image quality.
 
         The module is integrated into the moderation system and search infrastructure, ensuring content safety and supporting intelligent image analysis.
+      title_7: "Enterprise document inspection and invoice risk engine."
+      read_7: "Architecture Details"
+      text_7: "Data Sentinel is a high-reliability forensic engine designed to detect invoice tampering and legal non-compliance. The system combines deep byte-level PDF vector slicing, Error Level Analysis (ELA) for graphic manipulation detection, and automated validation against government registries (Biała Lista MF, IBAN Modulo 97). Built around a zero-retention data policy, it evaluates document stream risks in real-time via native Policy Rules without persistent binary storage."
