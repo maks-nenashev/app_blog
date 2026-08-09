@@ -16,15 +16,19 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
+  
   def set_locale
-    I18n.locale =
-      params[:locale] ||
-      session[:locale] ||
-      extract_locale_from_accept_language_header ||
-      I18n.default_locale
-    session[:locale] = I18n.locale
+     I18n.locale = :en
   end
+  # stop using local
+  # def set_locale  
+  #   I18n.locale =
+  #     params[:locale] ||
+  #     session[:locale] ||
+  #     extract_locale_from_accept_language_header ||
+  #     I18n.default_locale
+  #   session[:locale] = I18n.locale
+  # end
 
   def extract_locale_from_accept_language_header
     http_langs = request.env['HTTP_ACCEPT_LANGUAGE']
