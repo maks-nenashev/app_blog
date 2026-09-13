@@ -1,44 +1,36 @@
 Rails.application.routes.draw do
-  get 'gallery/index'
-  scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do #Podkluchenie Perewoda
-#///////////////////////////////////////////////////////////////////////////
-   # Awtoruzacija
-devise_for :users
+  OLD_LOCALES = /pl|ru|uk|en|nl/
+
+  # 301-редиректы со старых локалей на английские эквиваленты
+  get '/:locale/*path', to: redirect('/%{path}'), constraints: { locale: OLD_LOCALES }
+  get '/:locale', to: redirect('/'), constraints: { locale: OLD_LOCALES }
+
+  # Авторизация
+  devise_for :users
   
   devise_scope :user do  
     get '/users/sign_out' => 'devise/sessions#destroy'     
- end
- #/////////////////////////////////////////////////////////////////////////// 
- root to: "home#index"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  #root :to => 'somecontroller#index'
-  get '/' =>'home#index'   # Eto nuzno wsegda! 
-  
-  namespace :admin do #Импорт/экспорт Excel, архивы ZIP
-      resources :users, only: %i[index edit create update destroy]
   end
-  
-  resources :articles do  #вложенный маршрут:
-    resources :tweets, only: %i[create destroy edit update] #
+
+  root to: "home#index"
+  get '/' => 'home#index'
+
+  namespace :admin do
+    resources :users, only: %i[index edit create update destroy]
+  end
+
+  resources :articles do
+    resources :tweets, only: %i[create destroy edit update]
     resources :comments, only: [:new, :create, :edit, :update, :destroy, :show]
-    #resources :tweets, only: %i[create destroy edit update] # 
-  end #4 
- 
-  resources :comments, except: %i[new] do  #вложенный маршрут:
-      resources :tweets, only: %i[create destroy edit update] 
   end
-    
+
+  resources :comments, except: %i[new] do
+    resources :tweets, only: %i[create destroy edit update] 
+  end
+
   get "portfolio", to: "portfolio#index"
   get 'gallery', to: 'gallery#index'
 
   resources :manuscripts, only: [:index]
-    #get 'contacts' => 'contacts#new' only:[:create]
-    resource :contacts, only: [:new,:create,:show], path_names: { :new => '' }
-                                              #Etot code dla 'contacts' => 'contacts#new'
-                                            # Chtoby "contacts#new" otkrywalsa w "contacts"
-
- # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-   end
- # Defines the root path route ("/")
- # root "articles#index
+  resource :contacts, only: [:new, :create, :show], path_names: { new: '' }
 end

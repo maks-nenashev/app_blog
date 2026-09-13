@@ -25,13 +25,20 @@
     <% if @comment.images.attached? %>
       <div class="d-flex flex-column flex-md-row justify-content-center align-items-center align-items-md-start gap-3 mb-4">
         
-        <!-- Главное фото с плавающим фокусом -->
+        <!-- Главное фото с зумом по клику -->
         <div class="main-image-wrapper shadow-sm rounded-4 overflow-hidden bg-light w-100 border border-light-subtle position-relative" style="max-width: 640px;">
           <%= image_tag url_for(@comment.images.first.variant(resize_to_limit: [720, 400])),
                         id: "main-comment-image-#{@comment.id}",
-                        class: "img-fluid w-100 object-fit-cover transition-all",
+                        class: "img-fluid w-100 object-fit-cover transition-all cursor-pointer hover-zoom",
                         style: "max-height: 420px; min-height: 250px;",
-                        alt: "Main comment image" %>
+                        alt: "Main comment image",
+                        data: { full_url: url_for(@comment.images.first) },
+                        onclick: "openCommentLightbox(this.dataset.fullUrl)" %>
+          
+          <!-- Бейдж-подсказка увеличения -->
+          <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 end-0 m-3 px-3 py-2 rounded-pill text-white pointer-events-none">
+            <i class="bi bi-zoom-in me-1"></i> <%= t('.click_to_zoom', default: 'Increase') %>
+          </span>
         </div>
 
         <!-- Адаптивные миниатюры -->
@@ -44,6 +51,7 @@
                             alt: "Thumbnail #{i + 1}",
                             data: {
                               large: url_for(img.variant(resize_to_limit: [720, 400])),
+                              full_url: url_for(img),
                               main: "main-comment-image-#{@comment.id}"
                             } %>
             <% end %>
@@ -58,7 +66,7 @@
       <%= simple_format(@comment.body) %>
     </div>
 
-    <!-- Панель действий: Кастомные Soft-кнопки вместо дефолтных outline -->
+    <!-- Панель действий -->
     <div class="pt-3 border-top border-light-subtle d-flex flex-wrap align-items-center justify-content-between gap-2">
       <div class="d-flex gap-2">
         <% if policy(@comment).edit? %>
@@ -89,8 +97,31 @@
   </div>
 </div>
 
-<!-- Изолированные CSS-стили для компонента -->
+<!-- Lightbox Modal (Модальное окно полноразмерного фото) -->
+<dialog id="commentImageLightbox" class="p-0 border-0 rounded-4 shadow-lg overflow-hidden" onclick="if(event.target === this) closeCommentLightbox();">
+  <div class="position-relative bg-dark p-3 d-flex flex-column align-items-center">
+    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3 z-3" onclick="closeCommentLightbox()"></button>
+    <img id="commentLightboxImg" src="" alt="Full view" style="max-height: 85vh; max-width: 90vw; object-fit: contain; border-radius: 12px;">
+  </div>
+</dialog>
+
+<!-- Изолированные CSS-стили -->
 <style>
+  .cursor-pointer { cursor: pointer; }
+  .pointer-events-none { pointer-events: none; }
+
+  .hover-zoom {
+    transition: transform 0.3s ease;
+  }
+  .hover-zoom:hover {
+    transform: scale(1.02);
+  }
+
+  #commentImageLightbox::backdrop {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+  }
+
   .btn-soft-primary {
     background-color: rgba(13, 110, 253, 0.08);
     color: #0d6efd;
@@ -144,9 +175,11 @@
   }
 </style>
 
+<!-- Скрипт галереи и Lightbox -->
 <script>
   if (!window.commentGalleryInitialized) {
     window.commentGalleryInitialized = true;
+    
     document.addEventListener("click", function(event) {
       const thumb = event.target.closest('.preview-thumb');
       if (!thumb) return;
@@ -156,6 +189,7 @@
         mainImg.style.opacity = '0.4';
         setTimeout(() => {
           mainImg.src = thumb.dataset.large;
+          mainImg.dataset.fullUrl = thumb.dataset.fullUrl;
           mainImg.style.opacity = '1';
         }, 120);
       }
@@ -171,4 +205,18 @@
       }
     });
   }
+
+  window.openCommentLightbox = function(url) {
+    const dialog = document.getElementById('commentImageLightbox');
+    const lightboxImg = document.getElementById('commentLightboxImg');
+    if (dialog && lightboxImg && url) {
+      lightboxImg.src = url;
+      dialog.showModal();
+    }
+  };
+
+  window.closeCommentLightbox = function() {
+    const dialog = document.getElementById('commentImageLightbox');
+    if (dialog) dialog.close();
+  };
 </script>

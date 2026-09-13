@@ -44,3 +44,7 @@
 /config/credentials/production.key
 
 /config/credentials/environment.key
+.ruby-gemset
+.yarn/
+*.swp
+*.swo
