@@ -1,35 +1,71 @@
-<%= form_with model: [@article, @comment], html: { class: 'card shadow-lg p-4 rounded-4 bg-light' } do |f| %>
-  <!-- Поле для заголовка -->
-  <div class="mb-4 row">
-    <div class="col-sm-3 col-form-label">
-      <%= f.label :title, 'Заголовок', class: 'form-label fw-bold text-primary' %>
-    </div>
-    <div class="col-sm-9">
-      <%= f.text_field :title, placeholder: "Введите заголовок", class: "form-control shadow-lg rounded-3", required: true, minlength: 2 %>
-    </div>
+<%= form_with model: [@article, @comment], html: { class: 'card border-0 shadow-sm rounded-4 p-4 p-md-5 bg-white mb-4' } do |f| %>
+  <!-- Заголовок формы с сохранением ключа i18n -->
+  <div class="d-flex align-items-center gap-2 mb-4 pb-3 border-bottom">
+    <i class="bi bi-chat-square-quote-fill text-primary fs-4"></i>
+    <h4 class="fw-bold m-0 text-dark"><%= t('.form_title', default: 'Create New Topic') %></h4>
   </div>
 
-  <!-- Поле для текста -->
-  <div class="mb-4 row">
-    <div class="col-sm-3 col-form-label">
-      <%= f.label :body, 'Комментарий', class: 'form-label fw-bold text-primary' %>
-    </div>
-    <div class="col-sm-9">
-      <%= f.text_area :body, placeholder: "Введите текст", class: 'form-control shadow-lg rounded-3', required: true, minlength: 2 %>
-    </div>
+  <!-- Поле заголовка -->
+  <div class="mb-4">
+    <%= f.label :title, t('.title_label', default: 'Topic Title'), class: 'form-label fw-semibold text-dark small ms-1' %>
+    <%= f.text_field :title, 
+                     placeholder: t('.title_placeholder', default: 'What is this topic about?'), 
+                     class: "form-control form-control-lg rounded-3 border-light-subtle shadow-none fs-6", 
+                     required: true, 
+                     minlength: 2 %>
   </div>
 
-  <!-- Поле для загрузки изображения -->
-  <!-- Загрузка изображения -->
-          <div class="mb-3">
-           <label class="btn btn-dark">
-            Upload image
-             <%= f.file_field :images, multiple: true, accept: "image/*", style: "display: none;" %>
-            </label>
-          </div>
+  <!-- Поле сообщения -->
+  <div class="mb-4">
+    <%= f.label :body, t('.body_label', default: 'Discussion Message'), class: 'form-label fw-semibold text-dark small ms-1' %>
+    <%= f.text_area :body, 
+                    placeholder: t('.body_placeholder', default: 'Write your thoughts, details, or questions...'), 
+                    rows: 5, 
+                    class: 'form-control rounded-3 border-light-subtle shadow-none fs-6', 
+                    required: true, 
+                    minlength: 2 %>
+  </div>
 
-  <!-- Кнопка отправки -->
-  <div class="d-flex justify-content-end">
-    <%= f.submit t('.submit_button'), class: 'btn btn-success btn-lg fw-bold shadow-lg' %>
+  <!-- Нижняя панель: Загрузка файлов + Отправка -->
+  <div class="d-flex flex-column flex-sm-row align-items-stretch align-items-sm-center justify-content-between gap-3 pt-2">
+    <!-- Кнопка загрузки изображений -->
+    <div>
+      <label class="btn btn-outline-secondary rounded-pill px-3 py-2 d-inline-flex align-items-center gap-2 fw-medium fs-7 cursor-pointer hover-shadow">
+        <i class="bi bi-images text-primary fs-6"></i>
+        <span id="file-upload-label"><%= t('.upload_image', default: 'Attach Images') %></span>
+        <%= f.file_field :images, 
+                         multiple: true, 
+                         accept: "image/*", 
+                         class: "d-none", 
+                         onchange: "updateFileLabel(this)" %>
+      </label>
+    </div>
+
+    <!-- Кнопка отправки -->
+    <div>
+      <%= f.submit t('.submit_button', default: 'Post Topic'), class: 'btn btn-primary rounded-pill px-4 py-2 fw-semibold shadow-sm w-100 w-sm-auto' %>
+    </div>
   </div>
 <% end %>
+
+<style>
+  .cursor-pointer { cursor: pointer; }
+  .hover-shadow:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+</style>
+
+<script>
+  function updateFileLabel(input) {
+    const label = document.getElementById('file-upload-label');
+    const defaultText = "<%= j t('.upload_image', default: 'Attach Images') %>";
+    
+    if (input.files && input.files.length > 0) {
+      label.textContent = input.files.length === 1 
+        ? input.files[0].name 
+        : `${input.files.length} images selected`;
+    } else {
+      label.textContent = defaultText;
+    }
+  }
+</script>

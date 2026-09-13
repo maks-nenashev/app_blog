@@ -8,13 +8,22 @@
     <!-- Главный медиа-блок -->
     <div class="d-flex flex-column flex-md-row justify-content-center align-items-start gap-3 mb-3">
       <!-- Основное изображение / Аватар -->
-      <div class="w-100 shadow-sm rounded-4 bg-white p-2 border overflow-hidden" style="max-width: 680px;">
+      <div class="w-100 shadow-sm rounded-4 bg-white p-2 border overflow-hidden position-relative" style="max-width: 680px;">
         <% if @article.images.attached? %>
-          <img id="main-image"
-               src="<%= url_for(@article.images.first.variant(resize_to_limit: [720, 400])) %>"
-               class="img-fluid rounded-3 w-100 object-fit-cover"
-               style="max-height: 420px;"
-               alt="<%= @article.title %>">
+          <div class="position-relative overflow-hidden rounded-3 group-zoom">
+            <img id="main-image"
+                 src="<%= url_for(@article.images.first.variant(resize_to_limit: [720, 400])) %>"
+                 data-full-url="<%= url_for(@article.images.first) %>"
+                 class="img-fluid rounded-3 w-100 object-fit-cover cursor-pointer"
+                 style="max-height: 420px; transition: transform 0.3s ease;"
+                 alt="<%= @article.title %>"
+                 onclick="openArticleLightbox(this.dataset.fullUrl)">
+            
+            <!-- Бейдж-подсказка при наведении -->
+            <span class="badge bg-dark bg-opacity-75 position-absolute bottom-0 end-0 m-3 px-3 py-2 rounded-pill text-white pointer-events-none">
+              <i class="bi bi-zoom-in me-1"></i> <%= t('.click_to_zoom', default: 'Increase') %>
+            </span>
+          </div>
         <% else %>
           <div class="text-center py-4">
             <%= image_tag @article.user.avatar_tumbnail,
@@ -28,12 +37,14 @@
         <% if @article.images.size > 1 %>
           <div class="d-flex flex-row gap-2 mt-2 d-md-none justify-content-center overflow-auto py-1">
             <% @article.images.each_with_index do |img, i| %>
-              <% next if i == 0 %>
               <%= image_tag img.variant(resize_to_limit: [90, 90]),
-                class: "img-thumbnail rounded-3 border preview-image",
+                class: "img-thumbnail rounded-3 border preview-image #{'border-primary border-2' if i == 0}",
                 style: "width:75px; height:75px; object-fit:cover; cursor:pointer;",
                 alt: "Mini image #{i+1}",
-                data: { large: url_for(img.variant(resize_to_limit: [720, 400])) } %>
+                data: { 
+                  large: url_for(img.variant(resize_to_limit: [720, 400])),
+                  full_url: url_for(img)
+                } %>
             <% end %>
           </div>
         <% end %>
@@ -43,12 +54,14 @@
       <% if @article.images.size > 1 %>
         <div class="d-none d-md-flex flex-column gap-2">
           <% @article.images.each_with_index do |img, i| %>
-            <% next if i == 0 %>
             <%= image_tag img.variant(resize_to_limit: [90, 90]),
-              class: "img-thumbnail rounded-3 border preview-image shadow-sm",
+              class: "img-thumbnail rounded-3 border preview-image shadow-sm #{'border-primary border-2' if i == 0}",
               style: "width:80px; height:80px; object-fit:cover; cursor:pointer;",
               alt: "Mini image #{i+1}",
-              data: { large: url_for(img.variant(resize_to_limit: [720, 400])) } %>
+              data: { 
+                large: url_for(img.variant(resize_to_limit: [720, 400])),
+                full_url: url_for(img)
+              } %>
           <% end %>
         </div>
       <% end %>
@@ -172,9 +185,29 @@
   </section>
 </div>
 
+<!-- Lightbox Modal (Увеличение полноразмерного фото) -->
+<dialog id="articleImageLightbox" class="p-0 border-0 rounded-4 shadow-lg overflow-hidden" onclick="if(event.target === this) closeArticleLightbox();">
+  <div class="position-relative bg-dark p-3 d-flex flex-column align-items-center">
+    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3 z-3" onclick="closeArticleLightbox()"></button>
+    <img id="articleLightboxImg" src="" alt="Full view" style="max-height: 85vh; max-width: 90vw; object-fit: contain; border-radius: 12px;">
+  </div>
+</dialog>
+
 <style>
   .max-w-900 { max-width: 900px; }
   .max-w-680 { max-width: 680px; }
+  .cursor-pointer { cursor: pointer; }
+  .pointer-events-none { pointer-events: none; }
+
+  /* Эффект зума для основного фото и картинок комментариев */
+  #main-image:hover, .hover-zoom:hover {
+    transform: scale(1.02);
+  }
+
+  #articleImageLightbox::backdrop {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+  }
 
   /* Градиентная кнопка создания темы */
   .btn-cta-topic {
@@ -206,3 +239,47 @@
     color: #027dfd !important;
   }
 </style>
+
+<script>
+  document.addEventListener("turbo:load", function() {
+    initArticleGallery();
+  });
+
+  // Фолбэк для обычной DOM-загрузки
+  document.addEventListener("DOMContentLoaded", function() {
+    initArticleGallery();
+  });
+
+  function initArticleGallery() {
+    const mainImg = document.getElementById('main-image');
+    const previews = document.querySelectorAll('.preview-image');
+
+    previews.forEach(preview => {
+      preview.addEventListener('click', function() {
+        if (!mainImg) return;
+        
+        // Меняем превью главного фото и URL для полноэкранного зума
+        mainImg.src = this.dataset.large;
+        mainImg.dataset.fullUrl = this.dataset.fullUrl;
+
+        // Переключаем выделение синей рамкой активной миниатюры
+        previews.forEach(p => p.classList.remove('border-primary', 'border-2'));
+        this.classList.add('border-primary', 'border-2');
+      });
+    });
+  }
+
+  window.openArticleLightbox = function(url) {
+    const dialog = document.getElementById('articleImageLightbox');
+    const lightboxImg = document.getElementById('articleLightboxImg');
+    if (dialog && lightboxImg && url) {
+      lightboxImg.src = url;
+      dialog.showModal();
+    }
+  };
+
+  window.closeArticleLightbox = function() {
+    const dialog = document.getElementById('articleImageLightbox');
+    if (dialog) dialog.close();
+  };
+</script>

@@ -246,29 +246,29 @@ en:
       title_5: "Modular AI Content Moderation System for FindWay."
       read_5: "Technical stack and architecture..."
       text_5: |
-        Architecture with 8 models:
-        The system is organized into four independent language contours (CIS, Europe, Baltics, West). Each contour uses two separate ML models: a semantic classifier and a specialized model for detecting slang, text distortions, and obfuscation.
+         13-Model NLP Ensemble Architecture:
+         The moderation pipeline operates across four regional language contours (CIS, Europe, Baltics, West). Each contour deploys a dedicated 3-model stack: a semantic classifier, an obfuscation/slang detector, and a deep contextual model. A dedicated 13th model operates globally across all contours, specifically tuned for Human Trafficking and anti-exploitation pattern recognition.
 
-        Hybrid filtering:
-        The final decision is produced by a policy layer based on neural network scoring and deterministic rules. This approach ensures strict classification of content into Approved, Pending Review, and Blocked, without direct reliance on a single model.
+         Policy-Driven Hybrid Filtering:
+         Final classification authority belongs strictly to the policy layer. It correlates neural network scoring vectors with deterministic rules, categorizing content into Approved, Pending Review, or Blocked states to eliminate single-model failure points and minimize false positives.
 
-        Dynamic thresholds:
-        Sensitivity thresholds are configured independently for each language contour and can change at runtime depending on textual patterns, special characters, and the degree of input text distortion.
+         Dynamic & Adaptive Thresholds:
+         Sensitivity thresholds are evaluated independently per regional contour at runtime. Thresholds adapt dynamically based on textual noise, character obfuscation, contextual risk signals, and structural input anomalies.
       title_6: "Computer Vision CNN Module for FindWay."
       read_6: "Technical stack and architecture..." 
       text_6: |
-        Module (EfficientNet-B0, ArcFace, Content Moderation)
-        The module is based on the EfficientNet-B0 architecture—an efficient convolutional neural network for image analysis. It is used for automatic analysis of visual content and filtering of inappropriate materials.
+        Module (YOLOv8, DINOv2, LoFTR, EfficientNet-B0, ArcFace, Multimodal Biometrics)
+        The module is a multi-model computer vision pipeline integrating YOLOv8, DINOv2, LoFTR, EfficientNet-B0, and ArcFace for automated content moderation, human facial identification, and multi-species animal biometric verification (dogs, cats, horses).
 
         The computer vision system performs:
 
-        • detection and filtering of inappropriate visual content (violence, prohibited, or explicit materials);
-        • image classification for moderation purposes;
-        • data preparation for further analysis.
+        • real-time object detection and spatial localization (YOLOv8);
+        • 384-dimensional vector embedding extraction for animal biometrics (YOLOv8 + DINOv2);
+        • 512-dimensional vector embedding extraction for human face matching (ArcFace);
+        • detection and filtering of explicit materials and violence (EfficientNet-B0);
+        • high-throughput vector similarity search indexed via PostgreSQL pgvector.
 
-        ArcFace models based on embeddings (vector representations of images) are used for facial recognition tasks. This enables high-accuracy face matching, accounting for differences in camera angles, lighting, and image quality.
-
-        The module is integrated into the moderation system and search infrastructure, ensuring content safety and supporting intelligent image analysis.
+        Aligned regions of interest are converted into dense L2-normalized vector representations (384D for animal morphology, 512D for human facial geometry). This ensures high-precision identity matching across varying angles and lighting conditions under strict zero-retention privacy standards.
       title_7: "Enterprise document inspection and invoice risk engine."
       read_7: "Architecture Details"
       text_7: "Data Sentinel is a high-reliability forensic engine designed to detect invoice tampering and legal non-compliance. The system combines deep byte-level PDF vector slicing, Error Level Analysis (ELA) for graphic manipulation detection, and automated validation against government registries (Biała Lista MF, IBAN Modulo 97). Built around a zero-retention data policy, it evaluates document stream risks in real-time via native Policy Rules without persistent binary storage."

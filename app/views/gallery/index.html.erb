@@ -4,13 +4,23 @@
     <h1 class="fw-bold display-5" style="color: #027dfd;"><%= t('.title', default: 'Gallery') %></h1>
     <p class="text-muted mb-2"><%= t('.subtitle', default: 'Presentations, conferences and key moments of projects') %></p>
 
-    <!-- Выровненный блок названия конференции и кнопки YouTube -->
+    <!-- Выровненный блок названия конференции, ссылки на сайт и кнопки YouTube -->
     <div class="d-inline-flex flex-wrap align-items-center justify-content-center gap-2 mt-2">
       <span class="badge bg-light text-primary border px-3 py-2 rounded-pill fw-semibold fs-6 text-wrap">
         <%= t('.conference_name', default: 'XIV Traditional Scientific Conference NEW ECONOMY 2026') %>
       </span>
+
+      <!-- Ссылка на официальный сайт конференции -->
+      <a href="https://conference.oikosinstitut.org/" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="btn btn-sm btn-outline-primary rounded-pill px-3 py-2 fw-semibold d-inline-flex align-items-center gap-1 shadow-sm">
+        <i class="bi bi-globe fs-6"></i>
+        <span><%= t('.official_website', default: 'Conference Website') %></span>
+      </a>
       
-      <a href="https://www.youtube.com/watch?v=n8SxVkSLwiU" 
+      <!-- Ссылка на YouTube с привязкой ко времени старта (5h 22m 17s) -->
+      <a href="https://www.youtube.com/watch?v=n8SxVkSLwiU&t=19337s" 
          target="_blank" 
          rel="noopener noreferrer" 
          class="btn btn-sm btn-outline-danger rounded-pill px-3 py-2 fw-semibold d-inline-flex align-items-center gap-1 shadow-sm">
@@ -27,7 +37,7 @@
       <%= image_tag "gallery/conference_main.jpg", alt: "ICAS Conference Presentation", loading: "lazy", class: "w-100 h-100 object-fit-cover" %>
       <div class="bento-overlay">
         <span class="badge bg-primary mb-1 align-self-start">Keynote</span>
-        <h6 class="m-0 text-white fw-bold">ICAS Conference Presentation</h6>
+        <h6 class="m-0 text-white fw-bold">XIV Traditional Scientific Conference NEW ECONOMY 2026</h6>
       </div>
     </div>
 
@@ -63,16 +73,21 @@
       </div>
     </div>
 
-    <!-- Video Record Item (2x2) -->
+    <!-- Video Record Item (2x2) с автостартом на 05:22:17 (19337 sec) -->
     <div class="bento-item bento-2x2 shadow-lg" 
-         data-video-url="https://www.youtube.com/embed/n8SxVkSLwiU" 
+         data-video-url="https://www.youtube.com/embed/n8SxVkSLwiU?start=19337" 
          onclick="openVideoModal(this.dataset.videoUrl)">
       <%= image_tag "gallery/speaker_stage_2.jpg", alt: "Watch Presentation", loading: "lazy", class: "w-100 h-100 object-fit-cover" %>
       <div class="bento-overlay d-flex flex-column justify-content-between">
-        <span class="badge bg-danger align-self-start"><i class="bi bi-play-fill"></i> Video Record</span>
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <span class="badge bg-danger"><i class="bi bi-play-fill"></i> Video Record</span>
+          <span class="badge bg-dark bg-opacity-75 text-white border border-secondary border-opacity-50 font-monospace">
+            <i class="bi bi-clock me-1"></i>05:22:17 – 05:31:12
+          </span>
+        </div>
         <div>
-          <h6 class="m-0 text-white fw-bold">Watch ICAS Keynote Presentation</h6>
-          <span class="text-white-50 small">YouTube • Live Record</span>
+          <h6 class="m-0 text-white fw-bold">Watch Keynote Presentation</h6>
+          <span class="text-white-50 small">YouTube • Keynote Timeframe: 05:22:17 – 05:31:12</span>
         </div>
       </div>
     </div>
@@ -92,7 +107,18 @@
 <dialog id="videoLightbox" class="p-0 border-0 rounded-4 shadow-lg overflow-hidden" onclick="if(event.target === this) closeVideoModal();">
   <div class="position-relative bg-dark p-3 d-flex flex-column align-items-center" style="width: 85vw; max-width: 860px;">
     <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3 z-3" onclick="closeVideoModal()"></button>
-    <div class="ratio ratio-16x9 w-100 rounded-3 overflow-hidden mt-4">
+    
+    <!-- Информационная плашка таймкода над видео -->
+    <div class="w-100 d-flex justify-content-between align-items-center mt-4 mb-2 px-1">
+      <span class="badge bg-primary bg-opacity-25 text-primary border border-primary border-opacity-25 font-monospace fs-6 px-3 py-2">
+        <i class="bi bi-clock-history me-1"></i> Presentation Timeframe: 05:22:17 – 05:31:12
+      </span>
+      <a href="https://www.youtube.com/watch?v=n8SxVkSLwiU&t=19337s" target="_blank" rel="noopener noreferrer" class="text-white-50 small text-decoration-none">
+        Open in YouTube <i class="bi bi-box-arrow-up-right ms-1"></i>
+      </a>
+    </div>
+
+    <div class="ratio ratio-16x9 w-100 rounded-3 overflow-hidden">
       <iframe id="youtubeIframe" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
@@ -179,7 +205,7 @@
     const dialog = document.getElementById('videoLightbox');
     const iframe = document.getElementById('youtubeIframe');
     if (dialog && iframe && videoUrl) {
-      iframe.src = videoUrl + "?autoplay=1";
+      iframe.src = videoUrl + "&autoplay=1";
       dialog.showModal();
     }
   };
